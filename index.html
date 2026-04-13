@@ -99,9 +99,16 @@
     .nav-list a,
     .social-list a {
       font-weight: 500;
-      font-size: 28px;
       line-height: 1;
       transition: opacity 0.2s ease;
+    }
+
+    .nav-list a {
+      font-size: 16px;
+    }
+
+    .social-list a {
+      font-size: 28px;
     }
 
     .nav-list a:hover,
@@ -148,12 +155,13 @@
     }
 
     .hero-photo {
-      width: 100%;
-      aspect-ratio: 4 / 5;
+      width: 72px;
+      height: 72px;
       object-fit: cover;
-      border-radius: 50%;
-      border: 4px solid rgba(255, 255, 255, 0.7);
+      border-radius: 50% / 45%;
+      border: 3px solid rgba(255, 255, 255, 0.7);
       box-shadow: 0 8px 24px rgba(0, 0, 0, 0.18);
+      justify-self: start;
     }
 
     .hero-copy {
@@ -255,7 +263,8 @@
       }
 
       .hero-photo {
-        width: min(240px, 55vw);
+        width: 72px;
+        height: 72px;
         margin: 0 auto;
       }
     }
@@ -287,7 +296,7 @@
   <main id="main-content">
     <section class="hero" id="projects" aria-label="Intro section">
       <div class="hero-panel">
-        <img class="hero-photo" src="sophie-profile.jpg" alt="Portrait of Sophie Purewal">
+        <img class="hero-photo" src="sophie-profile.jpeg" alt="Portrait of Sophie Purewal">
         <div class="hero-copy">
           <h2>I am Sophie Purewal and I am a UI Designer</h2>
           <p>Scroll down to see a sample of my work.</p>
