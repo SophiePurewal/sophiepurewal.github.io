@@ -5,25 +5,30 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Sophie Purewal</title>
 
-  <!-- Load Inter correctly -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link
-    href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap"
-    rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 
   <style>
-    * {
-      box-sizing: border-box;
+    * { box-sizing: border-box; }
+
+    :root {
+      --brand: #F96562;
+      --brand-dark: #f15654;
+      --text-light: #ffffff;
+      --text-dark: #111111;
+      --panel: #fff7f6;
+      --line: #f0d4d2;
     }
+
+    html { scroll-behavior: smooth; }
 
     body {
       margin: 0;
-      font-family: 'Inter', system-ui, -apple-system, BlinkMacSystemFont,
-                   'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+      font-family: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
       line-height: 1.6;
-      color: #111;
-      background-color: #fff;
+      color: var(--text-dark);
+      background: #ffffff;
     }
 
     .skip-link {
@@ -37,129 +42,236 @@
       z-index: 1000;
     }
 
-    .skip-link:focus {
-      top: 16px;
-    }
+    .skip-link:focus { top: 16px; }
 
     .site-header {
       position: sticky;
       top: 0;
-      background: #fff;
-      border-bottom: 1px solid #e5e5e5;
       z-index: 100;
+      background: var(--brand-dark);
+      border-bottom: 1px solid rgba(255, 255, 255, 0.2);
     }
 
-    nav {
-      display: flex;
-      justify-content: space-between;
+
+    .site-header.scrolled {
+      background: #ffffff;
+      border-bottom: 1px solid #ececec;
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+    }
+
+    .site-header.scrolled .nav-list a,
+    .site-header.scrolled .social-list a,
+    .site-header.scrolled .site-title {
+      color: var(--brand-dark);
+    }
+
+    .top-nav {
+      display: grid;
+      grid-template-columns: 1fr auto 1fr;
       align-items: center;
-      padding: 24px 40px;
+      min-height: 86px;
+      padding: 0 40px;
+      color: var(--text-light);
+    }
+
+    .nav-list,
+    .social-list {
+      list-style: none;
+      display: flex;
+      gap: 28px;
+      margin: 0;
+      padding: 0;
+      align-items: center;
+    }
+
+    .social-list {
+      justify-self: end;
+      gap: 20px;
+    }
+
+    .nav-list a,
+    .social-list a,
+    .site-title {
+      color: var(--text-light);
+      text-decoration: none;
+    }
+
+    .nav-list a,
+    .social-list a {
+      font-weight: 500;
+      font-size: 28px;
+      line-height: 1;
+      transition: opacity 0.2s ease;
+    }
+
+    .nav-list a:hover,
+    .social-list a:hover,
+    .nav-list a:focus-visible,
+    .social-list a:focus-visible {
+      opacity: 0.8;
     }
 
     .site-title {
       margin: 0;
-      font-size: 14px;
-      font-weight: 600;
-      letter-spacing: 0.15em;
-    }
-
-    .nav-list {
-      list-style: none;
-      display: flex;
-      gap: 24px;
-      margin: 0;
-      padding: 0;
-    }
-
-    .nav-list a {
-      text-decoration: none;
-      color: #111;
-      font-size: 14px;
-      font-weight: 500;
-    }
-
-    main {
-      padding: 80px 40px;
-      max-width: 960px;
-    }
-
-    section {
-      margin-bottom: 120px;
-      scroll-margin-top: 100px;
-    }
-
-    h2 {
+      justify-self: center;
       font-size: 28px;
       font-weight: 700;
-      letter-spacing: -0.015em;
-      margin-top: 0;
+      letter-spacing: 0.02rem;
+      line-height: 1;
     }
 
+    .hero {
+      background: var(--brand);
+      color: var(--text-light);
+      min-height: calc(100vh - 86px);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 40px 24px 90px;
+      position: relative;
+    }
+
+    .hero h2 {
+      margin: 0;
+      font-size: clamp(40px, 5vw, 84px);
+      line-height: 1.08;
+      font-weight: 800;
+      max-width: 14ch;
+    }
+
+    .hero p {
+      margin: 24px 0 0;
+      font-size: clamp(18px, 1.6vw, 46px);
+      font-weight: 400;
+    }
+
+    .scroll-indicator {
+      position: absolute;
+      bottom: 36px;
+      left: 50%;
+      width: 36px;
+      height: 36px;
+      transform: translateX(-50%);
+      display: block;
+    }
+
+    .scroll-indicator::before {
+      content: "";
+      display: block;
+      width: 24px;
+      height: 24px;
+      border-right: 2px solid #fff;
+      border-bottom: 2px solid #fff;
+      transform: rotate(45deg);
+      margin: 0 auto;
+      opacity: 0.9;
+    }
+
+    .content {
+      max-width: 980px;
+      margin: 0 auto;
+      padding: 72px 24px;
+    }
+
+    .content section {
+      background: var(--panel);
+      border: 1px solid var(--line);
+      border-radius: 14px;
+      padding: 28px;
+      margin-bottom: 20px;
+    }
+
+    .content h3 {
+      margin-top: 0;
+      margin-bottom: 8px;
+      font-size: 28px;
+    }
+
+    .content p { margin: 0; }
+
     footer {
-      border-top: 1px solid #e5e5e5;
-      padding: 24px 40px;
-      font-size: 12px;
+      padding: 24px;
+      text-align: center;
       color: #666;
+      border-top: 1px solid #efefef;
+    }
+
+    @media (max-width: 900px) {
+      .top-nav {
+        grid-template-columns: 1fr;
+        gap: 14px;
+        padding: 16px 20px;
+        min-height: auto;
+      }
+
+      .nav-list,
+      .social-list,
+      .site-title {
+        justify-self: center;
+      }
+
+      .hero { min-height: calc(100vh - 168px); }
     }
   </style>
 </head>
 
 <body>
-
   <a href="#main-content" class="skip-link">Skip to content</a>
 
   <header class="site-header">
-    <nav aria-label="Main navigation">
-      <h1 class="site-title">SOPHIE PUREWAL</h1>
-
+    <nav class="top-nav" aria-label="Main navigation">
       <ul class="nav-list">
-        <li><a href="#work">Work</a></li>
-        <li><a href="#about">About</a></li>
+        <li><a href="#projects"><strong>Projects</strong></a></li>
         <li><a href="#cv">CV</a></li>
         <li><a href="#contact">Contact</a></li>
+      </ul>
+
+      <h1 class="site-title">Sophie Purewal</h1>
+
+      <ul class="social-list" aria-label="Social links">
+        <li><a href="#projects" aria-label="Behance">Bē</a></li>
+        <li><a href="https://www.linkedin.com/in/sophiepurewal/" aria-label="LinkedIn">in</a></li>
+        <li><a href="#contact" aria-label="Instagram">◎</a></li>
+        <li><a href="mailto:sophiepurewaldesign@gmail.com" aria-label="Email">✉</a></li>
       </ul>
     </nav>
   </header>
 
   <main id="main-content">
-    <section id="work">
-      <h2>Work</h2>
-      <p>
-        I really love to create accessible digital products and collaborate with
-        development and UX teams to ship thoughtful digital experiences.
-      </p>
+    <section class="hero" id="projects" aria-label="Intro section">
+      <div>
+        <h2>I am Sophie Purewal and I am a UI Designer</h2>
+        <p>Scroll down to see a sample of my work.</p>
+      </div>
+      <a class="scroll-indicator" href="#cv" aria-label="Scroll to next section"></a>
     </section>
 
-    <section id="about">
-      <h2>About</h2>
-      <p>
-        I am a Senior UI Designer working for Aegon and based in East Sussex,
-        focusing on clarity, usability, and inclusive design.
-      </p>
-    </section>
+    <div class="content">
+      <section id="cv">
+        <h3>CV</h3>
+        <p><a href="Sophie-Purewal-CV.pdf" target="_blank" rel="noopener">Download my CV (PDF)</a></p>
+      </section>
 
-    <section id="cv">
-      <h2>CV</h2>
-      <p>
-        <a href="Sophie-Purewal-CV.pdf" target="_blank" rel="noopener">
-          Download my CV (PDF)
-        </a>
-      </p>
-    </section>
-
-    <section id="contact">
-      <h2>Contact</h2>
-      <p>
-        <a href="mailto:sophiepurewaldesign@gmail.com">Send me an email</a>
-        or
-        <a href="https://www.linkedin.com/in/sophiepurewal/">Connect on LinkedIn</a>
-      </p>
-    </section>
+      <section id="contact">
+        <h3>Contact</h3>
+        <p><a href="mailto:sophiepurewaldesign@gmail.com">Send me an email</a> or <a href="https://www.linkedin.com/in/sophiepurewal/">connect on LinkedIn</a>.</p>
+      </section>
+    </div>
   </main>
 
-  <footer>
-    © 2026 Sophie Purewal
-  </footer>
+  <footer>© 2026 Sophie Purewal</footer>
+
+  <script>
+    const siteHeader = document.querySelector('.site-header');
+    const toggleHeaderState = () => {
+      if (!siteHeader) return;
+      siteHeader.classList.toggle('scrolled', window.scrollY > 24);
+    };
+
+    window.addEventListener('scroll', toggleHeaderState, { passive: true });
+    toggleHeaderState();
+  </script>
 
 </body>
 </html>
