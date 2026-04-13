@@ -72,6 +72,24 @@
       min-height: 86px;
       padding: 0 40px;
       color: var(--text-light);
+      position: relative;
+    }
+
+    .menu-toggle {
+      display: none;
+      appearance: none;
+      border: 1px solid rgba(255, 255, 255, 0.35);
+      background: transparent;
+      color: var(--text-light);
+      font-size: 20px;
+      line-height: 1;
+      border-radius: 8px;
+      padding: 8px 10px;
+      cursor: pointer;
+    }
+
+    .mobile-menu {
+      display: none;
     }
 
     .nav-list,
@@ -237,16 +255,55 @@
 
     @media (max-width: 900px) {
       .top-nav {
-        grid-template-columns: 1fr;
-        gap: 14px;
+        grid-template-columns: auto 1fr;
+        gap: 12px;
         padding: 16px 20px;
         min-height: auto;
       }
 
-      .nav-list,
-      .social-list,
+      .menu-toggle {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        justify-self: start;
+      }
+
       .site-title {
-        justify-self: center;
+        justify-self: start;
+      }
+
+      .nav-list,
+      .social-list {
+        display: none;
+      }
+
+      .mobile-menu {
+        position: absolute;
+        left: 20px;
+        right: 20px;
+        top: calc(100% + 10px);
+        background: var(--brand-dark);
+        border: 1px solid rgba(255, 255, 255, 0.25);
+        border-radius: 12px;
+        padding: 12px;
+        display: none;
+        flex-direction: column;
+        gap: 10px;
+      }
+
+      .site-header.scrolled .mobile-menu {
+        background: #ffffff;
+        border-color: #ececec;
+      }
+
+      .mobile-menu.open {
+        display: flex;
+      }
+
+      .mobile-menu a {
+        color: inherit;
+        text-decoration: none;
+        font-size: 16px;
       }
 
       .hero { min-height: calc(100vh - 168px); }
@@ -276,6 +333,8 @@
 
   <header class="site-header">
     <nav class="top-nav" aria-label="Main navigation">
+      <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="mobile-menu" aria-label="Toggle navigation menu">☰</button>
+
       <ul class="nav-list">
         <li><a href="#projects"><strong>Projects</strong></a></li>
         <li><a href="#cv">CV</a></li>
@@ -290,6 +349,14 @@
         <li><a href="#contact" aria-label="Instagram">◎</a></li>
         <li><a href="mailto:sophiepurewaldesign@gmail.com" aria-label="Email">✉</a></li>
       </ul>
+
+      <div id="mobile-menu" class="mobile-menu" aria-label="Mobile navigation links">
+        <a href="#projects">Projects</a>
+        <a href="#cv">CV</a>
+        <a href="#contact">Contact</a>
+        <a href="https://www.linkedin.com/in/sophiepurewal/">LinkedIn</a>
+        <a href="mailto:sophiepurewaldesign@gmail.com">Email</a>
+      </div>
     </nav>
   </header>
 
@@ -322,10 +389,36 @@
 
   <script>
     const siteHeader = document.querySelector('.site-header');
+    const menuToggle = document.querySelector('.menu-toggle');
+    const mobileMenu = document.querySelector('#mobile-menu');
+
     const toggleHeaderState = () => {
       if (!siteHeader) return;
       siteHeader.classList.toggle('scrolled', window.scrollY > 24);
     };
+
+    const closeMobileMenu = () => {
+      if (!mobileMenu || !menuToggle) return;
+      mobileMenu.classList.remove('open');
+      menuToggle.setAttribute('aria-expanded', 'false');
+    };
+
+    if (menuToggle && mobileMenu) {
+      menuToggle.addEventListener('click', () => {
+        const isOpen = mobileMenu.classList.toggle('open');
+        menuToggle.setAttribute('aria-expanded', String(isOpen));
+      });
+
+      mobileMenu.querySelectorAll('a').forEach((link) => {
+        link.addEventListener('click', closeMobileMenu);
+      });
+
+      window.addEventListener('resize', () => {
+        if (window.innerWidth > 900) {
+          closeMobileMenu();
+        }
+      });
+    }
 
     window.addEventListener('scroll', toggleHeaderState, { passive: true });
     toggleHeaderState();
