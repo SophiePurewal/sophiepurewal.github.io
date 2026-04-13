@@ -5,12 +5,12 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Sophie Purewal</title>
 
-<!-- Inter font -->
+  <!-- Inter font -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link
-    href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap"
-    rel="stylesheet">
+    rel="stylesheet"
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap">
 
   <style>
     /* Reset / base */
@@ -20,7 +20,8 @@
 
     body {
       margin: 0;
-      font-family: Arial, Helvetica, sans-serif;
+      font-family: 'Inter', system-ui, -apple-system, BlinkMacSystemFont,
+                   'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
       line-height: 1.6;
       color: #111;
       background-color: #fff;
@@ -61,6 +62,7 @@
     .site-title {
       margin: 0;
       font-size: 14px;
+      font-weight: 600;
       letter-spacing: 0.15em;
     }
 
@@ -76,6 +78,7 @@
       text-decoration: none;
       color: #111;
       font-size: 14px;
+      font-weight: 500;
     }
 
     .nav-list a:hover,
@@ -91,16 +94,19 @@
 
     section {
       margin-bottom: 120px;
-      scroll-margin-top: 100px; /* Prevent sticky header overlap */
+      scroll-margin-top: 100px;
     }
 
     h2 {
       margin-top: 0;
-      font-size: 24px;
+      font-size: 28px;
+      font-weight: 700;
+      letter-spacing: -0.015em;
     }
 
     p {
       max-width: 640px;
+      font-weight: 400;
     }
 
     /* Footer */
@@ -118,68 +124,3 @@
 
     /* Optional: reduce motion preference */
     @media (prefers-reduced-motion: reduce) {
-      html {
-        scroll-behavior: auto;
-      }
-    }
-  </style>
-</head>
-
-<body>
-
-  <a href="#main-content" class="skip-link">Skip to content</a>
-
-  <header class="site-header">
-    <nav aria-label="Main navigation">
-      <h1 class="site-title">SOPHIE PUREWAL</h1>
-
-      <ul class="nav-list">
-        <li><a href="#work">Work</a></li>
-        <li><a href="#about">About</a></li>
-        <li><a href="#cv">CV</a></li>
-        <li><a href="#contact">Contact</a></li>
-      </ul>
-    </nav>
-  </header>
-
-  <main id="main-content">
-    <section id="work">
-      <h2>Work</h2>
-      <p>
-        I really love to create accessible digital products, and collaborate with Dev and UX teams to help ship digital experiences to users.
-      </p>
-    </section>
-
-    <section id="about">
-      <h2>About</h2>
-      <p>
-        I am a Senior UI Designer working for Aegon and based in East Sussex. I collaborate with UX, Dev and Product teams across a broad range of financial digital
-        products with a focus on clarity, usability, and inclusive design. I am a certified designer from Shillington College.
-      </p>
-    </section>
-
-    <section id="cv">
-      <h2>CV</h2>
-      <p>
-        <a href="Sophie-Purewal-CV.pdf" target="_blank" rel="noopener">
-          Download my CV (PDF)
-        </a>
-      </p>
-    </section>
-
-    <section id="contact">
-      <h2>Contact</h2>
-      <p>
-        <a href="mailto:sophiepurewaldesign@gmail.com">Send me an email</a>
-        or
-        <a href="https://www.linkedin.com/in/sophiepurewal/">Connect with me on LinkedIn</a>
-      </p>
-    </section>
-  </main>
-
-  <footer>
-    © 2026 Sophie Purewal
-  </footer>
-
-</body>
-</html>
