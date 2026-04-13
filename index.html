@@ -52,6 +52,19 @@
       border-bottom: 1px solid rgba(255, 255, 255, 0.2);
     }
 
+
+    .site-header.scrolled {
+      background: #ffffff;
+      border-bottom: 1px solid #ececec;
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+    }
+
+    .site-header.scrolled .nav-list a,
+    .site-header.scrolled .social-list a,
+    .site-header.scrolled .site-title {
+      color: var(--brand-dark);
+    }
+
     .top-nav {
       display: grid;
       grid-template-columns: 1fr auto 1fr;
@@ -248,5 +261,17 @@
   </main>
 
   <footer>© 2026 Sophie Purewal</footer>
+
+  <script>
+    const siteHeader = document.querySelector('.site-header');
+    const toggleHeaderState = () => {
+      if (!siteHeader) return;
+      siteHeader.classList.toggle('scrolled', window.scrollY > 24);
+    };
+
+    window.addEventListener('scroll', toggleHeaderState, { passive: true });
+    toggleHeaderState();
+  </script>
+
 </body>
 </html>
