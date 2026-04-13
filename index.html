@@ -17,7 +17,11 @@
       --brand-dark: #f15654;
       --text-light: #ffffff;
       --text-dark: #111111;
+      --panel: #fff7f6;
+      --line: #f0d4d2;
     }
+
+    html { scroll-behavior: smooth; }
 
     body {
       margin: 0;
@@ -45,7 +49,7 @@
       top: 0;
       z-index: 100;
       background: var(--brand-dark);
-      border-bottom: 1px solid rgba(255, 255, 255, 0.18);
+      border-bottom: 1px solid rgba(255, 255, 255, 0.2);
     }
 
     .top-nav {
@@ -82,7 +86,7 @@
     .nav-list a,
     .social-list a {
       font-weight: 500;
-      font-size: 31px;
+      font-size: 28px;
       line-height: 1;
       transition: opacity 0.2s ease;
     }
@@ -97,7 +101,7 @@
     .site-title {
       margin: 0;
       justify-self: center;
-      font-size: 56px;
+      font-size: 28px;
       font-weight: 700;
       letter-spacing: 0.02rem;
       line-height: 1;
@@ -151,6 +155,35 @@
       opacity: 0.9;
     }
 
+    .content {
+      max-width: 980px;
+      margin: 0 auto;
+      padding: 72px 24px;
+    }
+
+    .content section {
+      background: var(--panel);
+      border: 1px solid var(--line);
+      border-radius: 14px;
+      padding: 28px;
+      margin-bottom: 20px;
+    }
+
+    .content h3 {
+      margin-top: 0;
+      margin-bottom: 8px;
+      font-size: 28px;
+    }
+
+    .content p { margin: 0; }
+
+    footer {
+      padding: 24px;
+      text-align: center;
+      color: #666;
+      border-top: 1px solid #efefef;
+    }
+
     @media (max-width: 900px) {
       .top-nav {
         grid-template-columns: 1fr;
@@ -165,9 +198,7 @@
         justify-self: center;
       }
 
-      .hero {
-        min-height: calc(100vh - 168px);
-      }
+      .hero { min-height: calc(100vh - 168px); }
     }
   </style>
 </head>
@@ -186,9 +217,9 @@
       <h1 class="site-title">Sophie Purewal</h1>
 
       <ul class="social-list" aria-label="Social links">
-        <li><a href="#" aria-label="Behance">Bē</a></li>
+        <li><a href="#projects" aria-label="Behance">Bē</a></li>
         <li><a href="https://www.linkedin.com/in/sophiepurewal/" aria-label="LinkedIn">in</a></li>
-        <li><a href="#" aria-label="Instagram">◎</a></li>
+        <li><a href="#contact" aria-label="Instagram">◎</a></li>
         <li><a href="mailto:sophiepurewaldesign@gmail.com" aria-label="Email">✉</a></li>
       </ul>
     </nav>
@@ -202,6 +233,20 @@
       </div>
       <a class="scroll-indicator" href="#cv" aria-label="Scroll to next section"></a>
     </section>
+
+    <div class="content">
+      <section id="cv">
+        <h3>CV</h3>
+        <p><a href="Sophie-Purewal-CV.pdf" target="_blank" rel="noopener">Download my CV (PDF)</a></p>
+      </section>
+
+      <section id="contact">
+        <h3>Contact</h3>
+        <p><a href="mailto:sophiepurewaldesign@gmail.com">Send me an email</a> or <a href="https://www.linkedin.com/in/sophiepurewal/">connect on LinkedIn</a>.</p>
+      </section>
+    </div>
   </main>
+
+  <footer>© 2026 Sophie Purewal</footer>
 </body>
 </html>
