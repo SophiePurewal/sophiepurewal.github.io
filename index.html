@@ -254,6 +254,20 @@
 
     .content p { margin: 0; }
 
+    .cv-preview {
+      margin-top: 16px;
+    }
+
+    .cv-preview img {
+      width: 100%;
+      max-width: 720px;
+      height: auto;
+      display: block;
+      border-radius: 10px;
+      border: 1px solid var(--line);
+      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
+    }
+
     footer {
       padding: 24px;
       text-align: center;
@@ -408,6 +422,9 @@ SMART = [
       <section id="cv">
         <h3>CV</h3>
         <p><a href="Sophie-Purewal-CV.pdf" target="_blank" rel="noopener">Download my CV (PDF)</a></p>
+        <div class="cv-preview">
+          <img src="cv.jpg" alt="Preview of Sophie Purewal's CV">
+        </div>
       </section>
 
       <section id="contact">
