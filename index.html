@@ -384,50 +384,52 @@
 
     .pull-quote-list {
       display: grid;
-      gap: 18px;
-      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 20px;
+      grid-template-columns: 1fr;
     }
 
     .pull-quote {
       margin: 0;
-      padding: 20px 20px 18px;
-      background: var(--panel);
-      border-left: 4px solid var(--brand);
-      border-radius: 12px;
-      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+      padding: 30px 34px;
+      background: #f3f3f3;
+      border-radius: 4px;
+      box-shadow: none;
     }
 
     .pull-quote p {
       margin: 0;
-      font-size: 17px;
-      line-height: 1.5;
-      color: #202020;
+      font-size: clamp(22px, 2.2vw, 40px);
+      line-height: 1.25;
+      color: #303030;
       quotes: "“" "”";
+      letter-spacing: -0.01em;
     }
 
     .pull-quote p::before {
       content: open-quote;
-      color: var(--brand-dark);
-      font-weight: 700;
+      color: currentColor;
+      font-weight: 500;
     }
 
     .pull-quote p::after {
       content: close-quote;
-      color: var(--brand-dark);
-      font-weight: 700;
+      color: currentColor;
+      font-weight: 500;
     }
 
     .pull-quote figcaption {
-      margin-top: 12px;
-      font-size: 14px;
-      line-height: 1.45;
-      color: #444;
+      margin-top: 20px;
+      font-size: clamp(20px, 1.8vw, 36px);
+      line-height: 1.25;
+      font-weight: 800;
+      text-align: right;
+      color: #171923;
     }
 
     .pull-quote cite {
       font-style: normal;
-      font-weight: 600;
-      color: #1f1f1f;
+      font-weight: inherit;
+      color: inherit;
     }
 
     footer {
@@ -535,8 +537,16 @@
         margin: 0 auto;
       }
 
-      .pull-quote-list {
-        grid-template-columns: 1fr;
+      .pull-quote {
+        padding: 24px 20px;
+      }
+
+      .pull-quote p {
+        font-size: clamp(19px, 7vw, 28px);
+      }
+
+      .pull-quote figcaption {
+        font-size: clamp(18px, 5vw, 24px);
       }
     }
   </style>
@@ -641,7 +651,7 @@ SMART = [
         </div>
 
         <div class="endorsement-category">
-          <h3>⭐ Project &amp; Programme Management Excellence</h3>
+          <h3>Project &amp; Programme Management Excellence</h3>
           <div class="pull-quote-list">
             <figure class="pull-quote">
               <p>A solid project manager… able to quickly understand the big picture, ask the right questions, and drive for results.</p>
@@ -663,7 +673,7 @@ SMART = [
         </div>
 
         <div class="endorsement-category">
-          <h3>⭐ Cross-Team Collaboration &amp; Leadership</h3>
+          <h3>Cross-Team Collaboration &amp; Leadership</h3>
           <div class="pull-quote-list">
             <figure class="pull-quote">
               <p>She provides immense support to the team even with the time difference, distance and language barriers… interacting with my team of Designers and Developers in the Philippines along with others from our offices in Los Angeles, Canada, Mexico and Serbia.</p>
@@ -685,7 +695,7 @@ SMART = [
         </div>
 
         <div class="endorsement-category">
-          <h3>⭐ Client Satisfaction &amp; Delivery</h3>
+          <h3>Client Satisfaction &amp; Delivery</h3>
           <div class="pull-quote-list">
             <figure class="pull-quote">
               <p>Efficient, professional, totally understood our brief, excellent product. Highly recommended.</p>
@@ -707,7 +717,7 @@ SMART = [
         </div>
 
         <div class="endorsement-category">
-          <h3>⭐ Creativity &amp; Innovation</h3>
+          <h3>Creativity &amp; Innovation</h3>
           <div class="pull-quote-list">
             <figure class="pull-quote">
               <p>Creating and presenting a portfolio of decks along with mocks… Sophie is creative, resourceful and a true professional.</p>
