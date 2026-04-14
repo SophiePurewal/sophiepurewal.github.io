@@ -376,10 +376,37 @@
       margin-bottom: 34px;
     }
 
-    .endorsement-category h3 {
+    .endorsement-toggle {
+      width: 100%;
       margin-bottom: 18px;
+      padding: 0;
+      border: none;
+      background: transparent;
       font-size: 22px;
       color: #222;
+      font-weight: 700;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 14px;
+      text-align: left;
+      cursor: pointer;
+    }
+
+    .endorsement-toggle svg {
+      width: 24px;
+      height: 24px;
+      fill: #1f1f1f;
+      flex-shrink: 0;
+      transition: transform 0.2s ease;
+    }
+
+    .endorsement-toggle[aria-expanded="true"] svg {
+      transform: rotate(180deg);
+    }
+
+    .endorsement-panel[hidden] {
+      display: none;
     }
 
     .pull-quote-list {
@@ -630,7 +657,7 @@ SMART = [
 
         <div class="endorsement-category">
           <h3>UX/UI &amp; Product Design Praise</h3>
-          <div class="pull-quote-list">
+          <div class="pull-quote-list endorsement-panel">
             <figure class="pull-quote">
               <p>Sophie designed the UI for a large web based application we were developing in-house. She is wonderful to work with, has attention to detail, is very professional and highly efficient.</p>
               <figcaption><cite>Mark Trinick</cite> — CEO, eSuite | eTrackrILP | eSpirALS | eSignUp | eApprentice | eTimetable | eHub</figcaption>
@@ -652,7 +679,7 @@ SMART = [
 
         <div class="endorsement-category">
           <h3>Project &amp; Programme Management Excellence</h3>
-          <div class="pull-quote-list">
+          <div class="pull-quote-list endorsement-panel">
             <figure class="pull-quote">
               <p>A solid project manager… able to quickly understand the big picture, ask the right questions, and drive for results.</p>
               <figcaption><cite>Borivoj Ivanovic</cite> — Marketing Leadership to Product &amp; Growth Strategy</figcaption>
@@ -674,7 +701,7 @@ SMART = [
 
         <div class="endorsement-category">
           <h3>Cross-Team Collaboration &amp; Leadership</h3>
-          <div class="pull-quote-list">
+          <div class="pull-quote-list endorsement-panel">
             <figure class="pull-quote">
               <p>She provides immense support to the team even with the time difference, distance and language barriers… interacting with my team of Designers and Developers in the Philippines along with others from our offices in Los Angeles, Canada, Mexico and Serbia.</p>
               <figcaption><cite>Leny Evangelista</cite> — Art Director + UX/UI Designer, GorillaNation</figcaption>
@@ -696,7 +723,7 @@ SMART = [
 
         <div class="endorsement-category">
           <h3>Client Satisfaction &amp; Delivery</h3>
-          <div class="pull-quote-list">
+          <div class="pull-quote-list endorsement-panel">
             <figure class="pull-quote">
               <p>Efficient, professional, totally understood our brief, excellent product. Highly recommended.</p>
               <figcaption><cite>Emma McConachie</cite> — Director at Areté Ventures</figcaption>
@@ -718,7 +745,7 @@ SMART = [
 
         <div class="endorsement-category">
           <h3>Creativity &amp; Innovation</h3>
-          <div class="pull-quote-list">
+          <div class="pull-quote-list endorsement-panel">
             <figure class="pull-quote">
               <p>Creating and presenting a portfolio of decks along with mocks… Sophie is creative, resourceful and a true professional.</p>
               <figcaption><cite>Philippe Hermet</cite> — Digital Growth Enabler, ex-Yahoo!, ex-Teads</figcaption>
@@ -777,8 +804,45 @@ SMART = [
       });
     }
 
+    const initEndorsementAccordions = () => {
+      const categories = document.querySelectorAll('.endorsement-category');
+      categories.forEach((category, index) => {
+        const heading = category.querySelector('h3');
+        const panel = category.querySelector('.endorsement-panel');
+        if (!heading || !panel) return;
+
+        const panelId = `endorsement-panel-${index + 1}`;
+        panel.id = panelId;
+
+        const toggle = document.createElement('button');
+        toggle.type = 'button';
+        toggle.className = 'endorsement-toggle';
+        toggle.setAttribute('aria-controls', panelId);
+
+        const isInitiallyOpen = index === 0;
+        toggle.setAttribute('aria-expanded', String(isInitiallyOpen));
+        if (!isInitiallyOpen) {
+          panel.hidden = true;
+        }
+
+        toggle.innerHTML = `
+          <span>${heading.textContent.trim()}</span>
+          <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" aria-hidden="true" focusable="false"><path d="M480-344 240-584l56-56 184 184 184-184 56 56-240 240Z"/></svg>
+        `;
+
+        heading.replaceWith(toggle);
+
+        toggle.addEventListener('click', () => {
+          const isExpanded = toggle.getAttribute('aria-expanded') === 'true';
+          toggle.setAttribute('aria-expanded', String(!isExpanded));
+          panel.hidden = isExpanded;
+        });
+      });
+    };
+
     window.addEventListener('scroll', toggleHeaderState, { passive: true });
     toggleHeaderState();
+    initEndorsementAccordions();
   </script>
 
 </body>
