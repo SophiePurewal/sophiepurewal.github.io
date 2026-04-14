@@ -360,12 +360,13 @@
 
       .mobile-menu {
         position: absolute;
-        left: 20px;
-        right: 20px;
+        left: 0;
+        right: auto;
         top: calc(100% + 10px);
+        width: min(390px, 100vw);
         background: var(--brand-dark);
         border: 1px solid rgba(255, 255, 255, 0.25);
-        border-radius: 12px;
+        border-radius: 0;
         padding: 12px;
         display: none;
         flex-direction: column;
@@ -375,6 +376,10 @@
       .site-header.scrolled .mobile-menu {
         background: #ffffff;
         border-color: #ececec;
+      }
+
+      .site-header.scrolled .mobile-menu.open a {
+        color: var(--brand);
       }
 
       .mobile-menu.open {
