@@ -61,8 +61,9 @@
 
     .site-header.scrolled .nav-list a,
     .site-header.scrolled .social-list a,
-    .site-header.scrolled .site-title {
-      color: var(--brand-dark);
+    .site-header.scrolled .site-title,
+    .site-header.scrolled .menu-toggle {
+      color: var(--brand);
     }
 
     .top-nav {
@@ -341,10 +342,15 @@
         align-items: center;
         justify-content: center;
         justify-self: start;
+        border: none;
+        outline: none;
+        box-shadow: none;
+        padding: 8px 0;
       }
 
       .site-title {
-        justify-self: start;
+        justify-self: center;
+        text-align: center;
       }
 
       .nav-list,
