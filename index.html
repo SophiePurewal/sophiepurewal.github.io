@@ -91,8 +91,42 @@
     .menu-toggle svg {
       width: 24px;
       height: 24px;
-      fill: currentColor;
       display: block;
+    }
+
+    .menu-toggle .menu-icon line {
+      stroke: currentColor;
+      stroke-width: 80;
+      stroke-linecap: round;
+      transform-box: fill-box;
+      transform-origin: center;
+      transition: transform 0.25s ease, opacity 0.2s ease;
+    }
+
+    .menu-toggle .menu-icon .line-top {
+      transform: translateY(-200px);
+    }
+
+    .menu-toggle .menu-icon .line-bottom {
+      transform: translateY(200px);
+    }
+
+    .menu-toggle[aria-expanded="true"] .menu-icon .line-top {
+      transform: rotate(45deg);
+    }
+
+    .menu-toggle[aria-expanded="true"] .menu-icon .line-middle {
+      opacity: 0;
+    }
+
+    .menu-toggle[aria-expanded="true"] .menu-icon .line-bottom {
+      transform: rotate(-45deg);
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      .menu-toggle .menu-icon line {
+        transition: none;
+      }
     }
 
     .mobile-menu {
@@ -440,8 +474,10 @@
   <header class="site-header">
     <nav class="top-nav" aria-label="Main navigation">
       <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="mobile-menu" aria-label="Toggle navigation menu">
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960" aria-hidden="true" focusable="false">
-          <path d="M120-240v-80h720v80H120Zm0-200v-80h720v80H120Zm0-200v-80h720v80H120Z" />
+        <svg class="menu-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960" aria-hidden="true" focusable="false">
+          <line class="line-top" x1="200" y1="-480" x2="760" y2="-480" />
+          <line class="line-middle" x1="200" y1="-480" x2="760" y2="-480" />
+          <line class="line-bottom" x1="200" y1="-480" x2="760" y2="-480" />
         </svg>
       </button>
 
