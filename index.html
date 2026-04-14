@@ -342,6 +342,13 @@
       font-size: 28px;
     }
 
+    .content h2 {
+      margin: 0 0 28px;
+      font-size: 34px;
+      line-height: 1.2;
+      color: var(--brand-dark);
+    }
+
     .content p { margin: 0; }
 
     .cv-preview {
@@ -359,6 +366,68 @@
       border-radius: 10px;
       border: none;
       box-shadow: 0 4px 14px rgba(0, 0, 0, 0.08);
+    }
+
+    .endorsement-section {
+      padding-top: 20px;
+    }
+
+    .endorsement-category {
+      margin-bottom: 34px;
+    }
+
+    .endorsement-category h3 {
+      margin-bottom: 18px;
+      font-size: 22px;
+      color: #222;
+    }
+
+    .pull-quote-list {
+      display: grid;
+      gap: 18px;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    .pull-quote {
+      margin: 0;
+      padding: 20px 20px 18px;
+      background: var(--panel);
+      border-left: 4px solid var(--brand);
+      border-radius: 12px;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+    }
+
+    .pull-quote p {
+      margin: 0;
+      font-size: 17px;
+      line-height: 1.5;
+      color: #202020;
+      quotes: "“" "”";
+    }
+
+    .pull-quote p::before {
+      content: open-quote;
+      color: var(--brand-dark);
+      font-weight: 700;
+    }
+
+    .pull-quote p::after {
+      content: close-quote;
+      color: var(--brand-dark);
+      font-weight: 700;
+    }
+
+    .pull-quote figcaption {
+      margin-top: 12px;
+      font-size: 14px;
+      line-height: 1.45;
+      color: #444;
+    }
+
+    .pull-quote cite {
+      font-style: normal;
+      font-weight: 600;
+      color: #1f1f1f;
     }
 
     footer {
@@ -465,6 +534,10 @@
         height: min(190px, 44vw);
         margin: 0 auto;
       }
+
+      .pull-quote-list {
+        grid-template-columns: 1fr;
+      }
     }
   </style>
 </head>
@@ -539,6 +612,120 @@ SMART = [
       <section id="cv" aria-label="CV section">
         <div class="cv-preview">
           <img src="cv.jpg" alt="Preview of Sophie Purewal's CV">
+        </div>
+      </section>
+
+      <section id="contact" class="endorsement-section" aria-label="Endorsements section">
+        <h2>Endorsements</h2>
+
+        <div class="endorsement-category">
+          <h3>UX/UI &amp; Product Design Praise</h3>
+          <div class="pull-quote-list">
+            <figure class="pull-quote">
+              <p>Sophie designed the UI for a large web based application we were developing in-house. She is wonderful to work with, has attention to detail, is very professional and highly efficient.</p>
+              <figcaption><cite>Mark Trinick</cite> — CEO, eSuite | eTrackrILP | eSpirALS | eSignUp | eApprentice | eTimetable | eHub</figcaption>
+            </figure>
+            <figure class="pull-quote">
+              <p>Sophie was key in shaping the successful Yahoo! Lifestyle partnership… creating and presenting a portfolio of decks along with mocks. Sophie is creative, resourceful and a true professional.</p>
+              <figcaption><cite>Philippe Hermet</cite> — Digital Growth Enabler, International Sales Accelerator, Advisor, Podcaster, ex-Yahoo!, ex-Teads</figcaption>
+            </figure>
+            <figure class="pull-quote">
+              <p>Sophie approaches each campaign with such zeal… through her well organised and highly detailed creative briefs which ensures all parties… are in tune with one another allowing campaigns to run efficiently.</p>
+              <figcaption><cite>Leny Evangelista</cite> — Art Director + UX/UI Designer, GorillaNation</figcaption>
+            </figure>
+            <figure class="pull-quote">
+              <p>Sophie has a clear understanding of seeing a project through… keeping focus on the user experience.</p>
+              <figcaption><cite>Dieter De Duytschaever</cite> — Strategic Program Manager, ex-Yahoo!, ex-BBC</figcaption>
+            </figure>
+          </div>
+        </div>
+
+        <div class="endorsement-category">
+          <h3>⭐ Project &amp; Programme Management Excellence</h3>
+          <div class="pull-quote-list">
+            <figure class="pull-quote">
+              <p>A solid project manager… able to quickly understand the big picture, ask the right questions, and drive for results.</p>
+              <figcaption><cite>Borivoj Ivanovic</cite> — Marketing Leadership to Product &amp; Growth Strategy</figcaption>
+            </figure>
+            <figure class="pull-quote">
+              <p>Sophie led this project by communicating back and forth with the agency and client… She organised brainstorm meetings internally… and put all the ideas into a thorough presentation.</p>
+              <figcaption><cite>Kimberley Giacon</cite> — SVP Digital, BBC StoryWorks at BBC Studios</figcaption>
+            </figure>
+            <figure class="pull-quote">
+              <p>She was tasked with transforming the Y! sales collateral… She evangelised our ‘Report &amp; Create’ style and was instrumental in helping deliver a more sophisticated solution.</p>
+              <figcaption><cite>Duncan McMonagle</cite> — Commercial Leader, Media, Tech &amp; Entertainment (Ex-IMG, Yahoo, MinuteMedia)</figcaption>
+            </figure>
+            <figure class="pull-quote">
+              <p>Sophie was always extremely responsive when finding solutions for campaigns, often to tight deadlines.</p>
+              <figcaption><cite>Tracey Cheffey</cite> — Head of Account Management / Customer Solutions / Production / Operations</figcaption>
+            </figure>
+          </div>
+        </div>
+
+        <div class="endorsement-category">
+          <h3>⭐ Cross-Team Collaboration &amp; Leadership</h3>
+          <div class="pull-quote-list">
+            <figure class="pull-quote">
+              <p>She provides immense support to the team even with the time difference, distance and language barriers… interacting with my team of Designers and Developers in the Philippines along with others from our offices in Los Angeles, Canada, Mexico and Serbia.</p>
+              <figcaption><cite>Leny Evangelista</cite> — Art Director + UX/UI Designer, GorillaNation</figcaption>
+            </figure>
+            <figure class="pull-quote">
+              <p>Sophie created RFPs and externally presented the Yahoo! product to agencies and clients in a clear and expert manner.</p>
+              <figcaption><cite>Zuzana Urbanova</cite> — Vice President Agency Solutions, APAC at Lotame</figcaption>
+            </figure>
+            <figure class="pull-quote">
+              <p>It has been inspiring to witness her enthusiasm and dedication to work. Sophie is very proactive backed with some in-depth product knowledge.</p>
+              <figcaption><cite>Desmond Fernandes</cite> — Product Design Lead at Bottomline Technologies | Mentor @ ADPList</figcaption>
+            </figure>
+            <figure class="pull-quote">
+              <p>Sophie's attention to detail, creativity and approachability made her a great colleague and asset to the team.</p>
+              <figcaption><cite>Glenn Gowen</cite> — Research and Insight Specialist</figcaption>
+            </figure>
+          </div>
+        </div>
+
+        <div class="endorsement-category">
+          <h3>⭐ Client Satisfaction &amp; Delivery</h3>
+          <div class="pull-quote-list">
+            <figure class="pull-quote">
+              <p>Efficient, professional, totally understood our brief, excellent product. Highly recommended.</p>
+              <figcaption><cite>Emma McConachie</cite> — Director at Areté Ventures</figcaption>
+            </figure>
+            <figure class="pull-quote">
+              <p>Sophie has always demonstrated a very proactive and professional approach… She proved to be instrumental in the support she offered my team.</p>
+              <figcaption><cite>Richard Cottrell</cite> — International Sales | Strategic Growth | BizDev | Leadership</figcaption>
+            </figure>
+            <figure class="pull-quote">
+              <p>A true professional who continues to be a joy to work with… She can always be relied upon to achieve targets and success.</p>
+              <figcaption><cite>Paul Marchong</cite> — Director at PJMar Limited</figcaption>
+            </figure>
+            <figure class="pull-quote">
+              <p>Sophie brought to the role tremendous focus, discipline as well as energy and creativity… She showed determination to push new initiatives through to completion and great resilience even in adverse situations.</p>
+              <figcaption><cite>Monica Miglior</cite> — School Business Manager at Brentside High School</figcaption>
+            </figure>
+          </div>
+        </div>
+
+        <div class="endorsement-category">
+          <h3>⭐ Creativity &amp; Innovation</h3>
+          <div class="pull-quote-list">
+            <figure class="pull-quote">
+              <p>Creating and presenting a portfolio of decks along with mocks… Sophie is creative, resourceful and a true professional.</p>
+              <figcaption><cite>Philippe Hermet</cite> — Digital Growth Enabler, ex-Yahoo!, ex-Teads</figcaption>
+            </figure>
+            <figure class="pull-quote">
+              <p>Promoting the release of Sega's Alien Marine Corps with a custom high impact rich media unit; 3D Destructive Overlay that allowed the user to experience the gameplay…</p>
+              <figcaption><cite>Leny Evangelista</cite> — Art Director + UX/UI Designer, GorillaNation</figcaption>
+            </figure>
+            <figure class="pull-quote">
+              <p>She organised brainstorm meetings internally to come up with the editorial ideas… Sophie then put all the ideas into a thorough presentation that illustrated the user flow.</p>
+              <figcaption><cite>Kimberley Giacon</cite> — SVP Digital, BBC StoryWorks at BBC Studios</figcaption>
+            </figure>
+            <figure class="pull-quote">
+              <p>She is highly proactive, creative and professional. Her positive attitude is inspiring.</p>
+              <figcaption><cite>Christine Melanson</cite> — Freelance Marketing &amp; Content Creation</figcaption>
+            </figure>
+          </div>
         </div>
       </section>
 
