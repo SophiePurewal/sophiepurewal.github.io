@@ -49,8 +49,7 @@
     .site-header.scrolled .social-list a,
     .site-header.scrolled .site-title,
     .site-header.scrolled .menu-toggle,
-    .site-header.scrolled .theme-toggle,
-    .site-header.scrolled .search-toggle {
+    .site-header.scrolled .theme-toggle {
       color: var(--brand);
     }
 
@@ -172,6 +171,21 @@
       text-decoration-thickness: 2px;
     }
 
+    .dropdown-social-links a.icon-email {
+      width: 24px;
+      height: 24px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .dropdown-social-links a.icon-email svg {
+      width: 24px;
+      height: 24px;
+      fill: currentColor;
+      display: block;
+    }
+
     .dropdown-social-links {
       display: flex;
       align-items: center;
@@ -183,40 +197,6 @@
 
     .site-header.scrolled .dropdown-social-links {
       border-top-color: #ececec;
-    }
-
-    .dropdown-search {
-      display: none;
-      width: 100%;
-    }
-
-    .site-search-form {
-      display: grid;
-      grid-template-columns: auto minmax(0, 1fr);
-      align-items: center;
-      gap: 12px;
-    }
-
-    .search-submit {
-      appearance: none;
-      border: none;
-      background: transparent;
-      color: inherit;
-      width: 30px;
-      height: 30px;
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      border-radius: 8px;
-      padding: 0;
-      cursor: pointer;
-    }
-
-    .search-submit svg {
-      width: 24px;
-      height: 24px;
-      fill: currentColor !important;
-      display: block;
     }
 
     :where(a, button):focus-visible {
@@ -340,7 +320,6 @@
       gap: 16px;
     }
 
-    .search-toggle,
     .theme-toggle {
       appearance: none;
       border: none;
@@ -358,7 +337,6 @@
       position: relative;
     }
 
-    .search-toggle svg,
     .theme-toggle svg {
       width: 24px;
       height: 24px;
@@ -366,12 +344,10 @@
       display: block;
     }
 
-    .search-toggle:hover,
     .theme-toggle:hover {
       opacity: 0.82;
     }
 
-    .search-toggle::after,
     .theme-toggle::after {
       content: "";
       position: absolute;
@@ -384,61 +360,8 @@
       transition: opacity 0.2s ease;
     }
 
-    .search-toggle:hover::after,
     .theme-toggle:hover::after {
       opacity: 1;
-    }
-
-    .header-search-panel {
-      width: 100%;
-      background: var(--brand-dark);
-      border: 1px solid rgba(255, 255, 255, 0.25);
-      border-top: none;
-      border-radius: 0;
-      padding: 0 40px 20px;
-      display: none;
-    }
-
-    .header-search-panel.open {
-      display: block;
-    }
-
-    .site-header.scrolled .header-search-panel {
-      background: #ffffff;
-      border-color: #ececec;
-    }
-
-    .header-search-input {
-      width: 100%;
-      border: 1px solid rgba(255, 255, 255, 0.3);
-      border-radius: 0;
-      background: transparent;
-      color: inherit;
-      font-size: 16px;
-      line-height: 1.4;
-      padding: 12px 16px;
-      outline: none;
-    }
-
-    .site-header.scrolled .header-search-input {
-      border-color: #ececec;
-    }
-
-    .header-search-input::placeholder {
-      color: currentColor;
-      opacity: 0.75;
-    }
-
-    mark.search-highlight {
-      background: #ffef85;
-      color: #111111;
-      padding: 0 2px;
-      border-radius: 2px;
-    }
-
-    body.dark-mode mark.search-highlight {
-      background: #6f6300;
-      color: #ffffff;
     }
 
     .visually-hidden {
@@ -810,31 +733,22 @@
     body.dark-mode .site-header .site-title,
     body.dark-mode .site-header .menu-toggle,
     body.dark-mode .site-header .theme-toggle,
-    body.dark-mode .site-header .search-toggle,
     body.dark-mode .site-header .social-list a,
     body.dark-mode .site-header.scrolled .site-title,
     body.dark-mode .site-header.scrolled .menu-toggle,
     body.dark-mode .site-header.scrolled .theme-toggle,
-    body.dark-mode .site-header.scrolled .search-toggle,
     body.dark-mode .site-header.scrolled .social-list a {
       color: #f4f4f4;
     }
 
     body.dark-mode .dropdown-menu,
-    body.dark-mode .site-header.scrolled .dropdown-menu,
-    body.dark-mode .header-search-panel,
-    body.dark-mode .site-header.scrolled .header-search-panel {
+    body.dark-mode .site-header.scrolled .dropdown-menu {
       background: #161616;
       border-color: #303030;
     }
 
     body.dark-mode .dropdown-social-links {
       border-top-color: #303030;
-    }
-
-    body.dark-mode .header-search-input {
-      border-color: #303030;
-      color: #f4f4f4;
     }
 
     body.dark-mode .hero {
@@ -921,20 +835,6 @@
         right: 0;
         left: 0;
         padding: 24px;
-      }
-
-      .header-search-panel {
-        padding: 0 24px 20px;
-      }
-
-      .search-toggle,
-      .header-search-panel {
-        display: none;
-      }
-
-      .dropdown-search {
-        display: block;
-        padding-bottom: 16px;
       }
 
       .site-title {
@@ -1042,18 +942,6 @@
       </h1>
 
       <div class="header-actions">
-        <ul class="social-list" aria-label="Social links">
-          <li>
-            <a href="mailto:sophiepurewaldesign@gmail.com" aria-label="Email" class="icon-email">
-              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960" aria-hidden="true" focusable="false">
-                <path d="M160-160q-33 0-56.5-23.5T80-240v-480q0-33 23.5-56.5T160-800h640q33 0 56.5 23.5T880-720v480q0 33-23.5 56.5T800-160H160Zm320-280L160-640v400h640v-400L480-440Zm0-80 320-200H160l320 200ZM160-640v-80 480-400Z" />
-              </svg>
-            </a>
-          </li>
-        </ul>
-        <button class="search-toggle" type="button" aria-label="Open search" aria-expanded="false" aria-controls="header-search-panel">
-          <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#1f1f1f" aria-hidden="true" focusable="false"><path d="M784-120 532-372q-30 24-69 38t-83 14q-109 0-184.5-75.5T120-580q0-109 75.5-184.5T380-840q109 0 184.5 75.5T640-580q0 44-14 83t-38 69l252 252-56 56ZM380-400q75 0 127.5-52.5T560-580q0-75-52.5-127.5T380-760q-75 0-127.5 52.5T200-580q0 75 52.5 127.5T380-400Z"/></svg>
-        </button>
         <button class="theme-toggle" type="button" aria-label="Activate dark mode" aria-pressed="false" title="Activate dark mode">
           <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#1f1f1f" aria-hidden="true" focusable="false">
             <path d="M480-120q-150 0-255-105T120-480q0-150 105-255t255-105q14 0 27.5 1t26.5 3q-41 29-65.5 75.5T444-660q0 90 63 153t153 63q55 0 101-24.5t75-65.5q2 13 3 26.5t1 27.5q0 150-105 255T480-120Zm0-80q88 0 158-48.5T740-375q-20 5-40 8t-40 3q-123 0-209.5-86.5T364-660q0-20 3-40t8-40q-78 32-126.5 102T200-480q0 116 82 198t198 82Zm-10-270Z"/>
@@ -1062,34 +950,21 @@
       </div>
 
       <div id="dropdown-menu" class="dropdown-menu" aria-label="Navigation links">
-        <div class="dropdown-search">
-          <form class="site-search-form" aria-label="Search site">
-            <button class="search-submit" type="submit" aria-label="Search site">
-              <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#1f1f1f" aria-hidden="true" focusable="false"><path d="M784-120 532-372q-30 24-69 38t-83 14q-109 0-184.5-75.5T120-580q0-109 75.5-184.5T380-840q109 0 184.5 75.5T640-580q0 44-14 83t-38 69l252 252-56 56ZM380-400q75 0 127.5-52.5T560-580q0-75-52.5-127.5T380-760q-75 0-127.5 52.5T200-580q0 75 52.5 127.5T380-400Z"/></svg>
-            </button>
-            <label for="site-search-input-mobile" class="visually-hidden">Search site</label>
-            <input id="site-search-input-mobile" class="header-search-input" type="search" name="q" placeholder="Search…" aria-label="Search site">
-          </form>
-        </div>
         <a href="#projects">Projects</a>
         <a href="#career">Career</a>
         <a href="#contact">Endorsements</a>
         <div class="dropdown-social-links" aria-label="Social links">
+          <a href="mailto:sophiepurewaldesign@gmail.com" aria-label="Email" class="icon-email">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960" aria-hidden="true" focusable="false">
+              <path d="M160-160q-33 0-56.5-23.5T80-240v-480q0-33 23.5-56.5T160-800h640q33 0 56.5 23.5T880-720v480q0 33-23.5 56.5T800-160H160Zm320-280L160-640v400h640v-400L480-440Zm0-80 320-200H160l320 200ZM160-640v-80 480-400Z" />
+            </svg>
+          </a>
           <a href="https://www.behance.net/sophiepurewal" aria-label="Behance" target="_blank" rel="noopener noreferrer">Bē</a>
           <a href="https://www.instagram.com/sophiepurewaldesign/" aria-label="Instagram" target="_blank" rel="noopener noreferrer">◎</a>
           <a href="https://www.linkedin.com/in/sophiepurewal/" aria-label="LinkedIn" target="_blank" rel="noopener noreferrer">in</a>
         </div>
       </div>
     </nav>
-    <div id="header-search-panel" class="header-search-panel">
-      <form class="site-search-form" aria-label="Search site">
-        <button class="search-submit" type="submit" aria-label="Search site">
-          <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#1f1f1f" aria-hidden="true" focusable="false"><path d="M784-120 532-372q-30 24-69 38t-83 14q-109 0-184.5-75.5T120-580q0-109 75.5-184.5T380-840q109 0 184.5 75.5T640-580q0 44-14 83t-38 69l252 252-56 56ZM380-400q75 0 127.5-52.5T560-580q0-75-52.5-127.5T380-760q-75 0-127.5 52.5T200-580q0 75 52.5 127.5T380-400Z"/></svg>
-        </button>
-        <label for="site-search-input" class="visually-hidden">Search site</label>
-        <input id="site-search-input" class="header-search-input" type="search" name="q" placeholder="Search…" aria-label="Search site">
-      </form>
-    </div>
   </header>
 
   <main id="main-content">
@@ -1334,10 +1209,6 @@ SMART = [
     const siteHeader = document.querySelector('.site-header');
     const menuToggle = document.querySelector('.menu-toggle');
     const dropdownMenu = document.querySelector('#dropdown-menu');
-    const searchToggle = document.querySelector('.search-toggle');
-    const searchPanel = document.querySelector('#header-search-panel');
-    const searchInput = document.querySelector('#site-search-input');
-    const searchForms = document.querySelectorAll('.site-search-form');
     const themeToggle = document.querySelector('.theme-toggle');
     const darkModeStorageKey = 'sophie-theme';
 
@@ -1350,50 +1221,6 @@ SMART = [
       if (!dropdownMenu || !menuToggle) return;
       dropdownMenu.classList.remove('open');
       menuToggle.setAttribute('aria-expanded', 'false');
-    };
-
-    const closeSearchPanel = () => {
-      if (!searchPanel || !searchToggle) return;
-      searchPanel.classList.remove('open');
-      searchToggle.setAttribute('aria-expanded', 'false');
-      searchToggle.setAttribute('aria-label', 'Open search');
-    };
-
-    const unwrapSearchMark = (markElement) => {
-      if (!markElement || !markElement.parentNode) return;
-      const textNode = document.createTextNode(markElement.textContent);
-      markElement.parentNode.replaceChild(textNode, markElement);
-    };
-
-    const clearSearchHighlights = () => {
-      document.querySelectorAll('mark.search-highlight').forEach(unwrapSearchMark);
-    };
-
-    const escapeRegExp = (value) => value.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
-
-    const runSiteSearch = (rawQuery) => {
-      const query = rawQuery.trim();
-      clearSearchHighlights();
-      if (!query) return;
-
-      const searchTargets = document.querySelectorAll('#main-content h2, #main-content h3, #main-content p, #main-content figcaption');
-      const searchRegex = new RegExp(`(${escapeRegExp(query)})`, 'gi');
-      let firstMatch = null;
-
-      searchTargets.forEach((target) => {
-        if (!target.textContent.trim()) return;
-        searchRegex.lastIndex = 0;
-        if (!searchRegex.test(target.textContent)) return;
-        searchRegex.lastIndex = 0;
-        target.innerHTML = target.innerHTML.replace(searchRegex, '<mark class="search-highlight">$1</mark>');
-        if (!firstMatch) {
-          firstMatch = target.querySelector('mark.search-highlight');
-        }
-      });
-
-      if (firstMatch) {
-        firstMatch.scrollIntoView({ behavior: 'smooth', block: 'center' });
-      }
     };
 
     const syncThemeToggleLabel = (isDarkMode) => {
@@ -1427,9 +1254,6 @@ SMART = [
       menuToggle.addEventListener('click', () => {
         const isOpen = dropdownMenu.classList.toggle('open');
         menuToggle.setAttribute('aria-expanded', String(isOpen));
-        if (isOpen) {
-          closeSearchPanel();
-        }
       });
 
       dropdownMenu.querySelectorAll('a').forEach((link) => {
@@ -1442,29 +1266,6 @@ SMART = [
         }
       });
     }
-
-    if (searchToggle && searchPanel) {
-      searchToggle.addEventListener('click', () => {
-        const isOpen = searchPanel.classList.toggle('open');
-        searchToggle.setAttribute('aria-expanded', String(isOpen));
-        searchToggle.setAttribute('aria-label', isOpen ? 'Close search' : 'Open search');
-        if (isOpen) {
-          closeDropdownMenu();
-          if (searchInput) {
-            searchInput.focus();
-          }
-        }
-      });
-    }
-
-    searchForms.forEach((form) => {
-      const input = form.querySelector('input[type="search"]');
-      if (!input) return;
-      form.addEventListener('submit', (event) => {
-        event.preventDefault();
-        runSiteSearch(input.value);
-      });
-    });
 
     const initEndorsementAccordions = () => {
       const categories = document.querySelectorAll('.endorsement-category');
