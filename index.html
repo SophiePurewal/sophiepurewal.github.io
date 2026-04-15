@@ -59,7 +59,9 @@
       box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
     }
 
-    .site-header.scrolled .nav-list a,
+    .site-header.scrolled .header-menu-trigger,
+    .site-header.scrolled .header-menu-trigger .chevron-icon,
+    .site-header.scrolled .header-menu-link,
     .site-header.scrolled .social-list a,
     .site-header.scrolled .site-title,
     .site-header.scrolled .menu-toggle {
@@ -131,6 +133,95 @@
 
     .mobile-menu {
       display: none;
+    }
+
+    .header-menu {
+      position: relative;
+      justify-self: start;
+    }
+
+    .header-menu-trigger {
+      border: none;
+      background: transparent;
+      color: var(--text-light);
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 10px 0;
+      font-size: 16px;
+      font-weight: 600;
+      cursor: pointer;
+    }
+
+    .header-menu-trigger .chevron-icon {
+      width: 20px;
+      height: 20px;
+      transition: transform 0.2s ease;
+      fill: currentColor;
+    }
+
+    .header-menu-trigger[aria-expanded="true"] .chevron-icon {
+      transform: rotate(180deg);
+    }
+
+    .header-menu-trigger:hover,
+    .header-menu-trigger:focus-visible {
+      opacity: 0.82;
+      text-decoration: underline;
+      text-underline-offset: 4px;
+      text-decoration-thickness: 2px;
+    }
+
+    .header-menu-drawer {
+      position: absolute;
+      left: 0;
+      top: calc(100% + 10px);
+      min-width: 220px;
+      background: var(--brand-dark);
+      border: 1px solid rgba(255, 255, 255, 0.28);
+      border-radius: 10px;
+      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+      padding: 14px;
+      display: none;
+      flex-direction: column;
+      gap: 4px;
+    }
+
+    .header-menu-drawer.open {
+      display: flex;
+    }
+
+    .site-header.scrolled .header-menu-drawer {
+      background: #ffffff;
+      border-color: #ececec;
+      box-shadow: 0 10px 18px rgba(0, 0, 0, 0.08);
+    }
+
+    .header-menu-link {
+      color: var(--text-light);
+      text-decoration: none;
+      font-size: 15px;
+      font-weight: 500;
+      line-height: 1.3;
+      padding: 8px 10px;
+      border-radius: 6px;
+    }
+
+    .site-header.scrolled .header-menu-link {
+      color: var(--brand);
+    }
+
+    .header-menu-link:hover,
+    .header-menu-link:focus-visible {
+      background: rgba(255, 255, 255, 0.14);
+      text-decoration: underline;
+      text-underline-offset: 4px;
+      text-decoration-thickness: 2px;
+    }
+
+    .site-header.scrolled .header-menu-link:hover,
+    .site-header.scrolled .header-menu-link:focus-visible {
+      background: #fff3f2;
     }
 
     .nav-list,
@@ -492,14 +583,14 @@
       }
 
       .top-nav {
-        grid-template-columns: auto 1fr;
+        grid-template-columns: 1fr auto;
         gap: 12px;
         padding: 16px 24px;
         min-height: auto;
       }
 
       .menu-toggle {
-        display: inline-flex;
+        display: none;
         align-items: center;
         justify-content: center;
         justify-self: start;
@@ -509,9 +600,20 @@
         padding: 8px 0;
       }
 
+      .header-menu {
+        order: 2;
+        justify-self: end;
+      }
+
+      .header-menu-drawer {
+        left: auto;
+        right: 0;
+      }
+
       .site-title {
-        justify-self: center;
-        text-align: center;
+        order: 1;
+        justify-self: start;
+        text-align: left;
       }
 
       .nav-list,
@@ -616,11 +718,20 @@
         </svg>
       </button>
 
-      <ul class="nav-list">
-        <li><a href="#projects">Projects</a></li>
-        <li><a href="#cv">CV</a></li>
-        <li><a href="#contact">Endorsements</a></li>
-      </ul>
+      <div class="header-menu">
+        <button class="header-menu-trigger" type="button" aria-expanded="false" aria-controls="header-menu-drawer">
+          <span class="header-menu-label">Menu</span>
+          <svg class="chevron-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960" aria-hidden="true" focusable="false">
+            <path d="M480-344 240-584l56-56 184 184 184-184 56 56-240 240Z" />
+          </svg>
+        </button>
+
+        <div id="header-menu-drawer" class="header-menu-drawer" aria-label="Header menu options">
+          <a class="header-menu-link" href="#projects" data-label="Projects">Projects</a>
+          <a class="header-menu-link" href="#cv" data-label="CV">CV</a>
+          <a class="header-menu-link" href="#contact" data-label="Endorsements">Endorsements</a>
+        </div>
+      </div>
 
       <h1 class="site-title">
         <a href="index.html" aria-label="Go to homepage">Sophie Purewal</a>
@@ -799,6 +910,9 @@ SMART = [
     const siteHeader = document.querySelector('.site-header');
     const menuToggle = document.querySelector('.menu-toggle');
     const mobileMenu = document.querySelector('#mobile-menu');
+    const headerMenuTrigger = document.querySelector('.header-menu-trigger');
+    const headerMenuDrawer = document.querySelector('#header-menu-drawer');
+    const headerMenuLabel = document.querySelector('.header-menu-label');
 
     const toggleHeaderState = () => {
       if (!siteHeader) return;
@@ -809,6 +923,12 @@ SMART = [
       if (!mobileMenu || !menuToggle) return;
       mobileMenu.classList.remove('open');
       menuToggle.setAttribute('aria-expanded', 'false');
+    };
+
+    const closeHeaderMenu = () => {
+      if (!headerMenuTrigger || !headerMenuDrawer) return;
+      headerMenuDrawer.classList.remove('open');
+      headerMenuTrigger.setAttribute('aria-expanded', 'false');
     };
 
     if (menuToggle && mobileMenu) {
@@ -826,6 +946,31 @@ SMART = [
           closeMobileMenu();
         }
       });
+    }
+
+    if (headerMenuTrigger && headerMenuDrawer && headerMenuLabel) {
+      headerMenuTrigger.addEventListener('click', () => {
+        const isOpen = headerMenuDrawer.classList.toggle('open');
+        headerMenuTrigger.setAttribute('aria-expanded', String(isOpen));
+      });
+
+      headerMenuDrawer.querySelectorAll('.header-menu-link').forEach((link) => {
+        link.addEventListener('click', () => {
+          const label = link.dataset.label;
+          if (label) {
+            headerMenuLabel.textContent = `Menu > ${label}`;
+          }
+          closeHeaderMenu();
+        });
+      });
+
+      document.addEventListener('click', (event) => {
+        if (!event.target.closest('.header-menu')) {
+          closeHeaderMenu();
+        }
+      });
+
+      window.addEventListener('resize', closeHeaderMenu);
     }
 
     const initEndorsementAccordions = () => {
