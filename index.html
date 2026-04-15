@@ -135,7 +135,6 @@
     .dropdown-menu {
       position: absolute;
       left: 0;
-      right: 0;
       top: 100%;
       width: 100%;
       background: var(--brand-dark);
@@ -184,6 +183,40 @@
 
     .site-header.scrolled .dropdown-social-links {
       border-top-color: #ececec;
+    }
+
+    .dropdown-search {
+      display: none;
+      width: 100%;
+    }
+
+    .site-search-form {
+      display: grid;
+      grid-template-columns: auto minmax(0, 1fr);
+      align-items: center;
+      gap: 12px;
+    }
+
+    .search-submit {
+      appearance: none;
+      border: none;
+      background: transparent;
+      color: inherit;
+      width: 30px;
+      height: 30px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 8px;
+      padding: 0;
+      cursor: pointer;
+    }
+
+    .search-submit svg {
+      width: 24px;
+      height: 24px;
+      fill: currentColor !important;
+      display: block;
     }
 
     :where(a, button):focus-visible {
@@ -394,6 +427,18 @@
     .header-search-input::placeholder {
       color: currentColor;
       opacity: 0.75;
+    }
+
+    mark.search-highlight {
+      background: #ffef85;
+      color: #111111;
+      padding: 0 2px;
+      border-radius: 2px;
+    }
+
+    body.dark-mode mark.search-highlight {
+      background: #6f6300;
+      color: #ffffff;
     }
 
     .visually-hidden {
@@ -834,6 +879,12 @@
 
 
     @media (min-width: 901px) {
+      .dropdown-menu {
+        right: auto;
+        left: 40px;
+        width: 400px;
+      }
+
       .menu-toggle:hover::after {
         opacity: 1;
       }
@@ -866,11 +917,23 @@
       }
 
       .dropdown-menu {
+        right: 0;
+        left: 0;
         padding: 24px;
       }
 
       .header-search-panel {
         padding: 0 24px 20px;
+      }
+
+      .search-toggle,
+      .header-search-panel {
+        display: none;
+      }
+
+      .dropdown-search {
+        display: block;
+        padding-bottom: 16px;
       }
 
       .site-title {
@@ -998,7 +1061,15 @@
       </div>
 
       <div id="dropdown-menu" class="dropdown-menu" aria-label="Navigation links">
-        <a href="#top">Home</a>
+        <div class="dropdown-search">
+          <form class="site-search-form" aria-label="Search site">
+            <button class="search-submit" type="submit" aria-label="Search site">
+              <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#1f1f1f" aria-hidden="true" focusable="false"><path d="M784-120 532-372q-30 24-69 38t-83 14q-109 0-184.5-75.5T120-580q0-109 75.5-184.5T380-840q109 0 184.5 75.5T640-580q0 44-14 83t-38 69l252 252-56 56ZM380-400q75 0 127.5-52.5T560-580q0-75-52.5-127.5T380-760q-75 0-127.5 52.5T200-580q0 75 52.5 127.5T380-400Z"/></svg>
+            </button>
+            <label for="site-search-input-mobile" class="visually-hidden">Search site</label>
+            <input id="site-search-input-mobile" class="header-search-input" type="search" name="q" placeholder="Search…" aria-label="Search site">
+          </form>
+        </div>
         <a href="#projects">Projects</a>
         <a href="#career">Career</a>
         <a href="#contact">Endorsements</a>
@@ -1010,8 +1081,13 @@
       </div>
     </nav>
     <div id="header-search-panel" class="header-search-panel">
-      <label for="site-search-input" class="visually-hidden">Search site</label>
-      <input id="site-search-input" class="header-search-input" type="search" placeholder="Search…" aria-label="Search site">
+      <form class="site-search-form" aria-label="Search site">
+        <button class="search-submit" type="submit" aria-label="Search site">
+          <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#1f1f1f" aria-hidden="true" focusable="false"><path d="M784-120 532-372q-30 24-69 38t-83 14q-109 0-184.5-75.5T120-580q0-109 75.5-184.5T380-840q109 0 184.5 75.5T640-580q0 44-14 83t-38 69l252 252-56 56ZM380-400q75 0 127.5-52.5T560-580q0-75-52.5-127.5T380-760q-75 0-127.5 52.5T200-580q0 75 52.5 127.5T380-400Z"/></svg>
+        </button>
+        <label for="site-search-input" class="visually-hidden">Search site</label>
+        <input id="site-search-input" class="header-search-input" type="search" name="q" placeholder="Search…" aria-label="Search site">
+      </form>
     </div>
   </header>
 
@@ -1260,6 +1336,7 @@ SMART = [
     const searchToggle = document.querySelector('.search-toggle');
     const searchPanel = document.querySelector('#header-search-panel');
     const searchInput = document.querySelector('#site-search-input');
+    const searchForms = document.querySelectorAll('.site-search-form');
     const themeToggle = document.querySelector('.theme-toggle');
     const darkModeStorageKey = 'sophie-theme';
 
@@ -1279,6 +1356,42 @@ SMART = [
       searchPanel.classList.remove('open');
       searchToggle.setAttribute('aria-expanded', 'false');
       searchToggle.setAttribute('aria-label', 'Open search');
+    };
+
+    const unwrapSearchMark = (markElement) => {
+      if (!markElement || !markElement.parentNode) return;
+      const textNode = document.createTextNode(markElement.textContent);
+      markElement.parentNode.replaceChild(textNode, markElement);
+    };
+
+    const clearSearchHighlights = () => {
+      document.querySelectorAll('mark.search-highlight').forEach(unwrapSearchMark);
+    };
+
+    const escapeRegExp = (value) => value.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+
+    const runSiteSearch = (rawQuery) => {
+      const query = rawQuery.trim();
+      clearSearchHighlights();
+      if (!query) return;
+
+      const searchTargets = document.querySelectorAll('#main-content h2, #main-content h3, #main-content p, #main-content figcaption');
+      const searchRegex = new RegExp(`(${escapeRegExp(query)})`, 'gi');
+      let firstMatch = null;
+
+      searchTargets.forEach((target) => {
+        if (!target.textContent.trim()) return;
+        if (!searchRegex.test(target.textContent)) return;
+        searchRegex.lastIndex = 0;
+        target.innerHTML = target.innerHTML.replace(searchRegex, '<mark class="search-highlight">$1</mark>');
+        if (!firstMatch) {
+          firstMatch = target.querySelector('mark.search-highlight');
+        }
+      });
+
+      if (firstMatch) {
+        firstMatch.scrollIntoView({ behavior: 'smooth', block: 'center' });
+      }
     };
 
     const syncThemeToggleLabel = (isDarkMode) => {
@@ -1341,6 +1454,15 @@ SMART = [
         }
       });
     }
+
+    searchForms.forEach((form) => {
+      const input = form.querySelector('input[type="search"]');
+      if (!input) return;
+      form.addEventListener('submit', (event) => {
+        event.preventDefault();
+        runSiteSearch(input.value);
+      });
+    });
 
     const initEndorsementAccordions = () => {
       const categories = document.querySelectorAll('.endorsement-category');
