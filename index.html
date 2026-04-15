@@ -349,19 +349,19 @@
       width: 36px;
       height: 36px;
       transform: translateX(-50%);
-      display: block;
+      display: grid;
+      place-items: center;
     }
 
-    .scroll-indicator::before {
-      content: "";
-      display: block;
+    .scroll-indicator svg {
       width: 24px;
       height: 24px;
-      border-right: 2px solid #fff;
-      border-bottom: 2px solid #fff;
-      transform: rotate(45deg);
-      margin: 0 auto;
+      fill: #fff;
       opacity: 0.9;
+    }
+
+    .scroll-indicator:focus-visible {
+      outline-color: #fff;
     }
 
     .content {
@@ -664,7 +664,9 @@ SMART = [
 </p>
         </div>
       </div>
-      <a class="scroll-indicator" href="#cv" aria-label="Scroll to next section"></a>
+      <a class="scroll-indicator" href="#cv" aria-label="Scroll to next section">
+        <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" aria-hidden="true" focusable="false"><path d="M480-344 240-584l56-56 184 184 184-184 56 56-240 240Z"/></svg>
+      </a>
     </section>
 
     <div class="content">
