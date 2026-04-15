@@ -60,7 +60,7 @@
     }
 
     .site-header.scrolled .header-menu-trigger,
-    .site-header.scrolled .header-menu-trigger .breadcrumb-chevron,
+    .site-header.scrolled .header-menu-trigger .menu-state-chevron,
     .site-header.scrolled .header-menu-link,
     .site-header.scrolled .social-list a,
     .site-header.scrolled .site-title,
@@ -129,6 +129,10 @@
       .menu-toggle .menu-icon line {
         transition: none;
       }
+
+      .header-menu-trigger .menu-state-chevron {
+        transition: none;
+      }
     }
 
     .mobile-menu {
@@ -167,22 +171,29 @@
       text-decoration: underline;
     }
 
-    .header-menu-trigger .breadcrumb-chevron {
+    .header-menu-trigger .menu-state-chevron {
       width: 20px;
       height: 20px;
       fill: currentColor;
-      transform: rotate(-90deg);
+      transform: rotate(180deg);
+      transition: transform 0.24s ease;
     }
 
-    .header-menu-trigger .breadcrumb-chevron,
     .header-menu-trigger .breadcrumb-label {
       display: none;
     }
 
-    .header-menu-trigger.has-selection .breadcrumb-chevron,
     .header-menu-trigger.has-selection .breadcrumb-label {
       display: inline-flex;
       align-items: center;
+    }
+
+    .header-menu-trigger[data-menu-state="open"] .menu-state-chevron {
+      transform: rotate(0deg);
+    }
+
+    .header-menu-trigger[data-menu-state="selected"] .menu-state-chevron {
+      transform: rotate(-90deg);
     }
 
     .header-menu-drawer {
@@ -738,9 +749,9 @@
       </button>
 
       <div class="header-menu">
-        <div class="header-menu-trigger">
+        <div class="header-menu-trigger" data-menu-state="inactive">
           <button class="menu-root-action" type="button" aria-expanded="false" aria-controls="header-menu-drawer">Menu</button>
-          <svg class="breadcrumb-chevron" xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960" aria-hidden="true" focusable="false">
+          <svg class="menu-state-chevron" xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960" aria-hidden="true" focusable="false">
             <path d="M480-344 240-584l56-56 184 184 184-184 56 56-240 240Z" />
           </svg>
           <span class="breadcrumb-label"></span>
@@ -949,9 +960,13 @@ SMART = [
     };
 
     const closeHeaderMenu = () => {
-      if (!menuRootAction || !headerMenuDrawer) return;
+      if (!menuRootAction || !headerMenuDrawer || !headerMenuTrigger) return;
       headerMenuDrawer.classList.remove('open');
       menuRootAction.setAttribute('aria-expanded', 'false');
+      headerMenuTrigger.setAttribute(
+        'data-menu-state',
+        headerMenuTrigger.classList.contains('has-selection') ? 'selected' : 'inactive'
+      );
     };
 
     if (menuToggle && mobileMenu) {
@@ -975,6 +990,7 @@ SMART = [
       menuRootAction.addEventListener('click', () => {
         const isOpen = headerMenuDrawer.classList.toggle('open');
         menuRootAction.setAttribute('aria-expanded', String(isOpen));
+        headerMenuTrigger.setAttribute('data-menu-state', isOpen ? 'open' : (headerMenuTrigger.classList.contains('has-selection') ? 'selected' : 'inactive'));
       });
 
       headerMenuDrawer.querySelectorAll('.header-menu-link').forEach((link) => {
@@ -985,9 +1001,11 @@ SMART = [
           if (shouldResetBreadcrumb) {
             breadcrumbLabel.textContent = '';
             headerMenuTrigger.classList.remove('has-selection');
+            headerMenuTrigger.setAttribute('data-menu-state', 'inactive');
           } else if (label) {
             breadcrumbLabel.textContent = label;
             headerMenuTrigger.classList.add('has-selection');
+            headerMenuTrigger.setAttribute('data-menu-state', 'selected');
           }
 
           closeHeaderMenu();
