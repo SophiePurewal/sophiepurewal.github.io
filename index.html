@@ -414,6 +414,155 @@
       box-shadow: 0 4px 14px rgba(0, 0, 0, 0.08);
     }
 
+    .career-section {
+      margin-bottom: 72px;
+    }
+
+    .career-section h2 {
+      margin-bottom: 38px;
+    }
+
+    .career-timeline {
+      position: relative;
+      margin: 0;
+      padding: 0;
+      list-style: none;
+    }
+
+    .career-timeline::before {
+      content: "";
+      position: absolute;
+      left: min(230px, 36vw);
+      top: 0;
+      bottom: 0;
+      width: 3px;
+      background: var(--line);
+    }
+
+    .career-item {
+      position: relative;
+      display: grid;
+      grid-template-columns: min(210px, 32vw) 40px 1fr;
+      align-items: start;
+      gap: 20px;
+      margin-bottom: 24px;
+    }
+
+    .career-item:last-child {
+      margin-bottom: 0;
+    }
+
+    .career-period {
+      margin: 0;
+      padding-top: 20px;
+      font-size: 16px;
+      line-height: 1.35;
+      color: #5a5a5a;
+      text-align: right;
+      font-weight: 500;
+    }
+
+    .career-dot {
+      width: 18px;
+      height: 18px;
+      border-radius: 999px;
+      background: var(--brand-dark);
+      margin: 20px auto 0;
+      position: relative;
+      z-index: 1;
+      box-shadow: 0 0 0 4px #fff;
+    }
+
+    .career-toggle {
+      width: 100%;
+      border: 1px solid var(--line);
+      border-radius: 18px;
+      background: #fff;
+      text-align: left;
+      padding: 18px 20px;
+      cursor: pointer;
+      color: inherit;
+      font: inherit;
+      box-shadow: 0 4px 14px rgba(0, 0, 0, 0.05);
+      transition: transform 0.18s ease, box-shadow 0.18s ease, border-color 0.18s ease;
+    }
+
+    .career-toggle:hover {
+      transform: translateY(-1px);
+      border-color: #efb5b2;
+      box-shadow: 0 6px 18px rgba(0, 0, 0, 0.07);
+    }
+
+    .career-toggle[aria-expanded="true"] {
+      border-color: #efb5b2;
+      box-shadow: 0 8px 20px rgba(249, 101, 98, 0.16);
+    }
+
+    .career-title-row {
+      display: flex;
+      align-items: flex-start;
+      justify-content: space-between;
+      gap: 16px;
+    }
+
+    .career-role {
+      margin: 0 0 2px;
+      font-size: 26px;
+      line-height: 1.1;
+      color: #1f1f1f;
+      letter-spacing: -0.01em;
+    }
+
+    .career-company {
+      margin: 0;
+      font-size: 18px;
+      line-height: 1.3;
+      font-weight: 500;
+      color: #444;
+    }
+
+    .career-icon {
+      flex-shrink: 0;
+      width: 30px;
+      height: 30px;
+      border-radius: 999px;
+      background: var(--panel);
+      color: var(--brand-dark);
+      display: grid;
+      place-items: center;
+      font-size: 18px;
+      margin-top: 2px;
+    }
+
+    .career-location {
+      margin: 8px 0 0;
+      font-size: 14px;
+      color: #707070;
+      line-height: 1.35;
+    }
+
+    .career-details {
+      margin: 14px 0 0;
+      padding: 12px 0 0;
+      border-top: 1px solid #f2e3e2;
+      list-style: none;
+      display: grid;
+      gap: 6px;
+    }
+
+    .career-details li {
+      color: #474747;
+      line-height: 1.35;
+      font-size: 15px;
+    }
+
+    .career-details li::before {
+      content: ">";
+      color: var(--brand-dark);
+      font-weight: 700;
+      margin-right: 8px;
+    }
+
     .endorsement-section {
       padding-top: 20px;
     }
@@ -607,6 +756,37 @@
       .pull-quote figcaption {
         font-size: 14px;
       }
+
+      .career-timeline::before {
+        left: 9px;
+      }
+
+      .career-item {
+        grid-template-columns: 1fr;
+        gap: 8px;
+        padding-left: 30px;
+      }
+
+      .career-period {
+        text-align: left;
+        padding-top: 0;
+        font-size: 15px;
+      }
+
+      .career-dot {
+        position: absolute;
+        left: 0;
+        top: 2px;
+        margin: 0;
+      }
+
+      .career-role {
+        font-size: 22px;
+      }
+
+      .career-company {
+        font-size: 17px;
+      }
     }
   </style>
 </head>
@@ -641,6 +821,7 @@
       <div id="dropdown-menu" class="dropdown-menu" aria-label="Navigation links">
         <a href="#top">Home</a>
         <a href="#projects">Projects</a>
+        <a href="#career">Career</a>
         <a href="#cv">CV</a>
         <a href="#contact">Endorsements</a>
       </div>
@@ -670,6 +851,178 @@ SMART = [
     </section>
 
     <div class="content">
+      <section id="career" class="career-section" aria-label="Career timeline section">
+        <h2>My Career Journey</h2>
+        <ol class="career-timeline">
+          <li class="career-item">
+            <p class="career-period">Jul 2017 — Present</p>
+            <span class="career-dot" aria-hidden="true"></span>
+            <button class="career-toggle" type="button" aria-expanded="true" aria-controls="career-panel-1">
+              <span class="career-title-row">
+                <span>
+                  <strong class="career-role">Senior UI and Graphic Designer</strong>
+                  <span class="career-company">Sophie Purewal Design</span>
+                </span>
+                <span class="career-icon" aria-hidden="true">✦</span>
+              </span>
+              <p class="career-location">West Sussex, United Kingdom</p>
+              <ul class="career-details" id="career-panel-1">
+                <li>Built a freelance design company from scratch and improved business brand identity.</li>
+                <li>Led UX research, personas, user flows, wireframing, prototyping, and design systems.</li>
+                <li>Improved developer/designer collaboration by introducing better processes and tools.</li>
+              </ul>
+            </button>
+          </li>
+          <li class="career-item">
+            <p class="career-period">Jul 2017 — Present</p>
+            <span class="career-dot" aria-hidden="true"></span>
+            <button class="career-toggle" type="button" aria-expanded="false" aria-controls="career-panel-2">
+              <span class="career-title-row">
+                <span>
+                  <strong class="career-role">UI for UX Design Specialisation Mentor</strong>
+                  <span class="career-company">CareerFoundry</span>
+                </span>
+                <span class="career-icon" aria-hidden="true">🎓</span>
+              </span>
+              <p class="career-location">Remote / Berlin, Germany</p>
+              <ul class="career-details" id="career-panel-2" hidden>
+                <li>Mentored and helped students complete a UX design specialisation course.</li>
+                <li>Shared UI design fundamentals via video sessions and written feedback.</li>
+                <li>Guided students to expand portfolios and progress into UI roles.</li>
+              </ul>
+            </button>
+          </li>
+          <li class="career-item">
+            <p class="career-period">Feb 2021 — Feb 2022</p>
+            <span class="career-dot" aria-hidden="true"></span>
+            <button class="career-toggle" type="button" aria-expanded="false" aria-controls="career-panel-3">
+              <span class="career-title-row">
+                <span>
+                  <strong class="career-role">UI for UX Design Course Editor</strong>
+                  <span class="career-company">CareerFoundry</span>
+                </span>
+                <span class="career-icon" aria-hidden="true">✍️</span>
+              </span>
+              <p class="career-location">Remote / Berlin, Germany</p>
+              <ul class="career-details" id="career-panel-3" hidden>
+                <li>Edited and rewrote UX/UI course materials and learning modules.</li>
+                <li>Collaborated on content informed by current UX research and platform data.</li>
+              </ul>
+            </button>
+          </li>
+          <li class="career-item">
+            <p class="career-period">Jul 2016 — Jul 2017</p>
+            <span class="career-dot" aria-hidden="true"></span>
+            <button class="career-toggle" type="button" aria-expanded="false" aria-controls="career-panel-4">
+              <span class="career-title-row">
+                <span>
+                  <strong class="career-role">Art Worker</strong>
+                  <span class="career-company">This Is Nessie</span>
+                </span>
+                <span class="career-icon" aria-hidden="true">🧩</span>
+              </span>
+              <p class="career-location">Remote / West Sussex, United Kingdom</p>
+              <ul class="career-details" id="career-panel-4" hidden>
+                <li>Created and edited graphics, illustration, and typography for retail products.</li>
+              </ul>
+            </button>
+          </li>
+          <li class="career-item">
+            <p class="career-period">Oct 2013 — Jun 2016</p>
+            <span class="career-dot" aria-hidden="true"></span>
+            <button class="career-toggle" type="button" aria-expanded="false" aria-controls="career-panel-5">
+              <span class="career-title-row">
+                <span>
+                  <strong class="career-role">Creative Digital Solutions Manager</strong>
+                  <span class="career-company">The Independent &amp; London Evening Standard</span>
+                </span>
+                <span class="career-icon" aria-hidden="true">🗞️</span>
+              </span>
+              <p class="career-location">London, United Kingdom</p>
+              <ul class="career-details" id="career-panel-5" hidden>
+                <li>Created cross-platform sponsorship solutions for media agencies and clients.</li>
+                <li>Managed agency/client relationships and delivered pitches to win proposals.</li>
+                <li>Won sponsorship projects including Uniqlo, Cathay Pacific, and others.</li>
+              </ul>
+            </button>
+          </li>
+          <li class="career-item">
+            <p class="career-period">Aug 2012 — Mar 2013</p>
+            <span class="career-dot" aria-hidden="true"></span>
+            <button class="career-toggle" type="button" aria-expanded="false" aria-controls="career-panel-6">
+              <span class="career-title-row">
+                <span>
+                  <strong class="career-role">Creative Solutions Manager</strong>
+                  <span class="career-company">Evolve Media</span>
+                </span>
+                <span class="career-icon" aria-hidden="true">🌍</span>
+              </span>
+              <p class="career-location">London, UK / Los Angeles, US</p>
+              <ul class="career-details" id="career-panel-6" hidden>
+                <li>Developed digital creative solutions for global client accounts.</li>
+                <li>Coordinated designers and developers across international teams.</li>
+                <li>Won proposals including EFD, Capcom, Universal, and Nintendo.</li>
+              </ul>
+            </button>
+          </li>
+          <li class="career-item">
+            <p class="career-period">Aug 2007 — Jul 2012</p>
+            <span class="career-dot" aria-hidden="true"></span>
+            <button class="career-toggle" type="button" aria-expanded="false" aria-controls="career-panel-7">
+              <span class="career-title-row">
+                <span>
+                  <strong class="career-role">Sponsorship Solutions Manager</strong>
+                  <span class="career-company">Yahoo!</span>
+                </span>
+                <span class="career-icon" aria-hidden="true">📈</span>
+              </span>
+              <p class="career-location">London, United Kingdom</p>
+              <ul class="career-details" id="career-panel-7" hidden>
+                <li>Built successful digital cross-platform propositions for agencies and clients.</li>
+                <li>Partnered with internal teams to create new successful sponsorship products.</li>
+                <li>Delivered sponsorship wins such as Team Mum, Heineken, and Go To Ireland.</li>
+              </ul>
+            </button>
+          </li>
+          <li class="career-item">
+            <p class="career-period">Jan 2007 — Jun 2007</p>
+            <span class="career-dot" aria-hidden="true"></span>
+            <button class="career-toggle" type="button" aria-expanded="false" aria-controls="career-panel-8">
+              <span class="career-title-row">
+                <span>
+                  <strong class="career-role">Sports Betting and Gaming Executive</strong>
+                  <span class="career-company">Teletext</span>
+                </span>
+                <span class="career-icon" aria-hidden="true">🎮</span>
+              </span>
+              <p class="career-location">London, United Kingdom</p>
+              <ul class="career-details" id="career-panel-8" hidden>
+                <li>Created seasonal gaming sponsorships and promotions across digital TV channels.</li>
+                <li>Grew partnerships with label gaming partner St. Minver and Two Way TV.</li>
+              </ul>
+            </button>
+          </li>
+          <li class="career-item">
+            <p class="career-period">Aug 2004 — Oct 2006</p>
+            <span class="career-dot" aria-hidden="true"></span>
+            <button class="career-toggle" type="button" aria-expanded="false" aria-controls="career-panel-9">
+              <span class="career-title-row">
+                <span>
+                  <strong class="career-role">English Teacher</strong>
+                  <span class="career-company">Japan Exchange and Teaching Programme (JET)</span>
+                </span>
+                <span class="career-icon" aria-hidden="true">🌸</span>
+              </span>
+              <p class="career-location">Oita Prefecture, Japan</p>
+              <ul class="career-details" id="career-panel-9" hidden>
+                <li>Taught English language and international culture to varied student groups.</li>
+                <li>Launched extracurricular clubs including English cookery and basketball.</li>
+              </ul>
+            </button>
+          </li>
+        </ol>
+      </section>
+
       <section id="cv" aria-label="CV section">
         <div class="cv-preview">
           <img src="cv.jpg" alt="Preview of Sophie Purewal's CV">
@@ -865,9 +1218,26 @@ SMART = [
       });
     };
 
+    const initCareerTimeline = () => {
+      const careerToggles = document.querySelectorAll('.career-toggle');
+      careerToggles.forEach((toggle) => {
+        const panelId = toggle.getAttribute('aria-controls');
+        if (!panelId) return;
+        const panel = document.getElementById(panelId);
+        if (!panel) return;
+
+        toggle.addEventListener('click', () => {
+          const isExpanded = toggle.getAttribute('aria-expanded') === 'true';
+          toggle.setAttribute('aria-expanded', String(!isExpanded));
+          panel.hidden = isExpanded;
+        });
+      });
+    };
+
     window.addEventListener('scroll', toggleHeaderState, { passive: true });
     toggleHeaderState();
     initEndorsementAccordions();
+    initCareerTimeline();
   </script>
 
 </body>
