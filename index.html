@@ -59,9 +59,6 @@
       box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
     }
 
-    .site-header.scrolled .header-menu-trigger,
-    .site-header.scrolled .header-menu-trigger .menu-state-chevron,
-    .site-header.scrolled .header-menu-link,
     .site-header.scrolled .social-list a,
     .site-header.scrolled .site-title,
     .site-header.scrolled .menu-toggle {
@@ -79,15 +76,20 @@
     }
 
     .menu-toggle {
-      display: none;
+      display: inline-flex;
       appearance: none;
-      border: 1px solid rgba(255, 255, 255, 0.35);
+      border: none;
       background: transparent;
       color: var(--text-light);
       line-height: 1;
       border-radius: 8px;
-      padding: 8px;
+      padding: 8px 0;
       cursor: pointer;
+      align-items: center;
+      justify-content: center;
+      justify-self: start;
+      outline: none;
+      box-shadow: none;
     }
 
     .menu-toggle svg {
@@ -130,131 +132,48 @@
         transition: none;
       }
 
-      .header-menu-trigger .menu-state-chevron {
-        transition: none;
-      }
     }
 
     .mobile-menu {
-      display: none;
-    }
-
-    .header-menu {
-      position: static;
-      justify-self: start;
-    }
-
-    .header-menu-trigger {
-      color: var(--text-light);
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
-      padding: 10px 0;
-      font-size: 18px;
-      font-weight: 400;
-    }
-
-    .menu-root-action {
-      border: none;
-      background: transparent;
-      color: inherit;
-      cursor: pointer;
-      font: inherit;
-      padding: 0;
-      text-decoration: none;
-      text-underline-offset: 4px;
-      text-decoration-thickness: 2px;
-    }
-
-    .menu-root-action:hover,
-    .menu-root-action:focus-visible {
-      text-decoration: underline;
-    }
-
-    .header-menu-trigger .menu-state-chevron {
-      width: 20px;
-      height: 20px;
-      fill: currentColor;
-      transform: rotate(180deg);
-      transition: transform 0.24s ease;
-    }
-
-    .header-menu-trigger .breadcrumb-label {
-      display: none;
-    }
-
-    .header-menu-trigger.has-selection .breadcrumb-label {
-      display: inline-flex;
-      align-items: center;
-    }
-
-    .header-menu-trigger[data-menu-state="open"] .menu-state-chevron {
-      transform: rotate(0deg);
-    }
-
-    .header-menu-trigger[data-menu-state="selected"] .menu-state-chevron {
-      transform: rotate(-90deg);
-    }
-
-    .header-menu-drawer {
       position: absolute;
       left: 0;
+      right: 0;
       top: 100%;
-      margin-top: 1px;
-      min-width: 220px;
+      width: 100%;
       background: var(--brand-dark);
-      border: 1px solid rgba(255, 255, 255, 0.28);
-      border-radius: 10px;
-      box-shadow: none;
-      padding: 14px 0;
+      border: 1px solid rgba(255, 255, 255, 0.25);
+      border-radius: 0;
+      padding: 24px;
       display: none;
       flex-direction: column;
-      gap: 4px;
+      gap: 24px;
     }
 
-    .header-menu-drawer.open {
-      display: flex;
-    }
-
-    .site-header.scrolled .header-menu-drawer {
+    .site-header.scrolled .mobile-menu {
       background: #ffffff;
       border-color: #ececec;
-      box-shadow: none;
     }
 
-    .header-menu-link {
-      color: var(--text-light);
-      text-decoration: none;
-      font-size: 18px;
-      font-weight: 500;
-      line-height: 1.3;
-      padding: 8px 0;
-      border-radius: 6px;
-    }
-
-    .site-header.scrolled .header-menu-link {
+    .site-header.scrolled .mobile-menu.open a {
       color: var(--brand);
     }
 
-    .header-menu-link:hover,
-    .header-menu-link:focus-visible {
-      background: transparent;
-      box-shadow: none;
+    .mobile-menu.open {
+      display: flex;
+    }
+
+    .mobile-menu a {
+      color: inherit;
+      text-decoration: none;
+      font-size: 16px;
+    }
+
+    .mobile-menu a:hover,
+    .mobile-menu a:focus-visible {
+      opacity: 0.8;
       text-decoration: underline;
       text-underline-offset: 4px;
       text-decoration-thickness: 2px;
-    }
-
-    @media (min-width: 901px) {
-      .header-menu-drawer {
-        border: none;
-        border-radius: 0;
-      }
-
-      .header-menu-link:hover,
-      .header-menu-link:focus-visible {
-        box-shadow: none;
-      }
     }
 
     .nav-list,
@@ -623,22 +542,10 @@
       }
 
       .menu-toggle {
-        display: inline-flex;
-        align-items: center;
-        justify-content: center;
-        justify-self: unset;
-        border: none;
-        outline: none;
-        box-shadow: none;
-        padding: 8px 0;
         position: absolute;
         left: 24px;
         top: 50%;
         transform: translateY(-50%);
-      }
-
-      .header-menu {
-        display: none;
       }
 
       .site-title {
@@ -652,48 +559,6 @@
         display: none;
       }
 
-      .mobile-menu {
-        position: absolute;
-        left: 0;
-        right: 0;
-        top: 100%;
-        width: 100%;
-        background: var(--brand-dark);
-        border: 1px solid rgba(255, 255, 255, 0.25);
-        border-radius: 0;
-        padding: 24px;
-        display: none;
-        flex-direction: column;
-        gap: 24px;
-      }
-
-      .site-header.scrolled .mobile-menu {
-        background: #ffffff;
-        border-color: #ececec;
-      }
-
-      .site-header.scrolled .mobile-menu.open a {
-        color: var(--brand);
-      }
-
-      .mobile-menu.open {
-        display: flex;
-      }
-
-      .mobile-menu a {
-        color: inherit;
-        text-decoration: none;
-        font-size: 16px;
-      }
-
-
-      .mobile-menu a:hover,
-      .mobile-menu a:focus-visible {
-        opacity: 0.8;
-        text-decoration: underline;
-        text-underline-offset: 4px;
-        text-decoration-thickness: 2px;
-      }
 
       .hero {
         min-height: calc(100vh - 168px);
@@ -749,23 +614,6 @@
         </svg>
       </button>
 
-      <div class="header-menu">
-        <div class="header-menu-trigger" data-menu-state="inactive">
-          <button class="menu-root-action" type="button" aria-expanded="false" aria-controls="header-menu-drawer">Menu</button>
-          <svg class="menu-state-chevron" xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960" aria-hidden="true" focusable="false">
-            <path d="M480-344 240-584l56-56 184 184 184-184 56 56-240 240Z" />
-          </svg>
-          <span class="breadcrumb-label"></span>
-        </div>
-
-        <div id="header-menu-drawer" class="header-menu-drawer" aria-label="Header menu options">
-          <a class="header-menu-link" href="#top" data-reset-breadcrumb="true">Home</a>
-          <a class="header-menu-link" href="#projects" data-label="Projects">Projects</a>
-          <a class="header-menu-link" href="#cv" data-label="CV">CV</a>
-          <a class="header-menu-link" href="#contact" data-label="Endorsements">Endorsements</a>
-        </div>
-      </div>
-
       <h1 class="site-title">
         <a href="index.html" aria-label="Go to homepage">Sophie Purewal</a>
       </h1>
@@ -788,8 +636,6 @@
         <a href="#projects">Projects</a>
         <a href="#cv">CV</a>
         <a href="#contact">Endorsements</a>
-        <a href="https://www.linkedin.com/in/sophiepurewal/">LinkedIn</a>
-        <a href="mailto:sophiepurewaldesign@gmail.com">Email</a>
       </div>
     </nav>
   </header>
@@ -944,10 +790,6 @@ SMART = [
     const siteHeader = document.querySelector('.site-header');
     const menuToggle = document.querySelector('.menu-toggle');
     const mobileMenu = document.querySelector('#mobile-menu');
-    const headerMenuTrigger = document.querySelector('.header-menu-trigger');
-    const menuRootAction = document.querySelector('.menu-root-action');
-    const headerMenuDrawer = document.querySelector('#header-menu-drawer');
-    const breadcrumbLabel = document.querySelector('.breadcrumb-label');
 
     const toggleHeaderState = () => {
       if (!siteHeader) return;
@@ -960,15 +802,6 @@ SMART = [
       menuToggle.setAttribute('aria-expanded', 'false');
     };
 
-    const closeHeaderMenu = () => {
-      if (!menuRootAction || !headerMenuDrawer || !headerMenuTrigger) return;
-      headerMenuDrawer.classList.remove('open');
-      menuRootAction.setAttribute('aria-expanded', 'false');
-      headerMenuTrigger.setAttribute(
-        'data-menu-state',
-        headerMenuTrigger.classList.contains('has-selection') ? 'selected' : 'inactive'
-      );
-    };
 
     if (menuToggle && mobileMenu) {
       menuToggle.addEventListener('click', () => {
@@ -985,41 +818,6 @@ SMART = [
           closeMobileMenu();
         }
       });
-    }
-
-    if (headerMenuTrigger && menuRootAction && headerMenuDrawer && breadcrumbLabel) {
-      menuRootAction.addEventListener('click', () => {
-        const isOpen = headerMenuDrawer.classList.toggle('open');
-        menuRootAction.setAttribute('aria-expanded', String(isOpen));
-        headerMenuTrigger.setAttribute('data-menu-state', isOpen ? 'open' : (headerMenuTrigger.classList.contains('has-selection') ? 'selected' : 'inactive'));
-      });
-
-      headerMenuDrawer.querySelectorAll('.header-menu-link').forEach((link) => {
-        link.addEventListener('click', () => {
-          const shouldResetBreadcrumb = link.dataset.resetBreadcrumb === 'true';
-          const label = link.dataset.label;
-
-          if (shouldResetBreadcrumb) {
-            breadcrumbLabel.textContent = '';
-            headerMenuTrigger.classList.remove('has-selection');
-            headerMenuTrigger.setAttribute('data-menu-state', 'inactive');
-          } else if (label) {
-            breadcrumbLabel.textContent = label;
-            headerMenuTrigger.classList.add('has-selection');
-            headerMenuTrigger.setAttribute('data-menu-state', 'selected');
-          }
-
-          closeHeaderMenu();
-        });
-      });
-
-      document.addEventListener('click', (event) => {
-        if (!event.target.closest('.header-menu')) {
-          closeHeaderMenu();
-        }
-      });
-
-      window.addEventListener('resize', closeHeaderMenu);
     }
 
     const initEndorsementAccordions = () => {
