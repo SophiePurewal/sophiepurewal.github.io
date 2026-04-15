@@ -90,12 +90,25 @@
       justify-self: start;
       outline: none;
       box-shadow: none;
+      position: relative;
     }
 
     .menu-toggle svg {
       width: 24px;
       height: 24px;
       display: block;
+    }
+
+    .menu-toggle::after {
+      content: "";
+      position: absolute;
+      left: 0;
+      bottom: 0;
+      width: 100%;
+      height: 2px;
+      background: currentColor;
+      opacity: 0;
+      transition: opacity 0.2s ease;
     }
 
     .menu-toggle .menu-icon line {
@@ -117,10 +130,6 @@
 
     .menu-toggle[aria-expanded="true"] .menu-icon .line-top {
       transform: rotate(45deg);
-    }
-
-    .menu-toggle[aria-expanded="true"] .menu-icon .line-middle {
-      opacity: 0;
     }
 
     .menu-toggle[aria-expanded="true"] .menu-icon .line-bottom {
@@ -529,6 +538,14 @@
       border-top: 1px solid #efefef;
     }
 
+
+    @media (min-width: 901px) {
+      .menu-toggle:hover::after,
+      .menu-toggle:focus-visible::after {
+        opacity: 1;
+      }
+    }
+
     @media (max-width: 900px) {
       .content section {
         margin-bottom: 20px;
@@ -613,7 +630,6 @@
       <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="dropdown-menu" aria-label="Toggle navigation menu">
         <svg class="menu-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960" aria-hidden="true" focusable="false">
           <line class="line-top" x1="200" y1="-480" x2="760" y2="-480" />
-          <line class="line-middle" x1="200" y1="-480" x2="760" y2="-480" />
           <line class="line-bottom" x1="200" y1="-480" x2="760" y2="-480" />
         </svg>
       </button>
