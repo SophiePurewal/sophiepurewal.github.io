@@ -881,8 +881,9 @@
     @media (min-width: 901px) {
       .dropdown-menu {
         right: auto;
-        left: 40px;
+        left: 0;
         width: 400px;
+        padding: 24px 40px;
       }
 
       .menu-toggle:hover::after {
@@ -1381,6 +1382,7 @@ SMART = [
 
       searchTargets.forEach((target) => {
         if (!target.textContent.trim()) return;
+        searchRegex.lastIndex = 0;
         if (!searchRegex.test(target.textContent)) return;
         searchRegex.lastIndex = 0;
         target.innerHTML = target.innerHTML.replace(searchRegex, '<mark class="search-highlight">$1</mark>');
