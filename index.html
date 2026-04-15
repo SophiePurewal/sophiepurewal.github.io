@@ -48,7 +48,8 @@
 
     .site-header.scrolled .social-list a,
     .site-header.scrolled .site-title,
-    .site-header.scrolled .menu-toggle {
+    .site-header.scrolled .menu-toggle,
+    .site-header.scrolled .theme-toggle {
       color: var(--brand);
     }
 
@@ -285,6 +286,40 @@
       text-decoration: none;
     }
 
+    .header-actions {
+      justify-self: end;
+      display: flex;
+      align-items: center;
+      gap: 16px;
+    }
+
+    .theme-toggle {
+      appearance: none;
+      border: none;
+      background: transparent;
+      color: var(--text-light);
+      width: 30px;
+      height: 30px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      border-radius: 8px;
+      padding: 0;
+      transition: opacity 0.2s ease;
+    }
+
+    .theme-toggle svg {
+      width: 24px;
+      height: 24px;
+      fill: currentColor;
+      display: block;
+    }
+
+    .theme-toggle:hover {
+      opacity: 0.82;
+    }
+
     .hero {
       background: var(--brand);
       color: var(--text-light);
@@ -419,13 +454,6 @@
 
     .career-section h2 {
       margin-bottom: 38px;
-    }
-
-    .career-timeline-heading {
-      margin: 0 0 24px;
-      font-size: 16px;
-      color: #5f5f5f;
-      max-width: 680px;
     }
 
     .career-timeline {
@@ -634,6 +662,75 @@
       border-top: 1px solid #efefef;
     }
 
+    body.dark-mode {
+      color: #ededed;
+      background: #101010;
+    }
+
+    body.dark-mode .site-header,
+    body.dark-mode .site-header.scrolled {
+      background: #161616;
+      border-bottom-color: #303030;
+      box-shadow: none;
+    }
+
+    body.dark-mode .site-header .site-title,
+    body.dark-mode .site-header .menu-toggle,
+    body.dark-mode .site-header .theme-toggle,
+    body.dark-mode .site-header .social-list a,
+    body.dark-mode .site-header.scrolled .site-title,
+    body.dark-mode .site-header.scrolled .menu-toggle,
+    body.dark-mode .site-header.scrolled .theme-toggle,
+    body.dark-mode .site-header.scrolled .social-list a {
+      color: #f4f4f4;
+    }
+
+    body.dark-mode .dropdown-menu,
+    body.dark-mode .site-header.scrolled .dropdown-menu {
+      background: #161616;
+      border-color: #303030;
+    }
+
+    body.dark-mode .hero {
+      background: #1e1e1e;
+    }
+
+    body.dark-mode .content h2,
+    body.dark-mode .career-type {
+      color: #ff8f8d;
+    }
+
+    body.dark-mode .career-role,
+    body.dark-mode .career-company,
+    body.dark-mode .career-period,
+    body.dark-mode .pull-quote p,
+    body.dark-mode .pull-quote figcaption,
+    body.dark-mode .endorsement-toggle {
+      color: #dedede;
+    }
+
+    body.dark-mode .career-timeline::before {
+      background: #ff8f8d;
+    }
+
+    body.dark-mode .career-dot {
+      background: #ff8f8d;
+    }
+
+    body.dark-mode .endorsement-section > h2 {
+      background: #1e1e1e;
+      color: #f1f1f1;
+    }
+
+    body.dark-mode .pull-quote + .pull-quote {
+      border-top-color: #4a4a4a;
+    }
+
+    body.dark-mode footer {
+      color: #c3c3c3;
+      border-top-color: #2e2e2e;
+    }
+
 
     @media (min-width: 901px) {
       .menu-toggle:hover::after {
@@ -656,6 +753,13 @@
       .menu-toggle {
         position: absolute;
         left: 24px;
+        top: 50%;
+        transform: translateY(-50%);
+      }
+
+      .header-actions {
+        position: absolute;
+        right: 24px;
         top: 50%;
         transform: translateY(-50%);
       }
@@ -768,24 +872,30 @@
         <a href="index.html" aria-label="Go to homepage">Sophie Purewal</a>
       </h1>
 
-      <ul class="social-list" aria-label="Social links">
-        <li><a href="https://www.behance.net/sophiepurewal" aria-label="Behance" target="_blank" rel="noopener noreferrer">Bē</a></li>
-        <li><a href="https://www.linkedin.com/in/sophiepurewal/" aria-label="LinkedIn" target="_blank" rel="noopener noreferrer">in</a></li>
-        <li><a href="https://www.instagram.com/sophiepurewaldesign/" aria-label="Instagram" target="_blank" rel="noopener noreferrer">◎</a></li>
-        <li>
-          <a href="mailto:sophiepurewaldesign@gmail.com" aria-label="Email" class="icon-email">
-            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960" aria-hidden="true" focusable="false">
-              <path d="M160-160q-33 0-56.5-23.5T80-240v-480q0-33 23.5-56.5T160-800h640q33 0 56.5 23.5T880-720v480q0 33-23.5 56.5T800-160H160Zm320-280L160-640v400h640v-400L480-440Zm0-80 320-200H160l320 200ZM160-640v-80 480-400Z" />
-            </svg>
-          </a>
-        </li>
-      </ul>
+      <div class="header-actions">
+        <button class="theme-toggle" type="button" aria-label="Activate dark mode" aria-pressed="false" title="Activate dark mode">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960" aria-hidden="true" focusable="false">
+            <path d="M560-80q-150 0-255-105T200-440q0-111 61-201t159-131q13-5 24.5 5t8.5 24q-3 20-4 38.5t-1 37.5q0 121 85.5 206.5T740-360q23 0 45.5-3t43.5-9q14-4 25.5 6.5T861-340q-33 117-130.5 188.5T560-80Zm0-80q88 0 162-47t113-127q-24 7-47 10.5T740-320q-154 0-267-113T360-700q0-14 1-28t3-28q-75 38-119.5 108.5T200-440q0 117 81.5 198.5T560-160Zm-20-300Z"/>
+          </svg>
+        </button>
+        <ul class="social-list" aria-label="Social links">
+          <li><a href="https://www.behance.net/sophiepurewal" aria-label="Behance" target="_blank" rel="noopener noreferrer">Bē</a></li>
+          <li><a href="https://www.linkedin.com/in/sophiepurewal/" aria-label="LinkedIn" target="_blank" rel="noopener noreferrer">in</a></li>
+          <li><a href="https://www.instagram.com/sophiepurewaldesign/" aria-label="Instagram" target="_blank" rel="noopener noreferrer">◎</a></li>
+          <li>
+            <a href="mailto:sophiepurewaldesign@gmail.com" aria-label="Email" class="icon-email">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960" aria-hidden="true" focusable="false">
+                <path d="M160-160q-33 0-56.5-23.5T80-240v-480q0-33 23.5-56.5T160-800h640q33 0 56.5 23.5T880-720v480q0 33-23.5 56.5T800-160H160Zm320-280L160-640v400h640v-400L480-440Zm0-80 320-200H160l320 200ZM160-640v-80 480-400Z" />
+              </svg>
+            </a>
+          </li>
+        </ul>
+      </div>
 
       <div id="dropdown-menu" class="dropdown-menu" aria-label="Navigation links">
         <a href="#top">Home</a>
         <a href="#projects">Projects</a>
         <a href="#career">Career</a>
-        <a href="#cv">CV</a>
         <a href="#contact">Endorsements</a>
       </div>
     </nav>
@@ -808,7 +918,7 @@ SMART = [
 </p>
         </div>
       </div>
-      <a class="scroll-indicator" href="#cv" aria-label="Scroll to next section">
+      <a class="scroll-indicator" href="#career" aria-label="Scroll to next section">
         <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" aria-hidden="true" focusable="false"><path d="M480-344 240-584l56-56 184 184 184-184 56 56-240 240Z"/></svg>
       </a>
     </section>
@@ -816,7 +926,6 @@ SMART = [
     <div class="content">
       <section id="career" class="career-section" aria-label="Career timeline section">
         <h2>My Career Journey</h2>
-        <p class="career-timeline-heading">A split timeline with education highlights on the left and work experience on the right.</p>
         <ol class="career-timeline">
           <li class="career-item" data-side="left">
             <span class="career-dot" aria-hidden="true"></span>
@@ -909,12 +1018,6 @@ SMART = [
             </article>
           </li>
         </ol>
-      </section>
-
-      <section id="cv" aria-label="CV section">
-        <div class="cv-preview">
-          <img src="cv.jpg" alt="Preview of Sophie Purewal's CV">
-        </div>
       </section>
 
       <section id="contact" class="endorsement-section" aria-label="Endorsements section">
@@ -1040,6 +1143,8 @@ SMART = [
     const siteHeader = document.querySelector('.site-header');
     const menuToggle = document.querySelector('.menu-toggle');
     const dropdownMenu = document.querySelector('#dropdown-menu');
+    const themeToggle = document.querySelector('.theme-toggle');
+    const darkModeStorageKey = 'sophie-theme';
 
     const toggleHeaderState = () => {
       if (!siteHeader) return;
@@ -1050,6 +1155,32 @@ SMART = [
       if (!dropdownMenu || !menuToggle) return;
       dropdownMenu.classList.remove('open');
       menuToggle.setAttribute('aria-expanded', 'false');
+    };
+
+    const syncThemeToggleLabel = (isDarkMode) => {
+      if (!themeToggle) return;
+      themeToggle.setAttribute('aria-pressed', String(isDarkMode));
+      themeToggle.setAttribute('aria-label', isDarkMode ? 'Deactivate dark mode' : 'Activate dark mode');
+      themeToggle.title = isDarkMode ? 'Deactivate dark mode' : 'Activate dark mode';
+    };
+
+    const applyTheme = (mode) => {
+      const isDarkMode = mode === 'dark';
+      document.body.classList.toggle('dark-mode', isDarkMode);
+      syncThemeToggleLabel(isDarkMode);
+    };
+
+    const initThemeToggle = () => {
+      if (!themeToggle) return;
+      const storedMode = localStorage.getItem(darkModeStorageKey);
+      applyTheme(storedMode === 'dark' ? 'dark' : 'light');
+
+      themeToggle.addEventListener('click', () => {
+        const willBeDarkMode = !document.body.classList.contains('dark-mode');
+        const nextMode = willBeDarkMode ? 'dark' : 'light';
+        applyTheme(nextMode);
+        localStorage.setItem(darkModeStorageKey, nextMode);
+      });
     };
 
 
@@ -1108,6 +1239,7 @@ SMART = [
 
     window.addEventListener('scroll', toggleHeaderState, { passive: true });
     toggleHeaderState();
+    initThemeToggle();
     initEndorsementAccordions();
   </script>
 
