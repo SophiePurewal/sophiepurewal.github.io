@@ -134,7 +134,7 @@
 
     }
 
-    .mobile-menu {
+    .dropdown-menu {
       position: absolute;
       left: 0;
       right: 0;
@@ -149,27 +149,27 @@
       gap: 24px;
     }
 
-    .site-header.scrolled .mobile-menu {
+    .site-header.scrolled .dropdown-menu {
       background: #ffffff;
       border-color: #ececec;
     }
 
-    .site-header.scrolled .mobile-menu.open a {
+    .site-header.scrolled .dropdown-menu.open a {
       color: var(--brand);
     }
 
-    .mobile-menu.open {
+    .dropdown-menu.open {
       display: flex;
     }
 
-    .mobile-menu a {
+    .dropdown-menu a {
       color: inherit;
       text-decoration: none;
       font-size: 16px;
     }
 
-    .mobile-menu a:hover,
-    .mobile-menu a:focus-visible {
+    .dropdown-menu a:hover,
+    .dropdown-menu a:focus-visible {
       opacity: 0.8;
       text-decoration: underline;
       text-underline-offset: 4px;
@@ -606,7 +606,7 @@
 
   <header class="site-header">
     <nav class="top-nav" aria-label="Main navigation">
-      <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="mobile-menu" aria-label="Toggle navigation menu">
+      <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="dropdown-menu" aria-label="Toggle navigation menu">
         <svg class="menu-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960" aria-hidden="true" focusable="false">
           <line class="line-top" x1="200" y1="-480" x2="760" y2="-480" />
           <line class="line-middle" x1="200" y1="-480" x2="760" y2="-480" />
@@ -631,7 +631,7 @@
         </li>
       </ul>
 
-      <div id="mobile-menu" class="mobile-menu" aria-label="Mobile navigation links">
+      <div id="dropdown-menu" class="dropdown-menu" aria-label="Navigation links">
         <a href="#top">Home</a>
         <a href="#projects">Projects</a>
         <a href="#cv">CV</a>
@@ -789,33 +789,33 @@ SMART = [
   <script>
     const siteHeader = document.querySelector('.site-header');
     const menuToggle = document.querySelector('.menu-toggle');
-    const mobileMenu = document.querySelector('#mobile-menu');
+    const dropdownMenu = document.querySelector('#dropdown-menu');
 
     const toggleHeaderState = () => {
       if (!siteHeader) return;
       siteHeader.classList.toggle('scrolled', window.scrollY > 24);
     };
 
-    const closeMobileMenu = () => {
-      if (!mobileMenu || !menuToggle) return;
-      mobileMenu.classList.remove('open');
+    const closeDropdownMenu = () => {
+      if (!dropdownMenu || !menuToggle) return;
+      dropdownMenu.classList.remove('open');
       menuToggle.setAttribute('aria-expanded', 'false');
     };
 
 
-    if (menuToggle && mobileMenu) {
+    if (menuToggle && dropdownMenu) {
       menuToggle.addEventListener('click', () => {
-        const isOpen = mobileMenu.classList.toggle('open');
+        const isOpen = dropdownMenu.classList.toggle('open');
         menuToggle.setAttribute('aria-expanded', String(isOpen));
       });
 
-      mobileMenu.querySelectorAll('a').forEach((link) => {
-        link.addEventListener('click', closeMobileMenu);
+      dropdownMenu.querySelectorAll('a').forEach((link) => {
+        link.addEventListener('click', closeDropdownMenu);
       });
 
       window.addEventListener('resize', () => {
         if (window.innerWidth > 900) {
-          closeMobileMenu();
+          closeDropdownMenu();
         }
       });
     }
