@@ -141,8 +141,6 @@
     }
 
     .header-menu-trigger {
-      border: none;
-      background: transparent;
       color: var(--text-light);
       display: inline-flex;
       align-items: center;
@@ -150,17 +148,22 @@
       padding: 10px 0;
       font-size: 18px;
       font-weight: 400;
-      cursor: pointer;
     }
 
-    .header-menu-trigger .menu-root-label {
+    .menu-root-action {
+      border: none;
+      background: transparent;
+      color: inherit;
+      cursor: pointer;
+      font: inherit;
+      padding: 0;
       text-decoration: none;
       text-underline-offset: 4px;
       text-decoration-thickness: 2px;
     }
 
-    .header-menu-trigger:hover .menu-root-label,
-    .header-menu-trigger:focus-visible .menu-root-label {
+    .menu-root-action:hover,
+    .menu-root-action:focus-visible {
       text-decoration: underline;
     }
 
@@ -232,6 +235,18 @@
     .site-header.scrolled .header-menu-link:hover,
     .site-header.scrolled .header-menu-link:focus-visible {
       background: #fff3f2;
+    }
+
+    @media (min-width: 901px) {
+      .header-menu-drawer {
+        border: none;
+        border-radius: 0;
+      }
+
+      .header-menu-link:hover,
+      .header-menu-link:focus-visible {
+        box-shadow: none;
+      }
     }
 
     .nav-list,
@@ -593,21 +608,25 @@
       }
 
       .top-nav {
-        grid-template-columns: 1fr auto;
+        grid-template-columns: 1fr;
         gap: 12px;
         padding: 16px 24px;
         min-height: auto;
       }
 
       .menu-toggle {
-        display: none;
+        display: inline-flex;
         align-items: center;
         justify-content: center;
-        justify-self: start;
+        justify-self: unset;
         border: none;
         outline: none;
         box-shadow: none;
         padding: 8px 0;
+        position: absolute;
+        left: 24px;
+        top: 50%;
+        transform: translateY(-50%);
       }
 
       .header-menu {
@@ -616,8 +635,8 @@
 
       .site-title {
         order: 1;
-        justify-self: start;
-        text-align: left;
+        justify-self: center;
+        text-align: center;
       }
 
       .nav-list,
@@ -723,13 +742,13 @@
       </button>
 
       <div class="header-menu">
-        <button class="header-menu-trigger" type="button" aria-expanded="false" aria-controls="header-menu-drawer">
-          <span class="menu-root-label">Menu</span>
+        <div class="header-menu-trigger">
+          <button class="menu-root-action" type="button" aria-expanded="false" aria-controls="header-menu-drawer">Menu</button>
           <svg class="breadcrumb-chevron" xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960" aria-hidden="true" focusable="false">
             <path d="M480-344 240-584l56-56 184 184 184-184 56 56-240 240Z" />
           </svg>
           <span class="breadcrumb-label"></span>
-        </button>
+        </div>
 
         <div id="header-menu-drawer" class="header-menu-drawer" aria-label="Header menu options">
           <a class="header-menu-link" href="#projects" data-label="Projects">Projects</a>
@@ -916,6 +935,7 @@ SMART = [
     const menuToggle = document.querySelector('.menu-toggle');
     const mobileMenu = document.querySelector('#mobile-menu');
     const headerMenuTrigger = document.querySelector('.header-menu-trigger');
+    const menuRootAction = document.querySelector('.menu-root-action');
     const headerMenuDrawer = document.querySelector('#header-menu-drawer');
     const breadcrumbLabel = document.querySelector('.breadcrumb-label');
 
@@ -931,15 +951,9 @@ SMART = [
     };
 
     const closeHeaderMenu = () => {
-      if (!headerMenuTrigger || !headerMenuDrawer) return;
+      if (!menuRootAction || !headerMenuDrawer) return;
       headerMenuDrawer.classList.remove('open');
-      headerMenuTrigger.setAttribute('aria-expanded', 'false');
-    };
-
-    const clearHeaderSelection = () => {
-      if (!headerMenuTrigger || !breadcrumbLabel) return;
-      headerMenuTrigger.classList.remove('has-selection');
-      breadcrumbLabel.textContent = '';
+      menuRootAction.setAttribute('aria-expanded', 'false');
     };
 
     if (menuToggle && mobileMenu) {
@@ -959,16 +973,10 @@ SMART = [
       });
     }
 
-    if (headerMenuTrigger && headerMenuDrawer && breadcrumbLabel) {
-      headerMenuTrigger.addEventListener('click', () => {
-        if (headerMenuTrigger.classList.contains('has-selection')) {
-          clearHeaderSelection();
-          closeHeaderMenu();
-          return;
-        }
-
+    if (headerMenuTrigger && menuRootAction && headerMenuDrawer && breadcrumbLabel) {
+      menuRootAction.addEventListener('click', () => {
         const isOpen = headerMenuDrawer.classList.toggle('open');
-        headerMenuTrigger.setAttribute('aria-expanded', String(isOpen));
+        menuRootAction.setAttribute('aria-expanded', String(isOpen));
       });
 
       headerMenuDrawer.querySelectorAll('.header-menu-link').forEach((link) => {
