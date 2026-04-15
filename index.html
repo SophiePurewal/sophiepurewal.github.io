@@ -60,7 +60,7 @@
     }
 
     .site-header.scrolled .header-menu-trigger,
-    .site-header.scrolled .header-menu-trigger .chevron-icon,
+    .site-header.scrolled .header-menu-trigger .breadcrumb-chevron,
     .site-header.scrolled .header-menu-link,
     .site-header.scrolled .social-list a,
     .site-header.scrolled .site-title,
@@ -148,28 +148,38 @@
       align-items: center;
       gap: 8px;
       padding: 10px 0;
-      font-size: 16px;
-      font-weight: 600;
+      font-size: 18px;
+      font-weight: 400;
       cursor: pointer;
     }
 
-    .header-menu-trigger .chevron-icon {
-      width: 20px;
-      height: 20px;
-      transition: transform 0.2s ease;
-      fill: currentColor;
-    }
-
-    .header-menu-trigger[aria-expanded="true"] .chevron-icon {
-      transform: rotate(180deg);
-    }
-
-    .header-menu-trigger:hover,
-    .header-menu-trigger:focus-visible {
-      opacity: 0.82;
-      text-decoration: underline;
+    .header-menu-trigger .menu-root-label {
+      text-decoration: none;
       text-underline-offset: 4px;
       text-decoration-thickness: 2px;
+    }
+
+    .header-menu-trigger:hover .menu-root-label,
+    .header-menu-trigger:focus-visible .menu-root-label {
+      text-decoration: underline;
+    }
+
+    .header-menu-trigger .breadcrumb-chevron {
+      width: 20px;
+      height: 20px;
+      fill: currentColor;
+      transform: rotate(-90deg);
+    }
+
+    .header-menu-trigger .breadcrumb-chevron,
+    .header-menu-trigger .breadcrumb-label {
+      display: none;
+    }
+
+    .header-menu-trigger.has-selection .breadcrumb-chevron,
+    .header-menu-trigger.has-selection .breadcrumb-label {
+      display: inline-flex;
+      align-items: center;
     }
 
     .header-menu-drawer {
@@ -720,10 +730,11 @@
 
       <div class="header-menu">
         <button class="header-menu-trigger" type="button" aria-expanded="false" aria-controls="header-menu-drawer">
-          <span class="header-menu-label">Menu</span>
-          <svg class="chevron-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960" aria-hidden="true" focusable="false">
+          <span class="menu-root-label">Menu</span>
+          <svg class="breadcrumb-chevron" xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960" aria-hidden="true" focusable="false">
             <path d="M480-344 240-584l56-56 184 184 184-184 56 56-240 240Z" />
           </svg>
+          <span class="breadcrumb-label"></span>
         </button>
 
         <div id="header-menu-drawer" class="header-menu-drawer" aria-label="Header menu options">
@@ -912,7 +923,7 @@ SMART = [
     const mobileMenu = document.querySelector('#mobile-menu');
     const headerMenuTrigger = document.querySelector('.header-menu-trigger');
     const headerMenuDrawer = document.querySelector('#header-menu-drawer');
-    const headerMenuLabel = document.querySelector('.header-menu-label');
+    const breadcrumbLabel = document.querySelector('.breadcrumb-label');
 
     const toggleHeaderState = () => {
       if (!siteHeader) return;
@@ -929,6 +940,12 @@ SMART = [
       if (!headerMenuTrigger || !headerMenuDrawer) return;
       headerMenuDrawer.classList.remove('open');
       headerMenuTrigger.setAttribute('aria-expanded', 'false');
+    };
+
+    const clearHeaderSelection = () => {
+      if (!headerMenuTrigger || !breadcrumbLabel) return;
+      headerMenuTrigger.classList.remove('has-selection');
+      breadcrumbLabel.textContent = '';
     };
 
     if (menuToggle && mobileMenu) {
@@ -948,8 +965,14 @@ SMART = [
       });
     }
 
-    if (headerMenuTrigger && headerMenuDrawer && headerMenuLabel) {
+    if (headerMenuTrigger && headerMenuDrawer && breadcrumbLabel) {
       headerMenuTrigger.addEventListener('click', () => {
+        if (headerMenuTrigger.classList.contains('has-selection')) {
+          clearHeaderSelection();
+          closeHeaderMenu();
+          return;
+        }
+
         const isOpen = headerMenuDrawer.classList.toggle('open');
         headerMenuTrigger.setAttribute('aria-expanded', String(isOpen));
       });
@@ -958,7 +981,8 @@ SMART = [
         link.addEventListener('click', () => {
           const label = link.dataset.label;
           if (label) {
-            headerMenuLabel.textContent = `Menu > ${label}`;
+            breadcrumbLabel.textContent = label;
+            headerMenuTrigger.classList.add('has-selection');
           }
           closeHeaderMenu();
         });
