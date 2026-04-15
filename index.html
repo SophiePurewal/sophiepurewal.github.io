@@ -164,12 +164,19 @@
       font-size: 16px;
     }
 
-    .dropdown-menu a:hover,
-    .dropdown-menu a:focus-visible {
+    .dropdown-menu a:hover {
       opacity: 0.8;
       text-decoration: underline;
       text-underline-offset: 4px;
       text-decoration-thickness: 2px;
+    }
+
+    :where(a, button):focus-visible {
+      outline: 2px solid currentColor;
+      outline-offset: 3px;
+      border-radius: 6px;
+      opacity: 1;
+      text-decoration: none;
     }
 
     .nav-list,
@@ -237,17 +244,14 @@
     }
 
     .nav-list a:hover,
-    .social-list a:hover,
-    .nav-list a:focus-visible,
-    .social-list a:focus-visible {
+    .social-list a:hover {
       opacity: 0.82;
       text-decoration: underline;
       text-underline-offset: 4px;
       text-decoration-thickness: 2px;
     }
 
-    .social-list a:hover,
-    .social-list a:focus-visible {
+    .social-list a:hover {
       text-decoration-color: currentColor;
     }
 
@@ -263,8 +267,7 @@
       transition: opacity 0.2s ease;
     }
 
-    .social-list a.icon-email:hover::after,
-    .social-list a.icon-email:focus-visible::after {
+    .social-list a.icon-email:hover::after {
       opacity: 1;
     }
 
@@ -527,8 +530,7 @@
 
 
     @media (min-width: 901px) {
-      .menu-toggle:hover::after,
-      .menu-toggle:focus-visible::after {
+      .menu-toggle:hover::after {
         opacity: 1;
       }
     }
