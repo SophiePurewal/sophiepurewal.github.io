@@ -226,15 +226,11 @@
 
     .header-menu-link:hover,
     .header-menu-link:focus-visible {
-      background: rgba(255, 255, 255, 0.14);
+      background: transparent;
+      box-shadow: none;
       text-decoration: underline;
       text-underline-offset: 4px;
       text-decoration-thickness: 2px;
-    }
-
-    .site-header.scrolled .header-menu-link:hover,
-    .site-header.scrolled .header-menu-link:focus-visible {
-      background: #fff3f2;
     }
 
     @media (min-width: 901px) {
@@ -728,7 +724,7 @@
   </style>
 </head>
 
-<body>
+<body id="top">
   <a href="#main-content" class="skip-link">Skip to content</a>
 
   <header class="site-header">
@@ -751,6 +747,7 @@
         </div>
 
         <div id="header-menu-drawer" class="header-menu-drawer" aria-label="Header menu options">
+          <a class="header-menu-link" href="#top" data-reset-breadcrumb="true">Home</a>
           <a class="header-menu-link" href="#projects" data-label="Projects">Projects</a>
           <a class="header-menu-link" href="#cv" data-label="CV">CV</a>
           <a class="header-menu-link" href="#contact" data-label="Endorsements">Endorsements</a>
@@ -775,6 +772,7 @@
       </ul>
 
       <div id="mobile-menu" class="mobile-menu" aria-label="Mobile navigation links">
+        <a href="#top">Home</a>
         <a href="#projects">Projects</a>
         <a href="#cv">CV</a>
         <a href="#contact">Endorsements</a>
@@ -981,11 +979,17 @@ SMART = [
 
       headerMenuDrawer.querySelectorAll('.header-menu-link').forEach((link) => {
         link.addEventListener('click', () => {
+          const shouldResetBreadcrumb = link.dataset.resetBreadcrumb === 'true';
           const label = link.dataset.label;
-          if (label) {
+
+          if (shouldResetBreadcrumb) {
+            breadcrumbLabel.textContent = '';
+            headerMenuTrigger.classList.remove('has-selection');
+          } else if (label) {
             breadcrumbLabel.textContent = label;
             headerMenuTrigger.classList.add('has-selection');
           }
+
           closeHeaderMenu();
         });
       });
