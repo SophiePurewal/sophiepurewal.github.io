@@ -593,14 +593,14 @@
       }
 
       .top-nav {
-        grid-template-columns: auto 1fr;
+        grid-template-columns: 1fr auto;
         gap: 12px;
         padding: 16px 24px;
         min-height: auto;
       }
 
       .menu-toggle {
-        display: inline-flex;
+        display: none;
         align-items: center;
         justify-content: center;
         justify-self: start;
@@ -615,8 +615,9 @@
       }
 
       .site-title {
-        justify-self: center;
-        text-align: center;
+        order: 1;
+        justify-self: start;
+        text-align: left;
       }
 
       .nav-list,
