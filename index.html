@@ -38,6 +38,7 @@
       z-index: 100;
       background: var(--brand-soft);
       border-bottom: 1px solid rgba(233, 78, 78, 0.2);
+      transition: background-color 0.35s ease, border-bottom-color 0.35s ease, box-shadow 0.35s ease;
     }
 
 
@@ -52,6 +53,13 @@
     .site-header.scrolled .menu-toggle,
     .site-header.scrolled .theme-toggle {
       color: var(--text-light);
+    }
+
+    .site-title,
+    .menu-toggle,
+    .theme-toggle,
+    .social-list a {
+      transition: color 0.35s ease;
     }
 
     .top-nav {
