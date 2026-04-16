@@ -548,18 +548,18 @@
     }
 
     .projects-grid {
-      width: min(1280px, 100%);
-      margin: 0 auto;
+      width: 100%;
+      margin: 0;
       display: grid;
-      grid-template-columns: repeat(4, minmax(0, 1fr));
+      grid-template-columns: repeat(2, minmax(0, 1fr));
       gap: 20px;
     }
 
     .project-box {
       background: #ffffff;
       color: var(--brand-dark);
-      border: 1px solid rgba(233, 78, 78, 0.24);
-      border-radius: 12px;
+      border: none;
+      border-radius: 0;
       aspect-ratio: 1 / 1;
       display: flex;
       align-items: center;
@@ -570,9 +570,6 @@
       text-transform: uppercase;
     }
 
-    .project-box--wide {
-      grid-column: span 2;
-    }
 
     .content {
       max-width: 980px;
@@ -981,7 +978,7 @@
     body.dark-mode .project-box {
       background: #111827;
       color: #f8fafc;
-      border-color: #334155;
+      border: none;
     }
 
     body.dark-mode footer {
@@ -1012,13 +1009,6 @@
         padding: 48px 24px;
       }
 
-      .projects-grid {
-        grid-template-columns: 1fr;
-      }
-
-      .project-box--wide {
-        grid-column: auto;
-      }
 
       .top-nav {
         grid-template-columns: 1fr;
@@ -1234,8 +1224,10 @@ SMART = [
         <div class="project-box">Coming Soon</div>
         <div class="project-box">Coming Soon</div>
         <div class="project-box">Coming Soon</div>
-        <div class="project-box project-box--wide">Coming Soon</div>
-        <div class="project-box project-box--wide">Coming Soon</div>
+        <div class="project-box">Coming Soon</div>
+        <div class="project-box">Coming Soon</div>
+        <div class="project-box">Coming Soon</div>
+        <div class="project-box">Coming Soon</div>
       </div>
     </section>
 
