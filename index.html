@@ -152,10 +152,23 @@
       border: 1px solid rgba(89, 40, 237, 0.25);
       border-radius: 0;
       padding: 24px 40px;
-      display: none;
+      display: flex;
       flex-direction: column;
       gap: 24px;
       color: var(--brand);
+      overflow: hidden;
+      max-height: 0;
+      opacity: 0;
+      visibility: hidden;
+      pointer-events: none;
+      transform-origin: top center;
+      transform: translateY(-10px) scaleY(0.92);
+      transition:
+        max-height 0.42s cubic-bezier(0.22, 1, 0.36, 1),
+        opacity 0.28s ease,
+        transform 0.42s cubic-bezier(0.22, 1, 0.36, 1),
+        visibility 0s linear 0.42s;
+      will-change: max-height, opacity, transform;
     }
 
     .site-header.scrolled .dropdown-menu {
@@ -168,7 +181,16 @@
     }
 
     .dropdown-menu.open {
-      display: flex;
+      max-height: 560px;
+      opacity: 1;
+      visibility: visible;
+      pointer-events: auto;
+      transform: translateY(0) scaleY(1);
+      transition:
+        max-height 0.42s cubic-bezier(0.22, 1, 0.36, 1),
+        opacity 0.28s ease,
+        transform 0.42s cubic-bezier(0.22, 1, 0.36, 1),
+        visibility 0s linear 0s;
     }
 
     .dropdown-menu a {
