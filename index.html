@@ -13,8 +13,8 @@
     * { box-sizing: border-box; }
 
     :root {
-      --brand: #F96562;
-      --brand-dark: #f15654;
+      --brand: #cc3f3d;
+      --brand-dark: #a83231;
       --text-light: #ffffff;
       --text-dark: #111111;
       --panel: #fff7f6;
@@ -125,6 +125,17 @@
     }
 
     @media (prefers-reduced-motion: reduce) {
+      html {
+        scroll-behavior: auto;
+      }
+
+      *,
+      *::before,
+      *::after {
+        animation: none !important;
+        transition: none !important;
+      }
+
       .menu-toggle .menu-icon line {
         transition: none;
       }
@@ -391,6 +402,23 @@
       clip: rect(0 0 0 0);
       border: 0;
       white-space: nowrap;
+    }
+
+    .skip-link {
+      position: absolute;
+      top: -48px;
+      left: 16px;
+      background: #111111;
+      color: #ffffff;
+      padding: 10px 14px;
+      border-radius: 8px;
+      text-decoration: none;
+      z-index: 200;
+    }
+
+    .skip-link:focus-visible {
+      top: 12px;
+      outline-color: #ffffff;
     }
 
     .hero {
@@ -957,6 +985,7 @@
 </head>
 
 <body id="top">
+  <a class="skip-link" href="#main-content">Skip to main content</a>
   <header class="site-header">
     <nav class="top-nav" aria-label="Main navigation">
       <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="dropdown-menu" aria-label="Toggle navigation menu">
@@ -1310,6 +1339,13 @@ SMART = [
           closeDropdownMenu();
         }
       });
+
+      document.addEventListener('keydown', (event) => {
+        if (event.key === 'Escape' && dropdownMenu.classList.contains('open')) {
+          closeDropdownMenu();
+          menuToggle.focus();
+        }
+      });
     }
 
     const initEndorsementAccordions = () => {
@@ -1333,12 +1369,15 @@ SMART = [
           panel.hidden = true;
         }
 
+        const headingText = heading.textContent.trim();
+
         toggle.innerHTML = `
           <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" aria-hidden="true" focusable="false"><path d="M480-344 240-584l56-56 184 184 184-184 56 56-240 240Z"/></svg>
-          <span>${heading.textContent.trim()}</span>
+          <span>${headingText}</span>
         `;
 
-        heading.replaceWith(toggle);
+        heading.textContent = '';
+        heading.appendChild(toggle);
 
         toggle.addEventListener('click', () => {
           const isExpanded = toggle.getAttribute('aria-expanded') === 'true';
