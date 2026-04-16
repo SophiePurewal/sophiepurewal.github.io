@@ -1460,6 +1460,8 @@ SMART = [
     const dropdownMenu = document.querySelector('#dropdown-menu');
     const themeToggle = document.querySelector('.theme-toggle');
     const darkModeStorageKey = 'sophie-theme';
+    const dropdownInactivityDelayMs = 5000;
+    let dropdownInactivityTimer = null;
 
     const toggleHeaderState = () => {
       if (!siteHeader) return;
@@ -1470,6 +1472,20 @@ SMART = [
       if (!dropdownMenu || !menuToggle) return;
       dropdownMenu.classList.remove('open');
       menuToggle.setAttribute('aria-expanded', 'false');
+      if (dropdownInactivityTimer) {
+        clearTimeout(dropdownInactivityTimer);
+        dropdownInactivityTimer = null;
+      }
+    };
+
+    const resetDropdownInactivityTimer = () => {
+      if (!dropdownMenu || !dropdownMenu.classList.contains('open')) return;
+      if (dropdownInactivityTimer) {
+        clearTimeout(dropdownInactivityTimer);
+      }
+      dropdownInactivityTimer = setTimeout(() => {
+        closeDropdownMenu();
+      }, dropdownInactivityDelayMs);
     };
 
     const syncThemeToggleLabel = (isDarkMode) => {
@@ -1503,10 +1519,20 @@ SMART = [
       menuToggle.addEventListener('click', () => {
         const isOpen = dropdownMenu.classList.toggle('open');
         menuToggle.setAttribute('aria-expanded', String(isOpen));
+        if (isOpen) {
+          resetDropdownInactivityTimer();
+        } else if (dropdownInactivityTimer) {
+          clearTimeout(dropdownInactivityTimer);
+          dropdownInactivityTimer = null;
+        }
       });
 
       dropdownMenu.querySelectorAll('a').forEach((link) => {
         link.addEventListener('click', closeDropdownMenu);
+      });
+
+      ['pointermove', 'click', 'keydown', 'focusin', 'touchstart'].forEach((eventName) => {
+        dropdownMenu.addEventListener(eventName, resetDropdownInactivityTimer, { passive: eventName !== 'keydown' });
       });
 
       window.addEventListener('resize', () => {
