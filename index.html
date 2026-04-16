@@ -518,6 +518,39 @@
       outline-color: #fff;
     }
 
+    .projects-section {
+      width: 100%;
+      padding: 72px 24px;
+      background: var(--brand-soft);
+    }
+
+    .projects-grid {
+      width: min(1280px, 100%);
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 20px;
+    }
+
+    .project-box {
+      background: #ffffff;
+      color: var(--brand-dark);
+      border: 1px solid rgba(89, 40, 237, 0.24);
+      border-radius: 12px;
+      aspect-ratio: 1 / 1;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 18px;
+      font-weight: 700;
+      letter-spacing: 0.02em;
+      text-transform: uppercase;
+    }
+
+    .project-box--wide {
+      grid-column: span 2;
+    }
+
     .content {
       max-width: 980px;
       margin: 0 auto;
@@ -917,6 +950,16 @@
       border-top-color: #334155;
     }
 
+    body.dark-mode .projects-section {
+      background: #0f172a;
+    }
+
+    body.dark-mode .project-box {
+      background: #111827;
+      color: #f8fafc;
+      border-color: #334155;
+    }
+
     body.dark-mode footer {
       color: #93c5fd;
       border-top-color: #334155;
@@ -939,6 +982,18 @@
     @media (max-width: 900px) {
       .content section {
         margin-bottom: 20px;
+      }
+
+      .projects-section {
+        padding: 48px 24px;
+      }
+
+      .projects-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .project-box--wide {
+        grid-column: auto;
       }
 
       .top-nav {
@@ -1128,7 +1183,7 @@
   </header>
 
   <main id="main">
-    <section class="hero" id="projects" aria-label="Intro section">
+    <section class="hero" id="intro" aria-label="Intro section">
       <div class="hero-panel">
         <img class="hero-photo" src="sophie-profile.jpeg" alt="Portrait of Sophie Purewal">
         <div class="hero-copy">
@@ -1144,9 +1199,20 @@ SMART = [
 </p>
         </div>
       </div>
-      <a class="scroll-indicator" href="#career" aria-label="Scroll to next section">
+      <a class="scroll-indicator" href="#projects" aria-label="Scroll to next section">
         <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" aria-hidden="true" focusable="false"><path d="M480-344 240-584l56-56 184 184 184-184 56 56-240 240Z"/></svg>
       </a>
+    </section>
+
+    <section id="projects" class="projects-section" aria-label="Projects section">
+      <div class="projects-grid">
+        <div class="project-box">Coming Soon</div>
+        <div class="project-box">Coming Soon</div>
+        <div class="project-box">Coming Soon</div>
+        <div class="project-box">Coming Soon</div>
+        <div class="project-box project-box--wide">Coming Soon</div>
+        <div class="project-box project-box--wide">Coming Soon</div>
+      </div>
     </section>
 
     <div class="content">
