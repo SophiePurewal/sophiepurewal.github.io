@@ -13,12 +13,13 @@
     * { box-sizing: border-box; }
 
     :root {
-      --brand: #cc3f3d;
-      --brand-dark: #a83231;
+      --brand: #340458;
+      --brand-dark: #340458;
+      --brand-soft: #f6f3fa;
       --text-light: #ffffff;
       --text-dark: #111111;
-      --panel: #fff7f6;
-      --line: #f0d4d2;
+      --panel: #f6f3fa;
+      --line: #dfd2eb;
     }
 
     html { scroll-behavior: smooth; }
@@ -35,22 +36,22 @@
       position: sticky;
       top: 0;
       z-index: 100;
-      background: var(--brand-dark);
-      border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+      background: var(--brand-soft);
+      border-bottom: 1px solid rgba(52, 4, 88, 0.2);
     }
 
 
     .site-header.scrolled {
-      background: #ffffff;
-      border-bottom: 1px solid #ececec;
-      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+      background: var(--brand);
+      border-bottom: 1px solid rgba(255, 255, 255, 0.25);
+      box-shadow: 0 2px 10px rgba(52, 4, 88, 0.2);
     }
 
     .site-header.scrolled .social-list a,
     .site-header.scrolled .site-title,
     .site-header.scrolled .menu-toggle,
     .site-header.scrolled .theme-toggle {
-      color: var(--brand);
+      color: var(--text-light);
     }
 
     .top-nav {
@@ -68,7 +69,7 @@
       appearance: none;
       border: none;
       background: transparent;
-      color: var(--text-light);
+      color: var(--brand);
       line-height: 1;
       border-radius: 8px;
       padding: 8px 0;
@@ -147,22 +148,23 @@
       left: 0;
       top: 100%;
       width: 100%;
-      background: var(--brand-dark);
-      border: 1px solid rgba(255, 255, 255, 0.25);
+      background: var(--brand-soft);
+      border: 1px solid rgba(52, 4, 88, 0.25);
       border-radius: 0;
       padding: 24px 40px;
       display: none;
       flex-direction: column;
       gap: 24px;
+      color: var(--brand);
     }
 
     .site-header.scrolled .dropdown-menu {
-      background: #ffffff;
-      border-color: #ececec;
+      background: var(--brand);
+      border-color: rgba(255, 255, 255, 0.25);
     }
 
     .site-header.scrolled .dropdown-menu.open a {
-      color: var(--brand);
+      color: var(--text-light);
     }
 
     .dropdown-menu.open {
@@ -216,12 +218,12 @@
       align-items: center;
       gap: 24px;
       flex-wrap: wrap;
-      border-top: 1px solid rgba(255, 255, 255, 0.25);
+      border-top: 1px solid rgba(52, 4, 88, 0.25);
       padding-top: 16px;
     }
 
     .site-header.scrolled .dropdown-social-links {
-      border-top-color: #ececec;
+      border-top-color: rgba(255, 255, 255, 0.25);
     }
 
     :where(a, button):focus-visible {
@@ -256,7 +258,7 @@
     .nav-list a,
     .social-list a,
     .site-title {
-      color: var(--text-light);
+      color: var(--brand);
       text-decoration: none;
     }
 
@@ -349,7 +351,7 @@
       appearance: none;
       border: none;
       background: transparent;
-      color: var(--text-light);
+      color: var(--brand);
       width: 30px;
       height: 30px;
       display: inline-flex;
