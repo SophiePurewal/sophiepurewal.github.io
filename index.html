@@ -1543,6 +1543,21 @@
           menuToggle.focus();
         }
       });
+
+      document.addEventListener('pointerdown', (event) => {
+        if (!dropdownMenu.classList.contains('open')) return;
+        const clickedInsideDropdown = dropdownMenu.contains(event.target);
+        const clickedMenuToggle = menuToggle.contains(event.target);
+        if (!clickedInsideDropdown && !clickedMenuToggle) {
+          closeDropdownMenu();
+        }
+      });
+
+      window.addEventListener('scroll', () => {
+        if (dropdownMenu.classList.contains('open')) {
+          closeDropdownMenu();
+        }
+      }, { passive: true });
     }
 
     const initEndorsementAccordions = () => {
