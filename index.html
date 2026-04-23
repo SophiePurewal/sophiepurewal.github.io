@@ -466,89 +466,71 @@
     }
 
     .hero {
-      background: #ffffff;
-      color: #000000;
-      min-height: 600px;
+      background: #1e3145;
+      color: #f2f2f2;
+      min-height: 78vh;
       display: flex;
       align-items: center;
       justify-content: center;
-      text-align: center;
-      padding: 24px 24px 96px;
-      position: relative;
+      padding: 72px 40px;
     }
 
     .hero-panel {
-      width: min(980px, 100%);
+      width: min(1080px, 100%);
       margin: 0 auto;
       display: grid;
-      grid-template-columns: 200px minmax(0, 1fr);
-      gap: 42px;
-      align-items: flex-start;
-      text-align: left;
-    }
-
-    .hero-photo {
-      width: 200px;
-      height: 200px;
-      object-fit: cover;
-      border-radius: 50%;
-      border: 5px solid rgba(31, 31, 31, 0.12);
-      justify-self: start;
+      grid-template-columns: minmax(0, 1fr) auto;
+      gap: 56px;
+      align-items: center;
     }
 
     .hero-copy {
-      justify-self: start;
-      width: 552px;
-      max-width: 100%;
+      max-width: 640px;
     }
 
     .hero h2 {
       margin: 0;
-      font-size: 32px;
-      line-height: 1.2;
-      font-weight: 800;
-      width: 100%;
-      margin-left: 0;
-    }
-
-    .hero-line-break {
-      display: block;
-      padding-top: 36px;
+      font-family: 'Playfair Display', Georgia, 'Times New Roman', serif;
+      font-size: clamp(36px, 4.3vw, 54px);
+      line-height: 1.14;
+      font-weight: 700;
+      color: #f2f2f2;
     }
 
     .hero p {
-      margin: 26px 0 0;
-      font-size: 24px;
+      margin: 28px 0 0;
+      font-size: clamp(22px, 2.1vw, 33px);
+      line-height: 1.35;
       font-weight: 400;
+      color: #f2f2f2;
+      opacity: 0.94;
     }
 
-    .hero .smart-values {
-      font-family: 'Playfair Display', Georgia, 'Times New Roman', serif;
-      font-size: 32px;
-      line-height: 1.2;
-      font-weight: 700;
+    .hero-cta {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      margin-top: 54px;
+      padding: 14px 28px;
+      border-radius: 999px;
+      background: #f2f2f2;
+      color: #1e3145;
+      text-decoration: none;
+      font-size: 34px;
+      line-height: 1;
+      font-weight: 500;
     }
 
-    .scroll-indicator {
-      position: absolute;
-      bottom: 36px;
-      left: 50%;
-      width: 36px;
-      height: 36px;
-      transform: translateX(-50%);
-      display: grid;
-      place-items: center;
+    .hero-cta:hover {
+      opacity: 0.92;
     }
 
-    .scroll-indicator svg {
-      width: 24px;
-      height: 24px;
-      fill: #000;
-      opacity: 0.9;
-    }
-
-    .scroll-indicator:focus-visible {
-      outline-color: #000;
+    .hero-photo {
+      width: clamp(240px, 28vw, 360px);
+      aspect-ratio: 1 / 1;
+      object-fit: cover;
+      border-radius: 50%;
+      border: 8px solid #f2f2f2;
     }
 
     .projects-section {
@@ -933,7 +915,7 @@
     }
 
     body.dark-mode .hero {
-      background: linear-gradient(145deg, #0f172a 0%, #1e293b 55%, #334155 100%);
+      background: #1e3145;
     }
 
     body.dark-mode .content h2,
@@ -1062,16 +1044,15 @@
 
       .hero {
         min-height: calc(100vh - 168px);
-        justify-content: center;
-        padding: 24px 24px 88px;
+        padding: 56px 24px;
       }
 
       .hero-panel {
         grid-template-columns: 1fr;
         text-align: center;
         margin: 0 auto;
-        width: min(680px, 100%);
-        gap: 22px;
+        width: min(760px, 100%);
+        gap: 28px;
       }
 
       .hero-copy {
@@ -1081,9 +1062,23 @@
       }
 
       .hero-photo {
-        width: min(190px, 44vw);
-        height: min(190px, 44vw);
+        width: min(240px, 56vw);
+        height: min(240px, 56vw);
         margin: 0 auto;
+        order: -1;
+      }
+
+      .hero h2 {
+        font-size: clamp(30px, 8vw, 44px);
+      }
+
+      .hero p {
+        font-size: clamp(20px, 6vw, 30px);
+      }
+
+      .hero-cta {
+        margin-top: 34px;
+        font-size: 30px;
       }
 
       .pull-quote {
@@ -1210,17 +1205,15 @@
   <main id="main">
     <section class="hero" id="intro" aria-label="Intro section">
       <div class="hero-panel">
-        <img class="hero-photo" src="sophie-profile.jpeg" alt="Portrait of Sophie Purewal">
         <div class="hero-copy">
-          <h2>Hello, I'm a UI and Product Designer in the financial services industry.</h2>
-          <p class="smart-values">
-            I love designing scalable, meaningful and trustworthy digital products, using Figma and AI to turn ideas into polished, production-ready experiences.
+          <h2>Hello, I’m a Senior UI Designer with a product focus in the financial services industry.</h2>
+          <p>
+            I love designing scalable, meaningful and trustworthy products, harnessing AI to turn user flow into polished, production-ready experiences.
           </p>
+          <a class="hero-cta" href="#projects">View my work</a>
         </div>
+        <img class="hero-photo" src="sophie-profile.jpeg" alt="Portrait of Sophie Purewal">
       </div>
-      <a class="scroll-indicator" href="#projects" aria-label="Scroll to next section">
-        <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" aria-hidden="true" focusable="false"><path d="M480-344 240-584l56-56 184 184 184-184 56 56-240 240Z"/></svg>
-      </a>
     </section>
 
     <section id="projects" class="projects-section" aria-label="Projects section">
