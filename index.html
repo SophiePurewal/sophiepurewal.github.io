@@ -255,6 +255,18 @@
       padding-top: 16px;
     }
 
+    .dropdown-social-links a {
+      width: 24px;
+      height: 24px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 24px;
+      line-height: 1;
+      text-decoration-thickness: 2px;
+      text-underline-offset: 4px;
+    }
+
     .site-header.scrolled .dropdown-social-links {
       border-top-color: rgba(255, 255, 255, 0.25);
     }
@@ -361,6 +373,20 @@
 
     .social-list a:hover {
       text-decoration-color: currentColor;
+    }
+
+    .nav-list a:focus-visible,
+    .social-list a:focus-visible,
+    .dropdown-menu a:focus-visible,
+    .dropdown-social-links a:focus-visible {
+      text-decoration: underline;
+      text-decoration-color: currentColor;
+      text-underline-offset: 4px;
+      text-decoration-thickness: 2px;
+    }
+
+    .social-list a.icon-email:focus-visible::after {
+      opacity: 1;
     }
 
     .social-list a.icon-email::after {
