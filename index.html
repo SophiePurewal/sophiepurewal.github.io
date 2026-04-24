@@ -232,16 +232,16 @@
     }
 
     .dropdown-social-links a.icon-email {
-      width: 24px;
-      height: 24px;
+      width: 20px;
+      height: 20px;
       display: inline-flex;
       align-items: center;
       justify-content: center;
     }
 
     .dropdown-social-links a.icon-email svg {
-      width: 24px;
-      height: 24px;
+      width: 20px;
+      height: 20px;
       fill: currentColor;
       display: block;
     }
@@ -256,15 +256,16 @@
     }
 
     .dropdown-social-links a {
-      width: 24px;
-      height: 24px;
+      width: 20px;
+      height: 20px;
       display: inline-flex;
       align-items: center;
       justify-content: center;
-      font-size: 24px;
+      font-size: 20px;
       line-height: 1;
       text-decoration-thickness: 2px;
       text-underline-offset: 4px;
+      position: relative;
     }
 
     .site-header.scrolled .dropdown-social-links {
@@ -272,8 +273,8 @@
     }
 
     .dropdown-social-links a svg {
-      width: 24px;
-      height: 24px;
+      width: 20px;
+      height: 20px;
       fill: currentColor;
       display: block;
     }
@@ -339,9 +340,9 @@
     }
 
     .social-list a {
-      font-size: 24px;
-      width: 24px;
-      height: 24px;
+      font-size: 20px;
+      width: 20px;
+      height: 20px;
       display: inline-flex;
       align-items: flex-end;
       justify-content: center;
@@ -352,13 +353,13 @@
     }
 
     .social-list a.icon-email {
-      width: 24px;
-      height: 24px;
+      width: 20px;
+      height: 20px;
     }
 
     .social-list a.icon-email svg {
-      width: 24px;
-      height: 24px;
+      width: 20px;
+      height: 20px;
       fill: currentColor;
       display: block;
     }
@@ -385,11 +386,8 @@
       text-decoration-thickness: 2px;
     }
 
-    .social-list a.icon-email:focus-visible::after {
-      opacity: 1;
-    }
-
-    .social-list a.icon-email::after {
+    .social-list a::after,
+    .dropdown-social-links a::after {
       content: "";
       position: absolute;
       left: 0;
@@ -401,7 +399,10 @@
       transition: opacity 0.2s ease;
     }
 
-    .social-list a.icon-email:hover::after {
+    .social-list a:hover::after,
+    .social-list a:focus-visible::after,
+    .dropdown-social-links a:hover::after,
+    .dropdown-social-links a:focus-visible::after {
       opacity: 1;
     }
 
