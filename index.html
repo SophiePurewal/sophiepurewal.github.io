@@ -7,14 +7,14 @@
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
 
   <style>
     * { box-sizing: border-box; }
 
     :root {
-      --brand: #e94e4e;
-      --brand-dark: #e94e4e;
+      --brand: #BC4343;
+      --brand-dark: #BC4343;
       --brand-soft: #f7f7f7;
       --text-light: #ffffff;
       --text-dark: #1f1f1f;
@@ -37,7 +37,7 @@
       top: 0;
       z-index: 100;
       background: var(--brand-soft);
-      border-bottom: 1px solid rgba(233, 78, 78, 0.2);
+      border-bottom: 1px solid rgba(188, 67, 67, 0.2);
       transition: background-color 0.35s ease, border-bottom-color 0.35s ease, box-shadow 0.35s ease;
     }
 
@@ -45,7 +45,7 @@
     .site-header.scrolled {
       background: var(--brand);
       border-bottom: 1px solid rgba(255, 255, 255, 0.25);
-      box-shadow: 0 2px 10px rgba(233, 78, 78, 0.24);
+      box-shadow: 0 2px 10px rgba(188, 67, 67, 0.24);
     }
 
     .site-header.scrolled .social-list a,
@@ -157,7 +157,7 @@
       top: 100%;
       width: 100%;
       background: var(--brand-soft);
-      border: 1px solid rgba(233, 78, 78, 0.25);
+      border: 1px solid rgba(188, 67, 67, 0.25);
       border-radius: 0;
       padding: 24px 40px;
       display: flex;
@@ -248,7 +248,7 @@
       align-items: center;
       gap: 24px;
       flex-wrap: wrap;
-      border-top: 1px solid rgba(233, 78, 78, 0.25);
+      border-top: 1px solid rgba(188, 67, 67, 0.25);
       padding-top: 16px;
     }
 
@@ -492,19 +492,21 @@
     .hero h2 {
       margin: 0;
       font-family: 'Playfair Display', Georgia, 'Times New Roman', serif;
-      font-size: clamp(44px, 4vw, 56px);
+      font-size: 42px;
       line-height: 1.1;
       font-weight: 700;
-      color: #ba3f45;
+      color: #BC4343;
       letter-spacing: -0.02em;
+      white-space: nowrap;
     }
 
     .hero p {
       margin: 30px 0 0;
-      font-size: clamp(24px, 2.05vw, 41px);
-      line-height: 1.4;
-      font-weight: 400;
-      color: #23262a;
+      font-family: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+      font-size: 20px;
+      line-height: 50px;
+      font-weight: 300;
+      color: #0C0D0F;
     }
 
     .hero-cta {
@@ -512,18 +514,22 @@
       align-items: center;
       justify-content: center;
       margin-top: 58px;
-      padding: 15px 32px;
+      padding: 12px 24px;
       border-radius: 999px;
-      background: #c24249;
-      color: #f9f2f1;
+      background: #BC4343;
+      color: #F2F2F2;
       text-decoration: none;
-      font-size: clamp(20px, 1.6vw, 30px);
+      font-family: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+      font-size: 20px;
       line-height: 1;
-      font-weight: 600;
+      font-weight: 500;
     }
 
     .hero-cta:hover {
       opacity: 0.92;
+      text-decoration: underline;
+      text-underline-offset: 4px;
+      text-decoration-thickness: 2px;
     }
 
     .hero-photo {
@@ -681,19 +687,19 @@
       cursor: pointer;
       animation: career-dot-pulse 1.8s ease-in-out infinite;
       transition: transform 0.2s ease, box-shadow 0.2s ease;
-      box-shadow: 0 0 0 0 rgba(233, 78, 78, 0.45);
+      box-shadow: 0 0 0 0 rgba(188, 67, 67, 0.45);
     }
 
     .career-dot:hover,
     .career-dot:focus-visible {
       transform: scale(1.16);
-      box-shadow: 0 0 0 6px rgba(233, 78, 78, 0.16);
+      box-shadow: 0 0 0 6px rgba(188, 67, 67, 0.16);
       outline: none;
     }
 
     .career-dot[aria-expanded="true"] {
       transform: scale(1.2);
-      box-shadow: 0 0 0 8px rgba(233, 78, 78, 0.2);
+      box-shadow: 0 0 0 8px rgba(188, 67, 67, 0.2);
       animation-play-state: paused;
     }
 
@@ -923,7 +929,7 @@
     }
 
     body.dark-mode .hero h2 {
-      color: #f38a93;
+      color: #BC4343;
     }
 
     body.dark-mode .hero p {
@@ -931,8 +937,8 @@
     }
 
     body.dark-mode .hero-cta {
-      background: #f38a93;
-      color: #111827;
+      background: #BC4343;
+      color: #F2F2F2;
     }
 
     body.dark-mode .content h2,
@@ -1087,16 +1093,18 @@
       }
 
       .hero h2 {
-        font-size: clamp(36px, 8vw, 44px);
+        font-size: clamp(36px, 8vw, 42px);
+        white-space: normal;
       }
 
       .hero p {
-        font-size: clamp(22px, 5.8vw, 30px);
+        font-size: 20px;
+        line-height: 50px;
       }
 
       .hero-cta {
         margin-top: 40px;
-        font-size: clamp(21px, 5.6vw, 30px);
+        font-size: 20px;
       }
 
       .pull-quote {
