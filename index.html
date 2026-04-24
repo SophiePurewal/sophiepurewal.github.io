@@ -105,9 +105,9 @@
       transition: opacity 0.2s ease;
     }
 
-    .menu-toggle:is(:hover, :focus-visible)::after,
-    .theme-toggle:is(:hover, :focus-visible)::after,
-    .hero-cta:is(:hover, :focus-visible)::after {
+    .menu-toggle:hover::after,
+    .theme-toggle:hover::after,
+    .hero-cta:hover::after {
       opacity: 1;
     }
 
@@ -294,11 +294,6 @@
       opacity: 1;
     }
 
-    :where(a):focus-visible {
-      text-decoration: underline;
-      text-decoration-color: currentColor;
-    }
-
     .nav-list,
     .social-list {
       list-style: none;
@@ -387,16 +382,6 @@
       text-decoration-color: currentColor;
     }
 
-    .nav-list a:focus-visible,
-    .social-list a:focus-visible,
-    .dropdown-menu a:focus-visible,
-    .dropdown-social-links a:focus-visible {
-      text-decoration: underline;
-      text-decoration-color: currentColor;
-      text-underline-offset: 4px;
-      text-decoration-thickness: 2px;
-    }
-
     .social-list a::after,
     .dropdown-social-links a::after {
       content: "";
@@ -411,9 +396,7 @@
     }
 
     .social-list a:hover::after,
-    .social-list a:focus-visible::after,
-    .dropdown-social-links a:hover::after,
-    .dropdown-social-links a:focus-visible::after {
+    .dropdown-social-links a:hover::after {
       opacity: 1;
     }
 
