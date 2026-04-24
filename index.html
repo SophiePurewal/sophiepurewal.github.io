@@ -594,6 +594,18 @@
       text-transform: uppercase;
     }
 
+    .project-box--image {
+      padding: 0;
+      overflow: hidden;
+    }
+
+    .project-box--image img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+
 
     .content {
       max-width: 980px;
@@ -1271,7 +1283,9 @@
 
     <section id="projects" class="projects-section" aria-label="Projects section">
       <div class="projects-grid">
-        <div class="project-box">Coming Soon</div>
+        <div class="project-box project-box--image">
+          <img src="UI education app design.jpg" alt="UI education app design shown on mobile mockups">
+        </div>
         <div class="project-box">Coming Soon</div>
         <div class="project-box">Coming Soon</div>
         <div class="project-box">Coming Soon</div>
