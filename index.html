@@ -46,13 +46,13 @@
       background: var(--brand);
       border-bottom: 1px solid rgba(255, 255, 255, 0.25);
       box-shadow: 0 2px 10px rgba(192, 65, 78, 0.24);
+      --focus-outline-color: #ffffff;
     }
 
     .site-header.scrolled .social-list a,
     .site-header.scrolled .site-title,
     .site-header.scrolled .menu-toggle,
-    .site-header.scrolled .theme-toggle,
-    .site-header.scrolled .header-contact-link {
+    .site-header.scrolled .theme-toggle {
       color: var(--text-light);
     }
 
@@ -178,11 +178,13 @@
         transform 0.42s cubic-bezier(0.22, 1, 0.36, 1),
         visibility 0s linear 0.42s;
       will-change: max-height, opacity, transform;
+      --focus-outline-color: #c0414e;
     }
 
     .site-header.scrolled .dropdown-menu {
       background: var(--brand);
       border-color: rgba(255, 255, 255, 0.25);
+      --focus-outline-color: #ffffff;
     }
 
     .site-header.scrolled .dropdown-menu.open a {
@@ -265,14 +267,12 @@
     }
 
     :where(a, button):focus-visible {
-      outline: 3px solid #1f1f1f;
+      outline: 3px solid var(--focus-outline-color, #c0414e);
       outline-offset: 3px;
       border-radius: 6px;
       opacity: 1;
-      text-decoration: none;
-      background-color: #eaff00;
-      color: #1f1f1f;
-      fill: #1f1f1f;
+      text-decoration: underline;
+      text-decoration-color: currentColor;
     }
 
     .nav-list,
@@ -447,23 +447,6 @@
       opacity: 1;
     }
 
-    .header-contact-link {
-      color: var(--brand);
-      text-decoration: none;
-      font-weight: 500;
-      line-height: 1;
-      transition: opacity 0.2s ease, text-decoration-color 0.2s ease;
-      text-underline-offset: 4px;
-      text-decoration-thickness: 2px;
-      text-decoration-color: transparent;
-    }
-
-    .header-contact-link:hover {
-      opacity: 0.82;
-      text-decoration: underline;
-      text-decoration-color: currentColor;
-    }
-
     .visually-hidden {
       position: absolute;
       width: 1px;
@@ -491,8 +474,10 @@
     .skip-link:focus-visible {
       top: 12px;
       outline-color: #ffffff;
-      background-color: #eaff00;
-      color: #1f1f1f;
+    }
+
+    .skip-link {
+      --focus-outline-color: #ffffff;
     }
 
     .hero {
@@ -935,12 +920,10 @@
     body.dark-mode .site-header .site-title,
     body.dark-mode .site-header .menu-toggle,
     body.dark-mode .site-header .theme-toggle,
-    body.dark-mode .site-header .header-contact-link,
     body.dark-mode .site-header .social-list a,
     body.dark-mode .site-header.scrolled .site-title,
     body.dark-mode .site-header.scrolled .menu-toggle,
     body.dark-mode .site-header.scrolled .theme-toggle,
-    body.dark-mode .site-header.scrolled .header-contact-link,
     body.dark-mode .site-header.scrolled .social-list a {
       color: #f8fafc;
     }
@@ -1078,10 +1061,6 @@
         right: 24px;
         top: 50%;
         transform: translateY(-50%);
-      }
-
-      .header-contact-link {
-        display: none;
       }
 
       .dropdown-menu {
@@ -1224,7 +1203,6 @@
       </h1>
 
       <div class="header-actions">
-        <a class="header-contact-link" href="mailto:sophiepurewaldesign@gmail.com" aria-label="Contact Sophie Purewal by email">Contact</a>
         <button class="theme-toggle" type="button" aria-label="Activate dark mode" aria-pressed="false" title="Activate dark mode">
           <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" aria-hidden="true" focusable="false">
             <path d="M480-120q-133 0-226.5-92.5T160-436q0-66 25-122t69-100l226-222 226 222q44 44 69 100t25 122q0 131-93.5 223.5T480-120Zm0-80v-568L310-600q-35 33-52.5 74.5T240-436q0 97 70 166.5T480-200Z"/>
