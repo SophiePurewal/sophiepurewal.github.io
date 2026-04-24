@@ -680,7 +680,7 @@
       bottom: 0;
       width: 3px;
       transform: translateX(-50%);
-      background: var(--brand);
+      background: transparent;
     }
 
     .career-item {
@@ -718,23 +718,13 @@
       margin: 16px auto 0;
       position: relative;
       z-index: 1;
-      cursor: pointer;
-      animation: career-dot-pulse 1.8s ease-in-out infinite;
-      transition: transform 0.2s ease, box-shadow 0.2s ease;
-      box-shadow: 0 0 0 0 rgba(192, 65, 78, 0.45);
+      transition: box-shadow 0.2s ease;
+      box-shadow: 0 0 0 0 rgba(192, 65, 78, 0.35);
     }
 
-    .career-dot:hover,
-    .career-dot:focus-visible {
-      transform: scale(1.16);
-      box-shadow: 0 0 0 6px rgba(192, 65, 78, 0.16);
-      outline: none;
-    }
-
-    .career-dot[aria-expanded="true"] {
-      transform: scale(1.2);
-      box-shadow: 0 0 0 8px rgba(192, 65, 78, 0.2);
-      animation-play-state: paused;
+    .career-dot:hover {
+      animation: career-dot-pulse 1.1s ease-in-out infinite;
+      box-shadow: 0 0 0 7px rgba(192, 65, 78, 0.16);
     }
 
     @keyframes career-dot-pulse {
@@ -789,7 +779,7 @@
 
     .career-responsibilities {
       margin-top: 18px;
-      border-left: 4px solid #C0414E;
+      border-left: 4px solid var(--line);
       padding-left: 14px;
     }
 
@@ -998,9 +988,7 @@
       background: #60a5fa;
     }
 
-    body.dark-mode .career-dot:hover,
-    body.dark-mode .career-dot:focus-visible,
-    body.dark-mode .career-dot[aria-expanded="true"] {
+    body.dark-mode .career-dot:hover {
       box-shadow: 0 0 0 7px rgba(96, 165, 250, 0.2);
     }
 
@@ -1308,6 +1296,12 @@
               <h3 class="career-role">Certification in Graphic Design</h3>
               <p class="career-company">Shillington Education, London</p>
               <p class="career-period">2016 — 2017</p>
+              <div class="career-responsibilities">
+                <ul>
+                  <li>Developed skills in visual communication, branding, and typography.</li>
+                  <li>Completed project-based work focused on digital and print design.</li>
+                </ul>
+              </div>
             </article>
           </li>
           <li class="career-item" data-side="right">
@@ -1317,6 +1311,12 @@
               <h3 class="career-role">Senior UI and Graphic Designer</h3>
               <p class="career-company">Sophie Purewal Design</p>
               <p class="career-period">Jul 2017 — Present</p>
+              <div class="career-responsibilities">
+                <ul>
+                  <li>Lead interface and visual design projects from concept to delivery.</li>
+                  <li>Translate business and user requirements into polished design systems.</li>
+                </ul>
+              </div>
             </article>
           </li>
           <li class="career-item" data-side="right">
@@ -1326,6 +1326,12 @@
               <h3 class="career-role">UI for UX Design Specialisation Mentor</h3>
               <p class="career-company">CareerFoundry</p>
               <p class="career-period">Jul 2017 — Present</p>
+              <div class="career-responsibilities">
+                <ul>
+                  <li>Mentor students through UX/UI coursework and portfolio development.</li>
+                  <li>Provide detailed design critiques and practical career guidance.</li>
+                </ul>
+              </div>
             </article>
           </li>
           <li class="career-item" data-side="right">
@@ -1335,6 +1341,12 @@
               <h3 class="career-role">UI for UX Design Course Editor</h3>
               <p class="career-company">CareerFoundry</p>
               <p class="career-period">Feb 2021 — Feb 2022</p>
+              <div class="career-responsibilities">
+                <ul>
+                  <li>Refined course modules to align with current UI best practices.</li>
+                  <li>Reviewed exercises and examples for clarity and learning outcomes.</li>
+                </ul>
+              </div>
             </article>
           </li>
           <li class="career-item" data-side="right">
@@ -1344,6 +1356,12 @@
               <h3 class="career-role">Art Worker</h3>
               <p class="career-company">This Is Nessie</p>
               <p class="career-period">Jul 2016 — Jul 2017</p>
+              <div class="career-responsibilities">
+                <ul>
+                  <li>Prepared production-ready assets across digital and print formats.</li>
+                  <li>Maintained visual consistency while meeting tight campaign deadlines.</li>
+                </ul>
+              </div>
             </article>
           </li>
           <li class="career-item" data-side="right">
@@ -1353,6 +1371,12 @@
               <h3 class="career-role">Creative Digital Solutions Manager</h3>
               <p class="career-company">The Independent &amp; London Evening Standard</p>
               <p class="career-period">Oct 2013 — Jun 2016</p>
+              <div class="career-responsibilities">
+                <ul>
+                  <li>Managed branded digital campaigns with editorial and commercial teams.</li>
+                  <li>Developed high-impact ad formats and interactive campaign concepts.</li>
+                </ul>
+              </div>
             </article>
           </li>
           <li class="career-item" data-side="right">
@@ -1362,6 +1386,12 @@
               <h3 class="career-role">Creative Solutions Manager</h3>
               <p class="career-company">Evolve Media</p>
               <p class="career-period">Aug 2012 — Mar 2013</p>
+              <div class="career-responsibilities">
+                <ul>
+                  <li>Designed sponsorship and campaign concepts for major media clients.</li>
+                  <li>Collaborated cross-functionally to deliver engaging branded content.</li>
+                </ul>
+              </div>
             </article>
           </li>
           <li class="career-item" data-side="right">
@@ -1371,6 +1401,12 @@
               <h3 class="career-role">Sponsorship Solutions Manager</h3>
               <p class="career-company">Yahoo!</p>
               <p class="career-period">Aug 2007 — Jul 2012</p>
+              <div class="career-responsibilities">
+                <ul>
+                  <li>Built strategic sponsorship ideas aligned to audience and platform goals.</li>
+                  <li>Partnered with sales and creative teams to shape campaign proposals.</li>
+                </ul>
+              </div>
             </article>
           </li>
           <li class="career-item" data-side="right">
@@ -1380,6 +1416,12 @@
               <h3 class="career-role">Sports Betting and Gaming Executive</h3>
               <p class="career-company">Teletext</p>
               <p class="career-period">Jan 2007 — Jun 2007</p>
+              <div class="career-responsibilities">
+                <ul>
+                  <li>Managed betting and gaming content for digital sports audiences.</li>
+                  <li>Optimized promotions and placements to improve engagement.</li>
+                </ul>
+              </div>
             </article>
           </li>
           <li class="career-item" data-side="right">
@@ -1389,6 +1431,12 @@
               <h3 class="career-role">English Teacher</h3>
               <p class="career-company">Japan Exchange and Teaching Programme (JET)</p>
               <p class="career-period">Aug 2004 — Oct 2006</p>
+              <div class="career-responsibilities">
+                <ul>
+                  <li>Planned and delivered English lessons for students in Japan.</li>
+                  <li>Supported cultural exchange and communication skills development.</li>
+                </ul>
+              </div>
             </article>
           </li>
         </ol>
@@ -1662,97 +1710,10 @@
       });
     };
 
-    const initCareerTimelineInteractions = () => {
-      const responsibilityMap = {
-        'Certification in Graphic Design': [
-          'Developed skills in visual communication, branding, and typography.',
-          'Completed project-based work focused on digital and print design.'
-        ],
-        'Senior UI and Graphic Designer': [
-          'Lead interface and visual design projects from concept to delivery.',
-          'Translate business and user requirements into polished design systems.'
-        ],
-        'UI for UX Design Specialisation Mentor': [
-          'Mentor students through UX/UI coursework and portfolio development.',
-          'Provide detailed design critiques and practical career guidance.'
-        ],
-        'UI for UX Design Course Editor': [
-          'Refined course modules to align with current UI best practices.',
-          'Reviewed exercises and examples for clarity and learning outcomes.'
-        ],
-        'Art Worker': [
-          'Prepared production-ready assets across digital and print formats.',
-          'Maintained visual consistency while meeting tight campaign deadlines.'
-        ],
-        'Creative Digital Solutions Manager': [
-          'Managed branded digital campaigns with editorial and commercial teams.',
-          'Developed high-impact ad formats and interactive campaign concepts.'
-        ],
-        'Creative Solutions Manager': [
-          'Designed sponsorship and campaign concepts for major media clients.',
-          'Collaborated cross-functionally to deliver engaging branded content.'
-        ],
-        'Sponsorship Solutions Manager': [
-          'Built strategic sponsorship ideas aligned to audience and platform goals.',
-          'Partnered with sales and creative teams to shape campaign proposals.'
-        ],
-        'Sports Betting and Gaming Executive': [
-          'Managed betting and gaming content for digital sports audiences.',
-          'Optimized promotions and placements to improve engagement.'
-        ],
-        'English Teacher': [
-          'Planned and delivered English lessons for students in Japan.',
-          'Supported cultural exchange and communication skills development.'
-        ]
-      };
-
-      const timelineItems = document.querySelectorAll('.career-item');
-      timelineItems.forEach((item) => {
-        const existingDot = item.querySelector('.career-dot');
-        const entry = item.querySelector('.career-entry');
-        const roleHeading = entry?.querySelector('.career-role');
-        if (!existingDot || !entry || !roleHeading) return;
-
-        const roleTitle = roleHeading.textContent.trim();
-        const responsibilities = responsibilityMap[roleTitle];
-        if (!responsibilities || !responsibilities.length) return;
-
-        const panel = document.createElement('div');
-        panel.className = 'career-responsibilities';
-        panel.hidden = true;
-        panel.innerHTML = `<ul>${responsibilities.map((itemText) => `<li>${itemText}</li>`).join('')}</ul>`;
-
-        entry.appendChild(panel);
-
-        let dot = existingDot;
-        if (existingDot.tagName !== 'BUTTON') {
-          const dotButton = document.createElement('button');
-          dotButton.type = 'button';
-          dotButton.className = existingDot.className;
-          existingDot.replaceWith(dotButton);
-          dot = dotButton;
-        }
-
-        dot.setAttribute('aria-label', `Toggle responsibilities for ${roleTitle}`);
-        dot.setAttribute('aria-expanded', 'false');
-
-        const panelId = `career-responsibilities-${roleTitle.toLowerCase().replace(/[^a-z0-9]+/g, '-')}`;
-        panel.id = panelId;
-        dot.setAttribute('aria-controls', panelId);
-
-        dot.addEventListener('click', () => {
-          const isExpanded = dot.getAttribute('aria-expanded') === 'true';
-          dot.setAttribute('aria-expanded', String(!isExpanded));
-          panel.hidden = isExpanded;
-        });
-      });
-    };
-
     window.addEventListener('scroll', toggleHeaderState, { passive: true });
     toggleHeaderState();
     initThemeToggle();
     initEndorsementAccordions();
-    initCareerTimelineInteractions();
   </script>
 
 </body>
