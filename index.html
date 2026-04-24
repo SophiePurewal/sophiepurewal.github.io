@@ -51,7 +51,8 @@
     .site-header.scrolled .social-list a,
     .site-header.scrolled .site-title,
     .site-header.scrolled .menu-toggle,
-    .site-header.scrolled .theme-toggle {
+    .site-header.scrolled .theme-toggle,
+    .site-header.scrolled .header-contact-link {
       color: var(--text-light);
     }
 
@@ -256,12 +257,22 @@
       border-top-color: rgba(255, 255, 255, 0.25);
     }
 
+    .dropdown-social-links a svg {
+      width: 24px;
+      height: 24px;
+      fill: currentColor;
+      display: block;
+    }
+
     :where(a, button):focus-visible {
-      outline: 2px solid currentColor;
+      outline: 3px solid #1f1f1f;
       outline-offset: 3px;
       border-radius: 6px;
       opacity: 1;
       text-decoration: none;
+      background-color: #eaff00;
+      color: #1f1f1f;
+      fill: #1f1f1f;
     }
 
     .nav-list,
@@ -436,6 +447,23 @@
       opacity: 1;
     }
 
+    .header-contact-link {
+      color: var(--brand);
+      text-decoration: none;
+      font-weight: 500;
+      line-height: 1;
+      transition: opacity 0.2s ease, text-decoration-color 0.2s ease;
+      text-underline-offset: 4px;
+      text-decoration-thickness: 2px;
+      text-decoration-color: transparent;
+    }
+
+    .header-contact-link:hover {
+      opacity: 0.82;
+      text-decoration: underline;
+      text-decoration-color: currentColor;
+    }
+
     .visually-hidden {
       position: absolute;
       width: 1px;
@@ -463,6 +491,8 @@
     .skip-link:focus-visible {
       top: 12px;
       outline-color: #ffffff;
+      background-color: #eaff00;
+      color: #1f1f1f;
     }
 
     .hero {
@@ -905,10 +935,12 @@
     body.dark-mode .site-header .site-title,
     body.dark-mode .site-header .menu-toggle,
     body.dark-mode .site-header .theme-toggle,
+    body.dark-mode .site-header .header-contact-link,
     body.dark-mode .site-header .social-list a,
     body.dark-mode .site-header.scrolled .site-title,
     body.dark-mode .site-header.scrolled .menu-toggle,
     body.dark-mode .site-header.scrolled .theme-toggle,
+    body.dark-mode .site-header.scrolled .header-contact-link,
     body.dark-mode .site-header.scrolled .social-list a {
       color: #f8fafc;
     }
@@ -1046,6 +1078,10 @@
         right: 24px;
         top: 50%;
         transform: translateY(-50%);
+      }
+
+      .header-contact-link {
+        display: none;
       }
 
       .dropdown-menu {
@@ -1188,6 +1224,7 @@
       </h1>
 
       <div class="header-actions">
+        <a class="header-contact-link" href="mailto:sophiepurewaldesign@gmail.com" aria-label="Contact Sophie Purewal by email">Contact</a>
         <button class="theme-toggle" type="button" aria-label="Activate dark mode" aria-pressed="false" title="Activate dark mode">
           <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" aria-hidden="true" focusable="false">
             <path d="M480-120q-133 0-226.5-92.5T160-436q0-66 25-122t69-100l226-222 226 222q44 44 69 100t25 122q0 131-93.5 223.5T480-120Zm0-80v-568L310-600q-35 33-52.5 74.5T240-436q0 97 70 166.5T480-200Z"/>
@@ -1221,9 +1258,14 @@
           Contact
         </a>
         <div class="dropdown-social-links" aria-label="Social links">
-          <a href="https://www.behance.net/sophiepurewal" aria-label="Sophie Purewal on Behance" target="_blank" rel="noopener noreferrer">Bē</a>
-          <a href="https://www.instagram.com/sophiepurewaldesign/" aria-label="Sophie Purewal on Instagram" target="_blank" rel="noopener noreferrer">◎</a>
-          <a href="https://www.linkedin.com/in/sophiepurewal/" aria-label="Sophie Purewal on LinkedIn" target="_blank" rel="noopener noreferrer">in</a>
+          <a href="https://www.behance.net/sophiepurewal" aria-label="Visit Sophie Purewal's Behance profile" title="Behance (opens in a new tab)" target="_blank" rel="noopener noreferrer">Bē<span class="visually-hidden">Behance</span></a>
+          <a href="https://www.instagram.com/sophiepurewaldesign/" aria-label="Visit Sophie Purewal's Instagram profile" title="Instagram (opens in a new tab)" target="_blank" rel="noopener noreferrer">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+              <path d="M7 2C4.24 2 2 4.24 2 7v10c0 2.76 2.24 5 5 5h10c2.76 0 5-2.24 5-5V7c0-2.76-2.24-5-5-5H7Zm10 2a3 3 0 0 1 3 3v10a3 3 0 0 1-3 3H7a3 3 0 0 1-3-3V7a3 3 0 0 1 3-3h10Zm.5 1.5a1 1 0 1 0 .001 2.001A1 1 0 0 0 17.5 5.5ZM12 7a5 5 0 1 0 0 10 5 5 0 0 0 0-10Zm0 2a3 3 0 1 1 0 6 3 3 0 0 1 0-6Z"/>
+            </svg>
+            <span class="visually-hidden">Instagram</span>
+          </a>
+          <a href="https://www.linkedin.com/in/sophiepurewal/" aria-label="Visit Sophie Purewal's LinkedIn profile" title="LinkedIn (opens in a new tab)" target="_blank" rel="noopener noreferrer">in<span class="visually-hidden">LinkedIn</span></a>
         </div>
       </div>
     </nav>
