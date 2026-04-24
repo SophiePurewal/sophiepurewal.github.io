@@ -91,22 +91,30 @@
       position: relative;
     }
 
-    .menu-toggle svg {
-      width: 24px;
-      height: 24px;
-      display: block;
-    }
-
-    .menu-toggle::after {
+    .menu-toggle::after,
+    .theme-toggle::after,
+    .hero-cta::after {
       content: "";
       position: absolute;
       left: 0;
-      bottom: 0;
+      bottom: -2px;
       width: 100%;
       height: 2px;
       background: currentColor;
       opacity: 0;
       transition: opacity 0.2s ease;
+    }
+
+    .menu-toggle:is(:hover, :focus-visible)::after,
+    .theme-toggle:is(:hover, :focus-visible)::after,
+    .hero-cta:is(:hover, :focus-visible)::after {
+      opacity: 1;
+    }
+
+    .menu-toggle svg {
+      width: 24px;
+      height: 24px;
+      display: block;
     }
 
     .menu-toggle .menu-icon line {
@@ -458,22 +466,6 @@
       opacity: 0.82;
     }
 
-    .theme-toggle::after {
-      content: "";
-      position: absolute;
-      left: 0;
-      bottom: -2px;
-      width: 100%;
-      height: 2px;
-      background: currentColor;
-      opacity: 0;
-      transition: opacity 0.2s ease;
-    }
-
-    .theme-toggle:hover::after {
-      opacity: 1;
-    }
-
     .visually-hidden {
       position: absolute;
       width: 1px;
@@ -566,6 +558,7 @@
       font-size: 20px;
       line-height: 1;
       font-weight: 500;
+      position: relative;
     }
 
     .hero-cta:hover {
