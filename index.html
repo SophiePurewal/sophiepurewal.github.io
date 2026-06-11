@@ -56,10 +56,13 @@
     }
 
     .site-header.scrolled .social-list a,
-    .site-header.scrolled .site-title,
     .site-header.scrolled .menu-toggle,
     .site-header.scrolled .theme-toggle {
       color: #0C0D0F;
+    }
+
+    .site-header.scrolled .site-title {
+      color: #C0414E;
     }
 
     .site-title,
@@ -345,9 +348,13 @@
     }
 
     .nav-list a,
-    .social-list a,
-    .site-title {
+    .social-list a {
       color: #0C0D0F;
+      text-decoration: none;
+    }
+
+    .site-title {
+      color: #C0414E;
       text-decoration: none;
     }
 
@@ -409,8 +416,6 @@
     .nav-list a:focus-visible,
     .social-list a:hover,
     .social-list a:focus-visible,
-    .site-title a:hover,
-    .site-title a:focus-visible,
     .menu-toggle:hover,
     .menu-toggle:focus-visible,
     .theme-toggle:hover,
@@ -422,10 +427,21 @@
       text-decoration-thickness: 2px;
     }
 
-    .social-list a:hover,
-    .social-list a:focus-visible,
+    .site-title a {
+      color: inherit;
+      text-decoration: none;
+      transition: opacity 0.2s ease;
+    }
+
     .site-title a:hover,
     .site-title a:focus-visible {
+      color: #C0414E;
+      text-decoration: none;
+      opacity: 0.82;
+    }
+
+    .social-list a:hover,
+    .social-list a:focus-visible {
       text-decoration-color: currentColor;
     }
 
@@ -449,11 +465,6 @@
       font-weight: 700;
       letter-spacing: -0.02em;
       line-height: 1;
-    }
-
-    .site-title a {
-      color: inherit;
-      text-decoration: none;
     }
 
     .header-actions {
@@ -969,10 +980,13 @@
     }
 
     body.dark-mode .site-header .site-title,
+    body.dark-mode .site-header.scrolled .site-title {
+      color: #C0414E;
+    }
+
     body.dark-mode .site-header .menu-toggle,
     body.dark-mode .site-header .theme-toggle,
     body.dark-mode .site-header .social-list a,
-    body.dark-mode .site-header.scrolled .site-title,
     body.dark-mode .site-header.scrolled .menu-toggle,
     body.dark-mode .site-header.scrolled .theme-toggle,
     body.dark-mode .site-header.scrolled .social-list a {
