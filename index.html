@@ -54,6 +54,10 @@
       --focus-outline-color: #ffffff;
     }
 
+    .site-header.scrolled.menu-open {
+      border-bottom-color: transparent;
+    }
+
     .site-header.scrolled .social-list a,
     .site-header.scrolled .menu-toggle,
     .site-header.scrolled .theme-toggle,
@@ -80,7 +84,7 @@
       min-height: 86px;
       padding: 0 40px;
       color: #0C0D0F;
-      background-color: #EFEFEF;
+      background-color: inherit;
       position: relative;
     }
 
@@ -210,6 +214,10 @@
       border-color: rgba(255, 255, 255, 0.25);
       color: #FFFFFF;
       --focus-outline-color: #FFFFFF;
+    }
+
+    .site-header.scrolled.menu-open .dropdown-menu {
+      border-top-color: transparent;
     }
 
     .site-header.scrolled .dropdown-menu.open a,
@@ -1016,6 +1024,11 @@
       box-shadow: 0 8px 24px rgba(2, 6, 23, 0.45);
     }
 
+    body.dark-mode .site-header.menu-open,
+    body.dark-mode .site-header.scrolled.menu-open {
+      border-bottom-color: transparent;
+    }
+
     body.dark-mode .site-header .site-title,
     body.dark-mode .site-header.scrolled .site-title {
       color: #C0414E;
@@ -1659,15 +1672,22 @@
     const dropdownInactivityDelayMs = 5000;
     let dropdownInactivityTimer = null;
 
+    const syncHeaderMenuState = () => {
+      if (!siteHeader || !dropdownMenu) return;
+      siteHeader.classList.toggle('menu-open', dropdownMenu.classList.contains('open'));
+    };
+
     const toggleHeaderState = () => {
       if (!siteHeader) return;
       siteHeader.classList.toggle('scrolled', window.scrollY > 24);
+      syncHeaderMenuState();
     };
 
     const closeDropdownMenu = () => {
       if (!dropdownMenu || !menuToggle) return;
       dropdownMenu.classList.remove('open');
       menuToggle.setAttribute('aria-expanded', 'false');
+      syncHeaderMenuState();
       if (dropdownInactivityTimer) {
         clearTimeout(dropdownInactivityTimer);
         dropdownInactivityTimer = null;
@@ -1714,6 +1734,7 @@
       menuToggle.addEventListener('click', () => {
         const isOpen = dropdownMenu.classList.toggle('open');
         menuToggle.setAttribute('aria-expanded', String(isOpen));
+        syncHeaderMenuState();
         if (isOpen) {
           resetDropdownInactivityTimer();
         } else if (dropdownInactivityTimer) {
