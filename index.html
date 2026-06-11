@@ -15,10 +15,10 @@
     :root {
       --brand: #C0414E;
       --brand-dark: #C0414E;
-      --brand-soft: #f7f7f7;
+      --brand-soft: #EFEFEF;
       --text-light: #ffffff;
-      --text-dark: #1f1f1f;
-      --panel: #f7f7f7;
+      --text-dark: #0C0D0F;
+      --panel: #EFEFEF;
       --line: #efefef;
     }
 
@@ -29,38 +29,47 @@
       font-family: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
       line-height: 1.6;
       color: var(--text-dark);
-      background: #ffffff;
+      background: #EFEFEF;
+      background-color: #EFEFEF;
+    }
+
+    nav,
+    .navbar {
+      background-color: #EFEFEF;
     }
 
     .site-header {
       position: sticky;
       top: 0;
       z-index: 100;
-      background: var(--brand-soft);
-      border-bottom: 1px solid rgba(192, 65, 78, 0.2);
+      background: #EFEFEF;
+      border-bottom: 1px solid rgba(12, 13, 15, 0.14);
       transition: background-color 0.35s ease, border-bottom-color 0.35s ease, box-shadow 0.35s ease;
     }
 
 
     .site-header.scrolled {
-      background: var(--brand);
-      border-bottom: 1px solid rgba(255, 255, 255, 0.25);
-      box-shadow: 0 2px 10px rgba(192, 65, 78, 0.24);
-      --focus-outline-color: #ffffff;
+      background: #EFEFEF;
+      border-bottom: 1px solid rgba(12, 13, 15, 0.14);
+      box-shadow: 0 2px 10px rgba(12, 13, 15, 0.08);
+      --focus-outline-color: #C0414E;
     }
 
     .site-header.scrolled .social-list a,
     .site-header.scrolled .site-title,
     .site-header.scrolled .menu-toggle,
     .site-header.scrolled .theme-toggle {
-      color: var(--text-light);
+      color: #0C0D0F;
     }
 
     .site-title,
     .menu-toggle,
     .theme-toggle,
-    .social-list a {
-      transition: color 0.35s ease;
+    .social-list a,
+    .dropdown-menu a,
+    .dropdown-social-links a,
+    .dropdown-link svg {
+      transition: color 0.35s ease, fill 0.35s ease, text-decoration-color 0.35s ease, opacity 0.35s ease;
     }
 
     .top-nav {
@@ -69,7 +78,8 @@
       align-items: center;
       min-height: 86px;
       padding: 0 40px;
-      color: var(--text-light);
+      color: #0C0D0F;
+      background-color: #EFEFEF;
       position: relative;
     }
 
@@ -78,7 +88,7 @@
       appearance: none;
       border: none;
       background: transparent;
-      color: var(--brand);
+      color: #0C0D0F;
       line-height: 1;
       border-radius: 8px;
       padding: 8px 0;
@@ -89,6 +99,9 @@
       outline: none;
       box-shadow: none;
       position: relative;
+      text-decoration: none;
+      text-underline-offset: 4px;
+      text-decoration-thickness: 2px;
     }
 
     .menu-toggle::after,
@@ -107,7 +120,9 @@
 
     .menu-toggle:hover::after,
     .theme-toggle:hover::after,
-    .hero-cta:hover::after {
+    .hero-cta:hover::after,
+    .dropdown-social-links a:hover::after,
+    .social-list a:hover::after {
       opacity: 1;
     }
 
@@ -165,14 +180,14 @@
       left: 0;
       top: 100%;
       width: 100%;
-      background: var(--brand-soft);
-      border: 1px solid rgba(192, 65, 78, 0.25);
+      background: #EFEFEF;
+      border: 1px solid rgba(12, 13, 15, 0.14);
       border-radius: 0;
       padding: 24px 40px;
       display: flex;
       flex-direction: column;
       gap: 24px;
-      color: var(--brand);
+      color: #0C0D0F;
       overflow: hidden;
       max-height: 0;
       opacity: 0;
@@ -186,17 +201,20 @@
         transform 0.42s cubic-bezier(0.22, 1, 0.36, 1),
         visibility 0s linear 0.42s;
       will-change: max-height, opacity, transform;
-      --focus-outline-color: #c0414e;
+      --focus-outline-color: #C0414E;
     }
 
     .site-header.scrolled .dropdown-menu {
-      background: var(--brand);
-      border-color: rgba(255, 255, 255, 0.25);
-      --focus-outline-color: #ffffff;
+      background: #EFEFEF;
+      border-color: rgba(12, 13, 15, 0.14);
+      color: #0C0D0F;
+      --focus-outline-color: #C0414E;
     }
 
-    .site-header.scrolled .dropdown-menu.open a {
-      color: var(--text-light);
+    .site-header.scrolled .dropdown-menu.open a,
+    .site-header.scrolled .dropdown-menu.open a svg {
+      color: #0C0D0F;
+      fill: currentColor;
     }
 
     .dropdown-menu.open {
@@ -213,9 +231,11 @@
     }
 
     .dropdown-menu a {
-      color: inherit;
+      color: #0C0D0F;
       text-decoration: none;
       font-size: 16px;
+      text-underline-offset: 4px;
+      text-decoration-thickness: 2px;
     }
 
     .dropdown-link {
@@ -229,11 +249,18 @@
       width: 24px;
       height: 24px;
       fill: currentColor;
+      color: #0C0D0F;
       flex-shrink: 0;
     }
 
-    .dropdown-menu a:hover {
-      opacity: 0.8;
+    .dropdown-menu a:hover,
+    .dropdown-menu a:hover svg,
+    .dropdown-menu a:focus-visible svg,
+    .dropdown-social-links a:hover,
+    .dropdown-social-links a:hover svg {
+      color: #C0414E;
+      fill: currentColor;
+      opacity: 0.82;
       text-decoration: underline;
       text-underline-offset: 4px;
       text-decoration-thickness: 2px;
@@ -259,7 +286,7 @@
       align-items: center;
       gap: 24px;
       flex-wrap: wrap;
-      border-top: 1px solid rgba(192, 65, 78, 0.25);
+      border-top: 1px solid rgba(12, 13, 15, 0.14);
       padding-top: 16px;
     }
 
@@ -271,13 +298,15 @@
       justify-content: center;
       font-size: 20px;
       line-height: 1;
+      color: #0C0D0F;
+      text-decoration: none;
       text-decoration-thickness: 2px;
       text-underline-offset: 4px;
       position: relative;
     }
 
     .site-header.scrolled .dropdown-social-links {
-      border-top-color: rgba(255, 255, 255, 0.25);
+      border-top-color: rgba(12, 13, 15, 0.14);
     }
 
     .dropdown-social-links a svg {
@@ -288,7 +317,7 @@
     }
 
     :where(a, button):focus-visible {
-      outline: 3px solid var(--focus-outline-color, #c0414e);
+      outline: 3px solid var(--focus-outline-color, #C0414E);
       outline-offset: 3px;
       border-radius: 6px;
       opacity: 1;
@@ -318,7 +347,7 @@
     .nav-list a,
     .social-list a,
     .site-title {
-      color: var(--brand);
+      color: #0C0D0F;
       text-decoration: none;
     }
 
@@ -335,10 +364,15 @@
     }
 
     .nav-list a,
-    .social-list a {
+    .social-list a,
+    .site-title a,
+    .menu-toggle,
+    .theme-toggle {
       font-weight: 500;
       line-height: 1;
-      transition: opacity 0.2s ease, text-decoration-color 0.2s ease;
+      transition: color 0.2s ease, opacity 0.2s ease, text-decoration-color 0.2s ease;
+      text-underline-offset: 4px;
+      text-decoration-thickness: 2px;
     }
 
     .nav-list a {
@@ -352,6 +386,7 @@
       display: inline-flex;
       align-items: flex-end;
       justify-content: center;
+      color: #0C0D0F;
       text-underline-offset: 4px;
       text-decoration-thickness: 2px;
       text-decoration-color: transparent;
@@ -371,14 +406,26 @@
     }
 
     .nav-list a:hover,
-    .social-list a:hover {
+    .nav-list a:focus-visible,
+    .social-list a:hover,
+    .social-list a:focus-visible,
+    .site-title a:hover,
+    .site-title a:focus-visible,
+    .menu-toggle:hover,
+    .menu-toggle:focus-visible,
+    .theme-toggle:hover,
+    .theme-toggle:focus-visible {
+      color: #C0414E;
       opacity: 0.82;
       text-decoration: underline;
       text-underline-offset: 4px;
       text-decoration-thickness: 2px;
     }
 
-    .social-list a:hover {
+    .social-list a:hover,
+    .social-list a:focus-visible,
+    .site-title a:hover,
+    .site-title a:focus-visible {
       text-decoration-color: currentColor;
     }
 
@@ -393,11 +440,6 @@
       background: currentColor;
       opacity: 0;
       transition: opacity 0.2s ease;
-    }
-
-    .social-list a:hover::after,
-    .dropdown-social-links a:hover::after {
-      opacity: 1;
     }
 
     .site-title {
@@ -425,7 +467,7 @@
       appearance: none;
       border: none;
       background: transparent;
-      color: var(--brand);
+      color: #0C0D0F;
       width: 30px;
       height: 30px;
       display: inline-flex;
@@ -434,8 +476,9 @@
       cursor: pointer;
       border-radius: 8px;
       padding: 0;
-      transition: opacity 0.2s ease;
+      transition: color 0.2s ease, opacity 0.2s ease, text-decoration-color 0.2s ease;
       position: relative;
+      text-decoration: none;
     }
 
     .theme-toggle svg {
@@ -1183,12 +1226,6 @@
       .theme-toggle::after,
       .social-list a.icon-email::after {
         display: none;
-      }
-
-      .dropdown-menu a:hover,
-      .nav-list a:hover,
-      .social-list a:hover {
-        text-decoration: none;
       }
     }
   </style>
