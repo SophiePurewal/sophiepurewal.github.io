@@ -24,6 +24,7 @@
 .project-card__content {
   position: absolute;
   inset: 0;
+  z-index: 1;
   display: flex;
   flex-direction: column;
   justify-content: flex-end;
@@ -74,36 +75,48 @@
 }
 
 .project-card--featured {
-  grid-column: 1 / -1;
-  aspect-ratio: auto;
-  min-height: clamp(280px, 38vw, 390px);
-  background: linear-gradient(135deg, #C0414E 0%, #A63341 100%);
+  grid-column: auto;
+  aspect-ratio: 1 / 1;
+  min-height: 0;
+  background: #161616;
 }
 
 .project-card--featured::before {
   content: "";
   position: absolute;
-  inset: 24px;
-  border: 1px solid rgba(255, 255, 255, 0.22);
-  border-radius: 24px;
+  inset: 0;
+  background-image: url("chartstudio-cover-square.png");
+  background-size: cover;
+  background-position: center center;
+  transform: scale(1.001);
+  transition: transform 0.35s ease, filter 0.35s ease;
 }
 
 .project-card--featured::after {
-  content: "";
-  position: absolute;
-  right: -60px;
-  bottom: -90px;
-  width: 280px;
-  height: 280px;
-  border: 18px solid rgba(255, 255, 255, 0.16);
-  border-radius: 50%;
+  content: none;
 }
 
 .project-card--featured .project-card__content {
-  opacity: 1;
-  justify-content: space-between;
-  padding: 32px;
-  background: linear-gradient(120deg, rgba(12, 13, 15, 0.18) 0%, rgba(12, 13, 15, 0.46) 56%, rgba(12, 13, 15, 0.74) 100%);
+  justify-content: flex-end;
+  gap: 12px;
+  padding: 24px;
+  background: linear-gradient(180deg, rgba(12, 13, 15, 0.16) 0%, rgba(12, 13, 15, 0.86) 100%);
+}
+
+.project-card--featured .project-card__art,
+.project-card--featured .project-card__eyebrow,
+.project-card--featured .project-card__description {
+  display: none;
+}
+
+.project-card--featured .project-card__lead {
+  max-width: none;
+}
+
+.project-card--featured:is(:hover, :focus-visible)::before,
+.project-card--featured:focus-within::before {
+  transform: scale(1.04);
+  filter: saturate(1.05);
 }
 
 .project-card__lead {
@@ -178,7 +191,7 @@ body.dark-mode .project-card {
 }
 
 body.dark-mode .project-card--featured {
-  background: linear-gradient(135deg, #C0414E 0%, #7C2330 100%);
+  background: #111827;
 }
 
 @media (max-width: 900px) {
@@ -186,19 +199,8 @@ body.dark-mode .project-card--featured {
     padding: 20px;
   }
 
-  .project-card--featured {
-    min-height: 260px;
-  }
-
   .project-card--featured .project-card__content {
-    padding: 24px;
-  }
-
-  .project-card__art {
-    width: min(42%, 220px);
-    height: min(46%, 180px);
-    top: 24px;
-    right: 24px;
+    padding: 20px;
   }
 }
 
@@ -206,23 +208,16 @@ body.dark-mode .project-card--featured {
   .projects-grid {
     grid-template-columns: 1fr;
   }
-
-  .project-card--featured {
-    min-height: 240px;
-  }
-
-  .project-card__art {
-    width: 52%;
-    height: 40%;
-  }
 }
 
 @media (hover: none), (pointer: coarse) {
-  .project-card--image .project-card__content {
+  .project-card--image .project-card__content,
+  .project-card--featured .project-card__content {
     opacity: 1;
   }
 
-  .project-card--image .project-card__title {
+  .project-card--image .project-card__title,
+  .project-card--featured .project-card__title {
     text-decoration-color: currentColor;
   }
 }
