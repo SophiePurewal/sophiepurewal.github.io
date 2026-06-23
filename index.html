@@ -1293,6 +1293,7 @@
       }
     }
   </style>
+  <link rel="stylesheet" href="projects-grid.css">
 </head>
 
 <body id="top">
@@ -1371,20 +1372,54 @@
       </div>
     </section>
 
-    <section id="projects" class="projects-section" aria-label="Projects section">
+    <section id="projects" class="projects-section" aria-labelledby="projects-title">
+      <h2 id="projects-title" class="visually-hidden">Projects</h2>
       <div class="projects-grid">
-        <div class="project-box project-box--image">
-          <img src="UI education app design.jpg" alt="UI education app design shown on mobile mockups">
-        </div>
-        <div class="project-box project-box--image">
-          <img src="Bike hiring rebrand design.jpg" alt="Bike hiring rebrand design concept board with logo sketches and typography">
-        </div>
-        <div class="project-box project-box--image">
-          <img src="Magazine design.jpg" alt="Magazine spread design with editorial layout and retro typography">
-        </div>
-        <div class="project-box project-box--image">
-          <img src="Snowflake typeface design.jpg" alt="Snowflake typeface design with geometric letterform studies">
-        </div>
+        <a class="project-card project-card--featured project-box" href="work/chartstudio.html" aria-label="View the ChartStudio case study">
+          <div class="project-card__art" aria-hidden="true">
+            <span class="project-card__bar project-card__bar--one"></span>
+            <span class="project-card__bar project-card__bar--two"></span>
+            <span class="project-card__bar project-card__bar--three"></span>
+            <span class="project-card__bar project-card__bar--four"></span>
+            <span class="project-card__ring"></span>
+          </div>
+          <div class="project-card__content">
+            <div class="project-card__lead">
+              <span class="project-card__eyebrow">Featured concept</span>
+              <h3 class="project-card__title">ChartStudio</h3>
+              <p class="project-card__description">A Figma plugin concept for consistent, accessible charts built from design-system presets.</p>
+            </div>
+            <p class="project-card__hint">View case study</p>
+          </div>
+        </a>
+        <a class="project-card project-card--image project-box project-box--image" href="work/ui-education-app.html" aria-label="View the UI Education App case study">
+          <img src="UI education app design.jpg" alt="Mobile screens for the UI Education App with lessons, progress tracking, and colourful interface cards">
+          <div class="project-card__content">
+            <h3 class="project-card__title">UI Education App</h3>
+            <p class="project-card__hint">View case study</p>
+          </div>
+        </a>
+        <a class="project-card project-card--image project-box project-box--image" href="work/bike-hiring-rebrand.html" aria-label="View the Bike Hiring Rebrand case study">
+          <img src="Bike hiring rebrand design.jpg" alt="Bike Hiring Rebrand concept board with logo development, typography, and visual identity samples">
+          <div class="project-card__content">
+            <h3 class="project-card__title">Bike Hiring Rebrand</h3>
+            <p class="project-card__hint">View case study</p>
+          </div>
+        </a>
+        <a class="project-card project-card--image project-box project-box--image" href="work/magazine-design.html" aria-label="View the Magazine Design case study">
+          <img src="Magazine design.jpg" alt="Magazine design spread with editorial photography, bold headlines, and a retro-inspired layout">
+          <div class="project-card__content">
+            <h3 class="project-card__title">Magazine Design</h3>
+            <p class="project-card__hint">View case study</p>
+          </div>
+        </a>
+        <a class="project-card project-card--image project-box project-box--image" href="work/snowflake-typeface.html" aria-label="View the Snowflake Typeface case study">
+          <img src="Snowflake typeface design.jpg" alt="Snowflake typeface poster with geometric letterform studies and typographic explorations">
+          <div class="project-card__content">
+            <h3 class="project-card__title">Snowflake Typeface</h3>
+            <p class="project-card__hint">View case study</p>
+          </div>
+        </a>
       </div>
     </section>
 
