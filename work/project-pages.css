@@ -1,0 +1,329 @@
+* {
+  box-sizing: border-box;
+}
+
+:root {
+  --brand: #C0414E;
+  --brand-deep: #A63341;
+  --background: #EFEFEF;
+  --surface: rgba(255, 255, 255, 0.94);
+  --surface-soft: rgba(255, 255, 255, 0.78);
+  --text: #0C0D0F;
+  --muted: #4E535B;
+  --line: rgba(12, 13, 15, 0.12);
+  --shadow: 0 24px 48px rgba(12, 13, 15, 0.08);
+  --shadow-soft: 0 14px 32px rgba(12, 13, 15, 0.06);
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  font-family: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+  color: var(--text);
+  line-height: 1.7;
+  background:
+    radial-gradient(circle at top, rgba(255, 255, 255, 0.72), transparent 38%),
+    linear-gradient(180deg, #F5F3F3 0%, var(--background) 48%, #E6E4E4 100%);
+}
+
+img {
+  max-width: 100%;
+  display: block;
+}
+
+main {
+  display: block;
+}
+
+a {
+  color: inherit;
+  text-decoration-thickness: 2px;
+  text-underline-offset: 4px;
+}
+
+a:focus-visible {
+  outline: 3px solid var(--brand);
+  outline-offset: 4px;
+  border-radius: 8px;
+}
+
+.site-shell {
+  width: min(1120px, calc(100% - 48px));
+  margin: 0 auto;
+}
+
+.page-header {
+  padding: 28px 0 0;
+}
+
+.back-link,
+.footer-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  color: var(--brand);
+  font-weight: 600;
+  text-decoration: none;
+}
+
+.back-link::before,
+.footer-link::before {
+  content: "←";
+}
+
+.back-link:hover,
+.back-link:focus-visible,
+.footer-link:hover,
+.footer-link:focus-visible {
+  text-decoration: underline;
+}
+
+.project-main {
+  padding: 24px 0 72px;
+}
+
+.case-study-hero {
+  position: relative;
+  overflow: hidden;
+  padding: clamp(32px, 6vw, 72px);
+  border-radius: 32px;
+  background:
+    linear-gradient(135deg, rgba(192, 65, 78, 0.12), rgba(255, 255, 255, 0.98)),
+    var(--surface);
+  border: 1px solid rgba(12, 13, 15, 0.08);
+  box-shadow: var(--shadow);
+}
+
+.case-study-hero::after {
+  content: "";
+  position: absolute;
+  right: -72px;
+  bottom: -140px;
+  width: 320px;
+  height: 320px;
+  border-radius: 50%;
+  background: rgba(192, 65, 78, 0.1);
+}
+
+.project-kicker {
+  position: relative;
+  z-index: 1;
+  margin: 0 0 16px;
+  font-size: 0.8rem;
+  font-weight: 700;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--brand);
+}
+
+.case-study-hero h1 {
+  position: relative;
+  z-index: 1;
+  margin: 0;
+  font-family: 'Playfair Display', Georgia, 'Times New Roman', serif;
+  font-size: clamp(3rem, 7vw, 5.5rem);
+  line-height: 0.98;
+  letter-spacing: -0.03em;
+  color: var(--brand);
+}
+
+.project-subtitle {
+  position: relative;
+  z-index: 1;
+  max-width: 20ch;
+  margin: 22px 0 0;
+  font-size: clamp(1.2rem, 2.8vw, 1.7rem);
+  line-height: 1.35;
+  font-weight: 500;
+  color: var(--text);
+}
+
+.project-intro {
+  position: relative;
+  z-index: 1;
+  max-width: 68ch;
+  margin: 26px 0 0;
+  font-size: 1.05rem;
+  color: var(--muted);
+}
+
+.section-grid {
+  margin-top: 28px;
+}
+
+.summary-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 16px;
+  margin: 0;
+}
+
+.summary-card {
+  margin: 0;
+  padding: 22px 24px;
+  border-radius: 24px;
+  border: 1px solid var(--line);
+  background: var(--surface-soft);
+  box-shadow: var(--shadow-soft);
+}
+
+.summary-card dt {
+  font-size: 0.82rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+
+.summary-card dd {
+  margin: 10px 0 0;
+  font-size: 1.02rem;
+  font-weight: 600;
+  color: var(--text);
+}
+
+.content-stack {
+  display: grid;
+  gap: 24px;
+  margin-top: 28px;
+}
+
+.section-card {
+  padding: clamp(24px, 4vw, 40px);
+  border-radius: 28px;
+  border: 1px solid var(--line);
+  background: var(--surface);
+  box-shadow: var(--shadow-soft);
+}
+
+.section-card h2 {
+  margin: 0 0 18px;
+  font-family: 'Playfair Display', Georgia, 'Times New Roman', serif;
+  font-size: clamp(2rem, 4vw, 2.8rem);
+  line-height: 1.05;
+  letter-spacing: -0.02em;
+  color: var(--brand);
+}
+
+.section-card p {
+  margin: 0;
+  color: var(--muted);
+}
+
+.checklist {
+  margin: 0;
+  padding-left: 22px;
+  display: grid;
+  gap: 14px;
+  color: var(--muted);
+}
+
+.feature-grid,
+.gallery-grid {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.feature-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 16px;
+}
+
+.feature-card {
+  padding: 20px 22px;
+  border-radius: 22px;
+  border: 1px solid rgba(192, 65, 78, 0.16);
+  background: rgba(192, 65, 78, 0.06);
+  color: var(--text);
+  font-weight: 600;
+}
+
+.gallery-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 18px;
+}
+
+.gallery-card {
+  padding: 16px;
+  border-radius: 24px;
+  border: 1px solid var(--line);
+  background: rgba(255, 255, 255, 0.92);
+}
+
+.gallery-placeholder {
+  min-height: 220px;
+  padding: 24px;
+  border-radius: 18px;
+  border: 2px dashed rgba(192, 65, 78, 0.34);
+  background: linear-gradient(180deg, rgba(192, 65, 78, 0.08), rgba(12, 13, 15, 0.02));
+  display: grid;
+  place-items: center;
+  text-align: center;
+  color: var(--brand);
+  font-size: 1.02rem;
+  font-weight: 600;
+}
+
+.gallery-caption {
+  margin: 12px 4px 0;
+  color: var(--muted);
+  font-size: 0.95rem;
+}
+
+.placeholder-page .case-study-hero {
+  min-height: 50vh;
+  display: flex;
+  align-items: flex-end;
+}
+
+.placeholder-page .project-subtitle {
+  max-width: none;
+}
+
+.placeholder-message {
+  margin: 20px 0 0;
+  color: var(--muted);
+  font-size: 1.02rem;
+}
+
+.project-footer {
+  padding-bottom: 56px;
+}
+
+@media (max-width: 720px) {
+  .site-shell {
+    width: min(1120px, calc(100% - 32px));
+  }
+
+  .page-header {
+    padding-top: 20px;
+  }
+
+  .project-main {
+    padding-bottom: 56px;
+  }
+
+  .summary-grid,
+  .feature-grid,
+  .gallery-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .case-study-hero {
+    border-radius: 24px;
+  }
+
+  .project-subtitle {
+    max-width: none;
+  }
+
+  .gallery-placeholder {
+    min-height: 180px;
+  }
+}
