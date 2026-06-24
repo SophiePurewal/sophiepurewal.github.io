@@ -1,0 +1,651 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Sora | Sophie Purewal</title>
+  <link rel="icon" type="image/svg+xml" href="../favicon.svg">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="project-pages.css">
+  <style>
+    .case-study-section__layout {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) minmax(320px, 0.92fr);
+      gap: clamp(24px, 4vw, 56px);
+      align-items: start;
+    }
+
+    .case-study-section__layout--reverse .case-study-section__body {
+      order: 2;
+    }
+
+    .case-study-section__layout--reverse .section-figure {
+      order: 1;
+    }
+
+    .case-study-section__body,
+    .section-figure {
+      min-width: 0;
+      margin: 0;
+    }
+
+    .section-figure img {
+      display: block;
+      width: 100%;
+      max-width: 100%;
+      height: auto;
+      object-fit: contain;
+    }
+
+    .hero-visual--collage {
+      position: relative;
+      min-height: clamp(360px, 48vw, 620px);
+    }
+
+    .hero-collage {
+      position: relative;
+      width: 100%;
+      height: 100%;
+      min-height: inherit;
+    }
+
+    .hero-collage__item {
+      position: absolute;
+      margin: 0;
+      border-radius: 24px;
+      overflow: hidden;
+      border: 1px solid var(--line);
+      background: var(--surface);
+      box-shadow: var(--shadow);
+    }
+
+    .hero-collage__item img {
+      display: block;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .hero-collage__item--desktop {
+      inset: 0 12% 6% 0;
+    }
+
+    .hero-collage__item--tablet {
+      width: 42%;
+      top: 16%;
+      right: 0;
+      bottom: 18%;
+      z-index: 2;
+    }
+
+    .hero-collage__item--mobile {
+      width: 28%;
+      right: 10%;
+      bottom: 0;
+      z-index: 3;
+    }
+
+    .feature-visuals {
+      display: grid;
+      gap: 24px;
+    }
+
+    .image-frame {
+      position: relative;
+      width: 100%;
+    }
+
+    .image-frame.is-missing img {
+      display: none;
+    }
+
+    .image-fallback {
+      display: none;
+      width: 100%;
+      min-height: 280px;
+      place-items: center;
+      padding: 32px;
+      border: 1px dashed var(--line);
+      border-radius: 24px;
+      background: var(--surface-soft);
+      text-align: center;
+      color: var(--muted);
+    }
+
+    .image-frame.is-missing .image-fallback {
+      display: grid;
+    }
+
+    .image-fallback p {
+      max-width: 28ch;
+    }
+
+    .prototype-section .section-header {
+      max-width: 72ch;
+    }
+
+    .eyebrow {
+      margin: 0 0 12px;
+      font-size: 0.8rem;
+      font-weight: 700;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: var(--brand);
+    }
+
+    .prototype-section h2 {
+      margin-bottom: 16px;
+    }
+
+    .prototype-frame {
+      position: relative;
+      width: 100%;
+      aspect-ratio: 16 / 10;
+      margin-top: 32px;
+      border-radius: 24px;
+      overflow: hidden;
+      border: 1px solid var(--line);
+      background: var(--surface);
+      box-shadow: var(--shadow);
+    }
+
+    .prototype-frame iframe,
+    .prototype-frame img {
+      width: 100%;
+      height: 100%;
+      border: 0;
+      display: block;
+    }
+
+    .prototype-frame img {
+      object-fit: cover;
+    }
+
+    .prototype-frame__fallback {
+      position: absolute;
+      inset: 0;
+      display: none;
+    }
+
+    .prototype-frame.is-fallback iframe {
+      display: none;
+    }
+
+    .prototype-frame.is-fallback .prototype-frame__fallback {
+      display: block;
+    }
+
+    .prototype-actions {
+      margin-top: 24px;
+    }
+
+    .button {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 52px;
+      padding: 0 22px;
+      border-radius: 999px;
+      border: 1px solid transparent;
+      font-weight: 700;
+      text-decoration: none;
+      transition: transform 0.2s ease, box-shadow 0.2s ease, opacity 0.2s ease;
+    }
+
+    .button:hover,
+    .button:focus-visible {
+      transform: translateY(-1px);
+    }
+
+    .button-primary {
+      background: var(--brand);
+      color: #FFFFFF;
+      box-shadow: var(--shadow-soft);
+    }
+
+    .button-primary:hover,
+    .button-primary:focus-visible {
+      opacity: 0.92;
+      text-decoration: none;
+    }
+
+    body.dark-mode .image-fallback {
+      background: var(--surface-soft);
+    }
+
+    body.dark-mode .button-primary {
+      color: #FFFFFF;
+    }
+
+    @media (max-width: 900px) {
+      .case-study-section__layout {
+        grid-template-columns: 1fr;
+        gap: 24px;
+      }
+
+      .case-study-section__layout--reverse .case-study-section__body,
+      .case-study-section__layout--reverse .section-figure {
+        order: initial;
+      }
+
+      .hero-visual--collage {
+        min-height: clamp(340px, 72vw, 540px);
+      }
+
+      .hero-collage__item--desktop {
+        inset: 0 8% 8% 0;
+      }
+
+      .hero-collage__item--tablet {
+        width: 46%;
+        top: 18%;
+        right: 0;
+        bottom: 16%;
+      }
+
+      .hero-collage__item--mobile {
+        width: 31%;
+        right: 8%;
+      }
+    }
+
+    @media (max-width: 720px) {
+      .prototype-frame {
+        aspect-ratio: 4 / 5;
+      }
+
+      .hero-visual--collage {
+        min-height: auto;
+      }
+
+      .hero-collage {
+        display: grid;
+        gap: 16px;
+      }
+
+      .hero-collage__item {
+        position: relative;
+        width: 100%;
+        inset: auto;
+      }
+
+      .hero-collage__item--desktop {
+        aspect-ratio: 16 / 10;
+      }
+
+      .hero-collage__item--tablet {
+        width: 88%;
+        margin-left: auto;
+        aspect-ratio: 4 / 5;
+      }
+
+      .hero-collage__item--mobile {
+        width: 64%;
+        aspect-ratio: 9 / 19;
+      }
+    }
+  </style>
+</head>
+<body id="top">
+  <a class="skip-link" href="#main">Skip to main content</a>
+  <header class="site-header">
+    <nav class="top-nav" aria-label="Main navigation">
+      <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="dropdown-menu" aria-label="Toggle navigation menu">
+        <svg class="menu-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960" aria-hidden="true" focusable="false">
+          <line class="line-top" x1="200" y1="-480" x2="760" y2="-480"></line>
+          <line class="line-bottom" x1="200" y1="-480" x2="760" y2="-480"></line>
+        </svg>
+      </button>
+
+      <p class="site-title">
+        <a href="../index.html" aria-label="Go to homepage">Sophie Purewal</a>
+      </p>
+
+      <div class="header-actions">
+        <button class="theme-toggle" type="button" aria-label="Activate dark mode" aria-pressed="false" title="Activate dark mode">
+          <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" aria-hidden="true" focusable="false">
+            <path d="M480-120q-133 0-226.5-92.5T160-436q0-66 25-122t69-100l226-222 226 222q44 44 69 100t25 122q0 131-93.5 223.5T480-120Zm0-80v-568L310-600q-35 33-52.5 74.5T240-436q0 97 70 166.5T480-200Z"></path>
+          </svg>
+        </button>
+      </div>
+
+      <div id="dropdown-menu" class="dropdown-menu" aria-label="Navigation links">
+        <a href="../index.html#projects" class="dropdown-link">
+          <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" aria-hidden="true" focusable="false">
+            <path d="M480-400 40-640l440-240 440 240-440 240Zm0 160L63-467l84-46 333 182 333-182 84 46-417 227Zm0 160L63-307l84-46 333 182 333-182 84 46L480-80Zm0-411 273-149-273-149-273 149 273 149Zm0-149Z"></path>
+          </svg>
+          Projects
+        </a>
+        <a href="../index.html#career" class="dropdown-link">
+          <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" aria-hidden="true" focusable="false">
+            <path d="M160-200v-440 440-15 15Zm0 80q-33 0-56.5-23.5T80-200v-440q0-33 23.5-56.5T160-720h160v-80q0-33 23.5-56.5T400-880h160q33 0 56.5 23.5T640-800v80h160q33 0 56.5 23.5T880-640v171q-18-13-38-22.5T800-508v-132H160v440h283q3 21 9 41t15 39H160Zm240-600h160v-80H400v80ZM578.5-98.5Q520-157 520-240t58.5-141.5Q637-440 720-440t141.5 58.5Q920-323 920-240T861.5-98.5Q803-40 720-40T578.5-98.5ZM740-248v-112h-40v128l86 86 28-28-74-74Z"></path>
+          </svg>
+          Career
+        </a>
+        <a href="../index.html#contact" class="dropdown-link">
+          <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" aria-hidden="true" focusable="false">
+            <path d="M720-120H280v-520l280-280 50 50q7 7 11.5 19t4.5 23v14l-44 174h258q32 0 56 24t24 56v80q0 7-2 15t-4 15L794-168q-9 20-30 34t-44 14Zm-360-80h360l120-280v-80H480l54-220-174 174v406Zm0-406v406-406Zm-80-34v80H160v360h120v80H80v-520h200Z"></path>
+          </svg>
+          Endorsements
+        </a>
+        <a href="mailto:sophiepurewaldesign@gmail.com" class="dropdown-link">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960" aria-hidden="true" focusable="false">
+            <path d="M160-160q-33 0-56.5-23.5T80-240v-480q0-33 23.5-56.5T160-800h640q33 0 56.5 23.5T880-720v480q0 33-23.5 56.5T800-160H160Zm320-280L160-640v400h640v-400L480-440Zm0-80 320-200H160l320 200ZM160-640v-80 480-400Z"></path>
+          </svg>
+          Contact
+        </a>
+        <div class="dropdown-social-links" aria-label="Social links">
+          <a href="https://www.behance.net/sophiepurewal" aria-label="Visit Sophie Purewal's Behance profile" title="Behance (opens in a new tab)" target="_blank" rel="noopener noreferrer">Bē<span class="visually-hidden">Behance</span></a>
+          <a href="https://www.instagram.com/sophiepurewaldesign/" aria-label="Visit Sophie Purewal's Instagram profile" title="Instagram (opens in a new tab)" target="_blank" rel="noopener noreferrer">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+              <path d="M7 2C4.24 2 2 4.24 2 7v10c0 2.76 2.24 5 5 5h10c2.76 0 5-2.24 5-5V7c0-2.76-2.24-5-5-5H7Zm10 2a3 3 0 0 1 3 3v10a3 3 0 0 1-3 3H7a3 3 0 0 1-3-3V7a3 3 0 0 1 3-3h10Zm.5 1.5a1 1 0 1 0 .001 2.001A1 1 0 0 0 17.5 5.5ZM12 7a5 5 0 1 0 0 10 5 5 0 0 0 0-10Zm0 2a3 3 0 1 1 0 6 3 3 0 0 1 0-6Z"></path>
+            </svg>
+            <span class="visually-hidden">Instagram</span>
+          </a>
+          <a href="https://www.linkedin.com/in/sophiepurewal/" aria-label="Visit Sophie Purewal's LinkedIn profile" title="LinkedIn (opens in a new tab)" target="_blank" rel="noopener noreferrer">in<span class="visually-hidden">LinkedIn</span></a>
+        </div>
+      </div>
+    </nav>
+  </header>
+
+  <main id="main" class="project-main">
+    <div class="site-shell">
+      <div class="project-context">
+        <a class="back-link" href="../index.html#projects">Back to portfolio</a>
+      </div>
+
+      <article class="case-study">
+        <section class="case-study-hero" aria-labelledby="project-title">
+          <div class="case-study-hero__copy">
+            <p class="project-kicker">Product design case study</p>
+            <h1 id="project-title">Sora</h1>
+            <p class="project-subtitle">AI-Assisted Finance Onboarding Prototype</p>
+            <p class="project-intro">Sora is an AI-assisted finance onboarding prototype created in Lovable. The concept explores how a personal finance product could help people connect everyday spending with longer-term goals through a calm onboarding flow, clear permission prompts and an early money snapshot that makes the value of the product visible from the start.</p>
+          </div>
+          <figure class="hero-visual hero-visual--collage">
+            <div class="hero-collage">
+              <div class="hero-collage__item hero-collage__item--desktop image-frame">
+                <img src="../assets/projects/sora/sora-hero-desktop.png" alt="Desktop view of the Sora onboarding prototype showing a goal-led finance flow and first-money snapshot." loading="eager" decoding="async" onerror="this.parentElement.classList.add('is-missing');">
+                <div class="image-fallback" aria-hidden="true">
+                  <p>Add `/assets/projects/sora/sora-hero-desktop.png` to show the desktop Sora hero image.</p>
+                </div>
+              </div>
+              <div class="hero-collage__item hero-collage__item--tablet image-frame">
+                <img src="../assets/projects/sora/sora-hero-tablet.png" alt="Tablet view of the Sora onboarding prototype with the finance journey adapted to a medium screen." loading="eager" decoding="async" onerror="this.parentElement.classList.add('is-missing');">
+                <div class="image-fallback" aria-hidden="true">
+                  <p>Add `/assets/projects/sora/sora-hero-tablet.png` to show the tablet Sora hero image.</p>
+                </div>
+              </div>
+              <div class="hero-collage__item hero-collage__item--mobile image-frame">
+                <img src="../assets/projects/sora/sora-hero-mobile.png" alt="Mobile view of the Sora onboarding prototype highlighting the compact first-plan experience." loading="eager" decoding="async" onerror="this.parentElement.classList.add('is-missing');">
+                <div class="image-fallback" aria-hidden="true">
+                  <p>Add `/assets/projects/sora/sora-hero-mobile.png` to show the mobile Sora hero image.</p>
+                </div>
+              </div>
+            </div>
+          </figure>
+        </section>
+
+        <section class="case-study-section" aria-labelledby="project-summary-title">
+          <h2 id="project-summary-title">Project summary</h2>
+          <div class="case-study-section__layout case-study-section__layout--summary">
+            <div class="case-study-section__body">
+              <dl class="summary-grid">
+                <div class="summary-item">
+                  <dt>Role</dt>
+                  <dd>Product design, UI design, AI-assisted prototyping</dd>
+                </div>
+                <div class="summary-item">
+                  <dt>Tools</dt>
+                  <dd>Lovable, Figma, GitHub, Codex</dd>
+                </div>
+                <div class="summary-item">
+                  <dt>Focus</dt>
+                  <dd>Finance onboarding, goal-based money management, permission prompts, dashboard UI</dd>
+                </div>
+                <div class="summary-item">
+                  <dt>Status</dt>
+                  <dd>Concept prototype</dd>
+                </div>
+              </dl>
+            </div>
+            <figure class="section-figure">
+              <div class="image-frame">
+                <img src="../assets/projects/sora/sora-welcome.png" alt="Sora welcome screen introducing the finance onboarding journey on a mobile layout." loading="lazy" decoding="async" onerror="this.parentElement.classList.add('is-missing');">
+                <div class="image-fallback" aria-hidden="true">
+                  <p>Add `/assets/projects/sora/sora-welcome.png` to show the project summary preview.</p>
+                </div>
+              </div>
+            </figure>
+          </div>
+        </section>
+
+        <section class="case-study-section" aria-labelledby="problem-title">
+          <h2 id="problem-title">The problem</h2>
+          <p>Many personal finance products ask users to connect accounts, review transactions or set budgets before they understand the value of the product. This can make onboarding feel heavy, especially for people who want simple guidance rather than another complex money-management tool. Sora explores a softer onboarding model that starts with the user’s goal, then gradually introduces income basics, transaction signals and a first monthly snapshot.</p>
+        </section>
+
+        <section class="case-study-section" aria-labelledby="approach-title">
+          <h2 id="approach-title">Design approach</h2>
+          <div class="case-study-section__layout case-study-section__layout--reverse">
+            <figure class="section-figure">
+              <div class="image-frame">
+                <img src="../assets/projects/sora/sora-connect-signals.png" alt="Sora permission prompt screen explaining how transaction-alert signals help create a first money snapshot." loading="lazy" decoding="async" onerror="this.parentElement.classList.add('is-missing');">
+                <div class="image-fallback" aria-hidden="true">
+                  <p>Add `/assets/projects/sora/sora-connect-signals.png` to show the permission prompt design approach screen.</p>
+                </div>
+              </div>
+            </figure>
+            <div class="case-study-section__body">
+              <ul class="approach-list">
+                <li>Start with the user’s financial goal rather than raw bank data.</li>
+                <li>Keep the onboarding journey short, clear and emotionally reassuring.</li>
+                <li>Break the experience into an 8-step guided flow.</li>
+                <li>Explain transaction-alert permissions in plain language.</li>
+                <li>Reinforce privacy by making it clear that Sora only looks for transaction alerts and never reads personal messages.</li>
+                <li>Show value early through a simple first-plan and snapshot experience.</li>
+                <li>Use AI-assisted prototyping to quickly move from product idea to working interface.</li>
+                <li>Keep the visual design clean, warm, trustworthy and suitable for a finance context.</li>
+              </ul>
+            </div>
+          </div>
+        </section>
+
+        <section class="case-study-section" aria-labelledby="features-title">
+          <h2 id="features-title">Key features</h2>
+          <div class="case-study-section__layout">
+            <div class="case-study-section__body">
+              <ul class="feature-list">
+                <li>8-step onboarding flow</li>
+                <li>Goal-first finance setup</li>
+                <li>Goal details and income basics</li>
+                <li>Transaction-alert connection step</li>
+                <li>Auto-built monthly money snapshot</li>
+                <li>Review snapshot step</li>
+                <li>First-plan experience</li>
+                <li>Mobile-first responsive Lovable prototype</li>
+                <li>Embedded live prototype preview</li>
+              </ul>
+            </div>
+            <div class="feature-visuals" aria-label="Sora feature previews">
+              <figure class="section-figure">
+                <div class="image-frame">
+                  <img src="../assets/projects/sora/sora-goal-details.png" alt="Sora goal details screen with inputs for a personal finance goal timeline and amount." loading="lazy" decoding="async" onerror="this.parentElement.classList.add('is-missing');">
+                  <div class="image-fallback" aria-hidden="true">
+                    <p>Add `/assets/projects/sora/sora-goal-details.png` to show the goal details feature.</p>
+                  </div>
+                </div>
+              </figure>
+              <figure class="section-figure">
+                <div class="image-frame">
+                  <img src="../assets/projects/sora/sora-review-snapshot.png" alt="Sora review snapshot screen showing a simple monthly money summary before the first plan." loading="lazy" decoding="async" onerror="this.parentElement.classList.add('is-missing');">
+                  <div class="image-fallback" aria-hidden="true">
+                    <p>Add `/assets/projects/sora/sora-review-snapshot.png` to show the money snapshot feature.</p>
+                  </div>
+                </div>
+              </figure>
+            </div>
+          </div>
+        </section>
+
+        <section class="case-study-section" aria-labelledby="screenshots-title">
+          <h2 id="screenshots-title">Screenshots</h2>
+          <p>Sora is a Lovable prototype exploring how a goal-first finance onboarding flow could turn everyday spending signals into a clearer path towards a personal money goal.</p>
+          <p class="gallery-intro">The screenshots below walk through the eight-step onboarding journey, from welcome and goal selection through to the first monthly snapshot and initial plan.</p>
+          <div class="screenshot-grid">
+            <figure class="screenshot-figure">
+              <div class="image-frame">
+                <img src="../assets/projects/sora/sora-welcome.png" alt="Step 1 welcome screen for Sora, introducing the onboarding flow in a calm and simple layout." loading="lazy" decoding="async" onerror="this.parentElement.classList.add('is-missing');">
+                <div class="image-fallback" aria-hidden="true">
+                  <p>Add `/assets/projects/sora/sora-welcome.png` to show Step 1.</p>
+                </div>
+              </div>
+              <figcaption>Step 1: Welcome</figcaption>
+            </figure>
+            <figure class="screenshot-figure">
+              <div class="image-frame">
+                <img src="../assets/projects/sora/sora-choose-goal.png" alt="Step 2 screen where the user chooses a savings or money goal inside the Sora onboarding flow." loading="lazy" decoding="async" onerror="this.parentElement.classList.add('is-missing');">
+                <div class="image-fallback" aria-hidden="true">
+                  <p>Add `/assets/projects/sora/sora-choose-goal.png` to show Step 2.</p>
+                </div>
+              </div>
+              <figcaption>Step 2: Choose your goal</figcaption>
+            </figure>
+            <figure class="screenshot-figure">
+              <div class="image-frame">
+                <img src="../assets/projects/sora/sora-goal-details.png" alt="Step 3 screen where the user shapes a savings goal by setting the amount and timing for Sora to work towards." loading="lazy" decoding="async" onerror="this.parentElement.classList.add('is-missing');">
+                <div class="image-fallback" aria-hidden="true">
+                  <p>Add `/assets/projects/sora/sora-goal-details.png` to show Step 3.</p>
+                </div>
+              </div>
+              <figcaption>Step 3: Shape the goal</figcaption>
+            </figure>
+            <figure class="screenshot-figure">
+              <div class="image-frame">
+                <img src="../assets/projects/sora/sora-income-basics.png" alt="Step 4 screen capturing the user's income rhythm with straightforward monthly income details." loading="lazy" decoding="async" onerror="this.parentElement.classList.add('is-missing');">
+                <div class="image-fallback" aria-hidden="true">
+                  <p>Add `/assets/projects/sora/sora-income-basics.png` to show Step 4.</p>
+                </div>
+              </div>
+              <figcaption>Step 4: Income rhythm</figcaption>
+            </figure>
+            <figure class="screenshot-figure">
+              <div class="image-frame">
+                <img src="../assets/projects/sora/sora-connect-signals.png" alt="Step 5 permission screen explaining how Sora uses transaction-alert signals without reading personal messages." loading="lazy" decoding="async" onerror="this.parentElement.classList.add('is-missing');">
+                <div class="image-fallback" aria-hidden="true">
+                  <p>Add `/assets/projects/sora/sora-connect-signals.png` to show Step 5.</p>
+                </div>
+              </div>
+              <figcaption>Step 5: Connect transaction signals</figcaption>
+            </figure>
+            <figure class="screenshot-figure">
+              <div class="image-frame">
+                <img src="../assets/projects/sora/sora-build-snapshot.png" alt="Step 6 loading screen where Sora builds the user's first monthly snapshot from goals, income basics and transaction signals." loading="lazy" decoding="async" onerror="this.parentElement.classList.add('is-missing');">
+                <div class="image-fallback" aria-hidden="true">
+                  <p>Add `/assets/projects/sora/sora-build-snapshot.png` to show Step 6.</p>
+                </div>
+              </div>
+              <figcaption>Step 6: Build monthly snapshot</figcaption>
+            </figure>
+            <figure class="screenshot-figure">
+              <div class="image-frame">
+                <img src="../assets/projects/sora/sora-review-snapshot.png" alt="Step 7 review screen showing the first Sora monthly snapshot with income, spending and progress signals in one place." loading="lazy" decoding="async" onerror="this.parentElement.classList.add('is-missing');">
+                <div class="image-fallback" aria-hidden="true">
+                  <p>Add `/assets/projects/sora/sora-review-snapshot.png` to show Step 7.</p>
+                </div>
+              </div>
+              <figcaption>Step 7: Review snapshot</figcaption>
+            </figure>
+            <figure class="screenshot-figure">
+              <div class="image-frame">
+                <img src="../assets/projects/sora/sora-first-plan.png" alt="Step 8 first-plan screen presenting a simple suggested money plan based on the user's goal and first snapshot." loading="lazy" decoding="async" onerror="this.parentElement.classList.add('is-missing');">
+                <div class="image-fallback" aria-hidden="true">
+                  <p>Add `/assets/projects/sora/sora-first-plan.png` to show Step 8.</p>
+                </div>
+              </div>
+              <figcaption>Step 8: First plan</figcaption>
+            </figure>
+            <figure class="screenshot-figure screenshot-figure--wide">
+              <div class="image-frame">
+                <img src="../assets/projects/sora/sora-all-set.png" alt="Completion screen confirming the Sora onboarding flow is finished and the user's first plan is ready." loading="lazy" decoding="async" onerror="this.parentElement.classList.add('is-missing');">
+                <div class="image-fallback" aria-hidden="true">
+                  <p>Add `/assets/projects/sora/sora-all-set.png` to show the completion screen.</p>
+                </div>
+              </div>
+              <figcaption>Completion screen</figcaption>
+            </figure>
+          </div>
+        </section>
+
+        <section class="case-study-section prototype-section" aria-labelledby="prototype-title">
+          <div class="section-header">
+            <p class="eyebrow">Working prototype</p>
+            <h2 id="prototype-title">Explore the live Sora prototype</h2>
+            <p>This prototype was created in Lovable as an interactive product concept. It demonstrates how AI-assisted tools can help move quickly from product framing and UX flow into a working front-end prototype.</p>
+          </div>
+
+          <div class="prototype-frame" data-prototype-frame data-fallback-delay-ms="4500">
+            <iframe
+              src="https://sora-finance.lovable.app/"
+              title="Live Sora finance onboarding prototype"
+              loading="lazy"
+              allowfullscreen>
+            </iframe>
+            <div class="prototype-frame__fallback" aria-hidden="true">
+              <div class="image-frame">
+                <img src="../assets/projects/sora/sora-cover.png" alt="Static preview of the Sora finance onboarding prototype." loading="lazy" decoding="async" onerror="this.parentElement.classList.add('is-missing');">
+                <div class="image-fallback">
+                  <p>The live embed may be blocked or unavailable. Add `/assets/projects/sora/sora-cover.png` for a static prototype preview, or use the button below to open the live prototype directly.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="prototype-actions">
+            <a
+              class="button button-primary"
+              href="https://sora-finance.lovable.app/"
+              target="_blank"
+              rel="noopener noreferrer">
+              Open live prototype
+            </a>
+          </div>
+        </section>
+
+        <section class="case-study-section" aria-labelledby="reflection-title">
+          <h2 id="reflection-title">What I learned</h2>
+          <p>This project helped me explore how AI-assisted prototyping can support early product thinking, especially when turning an abstract finance idea into a tangible onboarding flow. It also helped me practise writing clearer permission prompts, simplifying money-management concepts and designing a finance interface that feels useful, calm and trustworthy without becoming overwhelming.</p>
+        </section>
+      </article>
+    </div>
+  </main>
+
+  <footer class="project-footer site-shell">
+    <a class="footer-link" href="../index.html#projects">Back to portfolio</a>
+  </footer>
+  <script src="project-pages.js"></script>
+  <script>
+    document.querySelectorAll('[data-prototype-frame]').forEach((frame) => {
+      const iframe = frame.querySelector('iframe');
+      if (!iframe) return;
+
+      const fallbackDelayMs = Number(frame.dataset.fallbackDelayMs || 4500);
+      let loaded = false;
+
+      const fallbackTimer = window.setTimeout(() => {
+        if (!loaded) {
+          frame.classList.add('is-fallback');
+        }
+      }, fallbackDelayMs);
+
+      iframe.addEventListener('load', () => {
+        loaded = true;
+        window.clearTimeout(fallbackTimer);
+        frame.classList.remove('is-fallback');
+      });
+    });
+  </script>
+</body>
+</html>
