@@ -39,6 +39,54 @@
       object-fit: contain;
     }
 
+    .hero-visual--collage {
+      position: relative;
+      min-height: clamp(360px, 48vw, 620px);
+    }
+
+    .hero-collage {
+      position: relative;
+      width: 100%;
+      height: 100%;
+      min-height: inherit;
+    }
+
+    .hero-collage__item {
+      position: absolute;
+      margin: 0;
+      border-radius: 24px;
+      overflow: hidden;
+      border: 1px solid var(--line);
+      background: var(--surface);
+      box-shadow: var(--shadow);
+    }
+
+    .hero-collage__item img {
+      display: block;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .hero-collage__item--desktop {
+      inset: 0 12% 6% 0;
+    }
+
+    .hero-collage__item--tablet {
+      width: 42%;
+      top: 16%;
+      right: 0;
+      bottom: 18%;
+      z-index: 2;
+    }
+
+    .hero-collage__item--mobile {
+      width: 28%;
+      right: 10%;
+      bottom: 0;
+      z-index: 3;
+    }
+
     .feature-visuals {
       display: grid;
       gap: 24px;
@@ -181,11 +229,61 @@
       .case-study-section__layout--reverse .section-figure {
         order: initial;
       }
+
+      .hero-visual--collage {
+        min-height: clamp(340px, 72vw, 540px);
+      }
+
+      .hero-collage__item--desktop {
+        inset: 0 8% 8% 0;
+      }
+
+      .hero-collage__item--tablet {
+        width: 46%;
+        top: 18%;
+        right: 0;
+        bottom: 16%;
+      }
+
+      .hero-collage__item--mobile {
+        width: 31%;
+        right: 8%;
+      }
     }
 
     @media (max-width: 720px) {
       .prototype-frame {
         aspect-ratio: 4 / 5;
+      }
+
+      .hero-visual--collage {
+        min-height: auto;
+      }
+
+      .hero-collage {
+        display: grid;
+        gap: 16px;
+      }
+
+      .hero-collage__item {
+        position: relative;
+        width: 100%;
+        inset: auto;
+      }
+
+      .hero-collage__item--desktop {
+        aspect-ratio: 16 / 10;
+      }
+
+      .hero-collage__item--tablet {
+        width: 88%;
+        margin-left: auto;
+        aspect-ratio: 4 / 5;
+      }
+
+      .hero-collage__item--mobile {
+        width: 64%;
+        aspect-ratio: 9 / 19;
       }
     }
   </style>
@@ -266,11 +364,25 @@
             <p class="project-subtitle">AI-Assisted Finance Onboarding Prototype</p>
             <p class="project-intro">Sora is an AI-assisted finance onboarding prototype created in Lovable. The concept explores how a personal finance product could help people connect everyday spending with longer-term goals through a calm onboarding flow, clear permission prompts and an early money snapshot that makes the value of the product visible from the start.</p>
           </div>
-          <figure class="hero-visual">
-            <div class="image-frame">
-              <img src="../assets/projects/sora/sora-cover.png" alt="Sora finance onboarding prototype cover showing a calm mobile-first onboarding interface." loading="eager" decoding="async" onerror="this.parentElement.classList.add('is-missing');">
-              <div class="image-fallback" aria-hidden="true">
-                <p>Add `/assets/projects/sora/sora-cover.png` to show the Sora case study hero image.</p>
+          <figure class="hero-visual hero-visual--collage">
+            <div class="hero-collage">
+              <div class="hero-collage__item hero-collage__item--desktop image-frame">
+                <img src="../assets/projects/sora/sora-hero-desktop.png" alt="Desktop view of the Sora onboarding prototype showing a goal-led finance flow and first-money snapshot." loading="eager" decoding="async" onerror="this.parentElement.classList.add('is-missing');">
+                <div class="image-fallback" aria-hidden="true">
+                  <p>Add `/assets/projects/sora/sora-hero-desktop.png` to show the desktop Sora hero image.</p>
+                </div>
+              </div>
+              <div class="hero-collage__item hero-collage__item--tablet image-frame">
+                <img src="../assets/projects/sora/sora-hero-tablet.png" alt="Tablet view of the Sora onboarding prototype with the finance journey adapted to a medium screen." loading="eager" decoding="async" onerror="this.parentElement.classList.add('is-missing');">
+                <div class="image-fallback" aria-hidden="true">
+                  <p>Add `/assets/projects/sora/sora-hero-tablet.png` to show the tablet Sora hero image.</p>
+                </div>
+              </div>
+              <div class="hero-collage__item hero-collage__item--mobile image-frame">
+                <img src="../assets/projects/sora/sora-hero-mobile.png" alt="Mobile view of the Sora onboarding prototype highlighting the compact first-plan experience." loading="eager" decoding="async" onerror="this.parentElement.classList.add('is-missing');">
+                <div class="image-fallback" aria-hidden="true">
+                  <p>Add `/assets/projects/sora/sora-hero-mobile.png` to show the mobile Sora hero image.</p>
+                </div>
               </div>
             </div>
           </figure>
@@ -385,15 +497,6 @@
           <div class="screenshot-grid">
             <figure class="screenshot-figure">
               <div class="image-frame">
-                <img src="../assets/projects/sora/sora-cover.png" alt="Sora prototype cover image introducing the finance onboarding concept." loading="lazy" decoding="async" onerror="this.parentElement.classList.add('is-missing');">
-                <div class="image-fallback" aria-hidden="true">
-                  <p>Add `/assets/projects/sora/sora-cover.png` to show the Sora prototype cover.</p>
-                </div>
-              </div>
-              <figcaption>Sora prototype cover</figcaption>
-            </figure>
-            <figure class="screenshot-figure">
-              <div class="image-frame">
                 <img src="../assets/projects/sora/sora-welcome.png" alt="Step 1 welcome screen for Sora, introducing the onboarding flow in a calm and simple layout." loading="lazy" decoding="async" onerror="this.parentElement.classList.add('is-missing');">
                 <div class="image-fallback" aria-hidden="true">
                   <p>Add `/assets/projects/sora/sora-welcome.png` to show Step 1.</p>
@@ -412,25 +515,25 @@
             </figure>
             <figure class="screenshot-figure">
               <div class="image-frame">
-                <img src="../assets/projects/sora/sora-goal-details.png" alt="Step 3 goal details screen capturing how much the user wants to save and by when." loading="lazy" decoding="async" onerror="this.parentElement.classList.add('is-missing');">
+                <img src="../assets/projects/sora/sora-goal-details.png" alt="Step 3 screen where the user shapes a savings goal by setting the amount and timing for Sora to work towards." loading="lazy" decoding="async" onerror="this.parentElement.classList.add('is-missing');">
                 <div class="image-fallback" aria-hidden="true">
                   <p>Add `/assets/projects/sora/sora-goal-details.png` to show Step 3.</p>
                 </div>
               </div>
-              <figcaption>Step 3: Add goal details</figcaption>
+              <figcaption>Step 3: Shape the goal</figcaption>
             </figure>
             <figure class="screenshot-figure">
               <div class="image-frame">
-                <img src="../assets/projects/sora/sora-income-basics.png" alt="Step 4 income basics screen collecting simple information about the user's monthly income." loading="lazy" decoding="async" onerror="this.parentElement.classList.add('is-missing');">
+                <img src="../assets/projects/sora/sora-income-basics.png" alt="Step 4 screen capturing the user's income rhythm with straightforward monthly income details." loading="lazy" decoding="async" onerror="this.parentElement.classList.add('is-missing');">
                 <div class="image-fallback" aria-hidden="true">
                   <p>Add `/assets/projects/sora/sora-income-basics.png` to show Step 4.</p>
                 </div>
               </div>
-              <figcaption>Step 4: Add income basics</figcaption>
+              <figcaption>Step 4: Income rhythm</figcaption>
             </figure>
             <figure class="screenshot-figure">
               <div class="image-frame">
-                <img src="../assets/projects/sora/sora-connect-signals.png" alt="Step 5 connection screen explaining transaction-alert permissions and privacy protections." loading="lazy" decoding="async" onerror="this.parentElement.classList.add('is-missing');">
+                <img src="../assets/projects/sora/sora-connect-signals.png" alt="Step 5 permission screen explaining how Sora uses transaction-alert signals without reading personal messages." loading="lazy" decoding="async" onerror="this.parentElement.classList.add('is-missing');">
                 <div class="image-fallback" aria-hidden="true">
                   <p>Add `/assets/projects/sora/sora-connect-signals.png` to show Step 5.</p>
                 </div>
@@ -439,30 +542,39 @@
             </figure>
             <figure class="screenshot-figure">
               <div class="image-frame">
-                <img src="../assets/projects/sora/sora-build-snapshot.png" alt="Step 6 loading screen where Sora builds a first monthly money snapshot from user inputs and signals." loading="lazy" decoding="async" onerror="this.parentElement.classList.add('is-missing');">
+                <img src="../assets/projects/sora/sora-build-snapshot.png" alt="Step 6 loading screen where Sora builds the user's first monthly snapshot from goals, income basics and transaction signals." loading="lazy" decoding="async" onerror="this.parentElement.classList.add('is-missing');">
                 <div class="image-fallback" aria-hidden="true">
                   <p>Add `/assets/projects/sora/sora-build-snapshot.png` to show Step 6.</p>
                 </div>
               </div>
-              <figcaption>Step 6: Build snapshot</figcaption>
+              <figcaption>Step 6: Build monthly snapshot</figcaption>
             </figure>
             <figure class="screenshot-figure">
               <div class="image-frame">
-                <img src="../assets/projects/sora/sora-review-snapshot.png" alt="Step 7 review screen showing the user's first monthly snapshot with income, spending and progress signals." loading="lazy" decoding="async" onerror="this.parentElement.classList.add('is-missing');">
+                <img src="../assets/projects/sora/sora-review-snapshot.png" alt="Step 7 review screen showing the first Sora monthly snapshot with income, spending and progress signals in one place." loading="lazy" decoding="async" onerror="this.parentElement.classList.add('is-missing');">
                 <div class="image-fallback" aria-hidden="true">
                   <p>Add `/assets/projects/sora/sora-review-snapshot.png` to show Step 7.</p>
                 </div>
               </div>
               <figcaption>Step 7: Review snapshot</figcaption>
             </figure>
-            <figure class="screenshot-figure screenshot-figure--wide">
+            <figure class="screenshot-figure">
               <div class="image-frame">
-                <img src="../assets/projects/sora/sora-first-plan.png" alt="Step 8 first-plan screen presenting a simple suggested plan based on the user's goal and monthly snapshot." loading="lazy" decoding="async" onerror="this.parentElement.classList.add('is-missing');">
+                <img src="../assets/projects/sora/sora-first-plan.png" alt="Step 8 first-plan screen presenting a simple suggested money plan based on the user's goal and first snapshot." loading="lazy" decoding="async" onerror="this.parentElement.classList.add('is-missing');">
                 <div class="image-fallback" aria-hidden="true">
                   <p>Add `/assets/projects/sora/sora-first-plan.png` to show Step 8.</p>
                 </div>
               </div>
-              <figcaption>Step 8: Your first plan</figcaption>
+              <figcaption>Step 8: First plan</figcaption>
+            </figure>
+            <figure class="screenshot-figure screenshot-figure--wide">
+              <div class="image-frame">
+                <img src="../assets/projects/sora/sora-all-set.png" alt="Completion screen confirming the Sora onboarding flow is finished and the user's first plan is ready." loading="lazy" decoding="async" onerror="this.parentElement.classList.add('is-missing');">
+                <div class="image-fallback" aria-hidden="true">
+                  <p>Add `/assets/projects/sora/sora-all-set.png` to show the completion screen.</p>
+                </div>
+              </div>
+              <figcaption>Completion screen</figcaption>
             </figure>
           </div>
         </section>
