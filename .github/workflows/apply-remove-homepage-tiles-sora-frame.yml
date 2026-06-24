@@ -1,0 +1,92 @@
+name: Apply portfolio cleanup
+
+on:
+  push:
+    branches:
+      - remove-homepage-tiles-sora-frame
+
+permissions:
+  contents: write
+
+jobs:
+  apply-patch:
+    runs-on: ubuntu-latest
+    if: github.actor != 'github-actions[bot]'
+    steps:
+      - name: Check out branch
+        uses: actions/checkout@v4
+        with:
+          ref: remove-homepage-tiles-sora-frame
+          persist-credentials: true
+
+      - name: Apply requested edits
+        run: |
+          python <<'PY'
+          from pathlib import Path
+
+          index_path = Path('index.html')
+          index_html = index_path.read_text()
+
+          education_tile = '''        <a class="project-card project-card--image project-box project-box--image" href="work/ui-education-app.html" aria-label="View the UI for Education App case study">
+          <img src="UI design for education app.jpg" alt="UI design for education app with colorful dashboard, learning cards, and analytics widgets.">
+          <div class="project-card__content">
+            <h3 class="project-card__title">UI for Education App</h3>
+            <p class="project-card__hint">View case study</p>
+          </div>
+        </a>
+'''
+
+          bike_tile = '''        <a class="project-card project-card--image project-box project-box--image" href="work/bike-hiring-rebrand.html" aria-label="View the Bike Hiring Rebrand case study">
+          <img src="Bike hiring rebrand project.jpg" alt="Bike hiring rebrand project showing bicycles, a bold campaign poster, and refreshed visual identity assets.">
+          <div class="project-card__content">
+            <h3 class="project-card__title">Bike Hiring Rebrand</h3>
+            <p class="project-card__hint">View case study</p>
+          </div>
+        </a>
+'''
+
+          index_html = index_html.replace(education_tile, '')
+          index_html = index_html.replace(bike_tile, '')
+          index_path.write_text(index_html)
+
+          sora_path = Path('work/sora-finance.html')
+          sora_html = sora_path.read_text()
+          old_css = '''    .hero-collage__item {
+      margin: 0;
+      overflow: hidden;
+      border-radius: 20px;
+      background: transparent;
+      align-self: start;
+    }
+'''
+          new_css = '''    .hero-collage__item {
+      margin: 0;
+      overflow: hidden;
+      border-radius: 0;
+      border: 0;
+      background: transparent;
+      box-shadow: none;
+      align-self: start;
+    }
+'''
+          if old_css in sora_html:
+              sora_html = sora_html.replace(old_css, new_css)
+          else:
+              sora_html = sora_html.replace('      border-radius: 20px;', '      border-radius: 0;\n      border: 0;')
+              if '      box-shadow: none;' not in sora_html:
+                  sora_html = sora_html.replace('      background: transparent;', '      background: transparent;\n      box-shadow: none;', 1)
+          sora_path.write_text(sora_html)
+
+          workflow_path = Path('.github/workflows/apply-remove-homepage-tiles-sora-frame.yml')
+          if workflow_path.exists():
+              workflow_path.unlink()
+          PY
+
+      - name: Commit requested edits
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add index.html work/sora-finance.html .github/workflows/apply-remove-homepage-tiles-sora-frame.yml
+          git diff --cached --quiet && exit 0
+          git commit -m "Remove extra homepage project tiles"
+          git push origin HEAD:remove-homepage-tiles-sora-frame
