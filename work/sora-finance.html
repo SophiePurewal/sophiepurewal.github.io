@@ -11,7 +11,7 @@
   <link rel="stylesheet" href="project-pages.css">
   <style>
     body {
-      background: #F4EFE8;
+      background: #F6F1EB;
     }
 
     .case-study-hero {
@@ -22,6 +22,10 @@
 
     .case-study-hero__copy {
       max-width: 46rem;
+    }
+
+    .case-study-section h2 {
+      margin-bottom: 32px;
     }
 
     .case-study-section__layout {
@@ -62,7 +66,7 @@
       display: grid;
       grid-template-columns: repeat(3, minmax(0, 1fr));
       gap: clamp(14px, 2.4vw, 24px);
-      align-items: end;
+      align-items: start;
       width: 100%;
       max-width: 960px;
     }
@@ -72,6 +76,7 @@
       overflow: hidden;
       border-radius: 20px;
       background: transparent;
+      align-self: start;
     }
 
     .hero-collage__item img {
@@ -79,18 +84,13 @@
       width: 100%;
       height: auto;
       object-fit: contain;
+      object-position: top center;
     }
 
-    .hero-collage__item--desktop {
-      align-self: stretch;
-    }
-
-    .hero-collage__item--tablet {
-      margin-top: 28px;
-    }
-
+    .hero-collage__item--desktop,
+    .hero-collage__item--tablet,
     .hero-collage__item--mobile {
-      margin-top: 56px;
+      margin-top: 0;
     }
 
     .feature-visuals {
@@ -242,6 +242,9 @@
 
     .screenshot-figure {
       margin: 0;
+      display: flex;
+      flex-direction: column;
+      align-items: stretch;
     }
 
     .screenshot-figure--wide {
@@ -249,11 +252,13 @@
     }
 
     .screenshot-figure figcaption {
-      margin-top: 12px;
+      order: -1;
+      margin: 0 0 14px;
       font-size: 0.96rem;
       line-height: 1.5;
       font-weight: 600;
       color: var(--text);
+      text-align: center;
     }
 
     body.dark-mode {
@@ -283,6 +288,7 @@
         grid-template-columns: repeat(3, minmax(180px, 1fr));
         overflow-x: auto;
         padding-bottom: 8px;
+        align-items: start;
       }
 
       .feature-visuals,
