@@ -1037,134 +1037,95 @@
 
     body.dark-mode .site-header .menu-toggle,
     body.dark-mode .site-header .theme-toggle,
-    body.dark-mode .site-header .social-list a,
     body.dark-mode .site-header.scrolled .menu-toggle,
     body.dark-mode .site-header.scrolled .theme-toggle,
-    body.dark-mode .site-header.scrolled .social-list a {
-      color: #f8fafc;
+    body.dark-mode .site-header.scrolled .nav-list a,
+    body.dark-mode .site-header.scrolled .social-list a,
+    body.dark-mode .site-header.scrolled .site-title a {
+      color: #F8FAFC;
     }
 
     body.dark-mode .dropdown-menu,
     body.dark-mode .site-header.scrolled .dropdown-menu {
       background: #111827;
       border-color: #334155;
-      color: #f8fafc;
+      color: #F8FAFC;
+    }
+
+    body.dark-mode .dropdown-menu a,
+    body.dark-mode .dropdown-link svg,
+    body.dark-mode .dropdown-social-links a,
+    body.dark-mode .dropdown-social-links a svg {
+      color: #F8FAFC;
+      fill: currentColor;
     }
 
     body.dark-mode .dropdown-social-links {
       border-top-color: #334155;
     }
 
-    body.dark-mode .hero {
-      background: #121622;
+    body.dark-mode .dropdown-menu a:hover,
+    body.dark-mode .dropdown-menu a:hover svg,
+    body.dark-mode .dropdown-social-links a:hover,
+    body.dark-mode .dropdown-social-links a:hover svg {
+      color: #C0414E;
+      fill: currentColor;
+    }
+
+    body.dark-mode .nav-list a,
+    body.dark-mode .social-list a,
+    body.dark-mode .site-title a,
+    body.dark-mode .hero p,
+    body.dark-mode .content,
+    body.dark-mode .content p,
+    body.dark-mode .pull-quote p,
+    body.dark-mode .pull-quote figcaption,
+    body.dark-mode footer {
       color: #e5e7eb;
     }
 
-    body.dark-mode .hero h2 {
-      color: #C0414E;
-    }
-
-    body.dark-mode .hero p {
+    body.dark-mode .hero {
+      background: #111827;
       color: #e5e7eb;
     }
 
     body.dark-mode .hero-cta {
       background: #C0414E;
-      color: #F2F2F2;
+      color: #ffffff;
+    }
+
+    body.dark-mode .hero-photo {
+      border-color: #1f2937;
     }
 
     body.dark-mode .content h2,
-    body.dark-mode .career-type {
-      color: #93c5fd;
-    }
-
-    body.dark-mode .career-role {
+    body.dark-mode .career-role,
+    body.dark-mode .endorsement-section > h2 {
       color: #C0414E;
     }
 
     body.dark-mode .career-company,
     body.dark-mode .career-period,
-    body.dark-mode .pull-quote p,
-    body.dark-mode .pull-quote figcaption,
+    body.dark-mode .career-type,
     body.dark-mode .endorsement-toggle {
       color: #e5e7eb;
     }
 
-    body.dark-mode .endorsement-toggle svg {
-      fill: #93c5fd;
-    }
-
-    body.dark-mode .career-timeline::before {
-      background: rgba(248, 250, 252, 0.22);
+    body.dark-mode .career-entry,
+    body.dark-mode .pull-quote + .pull-quote,
+    body.dark-mode .career-responsibilities {
+      border-color: #334155;
     }
 
     body.dark-mode .career-dot {
-      background: #C0414E;
       border-color: #111827;
     }
 
-    body.dark-mode .career-dot:hover {
-      box-shadow: 0 0 0 7px rgba(192, 65, 78, 0.2);
-    }
-
-    body.dark-mode .career-entry {
-      border-bottom-color: #334155;
-    }
-
-    body.dark-mode .career-responsibilities {
-      border-left-color: rgba(248, 250, 252, 0.2);
-    }
-
-    body.dark-mode .career-responsibilities ul {
-      color: #cbd5e1;
-    }
-
-    body.dark-mode .endorsement-section > h2 {
-      background: #111827;
-      color: #f8fafc;
-    }
-
-    body.dark-mode .pull-quote + .pull-quote {
-      border-top-color: #334155;
-    }
-
-    body.dark-mode .projects-section {
-      background: #0f172a;
-    }
-
-    body.dark-mode .project-box {
-      background: #111827;
-      color: #f8fafc;
-      border: none;
-    }
-
     body.dark-mode footer {
-      color: #93c5fd;
       border-top-color: #334155;
-    }
-
-    @media (min-width: 901px) {
-      .dropdown-menu {
-        right: auto;
-        left: 0;
-        width: 400px;
-        padding: 24px 40px;
-      }
-
-      .menu-toggle:hover::after {
-        opacity: 1;
-      }
     }
 
     @media (max-width: 900px) {
-      .content section {
-        margin-bottom: 20px;
-      }
-
-      .projects-section {
-        padding: 0;
-      }
-
       .top-nav {
         grid-template-columns: 1fr;
         gap: 12px;
@@ -1198,106 +1159,62 @@
         text-align: center;
       }
 
-      .nav-list,
-      .social-list {
+      .menu-toggle::after,
+      .theme-toggle::after {
         display: none;
       }
 
       .hero {
-        min-height: calc(100vh - 168px);
-        padding: 56px 24px;
+        padding: 72px 24px 80px;
       }
 
       .hero-panel {
         grid-template-columns: 1fr;
-        margin: 0 auto;
-        width: min(760px, 100%);
-        gap: 40px;
+        row-gap: 36px;
+        text-align: center;
+      }
+
+      .hero-copy,
+      .hero-photo {
+        grid-column: 1;
       }
 
       .hero-copy {
-        grid-column: 1;
-        text-align: left;
-        width: 100%;
-        margin: 0 auto;
-      }
-
-      .hero-photo {
-        grid-column: 1;
-        width: min(220px, 52vw);
-        height: min(220px, 52vw);
-        margin: 0 auto;
-        order: -1;
+        max-width: 100%;
       }
 
       .hero h2 {
-        font-size: clamp(36px, 8vw, 42px);
         white-space: normal;
+        font-size: 34px;
       }
 
       .hero p {
-        font-size: 20px;
-        line-height: 26px;
+        font-size: 18px;
+        line-height: 1.6;
       }
 
       .hero-cta {
-        margin-top: 40px;
-        font-size: 20px;
+        margin-top: 36px;
+      }
+
+      .content {
+        padding: 56px 20px;
+      }
+    }
+
+    @media (max-width: 700px) {
+      .projects-grid {
+        grid-template-columns: 1fr;
       }
 
       .pull-quote {
-        padding: 24px 20px;
-      }
-
-      .pull-quote p {
-        font-size: 16px;
-      }
-
-      .pull-quote figcaption {
-        font-size: 14px;
-      }
-
-      .career-item {
-        padding-left: 42px;
-        margin-bottom: 28px;
-      }
-
-      .career-dot {
-        left: 0;
-        top: 10px;
-        width: 24px;
-        height: 24px;
-        border-width: 5px;
-      }
-
-      .career-role {
-        font-size: clamp(1.85rem, 8vw, 2.4rem);
-      }
-
-      .career-company {
-        font-size: 18px;
-      }
-
-      .career-period {
-        font-size: 12px;
-      }
-
-      .career-responsibilities {
-        margin-top: 14px;
-        padding-left: 14px;
-      }
-
-      .menu-toggle::after,
-      .theme-toggle::after,
-      .social-list a.icon-email::after {
-        display: none;
+        padding: 24px 22px;
       }
     }
   </style>
   <link rel="stylesheet" href="projects-grid.css">
 </head>
-
-<body id="top">
+<body>
   <a class="skip-link" href="#main">Skip to main content</a>
   <header class="site-header">
     <nav class="top-nav" aria-label="Main navigation">
@@ -1308,49 +1225,37 @@
         </svg>
       </button>
 
-      <h1 class="site-title">
-        <a href="index.html" aria-label="Go to homepage">Sophie Purewal</a>
-      </h1>
+      <p class="site-title">
+        <a href="#intro" aria-label="Go to intro section">Sophie Purewal</a>
+      </p>
 
       <div class="header-actions">
         <button class="theme-toggle" type="button" aria-label="Activate dark mode" aria-pressed="false" title="Activate dark mode">
-          <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" aria-hidden="true" focusable="false">
-            <path d="M480-120q-133 0-226.5-92.5T160-436q0-66 25-122t69-100l226-222 226 222q44 44 69 100t25 122q0 131-93.5 223.5T480-120Zm0-80v-568L310-600q-35 33-52.5 74.5T240-436q0 97 70 166.5T480-200Z"/>
-          </svg>
+          <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" aria-hidden="true" focusable="false"><path d="M480-120q-133 0-226.5-92.5T160-436q0-66 25-122t69-100l226-222 226 222q44 44 69 100t25 122q0 131-93.5 223.5T480-120Zm0-80v-568L310-600q-35 33-52.5 74.5T240-436q0 97 70 166.5T480-200Z"/></svg>
         </button>
       </div>
 
       <div id="dropdown-menu" class="dropdown-menu" aria-label="Navigation links">
         <a href="#projects" class="dropdown-link">
-          <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" aria-hidden="true" focusable="false">
-            <path d="M480-400 40-640l440-240 440 240-440 240Zm0 160L63-467l84-46 333 182 333-182 84 46-417 227Zm0 160L63-307l84-46 333 182 333-182 84 46L480-80Zm0-411 273-149-273-149-273 149 273 149Zm0-149Z"/>
-          </svg>
+          <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" aria-hidden="true" focusable="false"><path d="M480-400 40-640l440-240 440 240-440 240Zm0 160L63-467l84-46 333 182 333-182 84 46-417 227Zm0 160L63-307l84-46 333 182 333-182 84 46L480-80Zm0-411 273-149-273-149-273 149 273 149Zm0-149Z"/></svg>
           Projects
         </a>
         <a href="#career" class="dropdown-link">
-          <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" aria-hidden="true" focusable="false">
-            <path d="M160-200v-440 440-15 15Zm0 80q-33 0-56.5-23.5T80-200v-440q0-33 23.5-56.5T160-720h160v-80q0-33 23.5-56.5T400-880h160q33 0 56.5 23.5T640-800v80h160q33 0 56.5 23.5T880-640v171q-18-13-38-22.5T800-508v-132H160v440h283q3 21 9 41t15 39H160Zm240-600h160v-80H400v80ZM578.5-98.5Q520-157 520-240t58.5-141.5Q637-440 720-440t141.5 58.5Q920-323 920-240T861.5-98.5Q803-40 720-40T578.5-98.5ZM740-248v-112h-40v128l86 86 28-28-74-74Z"/>
-          </svg>
+          <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" aria-hidden="true" focusable="false"><path d="M160-200v-440 440-15 15Zm0 80q-33 0-56.5-23.5T80-200v-440q0-33 23.5-56.5T160-720h160v-80q0-33 23.5-56.5T400-880h160q33 0 56.5 23.5T640-800v80h160q33 0 56.5 23.5T880-640v171q-18-13-38-22.5T800-508v-132H160v440h283q3 21 9 41t15 39H160Zm240-600h160v-80H400v80ZM578.5-98.5Q520-157 520-240t58.5-141.5Q637-440 720-440t141.5 58.5Q920-323 920-240T861.5-98.5Q803-40 720-40T578.5-98.5ZM740-248v-112h-40v128l86 86 28-28-74-74Z"/></svg>
           Career
         </a>
         <a href="#contact" class="dropdown-link">
-          <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" aria-hidden="true" focusable="false">
-            <path d="M720-120H280v-520l280-280 50 50q7 7 11.5 19t4.5 23v14l-44 174h258q32 0 56 24t24 56v80q0 7-2 15t-4 15L794-168q-9 20-30 34t-44 14Zm-360-80h360l120-280v-80H480l54-220-174 174v406Zm0-406v406-406Zm-80-34v80H160v360h120v80H80v-520h200Z"/>
-          </svg>
+          <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" aria-hidden="true" focusable="false"><path d="M720-120H280v-520l280-280 50 50q7 7 11.5 19t4.5 23v14l-44 174h258q32 0 56 24t24 56v80q0 7-2 15t-4 15L794-168q-9 20-30 34t-44 14Zm-360-80h360l120-280v-80H480l54-220-174 174v406Zm0-406v406-406Zm-80-34v80H160v360h120v80H80v-520h200Z"/></svg>
           Endorsements
         </a>
         <a href="mailto:sophiepurewaldesign@gmail.com" class="dropdown-link">
-          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960" aria-hidden="true" focusable="false">
-            <path d="M160-160q-33 0-56.5-23.5T80-240v-480q0-33 23.5-56.5T160-800h640q33 0 56.5 23.5T880-720v480q0 33-23.5 56.5T800-160H160Zm320-280L160-640v400h640v-400L480-440Zm0-80 320-200H160l320 200ZM160-640v-80 480-400Z" />
-          </svg>
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960" aria-hidden="true" focusable="false"><path d="M160-160q-33 0-56.5-23.5T80-240v-480q0-33 23.5-56.5T160-800h640q33 0 56.5 23.5T880-720v480q0 33-23.5 56.5T800-160H160Zm320-280L160-640v400h640v-400L480-440Zm0-80 320-200H160l320 200ZM160-640v-80 480-400Z"/></svg>
           Contact
         </a>
         <div class="dropdown-social-links" aria-label="Social links">
           <a href="https://www.behance.net/sophiepurewal" aria-label="Visit Sophie Purewal's Behance profile" title="Behance (opens in a new tab)" target="_blank" rel="noopener noreferrer">Bē<span class="visually-hidden">Behance</span></a>
           <a href="https://www.instagram.com/sophiepurewaldesign/" aria-label="Visit Sophie Purewal's Instagram profile" title="Instagram (opens in a new tab)" target="_blank" rel="noopener noreferrer">
-            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
-              <path d="M7 2C4.24 2 2 4.24 2 7v10c0 2.76 2.24 5 5 5h10c2.76 0 5-2.24 5-5V7c0-2.76-2.24-5-5-5H7Zm10 2a3 3 0 0 1 3 3v10a3 3 0 0 1-3 3H7a3 3 0 0 1-3-3V7a3 3 0 0 1 3-3h10Zm.5 1.5a1 1 0 1 0 .001 2.001A1 1 0 0 0 17.5 5.5ZM12 7a5 5 0 1 0 0 10 5 5 0 0 0 0-10Zm0 2a3 3 0 1 1 0 6 3 3 0 0 1 0-6Z"/>
-            </svg>
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M7 2C4.24 2 2 4.24 2 7v10c0 2.76 2.24 5 5 5h10c2.76 0 5-2.24 5-5V7c0-2.76-2.24-5-5-5H7Zm10 2a3 3 0 0 1 3 3v10a3 3 0 0 1-3 3H7a3 3 0 0 1-3-3V7a3 3 0 0 1 3-3h10Zm.5 1.5a1 1 0 1 0 .001 2.001A1 1 0 0 0 17.5 5.5ZM12 7a5 5 0 1 0 0 10 5 5 0 0 0 0-10Zm0 2a3 3 0 1 1 0 6 3 3 0 0 1 0-6Z"/></svg>
             <span class="visually-hidden">Instagram</span>
           </a>
           <a href="https://www.linkedin.com/in/sophiepurewal/" aria-label="Visit Sophie Purewal's LinkedIn profile" title="LinkedIn (opens in a new tab)" target="_blank" rel="noopener noreferrer">in<span class="visually-hidden">LinkedIn</span></a>
@@ -1363,13 +1268,11 @@
     <section class="hero" id="intro" aria-label="Intro section">
       <div class="hero-panel">
         <div class="hero-copy">
-          <h2>Senior UI &amp; Product Designer</h2>
-          <p>
-            I create scalable, meaningful, and trustworthy products, harnessing AI to accelerate user flows into polished, production-ready experiences.
-          </p>
+          <h2>I’m Sophie, a designer and mentor.</h2>
+          <p>I create thoughtful visual identities, interfaces and design systems that help brands feel clear, confident and easy to use. My work spans product, marketing and education, with a focus on craft, clarity and visual storytelling.</p>
           <a class="hero-cta" href="#projects">View my work</a>
         </div>
-        <img class="hero-photo" src="sophie-profile.jpeg" alt="Portrait of Sophie Purewal">
+        <img class="hero-photo" src="sophie-profile.jpeg" alt="Portrait of Sophie Purewal" loading="eager" decoding="async">
       </div>
     </section>
 
