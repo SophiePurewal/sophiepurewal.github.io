@@ -10,6 +10,20 @@
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="project-pages.css">
   <style>
+    body {
+      background: #F4EFE8;
+    }
+
+    .case-study-hero {
+      grid-template-columns: 1fr;
+      gap: 24px;
+      align-items: start;
+    }
+
+    .case-study-hero__copy {
+      max-width: 46rem;
+    }
+
     .case-study-section__layout {
       display: grid;
       grid-template-columns: minmax(0, 1fr) minmax(320px, 0.92fr);
@@ -40,56 +54,59 @@
     }
 
     .hero-visual--collage {
-      position: relative;
-      min-height: clamp(360px, 48vw, 620px);
+      width: 100%;
+      justify-content: flex-start;
     }
 
     .hero-collage {
-      position: relative;
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: clamp(14px, 2.4vw, 24px);
+      align-items: end;
       width: 100%;
-      height: 100%;
-      min-height: inherit;
+      max-width: 960px;
     }
 
     .hero-collage__item {
-      position: absolute;
       margin: 0;
-      border-radius: 24px;
       overflow: hidden;
-      border: 1px solid var(--line);
-      background: var(--surface);
-      box-shadow: var(--shadow);
+      border-radius: 20px;
+      background: transparent;
     }
 
     .hero-collage__item img {
       display: block;
       width: 100%;
-      height: 100%;
-      object-fit: cover;
+      height: auto;
+      object-fit: contain;
     }
 
     .hero-collage__item--desktop {
-      inset: 0 12% 6% 0;
+      align-self: stretch;
     }
 
     .hero-collage__item--tablet {
-      width: 42%;
-      top: 16%;
-      right: 0;
-      bottom: 18%;
-      z-index: 2;
+      margin-top: 28px;
     }
 
     .hero-collage__item--mobile {
-      width: 28%;
-      right: 10%;
-      bottom: 0;
-      z-index: 3;
+      margin-top: 56px;
     }
 
     .feature-visuals {
       display: grid;
-      gap: 24px;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 18px;
+      align-items: start;
+    }
+
+    .feature-visuals .section-figure img,
+    .screenshot-figure img {
+      width: 100%;
+      height: 100%;
+      max-height: 430px;
+      object-fit: contain;
+      object-position: top center;
     }
 
     .image-frame {
@@ -104,12 +121,12 @@
     .image-fallback {
       display: none;
       width: 100%;
-      min-height: 280px;
+      min-height: 220px;
       place-items: center;
-      padding: 32px;
+      padding: 24px;
       border: 1px dashed var(--line);
-      border-radius: 24px;
-      background: var(--surface-soft);
+      border-radius: 20px;
+      background: rgba(255, 255, 255, 0.42);
       text-align: center;
       color: var(--muted);
     }
@@ -211,6 +228,38 @@
       text-decoration: none;
     }
 
+    .gallery-intro {
+      margin-top: 16px;
+    }
+
+    .screenshot-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 24px 20px;
+      margin-top: 32px;
+      align-items: start;
+    }
+
+    .screenshot-figure {
+      margin: 0;
+    }
+
+    .screenshot-figure--wide {
+      grid-column: auto;
+    }
+
+    .screenshot-figure figcaption {
+      margin-top: 12px;
+      font-size: 0.96rem;
+      line-height: 1.5;
+      font-weight: 600;
+      color: var(--text);
+    }
+
+    body.dark-mode {
+      background: #111827;
+    }
+
     body.dark-mode .image-fallback {
       background: var(--surface-soft);
     }
@@ -230,24 +279,15 @@
         order: initial;
       }
 
-      .hero-visual--collage {
-        min-height: clamp(340px, 72vw, 540px);
+      .hero-collage {
+        grid-template-columns: repeat(3, minmax(180px, 1fr));
+        overflow-x: auto;
+        padding-bottom: 8px;
       }
 
-      .hero-collage__item--desktop {
-        inset: 0 8% 8% 0;
-      }
-
-      .hero-collage__item--tablet {
-        width: 46%;
-        top: 18%;
-        right: 0;
-        bottom: 16%;
-      }
-
-      .hero-collage__item--mobile {
-        width: 31%;
-        right: 8%;
+      .feature-visuals,
+      .screenshot-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
       }
     }
 
@@ -256,34 +296,25 @@
         aspect-ratio: 4 / 5;
       }
 
-      .hero-visual--collage {
-        min-height: auto;
-      }
-
       .hero-collage {
-        display: grid;
-        gap: 16px;
+        grid-template-columns: 1fr;
+        max-width: 420px;
+        overflow: visible;
       }
 
-      .hero-collage__item {
-        position: relative;
-        width: 100%;
-        inset: auto;
-      }
-
-      .hero-collage__item--desktop {
-        aspect-ratio: 16 / 10;
-      }
-
-      .hero-collage__item--tablet {
-        width: 88%;
-        margin-left: auto;
-        aspect-ratio: 4 / 5;
-      }
-
+      .hero-collage__item--tablet,
       .hero-collage__item--mobile {
-        width: 64%;
-        aspect-ratio: 9 / 19;
+        margin-top: 0;
+      }
+
+      .feature-visuals,
+      .screenshot-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .feature-visuals .section-figure img,
+      .screenshot-figure img {
+        max-height: 360px;
       }
     }
   </style>
@@ -369,23 +400,58 @@
               <div class="hero-collage__item hero-collage__item--desktop image-frame">
                 <img src="../assets/projects/sora/sora-hero-desktop.png" alt="Desktop view of the Sora onboarding prototype showing a goal-led finance flow and first-money snapshot." loading="eager" decoding="async" onerror="this.parentElement.classList.add('is-missing');">
                 <div class="image-fallback" aria-hidden="true">
-                  <p>Add `/assets/projects/sora/sora-hero-desktop.png` to show the desktop Sora hero image.</p>
+                  <p>Add /assets/projects/sora/sora-hero-desktop.png to show the desktop Sora hero image.</p>
                 </div>
               </div>
               <div class="hero-collage__item hero-collage__item--tablet image-frame">
                 <img src="../assets/projects/sora/sora-hero-tablet.png" alt="Tablet view of the Sora onboarding prototype with the finance journey adapted to a medium screen." loading="eager" decoding="async" onerror="this.parentElement.classList.add('is-missing');">
                 <div class="image-fallback" aria-hidden="true">
-                  <p>Add `/assets/projects/sora/sora-hero-tablet.png` to show the tablet Sora hero image.</p>
+                  <p>Add /assets/projects/sora/sora-hero-tablet.png to show the tablet Sora hero image.</p>
                 </div>
               </div>
               <div class="hero-collage__item hero-collage__item--mobile image-frame">
                 <img src="../assets/projects/sora/sora-hero-mobile.png" alt="Mobile view of the Sora onboarding prototype highlighting the compact first-plan experience." loading="eager" decoding="async" onerror="this.parentElement.classList.add('is-missing');">
                 <div class="image-fallback" aria-hidden="true">
-                  <p>Add `/assets/projects/sora/sora-hero-mobile.png` to show the mobile Sora hero image.</p>
+                  <p>Add /assets/projects/sora/sora-hero-mobile.png to show the mobile Sora hero image.</p>
                 </div>
               </div>
             </div>
           </figure>
+        </section>
+
+        <section class="case-study-section prototype-section" aria-labelledby="prototype-title">
+          <div class="section-header">
+            <p class="eyebrow">Working prototype</p>
+            <h2 id="prototype-title">Explore the live Sora prototype</h2>
+            <p>This prototype was created in Lovable as an interactive product concept. It demonstrates how AI-assisted tools can help move quickly from product framing and UX flow into a working front-end prototype.</p>
+          </div>
+
+          <div class="prototype-frame" data-prototype-frame data-fallback-delay-ms="4500">
+            <iframe
+              src="https://sora-finance.lovable.app/"
+              title="Live Sora finance onboarding prototype"
+              loading="lazy"
+              allowfullscreen>
+            </iframe>
+            <div class="prototype-frame__fallback" aria-hidden="true">
+              <div class="image-frame">
+                <img src="../assets/projects/sora/sora-cover.png" alt="Static preview of the Sora finance onboarding prototype." loading="lazy" decoding="async" onerror="this.parentElement.classList.add('is-missing');">
+                <div class="image-fallback">
+                  <p>The live embed may be blocked or unavailable. Add `/assets/projects/sora/sora-cover.png` for a static prototype preview, or use the button below to open the live prototype directly.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="prototype-actions">
+            <a
+              class="button button-primary"
+              href="https://sora-finance.lovable.app/"
+              target="_blank"
+              rel="noopener noreferrer">
+              Open live prototype
+            </a>
+          </div>
         </section>
 
         <section class="case-study-section" aria-labelledby="project-summary-title">
@@ -474,7 +540,7 @@
                 <div class="image-frame">
                   <img src="../assets/projects/sora/sora-goal-details.png" alt="Sora goal details screen with inputs for a personal finance goal timeline and amount." loading="lazy" decoding="async" onerror="this.parentElement.classList.add('is-missing');">
                   <div class="image-fallback" aria-hidden="true">
-                    <p>Add `/assets/projects/sora/sora-goal-details.png` to show the goal details feature.</p>
+                    <p>Add /assets/projects/sora/sora-goal-details.png to show the goal details feature.</p>
                   </div>
                 </div>
               </figure>
@@ -482,7 +548,15 @@
                 <div class="image-frame">
                   <img src="../assets/projects/sora/sora-review-snapshot.png" alt="Sora review snapshot screen showing a simple monthly money summary before the first plan." loading="lazy" decoding="async" onerror="this.parentElement.classList.add('is-missing');">
                   <div class="image-fallback" aria-hidden="true">
-                    <p>Add `/assets/projects/sora/sora-review-snapshot.png` to show the money snapshot feature.</p>
+                    <p>Add /assets/projects/sora/sora-review-snapshot.png to show the money snapshot feature.</p>
+                  </div>
+                </div>
+              </figure>
+              <figure class="section-figure">
+                <div class="image-frame">
+                  <img src="../assets/projects/sora/sora-first-plan.png" alt="Sora first-plan screen presenting a suggested monthly plan based on the user's goal and money snapshot." loading="lazy" decoding="async" onerror="this.parentElement.classList.add('is-missing');">
+                  <div class="image-fallback" aria-hidden="true">
+                    <p>Add /assets/projects/sora/sora-first-plan.png to show the first plan feature.</p>
                   </div>
                 </div>
               </figure>
@@ -567,7 +641,7 @@
               </div>
               <figcaption>Step 8: First plan</figcaption>
             </figure>
-            <figure class="screenshot-figure screenshot-figure--wide">
+            <figure class="screenshot-figure">
               <div class="image-frame">
                 <img src="../assets/projects/sora/sora-all-set.png" alt="Completion screen confirming the Sora onboarding flow is finished and the user's first plan is ready." loading="lazy" decoding="async" onerror="this.parentElement.classList.add('is-missing');">
                 <div class="image-fallback" aria-hidden="true">
@@ -579,40 +653,6 @@
           </div>
         </section>
 
-        <section class="case-study-section prototype-section" aria-labelledby="prototype-title">
-          <div class="section-header">
-            <p class="eyebrow">Working prototype</p>
-            <h2 id="prototype-title">Explore the live Sora prototype</h2>
-            <p>This prototype was created in Lovable as an interactive product concept. It demonstrates how AI-assisted tools can help move quickly from product framing and UX flow into a working front-end prototype.</p>
-          </div>
-
-          <div class="prototype-frame" data-prototype-frame data-fallback-delay-ms="4500">
-            <iframe
-              src="https://sora-finance.lovable.app/"
-              title="Live Sora finance onboarding prototype"
-              loading="lazy"
-              allowfullscreen>
-            </iframe>
-            <div class="prototype-frame__fallback" aria-hidden="true">
-              <div class="image-frame">
-                <img src="../assets/projects/sora/sora-cover.png" alt="Static preview of the Sora finance onboarding prototype." loading="lazy" decoding="async" onerror="this.parentElement.classList.add('is-missing');">
-                <div class="image-fallback">
-                  <p>The live embed may be blocked or unavailable. Add `/assets/projects/sora/sora-cover.png` for a static prototype preview, or use the button below to open the live prototype directly.</p>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <div class="prototype-actions">
-            <a
-              class="button button-primary"
-              href="https://sora-finance.lovable.app/"
-              target="_blank"
-              rel="noopener noreferrer">
-              Open live prototype
-            </a>
-          </div>
-        </section>
 
         <section class="case-study-section" aria-labelledby="reflection-title">
           <h2 id="reflection-title">What I learned</h2>
