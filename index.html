@@ -841,12 +841,14 @@
     }
 
     .career-cta {
-      padding-left: 52px;
-      margin-top: 34px;
+      padding: 56px 0 56px 52px;
     }
 
     .career-cta .hero-cta {
       margin-top: 0;
+      text-align: center;
+      line-height: 1.25;
+      white-space: normal;
     }
 
     .career-type {
@@ -908,103 +910,101 @@
     }
 
     .endorsement-section {
-      padding-top: 20px;
+      max-width: 880px;
+      margin: 0 auto;
+      padding: 18px 0 0;
     }
 
     .endorsement-section > h2 {
-      width: 100vw;
-      margin: 0 0 42px calc(50% - 50vw);
-      padding: 48px 24px;
-      background: var(--brand);
-      color: var(--text-light);
-      font-size: 24px;
-      line-height: 1.2;
-      font-weight: 800;
-      letter-spacing: -0.01em;
+      margin: 0 0 18px;
+      font-family: 'Playfair Display', Georgia, 'Times New Roman', serif;
+      font-size: clamp(2.4rem, 6vw, 4.25rem);
+      line-height: 1.02;
+      font-weight: 700;
+      letter-spacing: -0.035em;
+      color: var(--brand-dark);
+    }
+
+    .endorsement-intro {
+      max-width: 640px;
+      margin: 0 0 44px;
+      font-size: 18px;
+      line-height: 1.7;
+      font-weight: 300;
+      color: #3f3f3f;
     }
 
     .endorsement-category {
-      margin-bottom: 34px;
+      padding: 34px 0 38px;
+      border-top: 1px solid rgba(12, 13, 15, 0.14);
     }
 
-    .endorsement-toggle {
-      width: 100%;
-      margin-bottom: 18px;
-      padding: 0;
-      border: none;
-      background: transparent;
-      font-size: 22px;
-      color: #222;
+    .endorsement-category:last-child {
+      padding-bottom: 0;
+    }
+
+    .endorsement-category h3 {
+      max-width: 720px;
+      margin: 0 0 22px;
+      font-family: 'Playfair Display', Georgia, 'Times New Roman', serif;
+      font-size: clamp(1.75rem, 3.6vw, 2.55rem);
+      line-height: 1.08;
       font-weight: 700;
-      display: flex;
-      align-items: center;
-      justify-content: flex-start;
-      gap: 24px;
-      text-align: left;
-      cursor: pointer;
-    }
-
-    .endorsement-toggle svg {
-      width: 24px;
-      height: 24px;
-      fill: #1f1f1f;
-      flex-shrink: 0;
-      transition: transform 0.2s ease;
-    }
-
-    .endorsement-toggle[aria-expanded="true"] svg {
-      transform: rotate(180deg);
-    }
-
-    .endorsement-panel[hidden] {
-      display: none;
+      letter-spacing: -0.025em;
+      color: var(--brand-dark);
     }
 
     .pull-quote-list {
       display: grid;
-      gap: 20px;
+      gap: 0;
       grid-template-columns: 1fr;
+      max-width: 760px;
     }
 
     .pull-quote {
       margin: 0;
-      padding: 30px 34px;
+      padding: 24px 0;
       background: transparent;
       border-radius: 0;
       box-shadow: none;
     }
 
+    .pull-quote:first-child {
+      padding-top: 0;
+    }
+
     .pull-quote + .pull-quote {
-      border-top: 1.0px solid #d9d9d9;
+      border-top: 1px solid #d9d9d9;
     }
 
     .pull-quote p {
       margin: 0;
-      font-size: 16px;
-      line-height: 1.25;
-      color: #4c4c4c;
+      font-size: 17px;
+      line-height: 1.55;
+      color: #3f3f3f;
       quotes: "“" "”";
       letter-spacing: -0.01em;
     }
 
     .pull-quote p::before {
       content: open-quote;
-      color: currentColor;
+      color: var(--brand-dark);
       font-weight: 500;
     }
 
     .pull-quote p::after {
       content: close-quote;
-      color: currentColor;
+      color: var(--brand-dark);
       font-weight: 500;
     }
 
     .pull-quote figcaption {
-      margin-top: 20px;
+      margin-top: 14px;
+      max-width: 620px;
       font-size: 14px;
-      line-height: 1.25;
-      font-weight: 800;
-      text-align: right;
+      line-height: 1.45;
+      font-weight: 700;
+      text-align: left;
       color: #4c4c4c;
     }
 
@@ -1138,17 +1138,14 @@
       border-color: #111827;
     }
 
-    body.dark-mode .endorsement-toggle {
-      color: #f8fafc;
-    }
-
-    body.dark-mode .endorsement-toggle svg {
-      fill: #f8fafc;
-    }
-
+    body.dark-mode .endorsement-intro,
+    body.dark-mode .endorsement-category h3,
     body.dark-mode .endorsement-section > h2 {
-      background: #C0414E;
       color: #F8FAFC;
+    }
+
+    body.dark-mode .endorsement-category {
+      border-top-color: #334155;
     }
 
     body.dark-mode .project-box {
@@ -1241,8 +1238,7 @@
       }
 
       .career-cta {
-        padding-left: 44px;
-        margin-top: 30px;
+        padding: 56px 0 56px 44px;
       }
 
       .career-dot {
@@ -1358,8 +1354,15 @@
       }
 
       .career-cta {
-        padding-left: 40px;
-        margin-top: 28px;
+        padding: 56px 0 56px 40px;
+      }
+
+      .career-cta .hero-cta {
+        max-width: min(260px, 100%);
+        min-height: 52px;
+        padding: 12px 18px;
+        line-height: 1.25;
+        text-align: center;
       }
 
       .career-dot {
@@ -1575,6 +1578,7 @@
 
       <section id="contact" class="endorsement-section" aria-label="Endorsements section">
         <h2>Endorsements</h2>
+        <p class="endorsement-intro">A selection of recommendations spanning product design, project leadership, collaboration and delivery.</p>
 
         <div class="endorsement-category">
           <h3>UX/UI &amp; Product Design Praise</h3>
@@ -1809,49 +1813,10 @@
       }, { passive: true });
     }
 
-    const initEndorsementAccordions = () => {
-      const categories = document.querySelectorAll('.endorsement-category');
-      categories.forEach((category, index) => {
-        const heading = category.querySelector('h3');
-        const panel = category.querySelector('.endorsement-panel');
-        if (!heading || !panel) return;
-
-        const panelId = `endorsement-panel-${index + 1}`;
-        panel.id = panelId;
-
-        const toggle = document.createElement('button');
-        toggle.type = 'button';
-        toggle.className = 'endorsement-toggle';
-        toggle.setAttribute('aria-controls', panelId);
-
-        const isInitiallyOpen = index === 0;
-        toggle.setAttribute('aria-expanded', String(isInitiallyOpen));
-        if (!isInitiallyOpen) {
-          panel.hidden = true;
-        }
-
-        const headingText = heading.textContent.trim();
-
-        toggle.innerHTML = `
-          <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" aria-hidden="true" focusable="false"><path d="M480-344 240-584l56-56 184 184 184-184 56 56-240 240Z"/></svg>
-          <span>${headingText}</span>
-        `;
-
-        heading.textContent = '';
-        heading.appendChild(toggle);
-
-        toggle.addEventListener('click', () => {
-          const isExpanded = toggle.getAttribute('aria-expanded') === 'true';
-          toggle.setAttribute('aria-expanded', String(!isExpanded));
-          panel.hidden = isExpanded;
-        });
-      });
-    };
 
     window.addEventListener('scroll', toggleHeaderState, { passive: true });
     toggleHeaderState();
     initThemeToggle();
-    initEndorsementAccordions();
   </script>
 
 </body>
