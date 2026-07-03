@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Antelope | Sophie Purewal</title>
+  <title>Antelope Wealth | Sophie Purewal</title>
   <link rel="icon" type="image/svg+xml" href="../favicon.svg">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -57,44 +57,6 @@
       object-fit: contain;
     }
 
-    .hero-visual--collage {
-      width: 100%;
-      justify-content: flex-start;
-    }
-
-    .hero-collage {
-      display: grid;
-      grid-template-columns: repeat(2, minmax(0, 1fr));
-      gap: clamp(14px, 2.4vw, 24px);
-      align-items: start;
-      width: 100%;
-      max-width: 960px;
-    }
-
-    .hero-collage__item {
-      margin: 0;
-      overflow: hidden;
-      border-radius: 20px;
-      background: transparent;
-      align-self: start;
-    }
-
-    .hero-collage__item img {
-      display: block;
-      width: 100%;
-      height: auto;
-      object-fit: contain;
-      object-position: top center;
-    }
-
-    .hero-collage__item--desktop {
-      grid-column: 1 / -1;
-    }
-
-    .hero-collage__item--tablet,
-    .hero-collage__item--mobile {
-      margin-top: 0;
-    }
 
     .feature-visuals {
       display: grid;
@@ -142,6 +104,10 @@
       max-width: 28ch;
     }
 
+    .prototype-section {
+      margin-top: clamp(32px, 5vw, 56px);
+    }
+
     .prototype-section .section-header {
       max-width: 72ch;
     }
@@ -163,7 +129,7 @@
       position: relative;
       width: 100%;
       aspect-ratio: 16 / 10;
-      margin-top: 56px;
+      margin-top: 32px;
       border-radius: 24px;
       overflow: hidden;
       border: 1px solid var(--line);
@@ -287,10 +253,6 @@
         order: initial;
       }
 
-      .hero-collage {
-        grid-template-columns: repeat(2, minmax(0, 1fr));
-        max-width: 100%;
-      }
 
       .feature-visuals,
       .screenshot-grid {
@@ -303,17 +265,6 @@
         aspect-ratio: 4 / 5;
       }
 
-      .hero-collage {
-        grid-template-columns: 1fr;
-        max-width: 420px;
-      }
-
-      .hero-collage__item--desktop,
-      .hero-collage__item--tablet,
-      .hero-collage__item--mobile {
-        grid-column: 1;
-        margin-top: 0;
-      }
 
       .feature-visuals,
       .screenshot-grid {
@@ -399,51 +350,29 @@
         <section class="case-study-hero" aria-labelledby="project-title">
           <div class="case-study-hero__copy">
             <p class="project-kicker">Product design case study</p>
-            <h1 id="project-title">Antelope</h1>
+            <h1 id="project-title">Antelope Wealth</h1>
             <p class="project-subtitle">Self-initiated fintech/wealth onboarding concept</p>
-            <p class="project-intro">Antelope is a self-initiated fintech and wealth onboarding concept created as a working prototype in Lovable. It explores how a personal finance product could build trust early: starting with a user goal, explaining permissions in plain language and turning finance signals into a calm first money snapshot.</p>
+            <p class="project-intro">Antelope Wealth is a self-initiated fintech and wealth onboarding concept created as a working prototype in Lovable. It explores how a personal finance product could build trust early: starting with a user goal, explaining permissions in plain language and turning finance signals into a calm first money snapshot.</p>
           </div>
-          <figure class="hero-visual hero-visual--collage">
-            <div class="hero-collage">
-              <div class="hero-collage__item hero-collage__item--desktop image-frame">
-                <img src="../assets/projects/sora/antelope-desktop-onboarding-hero.png" alt="Desktop view of the Antelope onboarding prototype showing a goal-led finance flow and first-money snapshot." loading="eager" decoding="async" onerror="this.parentElement.classList.add('is-missing');">
-                <div class="image-fallback" aria-hidden="true">
-                  <p>Desktop onboarding preview placeholder</p>
-                </div>
-              </div>
-              <div class="hero-collage__item hero-collage__item--tablet image-frame">
-                <img src="../assets/projects/sora/antelope-mobile-snapshot.png" alt="Tablet view of the Antelope onboarding prototype with the finance journey adapted to a medium screen." loading="eager" decoding="async" onerror="this.parentElement.classList.add('is-missing');">
-                <div class="image-fallback" aria-hidden="true">
-                  <p>Responsive onboarding preview placeholder</p>
-                </div>
-              </div>
-              <div class="hero-collage__item hero-collage__item--mobile image-frame">
-                <img src="../assets/projects/sora/antelope-mobile-welcome.png" alt="Mobile view of the Antelope onboarding prototype highlighting the compact first-plan experience." loading="eager" decoding="async" onerror="this.parentElement.classList.add('is-missing');">
-                <div class="image-fallback" aria-hidden="true">
-                  <p>Mobile welcome screen placeholder</p>
-                </div>
-              </div>
-            </div>
-          </figure>
         </section>
 
         <section class="case-study-section prototype-section" aria-labelledby="prototype-title">
           <div class="section-header">
             <p class="eyebrow">Working prototype</p>
-            <h2 id="prototype-title">Explore the live Antelope prototype</h2>
+            <h2 id="prototype-title">Explore the live Antelope Wealth prototype</h2>
             <p>This prototype was created in Lovable as an interactive product concept. It demonstrates how AI-assisted tools can help move quickly from product framing and UX flow into a working front-end prototype.</p>
           </div>
 
           <div class="prototype-frame" data-prototype-frame data-fallback-delay-ms="4500">
             <iframe
               src="https://antelope-wealth.lovable.app/"
-              title="Live Antelope conceptual finance working prototype"
+              title="Live Antelope Wealth conceptual finance working prototype"
               loading="lazy"
               allowfullscreen>
             </iframe>
             <div class="prototype-frame__fallback" aria-hidden="true">
               <div class="image-frame">
-                <img src="../assets/projects/sora/antelope-desktop-onboarding-hero.png" alt="Static preview of the Antelope finance onboarding prototype." loading="lazy" decoding="async" onerror="this.parentElement.classList.add('is-missing');">
+                <img src="../assets/projects/sora/antelope-desktop-onboarding-hero.png" alt="Static preview of the Antelope Wealth finance onboarding prototype." loading="lazy" decoding="async" onerror="this.parentElement.classList.add('is-missing');">
                 <div class="image-fallback">
                   <p>The live embed may be blocked or unavailable. Use the button below to open the working prototype directly.</p>
                 </div>
@@ -487,7 +416,7 @@
             </div>
             <figure class="section-figure">
               <div class="image-frame">
-                <img src="../assets/projects/sora/antelope-mobile-welcome.png" alt="Antelope welcome screen introducing the finance onboarding journey on a mobile layout." loading="lazy" decoding="async" onerror="this.parentElement.classList.add('is-missing');">
+                <img src="../assets/projects/sora/antelope-mobile-welcome.png" alt="Antelope Wealth welcome screen introducing the finance onboarding journey on a mobile layout." loading="lazy" decoding="async" onerror="this.parentElement.classList.add('is-missing');">
                 <div class="image-fallback" aria-hidden="true">
                   <p>Project summary screen placeholder</p>
                 </div>
@@ -498,7 +427,7 @@
 
         <section class="case-study-section" aria-labelledby="problem-title">
           <h2 id="problem-title">The problem</h2>
-          <p>Many personal finance and wealth products ask users to connect accounts, review transactions or set budgets before they understand the value of the product. This can make onboarding feel heavy, especially for people who want confidence and clarity rather than another complex money-management tool. Antelope explores a softer onboarding model that starts with the user’s goal, then gradually introduces income basics, transaction signals and a first monthly snapshot.</p>
+          <p>Many personal finance and wealth products ask users to connect accounts, review transactions or set budgets before they understand the value of the product. This can make onboarding feel heavy, especially for people who want confidence and clarity rather than another complex money-management tool. Antelope Wealth explores a softer onboarding model that starts with the user’s goal, then gradually introduces income basics, transaction signals and a first monthly snapshot.</p>
         </section>
 
         <section class="case-study-section" aria-labelledby="approach-title">
@@ -506,7 +435,7 @@
           <div class="case-study-section__layout case-study-section__layout--reverse">
             <figure class="section-figure">
               <div class="image-frame">
-                <img src="../assets/projects/sora/antelope-mobile-alerts.png" alt="Antelope permission prompt screen explaining how transaction-alert signals help create a first money snapshot." loading="lazy" decoding="async" onerror="this.parentElement.classList.add('is-missing');">
+                <img src="../assets/projects/sora/antelope-mobile-alerts.png" alt="Antelope Wealth permission prompt screen explaining how transaction-alert signals help create a first money snapshot." loading="lazy" decoding="async" onerror="this.parentElement.classList.add('is-missing');">
                 <div class="image-fallback" aria-hidden="true">
                   <p>Permission prompt screen placeholder</p>
                 </div>
@@ -518,7 +447,7 @@
                 <li>Keep the onboarding journey short, clear and emotionally reassuring.</li>
                 <li>Break the experience into a guided onboarding flow with clear progress and low cognitive load.</li>
                 <li>Explain transaction-alert permissions in plain language.</li>
-                <li>Reinforce privacy by making it clear that Antelope only looks for transaction alerts and never reads personal messages.</li>
+                <li>Reinforce privacy by making it clear that Antelope Wealth only looks for transaction alerts and never reads personal messages.</li>
                 <li>Show value early through a simple first-plan and snapshot experience.</li>
                 <li>Use AI-assisted prototyping to quickly move from product idea to working interface.</li>
                 <li>Keep the visual design clean, warm, accessible and trustworthy for a finance context.</li>
@@ -543,10 +472,10 @@
                 <li>Embedded live prototype preview</li>
               </ul>
             </div>
-            <div class="feature-visuals" aria-label="Antelope feature previews">
+            <div class="feature-visuals" aria-label="Antelope Wealth feature previews">
               <figure class="section-figure">
                 <div class="image-frame">
-                  <img src="../assets/projects/sora/antelope-mobile-goal-details.png" alt="Antelope goal details screen with inputs for a personal finance goal timeline and amount." loading="lazy" decoding="async" onerror="this.parentElement.classList.add('is-missing');">
+                  <img src="../assets/projects/sora/antelope-mobile-goal-details.png" alt="Antelope Wealth goal details screen with inputs for a personal finance goal timeline and amount." loading="lazy" decoding="async" onerror="this.parentElement.classList.add('is-missing');">
                   <div class="image-fallback" aria-hidden="true">
                     <p>Goal details screen placeholder</p>
                   </div>
@@ -554,7 +483,7 @@
               </figure>
               <figure class="section-figure">
                 <div class="image-frame">
-                  <img src="../assets/projects/sora/antelope-mobile-monthly-snapshot.png" alt="Antelope review snapshot screen showing a simple monthly money summary before the first plan." loading="lazy" decoding="async" onerror="this.parentElement.classList.add('is-missing');">
+                  <img src="../assets/projects/sora/antelope-mobile-monthly-snapshot.png" alt="Antelope Wealth review snapshot screen showing a simple monthly money summary before the first plan." loading="lazy" decoding="async" onerror="this.parentElement.classList.add('is-missing');">
                   <div class="image-fallback" aria-hidden="true">
                     <p>Monthly snapshot screen placeholder</p>
                   </div>
@@ -562,7 +491,7 @@
               </figure>
               <figure class="section-figure">
                 <div class="image-frame">
-                  <img src="../assets/projects/sora/antelope-mobile-first-plan.png" alt="Antelope first-plan screen presenting a suggested monthly plan based on the user's goal and money snapshot." loading="lazy" decoding="async" onerror="this.parentElement.classList.add('is-missing');">
+                  <img src="../assets/projects/sora/antelope-mobile-first-plan.png" alt="Antelope Wealth first-plan screen presenting a suggested monthly plan based on the user's goal and money snapshot." loading="lazy" decoding="async" onerror="this.parentElement.classList.add('is-missing');">
                   <div class="image-fallback" aria-hidden="true">
                     <p>First plan screen placeholder</p>
                   </div>
@@ -574,12 +503,12 @@
 
         <section class="case-study-section" aria-labelledby="screenshots-title">
           <h2 id="screenshots-title">Screenshots</h2>
-          <p>Antelope is a self-initiated Lovable finance prototype exploring how goal-first onboarding, accessible UI patterns and plain-language permission prompts could make wealth planning feel clearer and more trustworthy.</p>
+          <p>Antelope Wealth is a self-initiated Lovable finance prototype exploring how goal-first onboarding, accessible UI patterns and plain-language permission prompts could make wealth planning feel clearer and more trustworthy.</p>
           <p class="gallery-intro">The screenshots below walk through the eight-step onboarding journey, from welcome and goal selection through to the first monthly snapshot and initial plan.</p>
           <div class="screenshot-grid">
             <figure class="screenshot-figure">
               <div class="image-frame">
-                <img src="../assets/projects/sora/antelope-mobile-welcome.png" alt="Step 1 welcome screen for Antelope, introducing the onboarding flow in a calm and simple layout." loading="lazy" decoding="async" onerror="this.parentElement.classList.add('is-missing');">
+                <img src="../assets/projects/sora/antelope-mobile-welcome.png" alt="Step 1 welcome screen for Antelope Wealth, introducing the onboarding flow in a calm and simple layout." loading="lazy" decoding="async" onerror="this.parentElement.classList.add('is-missing');">
                 <div class="image-fallback" aria-hidden="true">
                   <p>Step 1 welcome screen placeholder</p>
                 </div>
@@ -588,7 +517,7 @@
             </figure>
             <figure class="screenshot-figure">
               <div class="image-frame">
-                <img src="../assets/projects/sora/antelope-mobile-goal-selection.png" alt="Step 2 screen where the user chooses a savings or money goal inside the Antelope onboarding flow." loading="lazy" decoding="async" onerror="this.parentElement.classList.add('is-missing');">
+                <img src="../assets/projects/sora/antelope-mobile-goal-selection.png" alt="Step 2 screen where the user chooses a savings or money goal inside the Antelope Wealth onboarding flow." loading="lazy" decoding="async" onerror="this.parentElement.classList.add('is-missing');">
                 <div class="image-fallback" aria-hidden="true">
                   <p>Step 2 goal selection screen placeholder</p>
                 </div>
@@ -597,7 +526,7 @@
             </figure>
             <figure class="screenshot-figure">
               <div class="image-frame">
-                <img src="../assets/projects/sora/antelope-mobile-goal-details.png" alt="Step 3 screen where the user shapes a savings goal by setting the amount and timing for Antelope to work towards." loading="lazy" decoding="async" onerror="this.parentElement.classList.add('is-missing');">
+                <img src="../assets/projects/sora/antelope-mobile-goal-details.png" alt="Step 3 screen where the user shapes a savings goal by setting the amount and timing for Antelope Wealth to work towards." loading="lazy" decoding="async" onerror="this.parentElement.classList.add('is-missing');">
                 <div class="image-fallback" aria-hidden="true">
                   <p>Step 3 goal details screen placeholder</p>
                 </div>
@@ -615,7 +544,7 @@
             </figure>
             <figure class="screenshot-figure">
               <div class="image-frame">
-                <img src="../assets/projects/sora/antelope-mobile-alerts.png" alt="Step 5 permission screen explaining how Antelope uses transaction-alert signals without reading personal messages." loading="lazy" decoding="async" onerror="this.parentElement.classList.add('is-missing');">
+                <img src="../assets/projects/sora/antelope-mobile-alerts.png" alt="Step 5 permission screen explaining how Antelope Wealth uses transaction-alert signals without reading personal messages." loading="lazy" decoding="async" onerror="this.parentElement.classList.add('is-missing');">
                 <div class="image-fallback" aria-hidden="true">
                   <p>Step 5 permission screen placeholder</p>
                 </div>
@@ -624,7 +553,7 @@
             </figure>
             <figure class="screenshot-figure">
               <div class="image-frame">
-                <img src="../assets/projects/sora/antelope-mobile-building-snapshot.png" alt="Step 6 loading screen where Antelope builds the user's first monthly snapshot from goals, income basics and transaction signals." loading="lazy" decoding="async" onerror="this.parentElement.classList.add('is-missing');">
+                <img src="../assets/projects/sora/antelope-mobile-building-snapshot.png" alt="Step 6 loading screen where Antelope Wealth builds the user's first monthly snapshot from goals, income basics and transaction signals." loading="lazy" decoding="async" onerror="this.parentElement.classList.add('is-missing');">
                 <div class="image-fallback" aria-hidden="true">
                   <p>Step 6 building snapshot screen placeholder</p>
                 </div>
@@ -633,7 +562,7 @@
             </figure>
             <figure class="screenshot-figure">
               <div class="image-frame">
-                <img src="../assets/projects/sora/antelope-mobile-monthly-snapshot.png" alt="Step 7 review screen showing the first Antelope monthly snapshot with income, spending and progress signals in one place." loading="lazy" decoding="async" onerror="this.parentElement.classList.add('is-missing');">
+                <img src="../assets/projects/sora/antelope-mobile-monthly-snapshot.png" alt="Step 7 review screen showing the first Antelope Wealth monthly snapshot with income, spending and progress signals in one place." loading="lazy" decoding="async" onerror="this.parentElement.classList.add('is-missing');">
                 <div class="image-fallback" aria-hidden="true">
                   <p>Step 7 review snapshot screen placeholder</p>
                 </div>
@@ -651,7 +580,7 @@
             </figure>
             <figure class="screenshot-figure">
               <div class="image-frame">
-                <img src="../assets/projects/sora/antelope-mobile-complete.png" alt="Completion screen confirming the Antelope onboarding flow is finished and the user's first plan is ready." loading="lazy" decoding="async" onerror="this.parentElement.classList.add('is-missing');">
+                <img src="../assets/projects/sora/antelope-mobile-complete.png" alt="Completion screen confirming the Antelope Wealth onboarding flow is finished and the user's first plan is ready." loading="lazy" decoding="async" onerror="this.parentElement.classList.add('is-missing');">
                 <div class="image-fallback" aria-hidden="true">
                   <p>Completion screen placeholder</p>
                 </div>
