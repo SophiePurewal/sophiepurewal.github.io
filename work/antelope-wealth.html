@@ -100,6 +100,34 @@
       display: grid;
     }
 
+    .mobile-screen-frame {
+      width: min(100%, 390px);
+      aspect-ratio: 390 / 812;
+      margin: 0 auto;
+      padding: clamp(8px, 1.6vw, 12px);
+      border-radius: 40px;
+      border: 1px solid rgba(12, 13, 15, 0.16);
+      overflow: hidden;
+      background:
+        linear-gradient(145deg, rgba(255, 255, 255, 0.9), rgba(235, 238, 242, 0.72)),
+        #F7F8FA;
+      box-shadow:
+        0 24px 48px rgba(12, 13, 15, 0.12),
+        inset 0 0 0 1px rgba(255, 255, 255, 0.72);
+    }
+
+    .mobile-screen-frame img {
+      width: 100%;
+      height: 100%;
+      max-height: none;
+      border-radius: 31px;
+      border: 1px solid rgba(12, 13, 15, 0.12);
+      object-fit: cover;
+      object-position: center top;
+      overflow: hidden;
+      background: #FFFFFF;
+    }
+
     .image-fallback p {
       max-width: 28ch;
     }
@@ -300,6 +328,16 @@
         border-radius: 29px;
       }
 
+      .mobile-screen-frame {
+        width: min(100%, 340px);
+        border-radius: 36px;
+      }
+
+      .mobile-screen-frame img {
+        border-radius: 28px;
+        max-height: none;
+      }
+
 
       .feature-visuals,
       .screenshot-grid {
@@ -309,6 +347,11 @@
       .feature-visuals .section-figure img,
       .screenshot-figure img {
         max-height: 360px;
+      }
+
+      .feature-visuals .mobile-screen-frame img,
+      .screenshot-figure .mobile-screen-frame img {
+        max-height: none;
       }
     }
   </style>
@@ -452,7 +495,7 @@
               </dl>
             </div>
             <figure class="section-figure">
-              <div class="image-frame">
+              <div class="image-frame mobile-screen-frame">
                 <img src="../assets/projects/sora/antelope-mobile-welcome.png" alt="Antelope Wealth welcome screen introducing the finance onboarding journey on a mobile layout." loading="lazy" decoding="async" onerror="this.parentElement.classList.add('is-missing');">
                 <div class="image-fallback" aria-hidden="true">
                   <p>Project summary screen placeholder</p>
@@ -471,7 +514,7 @@
           <h2 id="approach-title">Design approach</h2>
           <div class="case-study-section__layout case-study-section__layout--reverse">
             <figure class="section-figure">
-              <div class="image-frame">
+              <div class="image-frame mobile-screen-frame">
                 <img src="../assets/projects/sora/antelope-mobile-alerts.png" alt="Antelope Wealth permission prompt screen explaining how transaction-alert signals help create a first money snapshot." loading="lazy" decoding="async" onerror="this.parentElement.classList.add('is-missing');">
                 <div class="image-fallback" aria-hidden="true">
                   <p>Permission prompt screen placeholder</p>
@@ -511,7 +554,7 @@
             </div>
             <div class="feature-visuals" aria-label="Antelope Wealth feature previews">
               <figure class="section-figure">
-                <div class="image-frame">
+                <div class="image-frame mobile-screen-frame">
                   <img src="../assets/projects/sora/antelope-mobile-goal-details.png" alt="Antelope Wealth goal details screen with inputs for a personal finance goal timeline and amount." loading="lazy" decoding="async" onerror="this.parentElement.classList.add('is-missing');">
                   <div class="image-fallback" aria-hidden="true">
                     <p>Goal details screen placeholder</p>
@@ -519,7 +562,7 @@
                 </div>
               </figure>
               <figure class="section-figure">
-                <div class="image-frame">
+                <div class="image-frame mobile-screen-frame">
                   <img src="../assets/projects/sora/antelope-mobile-monthly-snapshot.png" alt="Antelope Wealth review snapshot screen showing a simple monthly money summary before the first plan." loading="lazy" decoding="async" onerror="this.parentElement.classList.add('is-missing');">
                   <div class="image-fallback" aria-hidden="true">
                     <p>Monthly snapshot screen placeholder</p>
@@ -527,7 +570,7 @@
                 </div>
               </figure>
               <figure class="section-figure">
-                <div class="image-frame">
+                <div class="image-frame mobile-screen-frame">
                   <img src="../assets/projects/sora/antelope-mobile-first-plan.png" alt="Antelope Wealth first-plan screen presenting a suggested monthly plan based on the user's goal and money snapshot." loading="lazy" decoding="async" onerror="this.parentElement.classList.add('is-missing');">
                   <div class="image-fallback" aria-hidden="true">
                     <p>First plan screen placeholder</p>
@@ -544,7 +587,7 @@
           <p class="gallery-intro">The screenshots below walk through the eight-step onboarding journey, from welcome and goal selection through to the first monthly snapshot and initial plan.</p>
           <div class="screenshot-grid">
             <figure class="screenshot-figure">
-              <div class="image-frame">
+              <div class="image-frame mobile-screen-frame">
                 <img src="../assets/projects/sora/antelope-mobile-welcome.png" alt="Step 1 welcome screen for Antelope Wealth, introducing the onboarding flow in a calm and simple layout." loading="lazy" decoding="async" onerror="this.parentElement.classList.add('is-missing');">
                 <div class="image-fallback" aria-hidden="true">
                   <p>Step 1 welcome screen placeholder</p>
@@ -553,7 +596,7 @@
               <figcaption>Step 1: Welcome</figcaption>
             </figure>
             <figure class="screenshot-figure">
-              <div class="image-frame">
+              <div class="image-frame mobile-screen-frame">
                 <img src="../assets/projects/sora/antelope-mobile-goal-selection.png" alt="Step 2 screen where the user chooses a savings or money goal inside the Antelope Wealth onboarding flow." loading="lazy" decoding="async" onerror="this.parentElement.classList.add('is-missing');">
                 <div class="image-fallback" aria-hidden="true">
                   <p>Step 2 goal selection screen placeholder</p>
@@ -562,7 +605,7 @@
               <figcaption>Step 2: Choose your goal</figcaption>
             </figure>
             <figure class="screenshot-figure">
-              <div class="image-frame">
+              <div class="image-frame mobile-screen-frame">
                 <img src="../assets/projects/sora/antelope-mobile-goal-details.png" alt="Step 3 screen where the user shapes a savings goal by setting the amount and timing for Antelope Wealth to work towards." loading="lazy" decoding="async" onerror="this.parentElement.classList.add('is-missing');">
                 <div class="image-fallback" aria-hidden="true">
                   <p>Step 3 goal details screen placeholder</p>
@@ -571,7 +614,7 @@
               <figcaption>Step 3: Shape the goal</figcaption>
             </figure>
             <figure class="screenshot-figure">
-              <div class="image-frame">
+              <div class="image-frame mobile-screen-frame">
                 <img src="../assets/projects/sora/antelope-mobile-income-basics.png" alt="Step 4 screen capturing the user's income rhythm with straightforward monthly income details." loading="lazy" decoding="async" onerror="this.parentElement.classList.add('is-missing');">
                 <div class="image-fallback" aria-hidden="true">
                   <p>Step 4 income basics screen placeholder</p>
@@ -580,7 +623,7 @@
               <figcaption>Step 4: Income rhythm</figcaption>
             </figure>
             <figure class="screenshot-figure">
-              <div class="image-frame">
+              <div class="image-frame mobile-screen-frame">
                 <img src="../assets/projects/sora/antelope-mobile-alerts.png" alt="Step 5 permission screen explaining how Antelope Wealth uses transaction-alert signals without reading personal messages." loading="lazy" decoding="async" onerror="this.parentElement.classList.add('is-missing');">
                 <div class="image-fallback" aria-hidden="true">
                   <p>Step 5 permission screen placeholder</p>
@@ -589,7 +632,7 @@
               <figcaption>Step 5: Connect transaction signals</figcaption>
             </figure>
             <figure class="screenshot-figure">
-              <div class="image-frame">
+              <div class="image-frame mobile-screen-frame">
                 <img src="../assets/projects/sora/antelope-mobile-building-snapshot.png" alt="Step 6 loading screen where Antelope Wealth builds the user's first monthly snapshot from goals, income basics and transaction signals." loading="lazy" decoding="async" onerror="this.parentElement.classList.add('is-missing');">
                 <div class="image-fallback" aria-hidden="true">
                   <p>Step 6 building snapshot screen placeholder</p>
@@ -598,7 +641,7 @@
               <figcaption>Step 6: Build monthly snapshot</figcaption>
             </figure>
             <figure class="screenshot-figure">
-              <div class="image-frame">
+              <div class="image-frame mobile-screen-frame">
                 <img src="../assets/projects/sora/antelope-mobile-monthly-snapshot.png" alt="Step 7 review screen showing the first Antelope Wealth monthly snapshot with income, spending and progress signals in one place." loading="lazy" decoding="async" onerror="this.parentElement.classList.add('is-missing');">
                 <div class="image-fallback" aria-hidden="true">
                   <p>Step 7 review snapshot screen placeholder</p>
@@ -607,7 +650,7 @@
               <figcaption>Step 7: Review snapshot</figcaption>
             </figure>
             <figure class="screenshot-figure">
-              <div class="image-frame">
+              <div class="image-frame mobile-screen-frame">
                 <img src="../assets/projects/sora/antelope-mobile-first-plan.png" alt="Step 8 first-plan screen presenting a simple suggested money plan based on the user's goal and first snapshot." loading="lazy" decoding="async" onerror="this.parentElement.classList.add('is-missing');">
                 <div class="image-fallback" aria-hidden="true">
                   <p>Step 8 first plan screen placeholder</p>
@@ -616,7 +659,7 @@
               <figcaption>Step 8: First plan</figcaption>
             </figure>
             <figure class="screenshot-figure">
-              <div class="image-frame">
+              <div class="image-frame mobile-screen-frame">
                 <img src="../assets/projects/sora/antelope-mobile-complete.png" alt="Completion screen confirming the Antelope Wealth onboarding flow is finished and the user's first plan is ready." loading="lazy" decoding="async" onerror="this.parentElement.classList.add('is-missing');">
                 <div class="image-fallback" aria-hidden="true">
                   <p>Completion screen placeholder</p>
