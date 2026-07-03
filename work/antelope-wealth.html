@@ -127,14 +127,43 @@
 
     .prototype-frame {
       position: relative;
+      width: min(100%, 390px);
+      aspect-ratio: 390 / 812;
+      margin: 36px auto 0;
+      padding: clamp(10px, 2vw, 14px);
+      border-radius: 44px;
+      border: 1px solid rgba(12, 13, 15, 0.18);
+      background:
+        linear-gradient(145deg, rgba(255, 255, 255, 0.88), rgba(235, 238, 242, 0.72)),
+        #F7F8FA;
+      box-shadow:
+        0 34px 72px rgba(12, 13, 15, 0.16),
+        inset 0 0 0 1px rgba(255, 255, 255, 0.78);
+    }
+
+    .prototype-frame::before {
+      content: "";
+      position: absolute;
+      top: 17px;
+      left: 50%;
+      z-index: 2;
+      width: 96px;
+      height: 25px;
+      border-radius: 999px;
+      background: #0C0D0F;
+      transform: translateX(-50%);
+      box-shadow: 0 1px 0 rgba(255, 255, 255, 0.18);
+      pointer-events: none;
+    }
+
+    .prototype-screen {
+      position: relative;
       width: 100%;
-      aspect-ratio: 16 / 10;
-      margin-top: 32px;
-      border-radius: 24px;
+      height: 100%;
+      border-radius: 34px;
       overflow: hidden;
-      border: 1px solid var(--line);
-      background: var(--surface);
-      box-shadow: var(--shadow);
+      border: 1px solid rgba(12, 13, 15, 0.14);
+      background: #FFFFFF;
     }
 
     .prototype-frame iframe,
@@ -147,6 +176,7 @@
 
     .prototype-frame img {
       object-fit: cover;
+      object-position: top center;
     }
 
     .prototype-frame__fallback {
@@ -262,7 +292,12 @@
 
     @media (max-width: 720px) {
       .prototype-frame {
-        aspect-ratio: 4 / 5;
+        width: min(100%, 340px);
+        border-radius: 38px;
+      }
+
+      .prototype-screen {
+        border-radius: 29px;
       }
 
 
@@ -359,22 +394,24 @@
         <section class="case-study-section prototype-section" aria-labelledby="prototype-title">
           <div class="section-header">
             <p class="eyebrow">Working prototype</p>
-            <h2 id="prototype-title">Explore the live Antelope Wealth prototype</h2>
+            <h2 id="prototype-title">Explore the prototype</h2>
             <p>This prototype was created in Lovable as an interactive product concept. It demonstrates how AI-assisted tools can help move quickly from product framing and UX flow into a working front-end prototype.</p>
           </div>
 
           <div class="prototype-frame" data-prototype-frame data-fallback-delay-ms="4500">
-            <iframe
-              src="https://antelope-wealth.lovable.app/"
-              title="Live Antelope Wealth conceptual finance working prototype"
-              loading="lazy"
-              allowfullscreen>
-            </iframe>
-            <div class="prototype-frame__fallback" aria-hidden="true">
-              <div class="image-frame">
-                <img src="../assets/projects/sora/antelope-desktop-onboarding-hero.png" alt="Static preview of the Antelope Wealth finance onboarding prototype." loading="lazy" decoding="async" onerror="this.parentElement.classList.add('is-missing');">
-                <div class="image-fallback">
-                  <p>The live embed may be blocked or unavailable. Use the button below to open the working prototype directly.</p>
+            <div class="prototype-screen">
+              <iframe
+                src="https://antelope-wealth.lovable.app/"
+                title="Live Antelope Wealth conceptual finance working prototype"
+                loading="lazy"
+                allowfullscreen>
+              </iframe>
+              <div class="prototype-frame__fallback" aria-hidden="true">
+                <div class="image-frame">
+                  <img src="../assets/projects/sora/antelope-desktop-onboarding-hero.png" alt="Static preview of the Antelope Wealth finance onboarding prototype." loading="lazy" decoding="async" onerror="this.parentElement.classList.add('is-missing');">
+                  <div class="image-fallback">
+                    <p>The live embed may be blocked or unavailable. Use the button below to open the working prototype directly.</p>
+                  </div>
                 </div>
               </div>
             </div>
