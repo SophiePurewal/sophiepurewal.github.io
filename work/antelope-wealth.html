@@ -58,19 +58,11 @@
     }
 
 
-    .feature-visuals {
-      display: grid;
-      grid-template-columns: repeat(3, minmax(0, 1fr));
-      gap: 18px;
-      align-items: start;
-    }
-
-    .feature-visuals .section-figure img,
     .screenshot-figure img {
       width: 100%;
       height: 100%;
       max-height: 430px;
-      object-fit: contain;
+      object-fit: cover;
       object-position: top center;
     }
 
@@ -141,8 +133,8 @@
       max-height: none;
       border-radius: 34px;
       border: 1px solid rgba(12, 13, 15, 0.14);
-      object-fit: contain;
-      object-position: center top;
+      object-fit: cover;
+      object-position: top center;
       overflow: hidden;
       background: #FFFFFF;
       box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.62);
@@ -332,7 +324,6 @@
       }
 
 
-      .feature-visuals,
       .screenshot-grid {
         grid-template-columns: repeat(2, minmax(0, 1fr));
       }
@@ -360,17 +351,14 @@
       }
 
 
-      .feature-visuals,
       .screenshot-grid {
         grid-template-columns: 1fr;
       }
 
-      .feature-visuals .section-figure img,
       .screenshot-figure img {
         max-height: 360px;
       }
 
-      .feature-visuals .mobile-screen-frame img,
       .screenshot-figure .mobile-screen-frame img {
         max-height: none;
       }
@@ -553,14 +541,7 @@
                 <li>Use AI-assisted prototyping to quickly move from product idea to working interface.</li>
                 <li>Keep the visual design clean, warm, accessible and trustworthy for a finance context.</li>
               </ul>
-            </div>
-          </div>
-        </section>
-
-        <section class="case-study-section" aria-labelledby="features-title">
-          <h2 id="features-title">Key features</h2>
-          <div class="case-study-section__layout">
-            <div class="case-study-section__body">
+              <h3>Key features</h3>
               <ul class="feature-list">
                 <li>Guided onboarding flow</li>
                 <li>Goal-first finance setup</li>
@@ -572,32 +553,6 @@
                 <li>Responsive Lovable prototype</li>
                 <li>Embedded live prototype preview</li>
               </ul>
-            </div>
-            <div class="feature-visuals" aria-label="Antelope Wealth feature previews">
-              <figure class="section-figure">
-                <div class="image-frame mobile-screen-frame">
-                  <img src="../assets/antelope-mobile-goal-details.png" alt="Antelope Wealth goal details screen with inputs for a personal finance goal timeline and amount." loading="lazy" decoding="async" onerror="this.parentElement.classList.add('is-missing');">
-                  <div class="image-fallback" aria-hidden="true">
-                    <p>Goal details screen placeholder</p>
-                  </div>
-                </div>
-              </figure>
-              <figure class="section-figure">
-                <div class="image-frame mobile-screen-frame">
-                  <img src="../assets/antelope-mobile-monthly-snapshot.png" alt="Antelope Wealth review snapshot screen showing a simple monthly money summary before the first plan." loading="lazy" decoding="async" onerror="this.parentElement.classList.add('is-missing');">
-                  <div class="image-fallback" aria-hidden="true">
-                    <p>Monthly snapshot screen placeholder</p>
-                  </div>
-                </div>
-              </figure>
-              <figure class="section-figure">
-                <div class="image-frame mobile-screen-frame">
-                  <img src="../assets/antelope-mobile-first-plan.png" alt="Antelope Wealth first-plan screen presenting a suggested monthly plan based on the user's goal and money snapshot." loading="lazy" decoding="async" onerror="this.parentElement.classList.add('is-missing');">
-                  <div class="image-fallback" aria-hidden="true">
-                    <p>First plan screen placeholder</p>
-                  </div>
-                </div>
-              </figure>
             </div>
           </div>
         </section>
