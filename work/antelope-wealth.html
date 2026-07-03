@@ -101,28 +101,45 @@
     }
 
     .mobile-screen-frame {
+      position: relative;
       width: min(100%, 390px);
       aspect-ratio: 390 / 812;
       margin: 0 auto;
-      padding: clamp(8px, 1.6vw, 12px);
-      border-radius: 40px;
-      border: 1px solid rgba(12, 13, 15, 0.16);
+      padding: clamp(10px, 2vw, 14px);
+      border-radius: 44px;
+      border: 1px solid rgba(12, 13, 15, 0.18);
       overflow: hidden;
       background:
-        linear-gradient(145deg, rgba(255, 255, 255, 0.9), rgba(235, 238, 242, 0.72)),
+        linear-gradient(145deg, rgba(255, 255, 255, 0.88), rgba(235, 238, 242, 0.72)),
         #F7F8FA;
       box-shadow:
-        0 24px 48px rgba(12, 13, 15, 0.12),
-        inset 0 0 0 1px rgba(255, 255, 255, 0.72);
+        0 28px 58px rgba(12, 13, 15, 0.14),
+        inset 0 0 0 1px rgba(255, 255, 255, 0.78);
+    }
+
+    .mobile-screen-frame::before {
+      content: "";
+      position: absolute;
+      top: 17px;
+      left: 50%;
+      z-index: 2;
+      width: 96px;
+      height: 25px;
+      border-radius: 999px;
+      background: #0C0D0F;
+      transform: translateX(-50%);
+      box-shadow: 0 1px 0 rgba(255, 255, 255, 0.18);
+      pointer-events: none;
     }
 
     .mobile-screen-frame img {
+      display: block;
       width: 100%;
       height: 100%;
       max-height: none;
-      border-radius: 31px;
-      border: 1px solid rgba(12, 13, 15, 0.12);
-      object-fit: cover;
+      border-radius: 34px;
+      border: 1px solid rgba(12, 13, 15, 0.14);
+      object-fit: contain;
       object-position: center top;
       overflow: hidden;
       background: #FFFFFF;
@@ -330,11 +347,11 @@
 
       .mobile-screen-frame {
         width: min(100%, 340px);
-        border-radius: 36px;
+        border-radius: 38px;
       }
 
       .mobile-screen-frame img {
-        border-radius: 28px;
+        border-radius: 29px;
         max-height: none;
       }
 
@@ -584,7 +601,7 @@
         <section class="case-study-section" aria-labelledby="screenshots-title">
           <h2 id="screenshots-title">Screenshots</h2>
           <p>Antelope Wealth is a self-initiated Lovable finance prototype exploring how goal-first onboarding, accessible UI patterns and plain-language permission prompts could make wealth planning feel clearer and more trustworthy.</p>
-          <p class="gallery-intro">The screenshots below walk through the eight-step onboarding journey, from welcome and goal selection through to the first monthly snapshot and initial plan.</p>
+          <p class="gallery-intro">The screenshots below walk through the onboarding journey, from welcome and goal selection through to the first monthly snapshot, initial plan and completion screen.</p>
           <div class="screenshot-grid">
             <figure class="screenshot-figure">
               <div class="image-frame mobile-screen-frame">
