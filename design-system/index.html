@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Dude, Where’s My Bike? Design System</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="bike-design-system.css">
+</head>
+<body class="bike-ds-page">
+  <div class="bike-app-shell">
+    <main class="bike-screen">
+      <header class="bike-header" aria-label="Design system header">
+        <a class="bike-brand" href="../"><span class="bike-brand__mark">🚲</span><span>Dude, Where’s My Bike?</span></a>
+        <nav class="bottom-nav" aria-label="Style guide sections">
+          <a class="is-active" href="#foundations">🎨<span>Tokens</span></a><a href="#components">🧩<span>UI</span></a><a href="#patterns">🗺️<span>Flows</span></a>
+        </nav>
+      </header>
+
+      <section class="bike-hero">
+        <span class="badge badge--verified">Prototype-led audit</span>
+        <h1>Reusable design system for bike hire discovery and booking.</h1>
+        <p>Built from the live prototype’s colourful, travel-friendly, outdoorsy app language: warm orange CTAs, teal trust cues, sunny gradients, rounded cards, map/list discovery, clear availability and booking patterns.</p>
+      </section>
+
+      <section id="foundations" class="bike-section">
+        <div class="section-heading"><div><h2>Foundations and tokens</h2><p>Centralised CSS custom properties define colour, type, spacing, radius, elevation and motion for future screens.</p></div></div>
+        <div class="bike-grid bike-grid--2">
+          <article class="bike-card"><h3>Colour palette</h3><div class="swatches">
+            <div class="swatch"><div class="swatch__color" style="background:var(--bike-color-primary)"></div><strong>Primary</strong><br><small>#ff6b35</small></div>
+            <div class="swatch"><div class="swatch__color" style="background:var(--bike-color-secondary)"></div><strong>Secondary</strong><br><small>#1f9d8a</small></div>
+            <div class="swatch"><div class="swatch__color" style="background:var(--bike-gradient-brand)"></div><strong>Brand gradient</strong><br><small>orange / sun / teal</small></div>
+            <div class="swatch"><div class="swatch__color" style="background:var(--bike-color-ink)"></div><strong>Ink text</strong><br><small>#10212b</small></div>
+            <div class="swatch"><div class="swatch__color" style="background:var(--bike-color-available-bg)"></div><strong>Available</strong><br><small>success state</small></div>
+            <div class="swatch"><div class="swatch__color" style="background:var(--bike-color-error-bg)"></div><strong>Unavailable</strong><br><small>error state</small></div>
+          </div></article>
+          <article class="bike-card type-sample"><h3>Typography</h3><h1>Heading display</h1><h2>Section heading</h2><p>Body copy uses Inter for readable app UI, with strong weights for buttons, labels and badges.</p><small>Caption and helper text stay at accessible sizes and muted contrast.</small></article>
+          <article class="bike-card"><h3>Spacing scale</h3><div class="token-list"><div><span>xs</span><code>4px</code></div><div><span>sm</span><code>8px</code></div><div><span>md</span><code>12px</code></div><div><span>base</span><code>16px</code></div><div><span>lg</span><code>24px</code></div><div><span>xl</span><code>32px</code></div><div><span>2xl</span><code>40px</code></div><div><span>3xl</span><code>48px</code></div></div></article>
+          <article class="bike-card"><h3>Radius and elevation</h3><div class="token-list"><div><span class="radius-demo" style="width:72px;border-radius:var(--bike-radius-sm)"></span><code>8px small</code></div><div><span class="radius-demo" style="width:72px;border-radius:var(--bike-radius-lg)"></span><code>22px card</code></div><div><span class="radius-demo" style="width:72px;border-radius:var(--bike-radius-pill)"></span><code>pill</code></div><div><span>Card shadow</span><code>0 12px 32px</code></div></div></article>
+        </div>
+      </section>
+
+      <section id="components" class="bike-section">
+        <div class="section-heading"><div><h2>Reusable components</h2><p>Buttons, inputs, chips, badges, cards and booking primitives include default, selected, disabled, error, loading and availability states.</p></div></div>
+        <div class="bike-grid bike-grid--3">
+          <article class="bike-card"><h3>Buttons</h3><p><button class="bike-btn bike-btn--primary">Find bikes</button></p><p><button class="bike-btn bike-btn--secondary">Save provider</button></p><p><button class="bike-btn bike-btn--ghost">Text action</button></p><p><button class="bike-btn bike-btn--primary is-loading">Loading…</button> <button class="bike-btn" disabled>Disabled</button></p></article>
+          <article class="bike-card"><h3>Inputs and chips</h3><div class="bike-input">🔎 Search location or provider</div><br><div class="form-field"><label for="pickup">Pickup time</label><input id="pickup" value="Today, 10:00"></div><br><div class="form-field is-error"><label for="error">Promo code</label><input id="error" value="Expired code"></div><p><button class="chip">E-bikes</button> <button class="chip is-selected">Open now</button> <button class="chip" disabled>Trailers</button></p></article>
+          <article class="bike-card"><h3>Badges and states</h3><p><span class="badge badge--verified">✓ Verified</span> <span class="badge badge--available">8 available</span></p><p><span class="badge badge--warning">2 left</span> <span class="badge badge--error">Unavailable</span></p><div class="toast">✅ Booking confirmed</div></article>
+          <article class="provider-card is-top-rated"><div class="provider-card__media"></div><div class="provider-card__title"><div><h3>Harbour Cycle Hub</h3><small>0.4 mi · Waterfront</small></div><span class="rating">★ 4.9</span></div><p><span class="badge badge--verified">Verified</span> <span class="badge badge--available">12 bikes</span></p><button class="bike-btn bike-btn--primary">Book now</button></article>
+          <article class="provider-card"><div class="provider-card__media"></div><div class="provider-card__title"><div><h3>Trailhead Rentals</h3><small>1.1 mi · Park gate</small></div><span class="rating">★ 4.7</span></div><p><span class="badge badge--warning">Low availability</span></p><button class="bike-btn bike-btn--secondary">View details</button></article>
+          <article class="provider-card is-unavailable"><div class="provider-card__media"></div><div class="provider-card__title"><div><h3>Old Town Bikes</h3><small>2.0 mi · City centre</small></div><span class="rating">★ 4.5</span></div><p><span class="badge badge--error">Unavailable</span></p><button class="bike-btn" disabled>Closed</button></article>
+        </div>
+      </section>
+
+      <section id="patterns" class="bike-section">
+        <div class="section-heading"><div><h2>Discovery, map and booking patterns</h2><p>Composable app patterns cover map pins, result sheets, bike rows, selectors, price summaries, saved cards and confirmation states.</p></div></div>
+        <div class="bike-grid bike-grid--2">
+          <article class="bike-card map-panel"><div class="map-pin" style="top:74px;left:28%"><span>£</span></div><div class="map-pin" style="top:140px;right:22%;background:var(--bike-color-secondary)"><span>✓</span></div><div class="bottom-sheet"><div class="provider-card__title"><div><h3>Map result bottom sheet</h3><small>Swipeable provider summary anchored to the map.</small></div><span class="rating">★ 4.9</span></div><div class="divider"></div><button class="bike-btn bike-btn--primary">Reserve from £14</button></div></article>
+          <article class="bike-card"><h3>Booking flow</h3><div class="bike-type-card is-selected"><strong>Hybrid bike</strong><p>Comfortable city and trail option.</p></div><br><div class="accessory-selector is-selected"><strong>Helmet + lock</strong><span class="badge badge--available">Included</span></div><div class="availability-row"><span>City bikes</span><span class="badge badge--available">8 available</span></div><div class="availability-row"><span>E-bikes</span><span class="badge badge--warning">2 left</span></div><div class="price-summary"><div class="booking-row"><span>Bike hire</span><strong>£28</strong></div><div class="booking-row"><span>Accessories</span><strong>£0</strong></div><div class="booking-row"><span>Total</span><strong>£28</strong></div></div></article>
+          <article class="confirmation-card"><h3>Booking confirmation card</h3><p>Your hybrid bike is reserved at Harbour Cycle Hub for today at 10:00.</p><button class="bike-btn bike-btn--secondary">Add to calendar</button></article>
+          <article class="empty-state"><h3>No saved providers yet</h3><p>Save trusted shops while exploring so repeat bookings are faster.</p><button class="bike-btn bike-btn--primary">Explore nearby bikes</button></article>
+        </div>
+      </section>
+
+      <section class="bike-section"><div class="section-heading"><div><h2>Refactored prototype screen example</h2><p>A reusable mobile app shell assembled from the same tokens and components.</p></div></div><div class="bike-phone"><div class="bike-phone__screen"><div class="bike-input">📍 Brighton Beach</div><div class="provider-card"><div class="provider-card__media"></div><div class="provider-card__title"><div><h3>Seafront Bike Co.</h3><small>Open until 7pm</small></div><span class="rating">★ 4.8</span></div><p><span class="badge badge--verified">Verified</span> <span class="badge badge--available">6 available</span></p></div><nav class="bottom-nav"><a class="is-active" href="#">⌂<span>Home</span></a><a href="#">🗺️<span>Map</span></a><a href="#">♡<span>Saved</span></a><a href="#">👤<span>Me</span></a></nav></div></div></section>
+    </main>
+  </div>
+</body>
+</html>
