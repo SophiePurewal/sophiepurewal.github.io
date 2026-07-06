@@ -758,7 +758,25 @@
     }
 
     .career-section h2 {
-      margin-bottom: 38px;
+      margin-bottom: 12px;
+    }
+
+    .career-intro {
+      max-width: 720px;
+      margin-bottom: 34px;
+    }
+
+    .career-intro > p:last-child {
+      color: #444444;
+      font-size: 17px;
+      line-height: 1.6;
+    }
+
+    .career-innovation {
+      width: min(720px, 100%);
+      margin: 0 0 38px 52px;
+      padding: 0 0 30px;
+      border-bottom: 1px solid #d9d9d9;
     }
 
     .career-timeline {
@@ -1128,6 +1146,10 @@
       color: #94a3b8;
     }
 
+    body.dark-mode .career-intro > p:last-child {
+      color: #e5e7eb;
+    }
+
     body.dark-mode .career-entry,
     body.dark-mode .pull-quote + .pull-quote,
     body.dark-mode .career-responsibilities {
@@ -1224,7 +1246,17 @@
       }
 
       .career-section h2 {
-        margin-bottom: 32px;
+        margin-bottom: 12px;
+      }
+
+      .career-intro {
+        margin-bottom: 30px;
+      }
+
+      .career-innovation {
+        width: auto;
+        margin: 0 0 34px 44px;
+        padding-bottom: 28px;
       }
 
       .career-timeline::before {
@@ -1341,7 +1373,17 @@
       }
 
       .career-section h2 {
+        margin-bottom: 12px;
+      }
+
+      .career-intro {
         margin-bottom: 28px;
+      }
+
+      .career-innovation {
+        width: auto;
+        margin: 0 0 32px 40px;
+        padding-bottom: 26px;
       }
 
       .career-timeline::before {
@@ -1505,19 +1547,40 @@
 
     <div class="content">
       <section id="career" class="career-section" aria-label="Career timeline section">
+        <div class="career-intro">
+          <p class="career-type">Career / Experience</p>
+          <h2>Senior UI and Product Design Experience</h2>
+          <p>Focused experience across design systems, financial services, accessibility, AI-assisted prototyping and end-to-end product delivery.</p>
+        </div>
+
+        <div class="career-innovation" aria-labelledby="product-innovation-title">
+          <p class="career-type">Selected Product Innovation</p>
+          <h3 id="product-innovation-title" class="career-role">ChartStudio — AI-Assisted Figma Plugin</h3>
+          <p class="career-company">Active development</p>
+          <p class="career-period">May 2026 — Present</p>
+          <div class="career-responsibilities">
+            <ul>
+              <li>Identified a recurring workflow gap for designers creating consistent data visualisations in Figma, then defined and prototyped an AI-assisted plugin supporting responsive bar, line and doughnut charts.</li>
+              <li>Defined the product concept, UX, feature requirements, configuration model and visual design system independently.</li>
+              <li>Used OpenAI Codex and AI-assisted development workflows to prototype functioning plugin capability, demonstrating practical experience bridging product design and software development.</li>
+            </ul>
+          </div>
+        </div>
+
         <ol class="career-timeline">
           <li class="career-item" data-side="right">
             <span class="career-dot" aria-hidden="true"></span>
             <article class="career-entry">
-              <p class="career-type">Product Design · UI Design · Design Systems · Financial Services · Accessibility · AI-Assisted Prototyping</p>
+              <p class="career-type">UI Design · Design Systems · Financial Services · Accessibility · Product Delivery</p>
               <h3 class="career-role">Senior UI Designer</h3>
               <p class="career-company">Aegon UK</p>
-              <p class="career-period">Aug 2022 — Present · Remote UK, Edinburgh and London</p>
+              <p class="career-period">Aug 2022 — Present · London, UK</p>
               <div class="career-responsibilities">
                 <ul>
-                  <li>Work across UI design, design systems and digital product quality assurance for one of the UK’s largest pensions and investment providers.</li>
-                  <li>Design scalable Figma component libraries, evolve design-system patterns, support engineering delivery, and translate complex pensions and investment requirements into accessible, responsive customer interfaces.</li>
-                  <li>Conceived and developed ChartStudio, an AI-assisted Figma plugin for creating responsive bar, doughnut and line charts directly in Figma.</li>
+                  <li>Reduced duplicate UI effort and improved cross-team consistency by building, redesigning and modernising reusable Core Components within the Figma design system across header, status, feedback, layout and form patterns.</li>
+                  <li>Improved the usability and clarity of a public-facing salary sacrifice calculator by redesigning a complex financial tool for the Aegon website, helping customers better understand pension contribution options within a regulated environment.</li>
+                  <li>Improved design-system quality and governance by progressing redesigned primary components through peer design review, engineering review and release into the shared Figma library.</li>
+                  <li>Strengthened design capability across the wider team by mentoring five designers through an internal design fundamentals course and supporting a graduate designer over seven months through Figma practice, creative brainstorming and UAT processes.</li>
                 </ul>
               </div>
             </article>
@@ -1525,31 +1588,15 @@
           <li class="career-item" data-side="right">
             <span class="career-dot" aria-hidden="true"></span>
             <article class="career-entry">
-              <p class="career-type">UI Design · Product Design · Accessibility</p>
-              <h3 class="career-role">UI Design Mentor, Tutor and Course Editor</h3>
-              <p class="career-company">CareerFoundry</p>
-              <p class="career-period">Aug 2017 — Aug 2022 · Remote UK and Berlin</p>
-              <div class="career-responsibilities">
-                <ul>
-                  <li>Mentored UX professionals, career changers and UI specialisation students through portfolio reviews, structured feedback and design coaching.</li>
-                  <li>Supported students with visual hierarchy, layout, typography, colour, usability, accessibility and prototype quality.</li>
-                  <li>Edited and rewrote UI for UX course materials to improve clarity and alignment with current design practice.</li>
-                </ul>
-              </div>
-            </article>
-          </li>
-          <li class="career-item" data-side="right">
-            <span class="career-dot" aria-hidden="true"></span>
-            <article class="career-entry">
-              <p class="career-type">Product Design · UI Design · Design Systems · Digital Strategy</p>
-              <h3 class="career-role">Founder</h3>
+              <p class="career-type">Product Design · UI Design · UX Consulting · Design Operations</p>
+              <h3 class="career-role">Founder &amp; Director</h3>
               <p class="career-company">Sophie Purewal Design</p>
-              <p class="career-period">Jul 2017 — Aug 2022 · Remote UK</p>
+              <p class="career-period">Jul 2017 — Aug 2022 · London, UK</p>
               <div class="career-responsibilities">
                 <ul>
-                  <li>Founded an independent design studio delivering UI, UX consulting, brand, responsive web, app and digital design work.</li>
-                  <li>Delivered end-to-end product design from discovery and research through to wireframes, high-fidelity mockups, prototypes, style guides, design systems and developer handoff.</li>
-                  <li>Helped clients make clearer design decisions through personas, user stories, flows and interactive prototypes.</li>
+                  <li>Founded and operated an independent design studio delivering UI, UX consulting, brand, responsive web, app and digital design work.</li>
+                  <li>Delivered end-to-end product design from discovery and research through to wireframes, high-fidelity mockups, prototypes, style guides and developer handoff.</li>
+                  <li>Strengthened client design maturity by introducing clearer design processes, collaboration tools, documented design decisions and handoff practices.</li>
                 </ul>
               </div>
             </article>
@@ -1557,15 +1604,31 @@
           <li class="career-item" data-side="right">
             <span class="career-dot" aria-hidden="true"></span>
             <article class="career-entry">
-              <p class="career-type">Digital Strategy · Commercial Digital</p>
-              <h3 class="career-role">Earlier Commercial Digital Experience</h3>
-              <p class="career-company">Yahoo! UK, Evolve Media, The Independent and London Evening Standard, plus earlier digital/media roles</p>
-              <p class="career-period">2000 — 2016</p>
+              <p class="career-type">UI Design · Product Design · Mentoring · Accessibility</p>
+              <h3 class="career-role">UI Design Mentor</h3>
+              <p class="career-company">Contract client: CareerFoundry</p>
+              <p class="career-period">Aug 2017 — Aug 2022 · London, UK</p>
               <div class="career-responsibilities">
                 <ul>
-                  <li>Built a strong commercial digital foundation across major media and publishing businesses.</li>
-                  <li>Created and delivered digital sponsorship, content and creative propositions for major brands including Procter &amp; Gamble, Heineken, Tourism Ireland, Uniqlo, PwC and Cathay Pacific.</li>
-                  <li>Developed experience in stakeholder management, digital products, commercial strategy, creative solutions and cross-functional delivery.</li>
+                  <li>Mentored students and UX professionals transitioning into UI and Product Design careers through portfolio reviews, structured feedback and design coaching.</li>
+                  <li>Improved student outcomes through guidance on visual hierarchy, layout, typography, colour, usability, accessibility and prototype quality.</li>
+                  <li>Edited and rewrote UI for UX course materials, increasing clarity and alignment with current design practice.</li>
+                </ul>
+              </div>
+            </article>
+          </li>
+          <li class="career-item" data-side="right">
+            <span class="career-dot" aria-hidden="true"></span>
+            <article class="career-entry">
+              <p class="career-type">UX Design · UI Design · Responsive Web App · Product Discovery</p>
+              <h3 class="career-role">UX &amp; UI Designer</h3>
+              <p class="career-company">Contract client: VLE Support</p>
+              <p class="career-period">Jun 2018 — Oct 2018 · London, UK</p>
+              <div class="career-responsibilities">
+                <ul>
+                  <li>Led UX consultation and UI design for phase one of the VLE ePlacements web app, a work placement platform helping learning providers, students and employers support T-Level placement matching and management.</li>
+                  <li>Defined core product flows and MVP functionality through collaborative UX research, personas, user flows, low-to-high fidelity wireframes, prototype testing and preference/A/B testing.</li>
+                  <li>Delivered responsive UI design assets across mobile, tablet and desktop breakpoints, including visual concepts, style guide, grids, typography, iconography, InVision prototype and final screen assets for handoff.</li>
                 </ul>
               </div>
             </article>
