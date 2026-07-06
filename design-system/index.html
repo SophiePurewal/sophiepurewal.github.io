@@ -3,133 +3,73 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Dude, Where’s My Bike? Design System</title>
+  <title>Dude, Where’s My Bike? Design System | Sophie Purewal</title>
+  <link rel="icon" type="image/svg+xml" href="../favicon.svg">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="bike-design-system.css">
 </head>
 <body class="bike-ds-page">
-  <a class="skip-link" href="#main-content">Skip to content</a>
-  <header class="topbar">
-    <a class="bike-brand" href="../" aria-label="Dude, Where’s My Bike? home"><span class="bike-brand__mark">🚲</span><span>Dude, Where’s My Bike?</span></a>
-    <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="sidebar">Menu</button>
+  <a class="skip-link" href="#ds-content">Skip to design system content</a>
+
+  <header class="site-header">
+    <nav class="top-nav" aria-label="Main navigation">
+      <button class="portfolio-menu-toggle" type="button" aria-expanded="false" aria-controls="dropdown-menu" aria-label="Toggle navigation menu">
+        <svg class="menu-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960" aria-hidden="true" focusable="false">
+          <line class="line-top" x1="200" y1="-480" x2="760" y2="-480" />
+          <line class="line-bottom" x1="200" y1="-480" x2="760" y2="-480" />
+        </svg>
+      </button>
+
+      <p class="site-title"><a href="../#intro" aria-label="Go to Sophie Purewal portfolio intro"> Sophie Purewal</a></p>
+
+      <div class="header-actions">
+        <a class="header-link" href="../#projects">Projects</a>
+      </div>
+
+      <div id="dropdown-menu" class="dropdown-menu" aria-label="Navigation links">
+        <a href="../#projects" class="dropdown-link">Projects</a>
+        <a href="../#career" class="dropdown-link">Career</a>
+        <a href="../#contact" class="dropdown-link">Endorsements</a>
+        <a href="mailto:sophiepurewaldesign@gmail.com" class="dropdown-link">Contact</a>
+        <div class="dropdown-social-links" aria-label="Social links">
+          <a href="https://www.behance.net/sophiepurewal" target="_blank" rel="noopener noreferrer">Bē<span class="visually-hidden">Behance</span></a>
+          <a href="https://www.instagram.com/sophiepurewaldesign/" target="_blank" rel="noopener noreferrer">Ig<span class="visually-hidden">Instagram</span></a>
+          <a href="https://www.linkedin.com/in/sophiepurewal/" target="_blank" rel="noopener noreferrer">in<span class="visually-hidden">LinkedIn</span></a>
+        </div>
+      </div>
+    </nav>
   </header>
 
-  <div class="docs-shell">
-    <aside class="sidebar" id="sidebar" aria-label="Design system navigation">
-      <div class="sidebar__intro">
-        <span class="badge badge--verified">Design system</span>
-        <p>Prototype-led docs for discovery, booking, and provider UI.</p>
-      </div>
-      <nav class="sidebar-nav">
-        <section>
-          <h2>Foundations</h2>
-          <a class="nav-link is-active" href="#brand">Brand</a>
-          <a class="nav-link" href="#logo">Logo</a>
-          <a class="nav-link" href="#colours">Colours</a>
-          <a class="nav-link" href="#gradients">Gradients</a>
-          <a class="nav-link" href="#typography">Typography</a>
-          <a class="nav-link" href="#spacing">Spacing</a>
-          <a class="nav-link" href="#radius">Radius</a>
-          <a class="nav-link" href="#shadows">Shadows / elevation</a>
-          <a class="nav-link" href="#iconography">Iconography</a>
-        </section>
-        <section>
-          <h2>Components</h2>
-          <a class="nav-link" href="#buttons">Buttons</a>
-          <a class="nav-link" href="#inputs">Inputs</a>
-          <a class="nav-link" href="#search">Search</a>
-          <a class="nav-link" href="#filter-chips">Filter chips</a>
-          <a class="nav-link" href="#category-chips">Category chips</a>
-          <a class="nav-link" href="#badges">Badges</a>
-          <a class="nav-link" href="#availability-states">Availability states</a>
-          <a class="nav-link" href="#provider-cards">Provider cards</a>
-          <a class="nav-link" href="#bike-cards">Bike cards</a>
-          <a class="nav-link" href="#booking-cards">Booking cards</a>
-          <a class="nav-link" href="#price-summary">Price summary</a>
-          <a class="nav-link" href="#navigation">Navigation</a>
-          <a class="nav-link" href="#map-pins">Map pins</a>
-          <a class="nav-link" href="#bottom-sheets">Bottom sheets</a>
-          <a class="nav-link" href="#empty-states">Empty states</a>
-        </section>
-        <section>
-          <h2>Patterns</h2>
-          <a class="nav-link" href="#search-discovery">Search and discovery</a>
-          <a class="nav-link" href="#filtering">Filtering</a>
-          <a class="nav-link" href="#provider-comparison">Provider comparison</a>
-          <a class="nav-link" href="#booking-flow">Booking flow</a>
-          <a class="nav-link" href="#confirmation-flow">Confirmation flow</a>
-          <a class="nav-link" href="#saved-providers">Saved providers</a>
-          <a class="nav-link" href="#reviews-ratings">Reviews and ratings</a>
-        </section>
-      </nav>
-    </aside>
+  <main id="ds-content">
+    <section class="page-intro" aria-labelledby="page-title">
+      <p class="intro-kicker">Portfolio case study documentation</p>
+      <h1 id="page-title">Dude, Where’s My Bike? Design System</h1>
+      <p class="intro-copy">Component, foundation and pattern documentation for the bike hire app prototype — organised for fast scanning, consistent reuse and polished product decisions.</p>
+    </section>
 
-    <main class="content" id="main-content">
-      <section class="hero doc-section" id="brand" tabindex="-1">
-        <span class="eyebrow">Brand foundation</span>
-        <h1>Colourful bike hire documentation for sunny city discovery.</h1>
-        <p>The system keeps the prototype’s confident orange calls to action, coral-to-pink warmth, purple depth, rounded cards, emoji-like icon energy, and practical booking clarity.</p>
-        <div class="hero__actions"><a class="bike-btn bike-btn--primary" href="#buttons">Explore components</a><a class="bike-btn bike-btn--secondary" href="#colours">View tokens</a></div>
+    <section class="docs-layout" aria-label="Design system documentation">
+      <aside class="docs-sidebar" aria-label="Design system sections">
+        <label class="section-select-label" for="section-select">Browse documentation</label>
+        <select id="section-select" class="section-select"></select>
+        <nav class="docs-nav" id="docs-nav" aria-label="Foundations, components and patterns"></nav>
+      </aside>
+
+      <section class="docs-panel" aria-live="polite">
+        <div class="panel-meta" id="panel-category">Foundation</div>
+        <h2 id="panel-title"></h2>
+        <p id="panel-description" class="panel-description"></p>
+        <div id="panel-preview" class="panel-preview"></div>
+        <div class="panel-notes">
+          <h3>Usage notes</h3>
+          <ul id="panel-notes"></ul>
+        </div>
+        <div id="panel-tokens" class="token-callout" hidden></div>
       </section>
+    </section>
+  </main>
 
-      <section class="doc-section" id="logo" tabindex="-1"><div class="section-heading"><span>Foundation</span><h2>Logo</h2><p>A simple bike mark in the app’s warm gradient tile. Use it on light and dark surfaces with clear space equal to half the mark.</p></div><div class="preview-grid two"><article class="preview-card logo-demo"><div class="bike-brand bike-brand--large"><span class="bike-brand__mark">🚲</span><span>Dude, Where’s My Bike?</span></div></article><article class="preview-card logo-demo logo-demo--dark"><div class="bike-brand bike-brand--large"><span class="bike-brand__mark">🚲</span><span>Dude, Where’s My Bike?</span></div></article></div></section>
-
-      <section class="doc-section" id="colours" tabindex="-1"><div class="section-heading"><span>Foundation</span><h2>Colours</h2><p>Use energetic orange, coral, pink, purple and dark aubergine backgrounds balanced by cream cards and readable text.</p></div><div class="swatches"><div class="swatch"><i style="background:#ff6b35"></i><b>Primary orange</b><code>#ff6b35</code></div><div class="swatch"><i style="background:#ff4f7b"></i><b>Coral pink</b><code>#ff4f7b</code></div><div class="swatch"><i style="background:#8b5cf6"></i><b>Adventure purple</b><code>#8b5cf6</code></div><div class="swatch"><i style="background:#241033"></i><b>Night purple</b><code>#241033</code></div><div class="swatch"><i style="background:#1f9d8a"></i><b>Trust teal</b><code>#1f9d8a</code></div><div class="swatch"><i style="background:#fff7ed"></i><b>Warm surface</b><code>#fff7ed</code></div></div></section>
-      <section class="doc-section" id="gradients" tabindex="-1"><div class="section-heading"><span>Foundation</span><h2>Gradients</h2><p>Gradients carry the product personality: sunrise CTAs, warm route cards, and dark purple hero depth.</p></div><div class="preview-grid three"><div class="gradient-card brand">Brand sunrise</div><div class="gradient-card dusk">Dusk panel</div><div class="gradient-card map">Map warmth</div></div></section>
-      <section class="doc-section" id="typography" tabindex="-1"><div class="section-heading"><span>Foundation</span><h2>Typography</h2><p>Inter provides a friendly product UI voice with tight display headings, clear labels and strong button text.</p></div><article class="preview-card type-scale"><h1>Heading: Find bikes nearby</h1><h2>Subheading: Compare trusted local providers</h2><p>Body: Book city, hybrid, cargo and e-bikes from verified bike shops with clear availability and pricing.</p><small>Caption: Open until 7pm · 0.4 mi away</small><label>Label text</label><button class="bike-btn bike-btn--primary">Button text</button></article></section>
-      <section class="doc-section" id="spacing" tabindex="-1"><div class="section-heading"><span>Foundation</span><h2>Spacing</h2><p>An 8px-led scale keeps dense mobile cards tidy and desktop docs spacious.</p></div><div class="token-list"><div><span>xs</span><code>4px</code></div><div><span>sm</span><code>8px</code></div><div><span>md</span><code>12px</code></div><div><span>base</span><code>16px</code></div><div><span>lg</span><code>24px</code></div><div><span>xl</span><code>32px</code></div><div><span>2xl</span><code>40px</code></div><div><span>3xl</span><code>48px</code></div></div></section>
-      <section class="doc-section" id="radius" tabindex="-1"><div class="section-heading"><span>Foundation</span><h2>Radius</h2><p>Soft radii make the product feel approachable: pill actions, rounded cards, and sheet corners.</p></div><div class="preview-grid four"><div class="radius-demo sm">8</div><div class="radius-demo md">16</div><div class="radius-demo lg">24</div><div class="radius-demo pill">pill</div></div></section>
-      <section class="doc-section" id="shadows" tabindex="-1"><div class="section-heading"><span>Foundation</span><h2>Shadows / elevation</h2><p>Use soft coloured shadows sparingly for cards, selected items and floating CTAs.</p></div><div class="preview-grid three"><div class="elevation one">Card</div><div class="elevation two">Floating CTA</div><div class="elevation three">Bottom sheet</div></div></section>
-      <section class="doc-section" id="iconography" tabindex="-1"><div class="section-heading"><span>Foundation</span><h2>Iconography</h2><p>Icons are rounded, high-recognition and travel-friendly. Pair icons with labels for primary navigation.</p></div><div class="icon-row"><span>🚲</span><span>📍</span><span>🔎</span><span>⭐</span><span>✓</span><span>♡</span><span>🗺️</span></div></section>
-
-      <section class="doc-section" id="buttons" tabindex="-1"><div class="section-heading"><span>Component</span><h2>Buttons</h2><p>Primary buttons own booking actions. Secondary buttons support comparison. Ghost buttons keep low-emphasis tasks light.</p></div><article class="component-doc"><div class="preview-card button-stack"><button class="bike-btn bike-btn--primary">Find bikes</button><button class="bike-btn bike-btn--secondary">Save provider</button><button class="bike-btn bike-btn--ghost">Text action</button><button class="bike-btn bike-btn--primary is-pressed">Pressed</button><button class="bike-btn bike-btn--primary is-loading">Loading…</button><button class="bike-btn" disabled>Disabled</button></div><ul><li>Use one primary action per composition.</li><li>Minimum height is 48px for comfortable touch targets.</li><li>Token: <code>--bike-radius-pill</code>, <code>--bike-gradient-cta</code>.</li></ul></article></section>
-      <section class="doc-section" id="inputs" tabindex="-1"><div class="section-heading"><span>Component</span><h2>Inputs</h2><p>Inputs use warm surfaces, visible labels and clear error states.</p></div><div class="preview-grid two"><label class="form-field"><span>Pickup time</span><input value="Today, 10:00"></label><label class="form-field is-error"><span>Promo code</span><input value="Expired code"><em>Try another code.</em></label></div></section>
-      <section class="doc-section" id="search" tabindex="-1"><div class="section-heading"><span>Component</span><h2>Search</h2><p>Search is prominent in discovery and accepts locations, providers or bike categories.</p></div><div class="search-box">🔎 <span>Search location or provider</span><button class="bike-btn bike-btn--primary">Search</button></div></section>
-      <section class="doc-section" id="filter-chips" tabindex="-1"><div class="section-heading"><span>Component</span><h2>Filter chips</h2><p>Filters should be scan-friendly, horizontally scrollable on mobile, and visibly selected.</p></div><div class="chip-row"><button class="chip is-selected">Open now</button><button class="chip">Under £20</button><button class="chip">Verified</button><button class="chip" disabled>Child seats</button></div></section>
-      <section class="doc-section" id="category-chips" tabindex="-1"><div class="section-heading"><span>Component</span><h2>Category chips</h2><p>Category chips pair icons and labels for quick bike-type selection.</p></div><div class="chip-row"><button class="category-chip is-selected">🚲 City</button><button class="category-chip">⚡ E-bike</button><button class="category-chip">👨‍👩‍👧 Family</button><button class="category-chip">⛰️ Trail</button></div></section>
-      <section class="doc-section" id="badges" tabindex="-1"><div class="section-heading"><span>Component</span><h2>Badges</h2><p>Badges communicate status in compact card spaces.</p></div><p class="badge-row"><span class="badge badge--verified">✓ Verified</span><span class="badge badge--available">8 available</span><span class="badge badge--warning">2 left</span><span class="badge badge--error">Unavailable</span><span class="badge badge--family">Family-friendly</span></p></section>
-      <section class="doc-section" id="availability-states" tabindex="-1"><div class="section-heading"><span>Component</span><h2>Availability states</h2><p>Use consistent language and colours across cards, lists and booking summaries.</p></div><div class="state-list"><div><span class="dot available"></span>Available</div><div><span class="dot warning"></span>Low availability</div><div><span class="dot error"></span>Unavailable</div><div><span class="dot verified"></span>Verified provider</div><div><span class="dot family"></span>Family-friendly</div></div></section>
-      <section class="doc-section" id="provider-cards" tabindex="-1"><div class="section-heading"><span>Component</span><h2>Provider cards</h2><p>Provider cards combine imagery, trust, distance, ratings and the next booking action.</p></div><div class="preview-grid cards"><article class="provider-card"><div class="provider-card__media"></div><div class="provider-card__title"><div><h3>Harbour Cycle Hub</h3><small>0.4 mi · Waterfront</small></div><span class="rating">★ 4.9</span></div><p><span class="badge badge--available">12 bikes</span></p><button class="bike-btn bike-btn--primary">Book now</button></article><article class="provider-card is-verified"><div class="provider-card__media"></div><div class="provider-card__title"><div><h3>Trailhead Rentals</h3><small>1.1 mi · Park gate</small></div><span class="rating">★ 4.7</span></div><p><span class="badge badge--verified">Verified</span></p><button class="bike-btn bike-btn--secondary">View details</button></article><article class="provider-card is-low"><div class="provider-card__media"></div><h3>Old Town Bikes</h3><p><span class="badge badge--warning">Low availability</span></p></article><article class="provider-card is-unavailable"><div class="provider-card__media"></div><h3>Station Cycles</h3><p><span class="badge badge--error">Unavailable</span></p><button class="bike-btn" disabled>Closed</button></article><article class="provider-card is-top-rated"><div class="provider-card__media"></div><h3>Seafront Bike Co.</h3><p><span class="badge badge--family">Top rated</span></p></article></div></section>
-      <section class="doc-section" id="bike-cards" tabindex="-1"><div class="section-heading"><span>Component</span><h2>Bike cards</h2><p>Bike cards show type, fit, availability and price.</p></div><div class="preview-grid three"><div class="bike-type-card is-selected"><strong>Hybrid bike</strong><p>Comfortable city and trail option.</p><b>£14 / day</b></div><div class="bike-type-card"><strong>E-bike</strong><p>Assisted rides for hills.</p><b>£28 / day</b></div><div class="bike-type-card is-disabled"><strong>Cargo bike</strong><p>Currently unavailable.</p><b>—</b></div></div></section>
-      <section class="doc-section" id="booking-cards" tabindex="-1"><div class="section-heading"><span>Component</span><h2>Booking cards</h2><p>Booking cards summarise the reservation and supporting accessories.</p></div><article class="booking-card"><h3>Today · 10:00–18:00</h3><p>Harbour Cycle Hub · Hybrid bike · Helmet + lock included.</p><button class="bike-btn bike-btn--secondary">Edit booking</button></article></section>
-      <section class="doc-section" id="price-summary" tabindex="-1"><div class="section-heading"><span>Component</span><h2>Price summary</h2><p>Keep totals clear and anchored near the booking action.</p></div><div class="price-summary"><div><span>Bike hire</span><strong>£28</strong></div><div><span>Accessories</span><strong>£0</strong></div><div><span>Total</span><strong>£28</strong></div></div></section>
-      <section class="doc-section" id="navigation" tabindex="-1"><div class="section-heading"><span>Component</span><h2>Navigation</h2><p>Mobile app navigation uses icon-plus-label items with a bright active state.</p></div><nav class="bottom-nav" aria-label="Example app navigation"><a class="is-active" href="#navigation">⌂<span>Home</span></a><a href="#map-pins">🗺️<span>Map</span></a><a href="#saved-providers">♡<span>Saved</span></a><a href="#reviews-ratings">👤<span>Me</span></a></nav></section>
-      <section class="doc-section" id="map-pins" tabindex="-1"><div class="section-heading"><span>Component</span><h2>Map pins</h2><p>Pins use brand colour, price or status labels, and enough contrast over warm maps.</p></div><div class="map-panel"><div class="map-pin" style="top:24%;left:24%"><span>£</span></div><div class="map-pin map-pin--verified" style="top:48%;left:62%"><span>✓</span></div><div class="map-pin map-pin--warning" style="top:34%;left:78%"><span>2</span></div></div></section>
-      <section class="doc-section" id="bottom-sheets" tabindex="-1"><div class="section-heading"><span>Component</span><h2>Bottom sheets</h2><p>Sheets should feel tactile, rounded and focused on the next decision.</p></div><div class="map-panel sheet-demo"><div class="bottom-sheet"><h3>Map result bottom sheet</h3><p>Swipeable provider summary anchored to the map.</p><button class="bike-btn bike-btn--primary">Reserve from £14</button></div></div></section>
-      <section class="doc-section" id="empty-states" tabindex="-1"><div class="section-heading"><span>Component</span><h2>Empty states</h2><p>Empty states are encouraging and offer one clear recovery action.</p></div><article class="empty-state"><h3>No saved providers yet</h3><p>Save trusted shops while exploring so repeat bookings are faster.</p><button class="bike-btn bike-btn--primary">Explore nearby bikes</button></article></section>
-
-      <section class="doc-section" id="search-discovery" tabindex="-1"><div class="section-heading"><span>Pattern</span><h2>Search and discovery</h2><p>Lead with location search, then combine map context with top provider cards.</p></div><div class="pattern-card"><div class="search-box">📍 Brighton Beach <button class="bike-btn bike-btn--primary">Find bikes</button></div><div class="provider-card compact"><h3>Seafront Bike Co.</h3><p><span class="badge badge--verified">Verified</span> <span class="badge badge--available">6 available</span></p></div></div></section>
-      <section class="doc-section" id="filtering" tabindex="-1"><div class="section-heading"><span>Pattern</span><h2>Filtering</h2><p>Filters should update results without hiding the user’s current discovery context.</p></div><div class="chip-row"><button class="chip is-selected">Open now</button><button class="chip is-selected">E-bikes</button><button class="chip">Family-friendly</button></div></section>
-      <section class="doc-section" id="provider-comparison" tabindex="-1"><div class="section-heading"><span>Pattern</span><h2>Provider comparison</h2><p>Compare distance, trust, availability and rating before price details.</p></div><div class="comparison-table"><div>Provider</div><div>Distance</div><div>Status</div><div>Rating</div><b>Harbour Cycle Hub</b><span>0.4 mi</span><span>12 bikes</span><span>★ 4.9</span><b>Trailhead Rentals</b><span>1.1 mi</span><span>2 left</span><span>★ 4.7</span></div></section>
-      <section class="doc-section" id="booking-flow" tabindex="-1"><div class="section-heading"><span>Pattern</span><h2>Booking flow</h2><p>Select bike, confirm accessories, review price, then reserve.</p></div><ol class="steps"><li>Choose bike type</li><li>Add time and accessories</li><li>Review price</li><li>Confirm booking</li></ol></section>
-      <section class="doc-section" id="confirmation-flow" tabindex="-1"><div class="section-heading"><span>Pattern</span><h2>Confirmation flow</h2><p>Confirm what happened, when pickup starts, and how to get help.</p></div><article class="confirmation-card"><h3>Booking confirmed</h3><p>Your hybrid bike is reserved at Harbour Cycle Hub for today at 10:00.</p><button class="bike-btn bike-btn--secondary">Add to calendar</button></article></section>
-      <section class="doc-section" id="saved-providers" tabindex="-1"><div class="section-heading"><span>Pattern</span><h2>Saved providers</h2><p>Saved providers make repeat hire faster and create a sense of trusted local favourites.</p></div><article class="provider-card compact"><h3>♡ Harbour Cycle Hub</h3><p>Saved · 12 bikes available today</p></article></section>
-      <section class="doc-section" id="reviews-ratings" tabindex="-1"><div class="section-heading"><span>Pattern</span><h2>Reviews and ratings</h2><p>Ratings sit beside trust indicators and should never replace availability or safety details.</p></div><div class="review-card"><strong>★ 4.9</strong><p>“Friendly team, quick pickup, child seat ready.”</p><small>Based on 128 rides</small></div></section>
-    </main>
-  </div>
-
-  <script>
-    const toggle = document.querySelector('.menu-toggle');
-        const links = [...document.querySelectorAll('.nav-link')];
-    toggle.addEventListener('click', () => {
-      const open = document.body.classList.toggle('nav-open');
-      toggle.setAttribute('aria-expanded', open);
-    });
-    links.forEach(link => link.addEventListener('click', () => {
-      document.body.classList.remove('nav-open');
-      toggle.setAttribute('aria-expanded', 'false');
-    }));
-    const sections = links.map(link => document.querySelector(link.getAttribute('href'))).filter(Boolean);
-    const observer = new IntersectionObserver(entries => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          links.forEach(link => link.classList.toggle('is-active', link.getAttribute('href') === `#${entry.target.id}`));
-        }
-      });
-    }, { rootMargin: '-30% 0px -60% 0px', threshold: 0.01 });
-    sections.forEach(section => observer.observe(section));
-  </script>
+  <script src="bike-design-system.js"></script>
 </body>
 </html>
