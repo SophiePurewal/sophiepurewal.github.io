@@ -212,31 +212,6 @@ body.bike-ds-page {
   background: transparent;
 }
 
-.mobile-screen-frame {
-  position: relative;
-  width: min(100%, 390px);
-  aspect-ratio: 390 / 844;
-  margin: 0 auto;
-  padding: clamp(7px, 1.4vw, 10px);
-  border-radius: 34px;
-  border: 1px solid rgba(37, 18, 56, 0.18);
-  overflow: hidden;
-  background: #FFFFFF;
-  box-shadow: 0 22px 48px rgba(37, 18, 56, .12), 0 6px 16px rgba(37, 18, 56, .08);
-  isolation: isolate;
-}
-
-.mobile-screen-frame img {
-  display: block;
-  width: 100%;
-  height: 100%;
-  border-radius: 26px;
-  border: 1px solid rgba(37, 18, 56, 0.10);
-  object-fit: cover;
-  object-position: top center;
-  background: #FFFFFF;
-}
-
 .ds-prototype-section {
   margin: 0 0 clamp(44px, 6vw, 72px);
   padding: clamp(28px, 5vw, 48px) 0;
@@ -437,7 +412,6 @@ body.bike-ds-page {
 
 @media (max-width: 720px) {
   .bike-ds-page .ds-main { width: min(100% - 28px, 520px); }
-  .mobile-screen-frame { width: min(100%, 330px); }
   .panel-preview { padding-inline: 0; border-left: 0; border-right: 0; }
 }
 
@@ -572,8 +546,10 @@ body.bike-ds-page {
   }
 }
 
-/* Match Antelope Wealth mobile framing and keep documentation nav unpanelled */
+/* Simple opening screenshot frame and unpanelled documentation nav */
 .docs-sidebar {
+  max-height: none;
+  overflow: visible;
   background: transparent;
 }
 
@@ -583,59 +559,71 @@ body.bike-ds-page {
   }
 }
 
-.mobile-screen-frame {
-  aspect-ratio: 390 / 812;
-  padding: clamp(10px, 2vw, 14px);
-  border-radius: 44px;
-  border: 1px solid rgba(12, 13, 15, 0.18);
-  background:
-    linear-gradient(145deg, rgba(255, 255, 255, 0.88), rgba(235, 238, 242, 0.72)),
-    #F7F8FA;
-  box-shadow:
-    0 34px 72px rgba(12, 13, 15, 0.16),
-    inset 0 0 0 1px rgba(255, 255, 255, 0.78);
-}
-
-.mobile-screen-frame::before {
-  content: "";
-  position: absolute;
-  top: 17px;
-  left: 50%;
-  z-index: 2;
-  width: 96px;
-  height: 25px;
-  border-radius: 999px;
-  background: #0C0D0F;
-  transform: translateX(-50%);
-  box-shadow: 0 1px 0 rgba(255, 255, 255, 0.18);
-  pointer-events: none;
-}
-
-.mobile-screen-frame img {
-  width: 100%;
-  height: 100%;
-  border: 0;
-  border-radius: 34px;
+.simple-mobile-frame {
+  width: min(100%, 420px);
+  margin: 0 auto;
+  padding: 8px;
+  border: 2px solid #D7D7D7;
+  border-radius: 48px;
+  background: #FFFFFF;
   overflow: hidden;
-  background: transparent;
+  box-shadow: 0 22px 48px rgba(37, 18, 56, .10);
 }
 
-.mobile-screen-frame img,
-.screen-card:nth-child(1) .screen-card__frame img {
-  object-fit: cover;
+.simple-mobile-frame img {
+  display: block;
+  width: 100%;
+  height: auto;
+  margin: 0;
+  border: 0;
+  border-radius: 40px;
   background: transparent;
 }
 
 @media (max-width: 720px) {
-  .mobile-screen-frame {
+  .simple-mobile-frame {
     width: min(100%, 340px);
-    padding: 10px;
-    border-radius: 38px;
+    padding: 7px;
+    border-radius: 40px;
   }
 
-  .mobile-screen-frame img {
-    border-radius: 29px;
+  .simple-mobile-frame img {
+    border-radius: 33px;
   }
+}
+
+.button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 52px;
+  padding: 0 22px;
+  border: 1px solid transparent;
+  border-radius: 999px;
+  font-weight: 700;
+  text-decoration: none;
+  transition: transform 0.2s ease, box-shadow 0.2s ease, opacity 0.2s ease;
+}
+
+.button:hover,
+.button:focus-visible {
+  transform: translateY(-1px);
+}
+
+.button-primary {
+  background: var(--brand);
+  color: #FFFFFF;
+  box-shadow: var(--shadow-soft);
+}
+
+.button-primary:hover,
+.button-primary:focus-visible {
+  opacity: 0.92;
+  text-decoration: none;
+}
+
+body.dark-mode .button-primary {
+  color: #FFFFFF;
 }
 
 /* Direct prototype embed and white documentation canvas */
