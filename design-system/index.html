@@ -82,13 +82,33 @@
         <p class="project-subtitle">A component library and screen reference for the bike hire app prototype.</p>
         <p class="project-intro">Built from the uploaded prototype screenshots, this static GitHub Pages documentation keeps Sophie’s portfolio header intact while showing the app’s real Nunito Sans typography, warm gradient palette, rounded cards, chips, booking patterns and screen flow.</p>
       </div>
-      <div class="hero-visual ds-hero-visual case-study-prototype">
-        <iframe
-          src="https://dude-wheres-my-bike.figma.site/"
-          title="Dude, Where’s My Bike? interactive prototype"
-          loading="lazy"
-          allowfullscreen>
-        </iframe>
+      <div class="case-study-intro__prototype">
+        <div class="prototype-frame" data-prototype-frame data-fallback-delay-ms="4500">
+          <div class="prototype-screen">
+            <iframe
+              src="https://dude-wheres-my-bike.figma.site/"
+              title="Live Dude, Where’s My Bike interactive prototype"
+              loading="lazy"
+              allowfullscreen>
+            </iframe>
+
+            <div class="prototype-frame__fallback" aria-hidden="true">
+              <div class="image-frame">
+                <img
+                  src="assets/01-welcome.png"
+                  alt="Static preview of the Dude, Where’s My Bike prototype."
+                  loading="lazy"
+                  decoding="async"
+                  onerror="this.parentElement.classList.add('is-missing');"
+                >
+
+                <div class="image-fallback">
+                  <p>The live embed may be blocked or unavailable. Use the button below to open the working prototype directly.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
     </section>
 
@@ -120,5 +140,26 @@
 
   <script src="../work/project-pages.js"></script>
   <script src="bike-design-system.js"></script>
+  <script>
+    document.querySelectorAll('[data-prototype-frame]').forEach((frame) => {
+      const iframe = frame.querySelector('iframe');
+      if (!iframe) return;
+
+      const fallbackDelayMs = Number(frame.dataset.fallbackDelayMs || 4500);
+      let loaded = false;
+
+      const fallbackTimer = window.setTimeout(() => {
+        if (!loaded) {
+          frame.classList.add('is-fallback');
+        }
+      }, fallbackDelayMs);
+
+      iframe.addEventListener('load', () => {
+        loaded = true;
+        window.clearTimeout(fallbackTimer);
+        frame.classList.remove('is-fallback');
+      });
+    });
+  </script>
 </body>
 </html>
