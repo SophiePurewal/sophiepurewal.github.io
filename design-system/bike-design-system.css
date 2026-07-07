@@ -22,7 +22,7 @@
 body.bike-ds-page { background: #FFFFFF; }
 .bike-ds-page .ds-main { width: min(1320px, calc(100% - 48px)); margin: 0 auto; }
 .bike-ds-page .ds-hero { padding: clamp(42px, 7vw, 88px) 0 clamp(32px, 5vw, 64px); }
-.bike-ds-page .ds-hero h1 { max-width: 10ch; }
+.bike-ds-page .ds-hero h1 { max-width: 68ch; }
 .app-ui, .panel-preview { font-family: 'Nunito Sans', system-ui, sans-serif; }
 .app-status { display:flex; justify-content:space-between; font-weight:900; font-size:.8rem; color:var(--app-purple); }
 .app-search { padding: 14px 16px; border-radius: 18px; background: #FFF3DF; border: 1px solid rgba(255,159,28,.35); font-weight:900; }
@@ -196,8 +196,10 @@ body.bike-ds-page {
   padding: clamp(48px, 7vw, 92px) 0 clamp(28px, 5vw, 56px);
 }
 
-.bike-ds-page .ds-hero h1 {
-  max-width: 12ch;
+.bike-ds-page .ds-hero h1,
+.bike-ds-page .ds-hero .project-intro {
+  width: 100%;
+  max-width: 68ch;
 }
 
 .bike-ds-page .case-study-hero__copy,
@@ -213,12 +215,68 @@ body.bike-ds-page {
   min-width: 0;
 }
 
+.image-frame {
+  position: relative;
+  overflow: hidden;
+  background: #FFFFFF;
+}
+
+.image-frame.is-missing img {
+  opacity: 0;
+}
+
+.image-fallback {
+  position: absolute;
+  inset: 0;
+  display: grid;
+  place-items: center;
+  padding: 24px;
+  background: var(--surface, #FFFFFF);
+  color: var(--muted);
+  text-align: center;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.2s ease;
+}
+
+.image-frame.is-missing .image-fallback {
+  opacity: 1;
+}
+
+.image-fallback p {
+  max-width: 28ch;
+}
+
 .prototype-frame {
   position: relative;
   width: min(100%, 390px);
   aspect-ratio: 390 / 812;
   margin: 0;
-  overflow: visible;
+  padding: clamp(10px, 2vw, 14px);
+  border-radius: 44px;
+  border: 1px solid rgba(12, 13, 15, 0.18);
+  overflow: hidden;
+  background:
+    linear-gradient(145deg, rgba(255, 255, 255, 0.88), rgba(235, 238, 242, 0.72)),
+    #F7F8FA;
+  box-shadow:
+    0 34px 72px rgba(12, 13, 15, 0.16),
+    inset 0 0 0 1px rgba(255, 255, 255, 0.78);
+}
+
+.prototype-frame::before {
+  content: "";
+  position: absolute;
+  top: 17px;
+  left: 50%;
+  z-index: 2;
+  width: 96px;
+  height: 25px;
+  border-radius: 999px;
+  background: #0C0D0F;
+  transform: translateX(-50%);
+  box-shadow: 0 1px 0 rgba(255, 255, 255, 0.18);
+  pointer-events: none;
 }
 
 .prototype-screen {
@@ -238,6 +296,7 @@ body.bike-ds-page {
   height: 100%;
   border: 0;
   margin: 0;
+  padding: 0;
 }
 
 .prototype-frame img {
@@ -608,105 +667,4 @@ body.bike-ds-page {
   content: none;
   background: transparent;
   box-shadow: none;
-}
-
-/* Design System case study route alignment and clean prototype embed */
-.bike-ds-page .ds-main {
-  width: auto;
-  margin: 0;
-}
-
-.bike-ds-page .site-shell {
-  width: min(1120px, calc(100% - 48px));
-  margin: 0 auto;
-}
-
-.bike-ds-page .design-system-intro {
-  display: grid;
-  grid-template-columns: minmax(0, 1fr) minmax(320px, 390px);
-  align-items: start;
-  gap: 48px;
-  padding: 12px 0 clamp(28px, 5vw, 56px);
-}
-
-.design-system-intro__content,
-.design-system-intro__prototype {
-  align-self: start;
-  margin-top: 0;
-}
-
-.design-system-intro__prototype {
-  display: flex;
-  justify-content: flex-start;
-  align-items: flex-start;
-  min-width: 0;
-}
-
-.design-system-intro .prototype-frame {
-  position: relative;
-  width: min(390px, 100%);
-  aspect-ratio: auto;
-  margin: 0;
-  padding: 0;
-  align-self: start;
-  overflow: hidden;
-  border: 0;
-  border-radius: 0;
-  background: transparent;
-  box-shadow: none;
-}
-
-.design-system-intro .prototype-frame::before {
-  content: none;
-}
-
-.design-system-intro .prototype-screen {
-  position: relative;
-  width: 100%;
-  height: auto;
-  aspect-ratio: 390 / 844;
-  margin: 0;
-  padding: 0;
-  overflow: hidden;
-  border: 0;
-  border-radius: 0;
-  background: transparent;
-  box-shadow: none;
-}
-
-.design-system-intro .prototype-screen iframe {
-  display: block;
-  width: 100%;
-  height: 100%;
-  margin: 0;
-  padding: 0;
-  border: 0;
-  overflow: hidden;
-}
-
-.design-system-intro .prototype-frame,
-.design-system-intro .prototype-screen {
-  scrollbar-width: none;
-}
-
-.design-system-intro .prototype-frame::-webkit-scrollbar,
-.design-system-intro .prototype-screen::-webkit-scrollbar {
-  display: none;
-}
-
-@media (max-width: 980px) {
-  .bike-ds-page .design-system-intro {
-    grid-template-columns: 1fr;
-    gap: 32px;
-  }
-}
-
-@media (max-width: 720px) {
-  .bike-ds-page .site-shell {
-    width: min(100% - 28px, 520px);
-  }
-
-  .design-system-intro .prototype-frame {
-    width: min(390px, 100%);
-  }
 }
