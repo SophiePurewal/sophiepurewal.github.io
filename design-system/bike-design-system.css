@@ -1,5 +1,5 @@
 :root {
-  --ds-shell: #EFEFEF;
+  --ds-shell: #FFFFFF;
   --app-ink: #251238;
   --app-purple: #4B1D67;
   --app-purple-2: #7B2CBF;
@@ -19,7 +19,7 @@
   --app-radius-md: 20px;
   --app-radius-sm: 14px;
 }
-body.bike-ds-page { background: var(--ds-shell); }
+body.bike-ds-page { background: #FFFFFF; }
 .bike-ds-page .ds-main { width: min(1320px, calc(100% - 48px)); margin: 0 auto; }
 .bike-ds-page .ds-hero { padding: clamp(42px, 7vw, 88px) 0 clamp(32px, 5vw, 64px); }
 .bike-ds-page .ds-hero h1 { max-width: 10ch; }
@@ -212,8 +212,7 @@ body.bike-ds-page {
   background: transparent;
 }
 
-.mobile-screen-frame,
-.prototype-frame {
+.mobile-screen-frame {
   position: relative;
   width: min(100%, 390px);
   aspect-ratio: 390 / 844;
@@ -554,63 +553,6 @@ body.bike-ds-page {
   background: #FFF7ED;
 }
 
-.prototype-frame {
-  margin-top: 36px;
-}
-
-.prototype-screen {
-  position: relative;
-  width: 100%;
-  height: 100%;
-  border-radius: 26px;
-  overflow: hidden;
-  border: 1px solid rgba(37, 18, 56, 0.10);
-  background: #FFFFFF;
-}
-
-.prototype-frame iframe,
-.prototype-frame img {
-  width: 100%;
-  height: 100%;
-  border: 0;
-  display: block;
-}
-
-.prototype-frame img {
-  object-fit: cover;
-  object-position: top center;
-}
-
-.prototype-frame__fallback {
-  position: absolute;
-  inset: 0;
-  display: none;
-}
-
-.prototype-frame.is-fallback iframe {
-  display: none;
-}
-
-.prototype-frame.is-fallback .prototype-frame__fallback {
-  display: block;
-}
-
-.prototype-frame .image-frame {
-  position: relative;
-  width: 100%;
-  height: 100%;
-}
-
-.prototype-frame .image-fallback {
-  position: absolute;
-  inset: 0;
-  display: grid;
-  place-items: center;
-  padding: 24px;
-  background: rgba(255, 255, 255, .9);
-  text-align: center;
-}
-
 @media (max-width: 980px) {
   .docs-sidebar {
     padding: 0 0 24px;
@@ -630,12 +572,6 @@ body.bike-ds-page {
   }
 }
 
-@media (max-width: 720px) {
-  .prototype-frame {
-    width: min(100%, 340px);
-  }
-}
-
 /* Match Antelope Wealth mobile framing and keep documentation nav unpanelled */
 .docs-sidebar {
   background: transparent;
@@ -647,8 +583,7 @@ body.bike-ds-page {
   }
 }
 
-.mobile-screen-frame,
-.prototype-frame {
+.mobile-screen-frame {
   aspect-ratio: 390 / 812;
   padding: clamp(10px, 2vw, 14px);
   border-radius: 44px;
@@ -661,8 +596,7 @@ body.bike-ds-page {
     inset 0 0 0 1px rgba(255, 255, 255, 0.78);
 }
 
-.mobile-screen-frame::before,
-.prototype-frame::before {
+.mobile-screen-frame::before {
   content: "";
   position: absolute;
   top: 17px;
@@ -677,8 +611,7 @@ body.bike-ds-page {
   pointer-events: none;
 }
 
-.mobile-screen-frame img,
-.prototype-screen {
+.mobile-screen-frame img {
   width: 100%;
   height: 100%;
   border: 0;
@@ -688,34 +621,67 @@ body.bike-ds-page {
 }
 
 .mobile-screen-frame img,
-.prototype-frame img {
-  display: block;
-  object-fit: cover;
-  object-position: top center;
-}
-
-.prototype-frame iframe {
-  display: block;
-  width: 100%;
-  height: 100%;
-  border: 0;
-}
-
 .screen-card:nth-child(1) .screen-card__frame img {
   object-fit: cover;
   background: transparent;
 }
 
 @media (max-width: 720px) {
-  .mobile-screen-frame,
-  .prototype-frame {
+  .mobile-screen-frame {
     width: min(100%, 340px);
     padding: 10px;
     border-radius: 38px;
   }
 
-  .mobile-screen-frame img,
-  .prototype-screen {
+  .mobile-screen-frame img {
     border-radius: 29px;
+  }
+}
+
+/* Direct prototype embed and white documentation canvas */
+.bike-ds-page,
+.bike-ds-page .ds-main,
+.docs-layout,
+.docs-sidebar,
+.docs-panel,
+.docs-nav {
+  background: #FFFFFF;
+  background-image: none;
+  box-shadow: none;
+}
+
+.docs-sidebar::before,
+.docs-sidebar::after,
+.docs-layout::before,
+.docs-layout::after {
+  content: none;
+  background: transparent;
+  box-shadow: none;
+}
+
+.prototype-embed {
+  width: 100%;
+  max-width: 100%;
+  background: transparent;
+  border: 0;
+  padding: 0;
+  margin: 36px 0 0;
+  overflow: hidden;
+  box-shadow: none;
+}
+
+.prototype-embed iframe {
+  display: block;
+  width: 100%;
+  height: 800px;
+  border: 0;
+  margin: 0;
+  padding: 0;
+  background: transparent;
+}
+
+@media (max-width: 720px) {
+  .prototype-embed iframe {
+    height: 720px;
   }
 }
