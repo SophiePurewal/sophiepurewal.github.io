@@ -75,67 +75,76 @@
   </header>
 
   <main id="ds-content" class="project-main ds-main">
-    <section class="case-study-hero ds-hero" aria-labelledby="page-title">
-      <div class="case-study-hero__copy">
-        <p class="project-kicker">Portfolio case study documentation</p>
-        <h1 id="page-title">Dude, Where’s My Bike? Design System</h1>
-        <p class="project-subtitle">A component library and screen reference for the bike hire app prototype.</p>
-        <p class="project-intro">Built from the uploaded prototype screenshots, this static GitHub Pages documentation keeps Sophie’s portfolio header intact while showing the app’s real Nunito Sans typography, warm gradient palette, rounded cards, chips, booking patterns and screen flow.</p>
+    <div class="site-shell">
+      <div class="project-context">
+        <a class="back-link" href="../index.html#projects">Back to portfolio</a>
       </div>
-      <div class="case-study-intro__prototype">
-        <div class="prototype-frame" data-prototype-frame data-fallback-delay-ms="4500">
-          <div class="prototype-screen">
-            <iframe
-              src="https://dude-wheres-my-bike.figma.site/"
-              title="Live Dude, Where’s My Bike interactive prototype"
-              loading="lazy"
-              allowfullscreen>
-            </iframe>
 
-            <div class="prototype-frame__fallback" aria-hidden="true">
-              <div class="image-frame">
-                <img
-                  src="assets/01-welcome.png"
-                  alt="Static preview of the Dude, Where’s My Bike prototype."
+      <article class="case-study">
+        <section class="case-study-hero ds-hero design-system-intro" aria-labelledby="page-title">
+          <div class="case-study-hero__copy design-system-intro__content">
+            <p class="project-kicker">Product &amp; design system case study</p>
+            <h1 id="page-title">Dude, Where’s My Bike? Design System</h1>
+            <p class="project-subtitle">A component library and screen reference for the bike hire app prototype.</p>
+            <p class="project-intro">Built from the uploaded prototype screenshots, this static GitHub Pages documentation keeps Sophie’s portfolio header intact while showing the app’s real Nunito Sans typography, warm gradient palette, rounded cards, chips, booking patterns and screen flow.</p>
+          </div>
+
+          <div class="case-study-intro__prototype design-system-intro__prototype">
+            <div class="prototype-frame" data-prototype-frame data-fallback-delay-ms="4500">
+              <div class="prototype-screen">
+                <iframe
+                  src="https://dude-wheres-my-bike.figma.site/"
+                  title="Live Dude, Where’s My Bike interactive prototype"
                   loading="lazy"
-                  decoding="async"
-                  onerror="this.parentElement.classList.add('is-missing');"
-                >
+                  allowfullscreen
+                ></iframe>
 
-                <div class="image-fallback">
-                  <p>The live embed may be blocked or unavailable. Use the button below to open the working prototype directly.</p>
+                <div class="prototype-frame__fallback" aria-hidden="true">
+                  <div class="image-frame">
+                    <img
+                      src="assets/01-welcome.png"
+                      alt="Static preview of the Dude, Where’s My Bike prototype."
+                      loading="lazy"
+                      decoding="async"
+                      onerror="this.parentElement.classList.add('is-missing');"
+                    >
+
+                    <div class="image-fallback">
+                      <p>The live embed may be blocked or unavailable. Use the button below to open the working prototype directly.</p>
+                    </div>
+                  </div>
                 </div>
               </div>
             </div>
           </div>
-        </div>
-      </div>
-    </section>
+        </section>
 
-    <header class="case-study-section ds-section-heading">
-      <p class="eyebrow">Design system</p>
-      <h2>A flexible foundation for a consistent experience</h2>
-    </header>
+        <header class="case-study-section ds-section-heading">
+          <p class="eyebrow">Design system</p>
+          <h2>A flexible foundation for a consistent experience</h2>
+        </header>
 
-    <section class="docs-layout" aria-label="Design system documentation">
-      <aside class="docs-sidebar" aria-label="Design system sections">
-        <label class="section-select-label" for="section-select">Browse documentation</label>
-        <select id="section-select" class="section-select"></select>
-        <nav class="docs-nav" id="docs-nav" aria-label="Foundations, components and patterns"></nav>
-      </aside>
+        <section class="docs-layout" aria-label="Design system documentation">
+          <aside class="docs-sidebar" aria-label="Design system sections">
+            <label class="section-select-label" for="section-select">Browse documentation</label>
+            <select id="section-select" class="section-select"></select>
+            <nav class="docs-nav" id="docs-nav" aria-label="Foundations, components and patterns"></nav>
+          </aside>
 
-      <section class="docs-panel" aria-live="polite">
-        <div class="panel-meta" id="panel-category">Foundation</div>
-        <h2 id="panel-title"></h2>
-        <p id="panel-description" class="panel-description"></p>
-        <div id="panel-preview" class="panel-preview"></div>
-        <div class="panel-notes">
-          <h3>Usage notes</h3>
-          <ul id="panel-notes"></ul>
-        </div>
-        <div id="panel-tokens" class="token-callout" hidden></div>
-      </section>
-    </section>
+          <section class="docs-panel" aria-live="polite">
+            <div class="panel-meta" id="panel-category">Foundation</div>
+            <h2 id="panel-title"></h2>
+            <p id="panel-description" class="panel-description"></p>
+            <div id="panel-preview" class="panel-preview"></div>
+            <div class="panel-notes">
+              <h3>Usage notes</h3>
+              <ul id="panel-notes"></ul>
+            </div>
+            <div id="panel-tokens" class="token-callout" hidden></div>
+          </section>
+        </section>
+      </article>
+    </div>
   </main>
 
   <script src="../work/project-pages.js"></script>

@@ -609,3 +609,104 @@ body.bike-ds-page {
   background: transparent;
   box-shadow: none;
 }
+
+/* Design System case study route alignment and clean prototype embed */
+.bike-ds-page .ds-main {
+  width: auto;
+  margin: 0;
+}
+
+.bike-ds-page .site-shell {
+  width: min(1120px, calc(100% - 48px));
+  margin: 0 auto;
+}
+
+.bike-ds-page .design-system-intro {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(320px, 390px);
+  align-items: start;
+  gap: 48px;
+  padding: 12px 0 clamp(28px, 5vw, 56px);
+}
+
+.design-system-intro__content,
+.design-system-intro__prototype {
+  align-self: start;
+  margin-top: 0;
+}
+
+.design-system-intro__prototype {
+  display: flex;
+  justify-content: flex-start;
+  align-items: flex-start;
+  min-width: 0;
+}
+
+.design-system-intro .prototype-frame {
+  position: relative;
+  width: min(390px, 100%);
+  aspect-ratio: auto;
+  margin: 0;
+  padding: 0;
+  align-self: start;
+  overflow: hidden;
+  border: 0;
+  border-radius: 0;
+  background: transparent;
+  box-shadow: none;
+}
+
+.design-system-intro .prototype-frame::before {
+  content: none;
+}
+
+.design-system-intro .prototype-screen {
+  position: relative;
+  width: 100%;
+  height: auto;
+  aspect-ratio: 390 / 844;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  border: 0;
+  border-radius: 0;
+  background: transparent;
+  box-shadow: none;
+}
+
+.design-system-intro .prototype-screen iframe {
+  display: block;
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  border: 0;
+  overflow: hidden;
+}
+
+.design-system-intro .prototype-frame,
+.design-system-intro .prototype-screen {
+  scrollbar-width: none;
+}
+
+.design-system-intro .prototype-frame::-webkit-scrollbar,
+.design-system-intro .prototype-screen::-webkit-scrollbar {
+  display: none;
+}
+
+@media (max-width: 980px) {
+  .bike-ds-page .design-system-intro {
+    grid-template-columns: 1fr;
+    gap: 32px;
+  }
+}
+
+@media (max-width: 720px) {
+  .bike-ds-page .site-shell {
+    width: min(100% - 28px, 520px);
+  }
+
+  .design-system-intro .prototype-frame {
+    width: min(390px, 100%);
+  }
+}
