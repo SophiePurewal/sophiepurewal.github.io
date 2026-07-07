@@ -13,7 +13,9 @@ const screens = [
 
 const screenGrid = `<div class="screen-grid">${screens.map(([file, label]) => `
   <figure class="screen-card">
-    <img src="assets/${file}" alt="${label} screen from the Dude, Where's My Bike? prototype" loading="lazy">
+    <div class="mobile-screen-frame screen-card__frame">
+      <img src="assets/${file}" alt="${label} screen from the Dude, Where's My Bike? prototype" loading="lazy" decoding="async">
+    </div>
     <figcaption>${label}</figcaption>
   </figure>`).join('')}</div>`;
 
