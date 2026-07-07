@@ -688,7 +688,8 @@ body.bike-ds-page {
 /* Content-led documentation sidebar and product-accurate assets */
 @media (min-width: 981px) {
   .docs-layout {
-    grid-template-columns: max-content minmax(0, 1fr);
+    display: grid;
+    grid-template-columns: minmax(0, 230px) minmax(0, 1fr);
     column-gap: clamp(48px, 5vw, 64px);
     row-gap: 0;
     align-items: stretch;
@@ -696,10 +697,28 @@ body.bike-ds-page {
 
   .docs-sidebar {
     align-self: stretch;
-    width: max-content;
+    width: 100%;
+    max-width: 230px;
     min-width: 0;
-    padding: 0 48px 0 0;
+    box-sizing: border-box;
+    padding: 0 32px 0 0;
     border-right: 1px solid #E5E2DE;
+  }
+
+  .docs-nav,
+  .nav-group {
+    width: 100%;
+    max-width: 230px;
+    min-width: 0;
+    box-sizing: border-box;
+  }
+
+  .docs-nav-link {
+    display: block;
+    width: 100%;
+    max-width: 100%;
+    box-sizing: border-box;
+    text-align: left;
   }
 
   .docs-panel {
