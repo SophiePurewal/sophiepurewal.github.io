@@ -1012,6 +1012,12 @@
 
     .hero-actions, .contact-actions { display: flex; flex-wrap: wrap; gap: 14px; align-items: center; }
     .hero-cta--secondary { background: transparent; color: var(--brand-dark); border: 2px solid currentColor; }
+    .hero-actions .hero-cta--secondary::after { display: none; }
+    .hero-actions .hero-cta--secondary:hover, .hero-actions .hero-cta--secondary:focus-visible {
+      text-decoration: underline;
+      text-underline-offset: 4px;
+      text-decoration-thickness: 2px;
+    }
     .hero-secondary { margin-top: 18px !important; }
     .hero-contact { margin-top: 22px !important; font-size: 16px !important; font-weight: 600 !important; }
     .hero-contact a, .text-link { color: var(--brand-dark); font-weight: 700; text-underline-offset: 4px; }
@@ -1488,7 +1494,6 @@
             <a class="hero-cta" href="#projects">View case studies</a>
             <a class="hero-cta hero-cta--secondary" href="Sophie_Purewal_Product_Designer_CV_2026.pdf" download="Sophie_Purewal_Product_Designer_CV_2026.pdf" aria-label="Download Sophie Purewal’s Product Designer CV">Download CV</a>
           </div>
-          <p class="hero-contact"><a href="mailto:sophiepurewaldesign@gmail.com">Email me about Senior UI/Product Design roles</a></p>
         </div>
         <img class="hero-photo" src="sophie-profile.jpeg" alt="Portrait of Sophie Purewal">
       </div>
