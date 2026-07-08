@@ -758,153 +758,6 @@
       box-shadow: 0 4px 14px rgba(0, 0, 0, 0.08);
     }
 
-    .career-section {
-      max-width: 880px;
-      margin: 0 auto 72px;
-    }
-
-    .career-section > h2 {
-      margin: 0 0 18px;
-      font-family: 'Playfair Display', Georgia, 'Times New Roman', serif;
-      font-size: clamp(2.4rem, 6vw, 4.25rem);
-      line-height: 1.02;
-      font-weight: 700;
-      letter-spacing: -0.035em;
-      color: var(--brand-dark);
-    }
-
-    .career-intro h3 {
-      margin: 0 0 12px;
-      font-size: 34px;
-      line-height: 1.2;
-      color: var(--brand-dark);
-    }
-
-    .career-intro {
-      max-width: 720px;
-      margin-bottom: 34px;
-    }
-
-    .career-intro > p:last-child {
-      color: #444444;
-      font-size: 17px;
-      line-height: 1.6;
-    }
-
-    .career-innovation {
-      width: min(720px, 100%);
-      margin: 0 0 38px;
-      padding: 0 0 30px;
-      border-bottom: 1px solid #d9d9d9;
-    }
-
-    .career-timeline {
-      position: relative;
-      margin: 0;
-      padding: 0;
-      list-style: none;
-    }
-
-
-    .career-item {
-      position: relative;
-      display: grid;
-      grid-template-columns: 1fr;
-      gap: 10px;
-      margin-bottom: 34px;
-    }
-
-    .career-item:last-child {
-      margin-bottom: 0;
-    }
-
-    .career-item[data-side="left"] .career-entry,
-    .career-item[data-side="right"] .career-entry {
-      grid-column: 1;
-      justify-self: start;
-      text-align: left;
-    }
-
-    .career-entry {
-      width: min(720px, 100%);
-      padding: 0 0 22px;
-      border-bottom: 1px solid #d9d9d9;
-    }
-
-    .career-item:last-child .career-entry {
-      padding-bottom: 0;
-      border-bottom: none;
-    }
-
-    .career-cta {
-      padding: 56px 0;
-    }
-
-    .career-cta .hero-cta {
-      margin-top: 0;
-      text-align: center;
-      line-height: 1.25;
-      white-space: normal;
-    }
-
-    .career-type {
-      margin: 0 0 10px;
-      font-size: 11px;
-      letter-spacing: 0.14em;
-      text-transform: uppercase;
-      color: #6b7280;
-      font-weight: 700;
-    }
-
-    .career-role {
-      margin: 0;
-      font-family: 'Playfair Display', Georgia, 'Times New Roman', serif;
-      font-size: clamp(2.05rem, 3vw, 3rem);
-      line-height: 1.05;
-      color: #A93442;
-      letter-spacing: -0.025em;
-      font-weight: 700;
-    }
-
-    .career-company {
-      margin: 12px 0 0;
-      font-size: 20px;
-      line-height: 1.25;
-      font-weight: 600;
-      color: #303030;
-    }
-
-    .career-period {
-      margin: 8px 0 0;
-      font-size: 13px;
-      line-height: 1.35;
-      color: #6b7280;
-      font-weight: 600;
-      letter-spacing: 0.08em;
-      text-transform: uppercase;
-    }
-
-    .career-responsibilities {
-      margin-top: 18px;
-      border-left: 3px solid #d9d9d9;
-      padding-left: 16px;
-    }
-
-    .career-responsibilities[hidden] {
-      display: none;
-    }
-
-    .career-responsibilities ul {
-      margin: 0;
-      padding-left: 18px;
-      display: grid;
-      gap: 8px;
-      color: #444444;
-      font-size: 15px;
-      line-height: 1.6;
-      font-weight: 400;
-    }
-
     .endorsement-section {
       max-width: 880px;
       margin: 0 auto;
@@ -1010,7 +863,7 @@
       color: inherit;
     }
 
-    .hero-actions, .contact-actions { display: flex; flex-wrap: wrap; gap: 14px; align-items: center; }
+    .hero-actions { display: flex; flex-wrap: wrap; gap: 14px; align-items: center; }
     .hero-cta--secondary { background: transparent; color: var(--brand-dark); border: 2px solid currentColor; }
     .hero-actions .hero-cta--secondary::after { display: none; }
     .hero-actions .hero-cta--secondary:hover, .hero-actions .hero-cta--secondary:focus-visible {
@@ -1021,13 +874,15 @@
     .hero-secondary { margin-top: 18px !important; }
     .hero-contact { margin-top: 22px !important; font-size: 16px !important; font-weight: 600 !important; }
     .hero-contact a, .text-link { color: var(--brand-dark); font-weight: 700; text-underline-offset: 4px; }
-    .impact-section, .final-contact { max-width: 880px; margin: 0 auto 72px; padding: 34px 0; border-top: 1px solid #d0d0d0; border-bottom: 1px solid #d0d0d0; }
-    .impact-section h2, .final-contact h2 { margin: 0 0 18px; font-size: clamp(2.1rem, 5vw, 3.4rem); line-height: 1.05; color: var(--brand-dark); }
-    .impact-section > p, .final-contact > p, .career-summary { color: #333; font-size: 17px; line-height: 1.65; }
-    .impact-metrics { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 12px; padding: 0; margin: 26px 0; list-style: none; }
-    .impact-metrics li { padding: 16px; border-left: 4px solid var(--brand-dark); background: rgba(255,255,255,.55); font-weight: 700; color: #202020; }
-    .achievement-toggle { margin-top: 16px; appearance: none; border: 2px solid var(--brand-dark); border-radius: 999px; background: transparent; color: var(--brand-dark); padding: 10px 16px; font: inherit; font-weight: 700; cursor: pointer; }
-    .achievement-toggle:hover { background: var(--brand-dark); color: #fff; }
+    .impact-section { max-width: 980px; margin: 0 auto 72px; padding: 28px 0; border-top: 1px solid #d0d0d0; border-bottom: 1px solid #d0d0d0; }
+    .impact-strip { display: grid; grid-template-columns: minmax(240px, .85fr) minmax(0, 1.15fr); gap: 28px; align-items: start; }
+    .section-eyebrow { margin: 0 0 10px; font-size: 11px; letter-spacing: 0.14em; text-transform: uppercase; color: #6b7280; font-weight: 700; }
+    .impact-section h2 { margin: 0 0 12px; font-size: clamp(1.8rem, 4vw, 2.6rem); line-height: 1.05; color: var(--brand-dark); }
+    .impact-section p { color: #333; font-size: 16px; line-height: 1.6; }
+    .impact-metrics { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 12px; padding: 0; margin: 0; list-style: none; }
+    .impact-metrics li { padding: 16px; border-left: 4px solid var(--brand-dark); background: rgba(255,255,255,.55); color: #202020; }
+    .impact-metrics strong { display: block; margin-bottom: 6px; font-size: clamp(1.8rem, 4vw, 2.45rem); line-height: 1; color: var(--brand-dark); }
+    .impact-metrics span { display: block; font-size: 14px; line-height: 1.4; font-weight: 700; }
     .recommendations-link { margin-top: 24px !important; }
 
     footer {
@@ -1103,7 +958,6 @@
     body.dark-mode .hero p,
     body.dark-mode .content,
     body.dark-mode .content p,
-    body.dark-mode .career-company,
     body.dark-mode .pull-quote p,
     body.dark-mode .pull-quote figcaption,
     body.dark-mode .theme-toggle,
@@ -1138,26 +992,19 @@
       border-color: #334155;
     }
 
-    body.dark-mode .career-type,
-    body.dark-mode .career-period,
+    body.dark-mode .section-eyebrow,
     body.dark-mode footer {
       color: #94a3b8;
     }
 
-    body.dark-mode .career-intro > p:last-child {
-      color: #e5e7eb;
-    }
-
-    body.dark-mode .career-entry,
-    body.dark-mode .pull-quote + .pull-quote,
-    body.dark-mode .career-responsibilities {
+    body.dark-mode .pull-quote + .pull-quote {
       border-color: #334155;
     }
 
     body.dark-mode .endorsement-intro,
     body.dark-mode .endorsement-category h3,
     body.dark-mode .endorsement-section > h2,
-    body.dark-mode .career-section > h2 {
+    body.dark-mode .impact-section h2 {
       color: #F8FAFC;
     }
 
@@ -1169,9 +1016,10 @@
       background: #111827;
       color: #F8FAFC;
     }
-    body.dark-mode .impact-section, body.dark-mode .final-contact { border-color: #334155; }
-    body.dark-mode .impact-section > p, body.dark-mode .final-contact > p, body.dark-mode .career-summary { color: #e5e7eb; }
+    body.dark-mode .impact-section { border-color: #334155; }
+    body.dark-mode .impact-section p { color: #e5e7eb; }
     body.dark-mode .impact-metrics li { background: #111827; color: #f8fafc; }
+    body.dark-mode .impact-metrics strong { color: #f8fafc; }
     body.dark-mode .hero-cta--secondary { color: #f8fafc; }
 
     @media (max-width: 900px) {
@@ -1231,8 +1079,9 @@
       .projects-grid {
         grid-template-columns: 1fr;
       }
+      .impact-strip { grid-template-columns: 1fr; }
       .impact-metrics { grid-template-columns: 1fr; }
-      .hero-actions, .contact-actions { justify-content: center; }
+      .hero-actions { justify-content: center; }
 
       .content {
         padding: 56px 20px;
@@ -1240,57 +1089,6 @@
 
       .content h2 {
         font-size: 30px;
-      }
-
-      .career-section {
-        margin-bottom: 64px;
-      }
-
-      .career-intro h3 {
-        font-size: 30px;
-      }
-
-      .career-intro {
-        margin-bottom: 30px;
-      }
-
-      .career-innovation {
-        width: auto;
-        margin: 0 0 34px;
-        padding-bottom: 28px;
-      }
-
-      .career-item {
-        gap: 8px;
-        margin-bottom: 30px;
-      }
-
-      .career-cta {
-        padding: 56px 0;
-      }
-
-      .career-entry,
-      .career-item[data-side="left"] .career-entry,
-      .career-item[data-side="right"] .career-entry {
-        width: 100%;
-        justify-self: stretch;
-      }
-
-      .career-role {
-        font-size: clamp(1.9rem, 7vw, 2.5rem);
-      }
-
-      .career-company {
-        font-size: 18px;
-      }
-
-      .career-period {
-        font-size: 12px;
-      }
-
-      .career-responsibilities {
-        margin-top: 14px;
-        padding-left: 14px;
       }
 
       .pull-quote {
@@ -1357,57 +1155,6 @@
         font-size: 24px;
       }
 
-      .career-section {
-        margin-bottom: 56px;
-      }
-
-      .career-intro h3 {
-        font-size: 28px;
-      }
-
-      .career-intro {
-        margin-bottom: 28px;
-      }
-
-      .career-innovation {
-        width: auto;
-        margin: 0 0 32px;
-        padding-bottom: 26px;
-      }
-
-      .career-item {
-        margin-bottom: 28px;
-      }
-
-      .career-cta {
-        padding: 56px 0;
-      }
-
-      .career-cta .hero-cta {
-        max-width: min(260px, 100%);
-        min-height: 52px;
-        padding: 12px 18px;
-        line-height: 1.25;
-        text-align: center;
-      }
-
-      .career-role {
-        font-size: clamp(1.85rem, 8vw, 2.4rem);
-      }
-
-      .career-company {
-        font-size: 18px;
-      }
-
-      .career-period {
-        font-size: 12px;
-      }
-
-      .career-responsibilities {
-        margin-top: 14px;
-        padding-left: 14px;
-      }
-
       .menu-toggle::after,
       .theme-toggle::after,
       .social-list a.icon-email::after {
@@ -1433,7 +1180,6 @@
         <a href="#intro" aria-label="Go to intro section"> Sophie Purewal</a>
       </p>
 
-
       <div class="header-actions">
         <button class="theme-toggle" type="button" aria-label="Activate dark mode" aria-pressed="false" title="Activate dark mode">
           <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" aria-hidden="true" focusable="false">
@@ -1443,17 +1189,17 @@
       </div>
 
       <div id="dropdown-menu" class="dropdown-menu" aria-label="Navigation links">
-        <a href="#projects" class="dropdown-link">
+        <a href="#projects" class="dropdown-link" aria-label="View selected case studies">
           <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" aria-hidden="true" focusable="false">
             <path d="M480-400 40-640l440-240 440 240-440 240Zm0 160L63-467l84-46 333 182 333-182 84 46-417 227Zm0 160L63-307l84-46 333 182 333-182 84 46L480-80Zm0-411 273-149-273-149-273 149 273 149Zm0-149Z"/>
           </svg>
-          Projects
+          Case studies
         </a>
-        <a href="#career" class="dropdown-link">
+        <a href="Sophie_Purewal_Product_Designer_CV_2026.pdf" class="dropdown-link" download="Sophie_Purewal_Product_Designer_CV_2026.pdf" aria-label="Download Sophie Purewal’s Product Designer CV">
           <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" aria-hidden="true" focusable="false">
-            <path d="M160-200v-440 440-15 15Zm0 80q-33 0-56.5-23.5T80-200v-440q0-33 23.5-56.5T160-720h160v-80q0-33 23.5-56.5T400-880h160q33 0 56.5 23.5T640-800v80h160q33 0 56.5 23.5T880-640v171q-18-13-38-22.5T800-508v-132H160v440h283q3 21 9 41t15 39H160Zm240-600h160v-80H400v80ZM578.5-98.5Q520-157 520-240t58.5-141.5Q637-440 720-440t141.5 58.5Q920-323 920-240T861.5-98.5Q803-40 720-40T578.5-98.5ZM740-248v-112h-40v128l86 86 28-28-74-74Z"/>
+            <path d="M480-320 280-520l56-58 104 104v-326h80v326l104-104 56 58-200 200ZM240-160q-33 0-56.5-23.5T160-240v-120h80v120h480v-120h80v120q0 33-23.5 56.5T720-160H240Z"/>
           </svg>
-          Career
+          Download CV
         </a>
         <a href="#endorsements" class="dropdown-link">
           <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" aria-hidden="true" focusable="false">
@@ -1534,117 +1280,17 @@
     </section>
 
     <div class="content">
-      <section class="impact-section" aria-labelledby="impact-title">
-        <p class="career-type">Design-system evidence</p>
-        <h2 id="impact-title">Professional design-system impact</h2>
-        <p>Alongside the selected case studies above, my recent professional work has focused on scaling and governing reusable UI patterns within a regulated financial-services design system.</p>
-        <ul class="impact-metrics">
-          <li>12,300+ tracked insertions across leading shared components</li>
-          <li>6,300+ tracked insertions across modernised form components</li>
-          <li>2,510 tracked insertions from the reusable Header Framework</li>
-          <li>15 redesigned Core Components progressed through review and release</li>
+      <section class="impact-section impact-strip" aria-labelledby="impact-title">
+        <div class="impact-copy">
+          <p class="section-eyebrow">Professional impact</p>
+          <h2 id="impact-title">Design-system impact at scale</h2>
+          <p>Recent financial-services design-system work includes measurable adoption across reusable components and governed releases.</p>
+        </div>
+        <ul class="impact-metrics" aria-label="Professional design-system impact metrics">
+          <li><strong>12,300+</strong><span>tracked insertions across leading shared components</span></li>
+          <li><strong>6,300+</strong><span>tracked insertions across modernised form components</span></li>
+          <li><strong>15</strong><span>redesigned Core Components progressed through review and release</span></li>
         </ul>
-        <a class="text-link" href="#career">View career experience</a>
-      </section>
-
-      <section id="career" class="career-section" aria-label="Career experience section">
-        <h2>Career experience</h2>
-        <div class="career-intro">
-          <p class="career-type">Career / Experience</p>
-          <h3>Senior UI and Product Design Experience</h3>
-          <p>Focused experience across design systems, financial services, accessibility, AI-assisted prototyping and end-to-end product delivery.</p>
-        </div>
-
-        <div class="career-innovation" aria-labelledby="product-innovation-title">
-          <p class="career-type">Selected Product Innovation</p>
-          <h3 id="product-innovation-title" class="career-role">ChartStudio — AI-Assisted Figma Plugin</h3>
-          <p class="career-company">Active development</p>
-          <p class="career-period">May 2026 — Present</p>
-          <p class="career-summary">Product-led innovation exploring accessible chart creation and production-minded plugin workflows in Figma.</p>
-          <button class="achievement-toggle" type="button" aria-expanded="false" aria-controls="achievements-chartstudio">View achievements</button>
-          <div class="career-responsibilities" id="achievements-chartstudio" hidden>
-            <ul>
-              <li>Identified a recurring workflow gap for designers creating consistent data visualisations in Figma, then defined and prototyped an AI-assisted plugin supporting responsive bar, line and doughnut charts.</li>
-              <li>Defined the product concept, UX, feature requirements, configuration model and visual design system independently.</li>
-              <li>Used OpenAI Codex and AI-assisted development workflows to prototype functioning plugin capability, demonstrating practical experience bridging product design and software development.</li>
-            </ul>
-          </div>
-        </div>
-
-        <ol class="career-timeline">
-          <li class="career-item" data-side="right">
-            <article class="career-entry">
-              <p class="career-type">UI Design · Design Systems · Financial Services · Accessibility · Product Delivery</p>
-              <h3 class="career-role">Senior UI Designer</h3>
-              <p class="career-company">Aegon UK</p>
-              <p class="career-period">Aug 2022 — Present · London, UK</p>
-              <p class="career-summary">Leading senior UI design work across regulated financial products, reusable Figma components and accessible design-system delivery.</p>
-              <button class="achievement-toggle" type="button" aria-expanded="false" aria-controls="achievements-aegon">View achievements</button>
-              <div class="career-responsibilities" id="achievements-aegon" hidden>
-                <ul>
-                  <li>Reduced duplicate UI effort and improved cross-team consistency by building, redesigning and modernising reusable Core Components within the Figma design system across header, status, feedback, layout and form patterns.</li>
-                  <li>Improved the usability and clarity of a public-facing salary sacrifice calculator by redesigning a complex financial tool for the Aegon website, helping customers better understand pension contribution options within a regulated environment.</li>
-                  <li>Improved design-system quality and governance by progressing redesigned primary components through peer design review, engineering review and release into the shared Figma library.</li>
-                  <li>Strengthened design capability across the wider team by mentoring five designers through an internal design fundamentals course and supporting a graduate designer over seven months through Figma practice, creative brainstorming and UAT processes.</li>
-                </ul>
-              </div>
-            </article>
-          </li>
-          <li class="career-item" data-side="right">
-            <article class="career-entry">
-              <p class="career-type">Product Design · UI Design · UX Consulting · Design Operations</p>
-              <h3 class="career-role">Founder &amp; Director</h3>
-              <p class="career-company">Sophie Purewal Design</p>
-              <p class="career-period">Jul 2017 — Aug 2022 · London, UK</p>
-              <p class="career-summary">Ran an independent studio delivering UI, UX, brand and responsive digital product work from discovery to handoff.</p>
-              <button class="achievement-toggle" type="button" aria-expanded="false" aria-controls="achievements-studio">View achievements</button>
-              <div class="career-responsibilities" id="achievements-studio" hidden>
-                <ul>
-                  <li>Founded and operated an independent design studio delivering UI, UX consulting, brand, responsive web, app and digital design work.</li>
-                  <li>Delivered end-to-end product design from discovery and research through to wireframes, high-fidelity mockups, prototypes, style guides and developer handoff.</li>
-                  <li>Strengthened client design maturity by introducing clearer design processes, collaboration tools, documented design decisions and handoff practices.</li>
-                </ul>
-              </div>
-            </article>
-          </li>
-          <li class="career-item" data-side="right">
-            <article class="career-entry">
-              <p class="career-type">UI Design · Product Design · Mentoring · Accessibility</p>
-              <h3 class="career-role">UI Design Mentor</h3>
-              <p class="career-company">Contract client: CareerFoundry</p>
-              <p class="career-period">Aug 2017 — Aug 2022 · London, UK</p>
-              <p class="career-summary">Mentored emerging UI designers and UX professionals through portfolio, craft, accessibility and prototype feedback.</p>
-              <button class="achievement-toggle" type="button" aria-expanded="false" aria-controls="achievements-mentor">View achievements</button>
-              <div class="career-responsibilities" id="achievements-mentor" hidden>
-                <ul>
-                  <li>Mentored students and UX professionals transitioning into UI and Product Design careers through portfolio reviews, structured feedback and design coaching.</li>
-                  <li>Improved student outcomes through guidance on visual hierarchy, layout, typography, colour, usability, accessibility and prototype quality.</li>
-                  <li>Edited and rewrote UI for UX course materials, increasing clarity and alignment with current design practice.</li>
-                </ul>
-              </div>
-            </article>
-          </li>
-          <li class="career-item" data-side="right">
-            <article class="career-entry">
-              <p class="career-type">UX Design · UI Design · Responsive Web App · Product Discovery</p>
-              <h3 class="career-role">UX &amp; UI Designer</h3>
-              <p class="career-company">Contract client: VLE Support</p>
-              <p class="career-period">Jun 2018 — Oct 2018 · London, UK</p>
-              <p class="career-summary">Led UX and UI for a responsive placement-management web app, translating research into product flows and handoff-ready screens.</p>
-              <button class="achievement-toggle" type="button" aria-expanded="false" aria-controls="achievements-vle">View achievements</button>
-              <div class="career-responsibilities" id="achievements-vle" hidden>
-                <ul>
-                  <li>Led UX consultation and UI design for phase one of the VLE ePlacements web app, a work placement platform helping learning providers, students and employers support T-Level placement matching and management.</li>
-                  <li>Defined core product flows and MVP functionality through collaborative UX research, personas, user flows, low-to-high fidelity wireframes, prototype testing and preference/A/B testing.</li>
-                  <li>Delivered responsive UI design assets across mobile, tablet and desktop breakpoints, including visual concepts, style guide, grids, typography, iconography, InVision prototype and final screen assets for handoff.</li>
-                </ul>
-              </div>
-            </article>
-          </li>
-        </ol>
-        <div class="career-cta">
-          <a class="hero-cta" href="https://www.linkedin.com/in/sophiepurewal" aria-label="View Sophie Purewal’s full career on LinkedIn" target="_blank" rel="noopener noreferrer">Full Career on LinkedIn</a>
-        </div>
       </section>
 
       <section id="endorsements" class="endorsement-section" aria-label="Endorsements section">
@@ -1666,17 +1312,6 @@
           </figure>
         </div>
         <p class="recommendations-link"><a class="text-link" href="https://www.linkedin.com/in/sophiepurewal/" target="_blank" rel="noopener noreferrer">View more recommendations on LinkedIn</a></p>
-      </section>
-
-      <section id="contact" class="final-contact" aria-labelledby="final-contact-title">
-        <h2 id="final-contact-title">Let’s create thoughtful, scalable products</h2>
-        <p>I’m currently exploring Senior UI and Product Design opportunities where I can contribute visual design craft, design-system expertise and accessible product thinking.</p>
-        <div class="contact-actions">
-          <a class="hero-cta" href="mailto:sophiepurewaldesign@gmail.com">Email me</a>
-          <a class="hero-cta hero-cta--secondary" href="https://www.linkedin.com/in/sophiepurewal/" target="_blank" rel="noopener noreferrer">LinkedIn</a>
-          <!-- Replace href with the final downloadable CV URL when Sophie provides the CV asset. -->
-          <a class="hero-cta hero-cta--secondary" href="#">Download CV</a>
-        </div>
       </section>
 
     </div>
@@ -1800,19 +1435,6 @@
         }
       }, { passive: true });
     }
-
-
-
-    document.querySelectorAll('.achievement-toggle').forEach((button) => {
-      const panel = document.getElementById(button.getAttribute('aria-controls'));
-      if (!panel) return;
-      button.addEventListener('click', () => {
-        const isExpanded = button.getAttribute('aria-expanded') === 'true';
-        button.setAttribute('aria-expanded', String(!isExpanded));
-        button.textContent = isExpanded ? 'View achievements' : 'Hide achievements';
-        panel.hidden = isExpanded;
-      });
-    });
 
     window.addEventListener('scroll', toggleHeaderState, { passive: true });
     toggleHeaderState();
