@@ -794,11 +794,17 @@
 
     .endorsement-intro {
       max-width: 640px;
-      margin: 0 0 44px;
+      margin: 0;
       font-size: 18px;
       line-height: 1.7;
       font-weight: 300;
       color: #3f3f3f;
+    }
+
+    .endorsement-divider {
+      border: 0;
+      border-top: 1px solid rgba(12, 13, 15, 0.14);
+      margin: 32px 0;
     }
 
     .endorsement-category {
@@ -1029,6 +1035,7 @@
       color: #F8FAFC;
     }
 
+    body.dark-mode .endorsement-divider,
     body.dark-mode .endorsement-category {
       border-top-color: #334155;
     }
@@ -1332,6 +1339,7 @@
       <section id="endorsements" class="endorsement-section" aria-label="Endorsements section">
         <h2>Endorsements</h2>
         <p class="endorsement-intro">A selection of recommendations spanning product design, project leadership, collaboration and delivery.</p>
+        <hr class="endorsement-divider">
 
         <div class="pull-quote-list endorsement-panel">
           <figure class="pull-quote">
