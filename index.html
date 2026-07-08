@@ -54,7 +54,7 @@
     }
 
     .site-header.scrolled {
-      background: #A93442;
+      background: #C0414E;
       border-bottom: 1px solid rgba(255, 255, 255, 0.25);
       box-shadow: 0 2px 10px rgba(192, 65, 78, 0.24);
       --focus-outline-color: #ffffff;
@@ -85,7 +85,7 @@
 
     .top-nav {
       display: grid;
-      grid-template-columns: auto 1fr auto;
+      grid-template-columns: 1fr auto 1fr;
       align-items: center;
       min-height: 86px;
       padding: 0 40px;
@@ -212,11 +212,11 @@
         transform 0.42s cubic-bezier(0.22, 1, 0.36, 1),
         visibility 0s linear 0.42s;
       will-change: max-height, opacity, transform;
-      --focus-outline-color: #A93442;
+      --focus-outline-color: #C0414E;
     }
 
     .site-header.scrolled .dropdown-menu {
-      background: #A93442;
+      background: #C0414E;
       border-color: rgba(255, 255, 255, 0.25);
       color: #FFFFFF;
       --focus-outline-color: #FFFFFF;
@@ -275,7 +275,7 @@
     .dropdown-menu a:focus-visible svg,
     .dropdown-social-links a:hover,
     .dropdown-social-links a:hover svg {
-      color: #A93442;
+      color: #C0414E;
       fill: currentColor;
       opacity: 0.82;
       text-decoration: underline;
@@ -347,7 +347,7 @@
     }
 
     :where(a, button):focus-visible {
-      outline: 3px solid var(--focus-outline-color, #A93442);
+      outline: 3px solid var(--focus-outline-color, #C0414E);
       outline-offset: 3px;
       border-radius: 6px;
       opacity: 1;
@@ -381,7 +381,7 @@
     }
 
     .site-title {
-      color: #A93442;
+      color: #C0414E;
       text-decoration: none;
     }
 
@@ -446,7 +446,7 @@
     .menu-toggle:focus-visible,
     .theme-toggle:hover,
     .theme-toggle:focus-visible {
-      color: #A93442;
+      color: #C0414E;
       opacity: 0.82;
       text-decoration: underline;
       text-underline-offset: 4px;
@@ -476,7 +476,7 @@
 
     .site-title a:hover,
     .site-title a:focus-visible {
-      color: #A93442;
+      color: #C0414E;
       text-decoration: none;
       opacity: 0.82;
     }
@@ -508,7 +508,7 @@
 
     .site-title {
       margin: 0;
-      justify-self: start;
+      justify-self: center;
       font-size: 28px;
       font-weight: 700;
       letter-spacing: -0.02em;
@@ -1010,9 +1010,6 @@
       color: inherit;
     }
 
-
-    .desktop-nav { justify-self: center; gap: 22px; }
-    .menu-toggle { display: none; }
     .hero-actions, .contact-actions { display: flex; flex-wrap: wrap; gap: 14px; align-items: center; }
     .hero-cta--secondary { background: transparent; color: var(--brand-dark); border: 2px solid currentColor; }
     .hero-secondary { margin-top: 18px !important; }
@@ -1054,7 +1051,7 @@
 
     body.dark-mode .site-header .site-title,
     body.dark-mode .site-header.scrolled .site-title {
-      color: #A93442;
+      color: #C0414E;
     }
 
     body.dark-mode .site-header .menu-toggle,
@@ -1090,7 +1087,7 @@
     body.dark-mode .dropdown-menu a:hover svg,
     body.dark-mode .dropdown-social-links a:hover,
     body.dark-mode .dropdown-social-links a:hover svg {
-      color: #A93442;
+      color: #C0414E;
       fill: currentColor;
     }
 
@@ -1110,7 +1107,7 @@
 
     body.dark-mode .site-title a,
     body.dark-mode .site-title {
-      color: #A93442;
+      color: #C0414E;
     }
 
     body.dark-mode .hero {
@@ -1172,8 +1169,6 @@
     body.dark-mode .hero-cta--secondary { color: #f8fafc; }
 
     @media (max-width: 900px) {
-      .menu-toggle { display: inline-flex; }
-      .desktop-nav { display: none; }
       .dropdown-menu {
         padding: 24px;
       }
@@ -1432,12 +1427,6 @@
         <a href="#intro" aria-label="Go to intro section"> Sophie Purewal</a>
       </p>
 
-      <ul class="nav-list desktop-nav" aria-label="Primary links">
-        <li><a href="#projects">Work</a></li>
-        <li><a href="#career">Experience</a></li>
-        <li><a href="#endorsements">Endorsements</a></li>
-        <li><a href="#contact">Contact</a></li>
-      </ul>
 
       <div class="header-actions">
         <button class="theme-toggle" type="button" aria-label="Activate dark mode" aria-pressed="false" title="Activate dark mode">
