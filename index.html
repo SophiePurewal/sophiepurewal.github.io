@@ -117,7 +117,7 @@
 
     .menu-toggle::after,
     .theme-toggle::after,
-    .hero-cta::after {
+    .hero-link::after {
       content: "";
       position: absolute;
       left: 0;
@@ -131,7 +131,8 @@
 
     .menu-toggle:hover::after,
     .theme-toggle:hover::after,
-    .hero-cta:hover::after,
+    .hero-link:hover::after,
+    .hero-link:focus-visible::after,
     .dropdown-social-links a:hover::after,
     .social-list a:hover::after {
       opacity: 1;
@@ -632,27 +633,35 @@
       color: #0C0D0F;
     }
 
-    .hero-cta {
+    .hero-link {
       display: inline-flex;
       align-items: center;
       justify-content: center;
-      margin-top: 58px;
-      padding: 12px 24px;
-      border-radius: 999px;
-      background: #A93442;
-      color: #F2F2F2;
+      gap: 10px;
+      min-height: 44px;
+      padding: 8px 0;
+      border-radius: 6px;
+      color: var(--brand-dark);
       text-decoration: none;
       font-family: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
-      font-size: 20px;
-      line-height: 1;
-      font-weight: 500;
+      font-size: 18px;
+      line-height: 1.2;
+      font-weight: 700;
       position: relative;
     }
 
-    .hero-cta:hover {
-      opacity: 0.92;
+    .hero-link svg {
+      width: 24px;
+      height: 24px;
+      flex-shrink: 0;
+      fill: currentColor;
+    }
+
+    .hero-link:hover,
+    .hero-link:focus-visible {
+      color: #8F2C37;
       text-decoration: underline;
-      text-underline-offset: 4px;
+      text-underline-offset: 6px;
       text-decoration-thickness: 2px;
     }
 
@@ -863,13 +872,12 @@
       color: inherit;
     }
 
-    .hero-actions { display: flex; flex-wrap: wrap; gap: 14px; align-items: center; }
-    .hero-cta--secondary { background: transparent; color: var(--brand-dark); border: 2px solid currentColor; }
-    .hero-actions .hero-cta--secondary::after { display: none; }
-    .hero-actions .hero-cta--secondary:hover, .hero-actions .hero-cta--secondary:focus-visible {
-      text-decoration: underline;
-      text-underline-offset: 4px;
-      text-decoration-thickness: 2px;
+    .hero-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px 32px;
+      align-items: center;
+      margin-top: 42px;
     }
     .hero-secondary { margin-top: 18px !important; }
     .hero-contact { margin-top: 22px !important; font-size: 16px !important; font-weight: 600 !important; }
@@ -978,9 +986,13 @@
       color: #e5e7eb;
     }
 
-    body.dark-mode .hero-cta {
-      background: #A93442;
-      color: #F2F2F2;
+    body.dark-mode .hero-link {
+      color: #F8FAFC;
+    }
+
+    body.dark-mode .hero-link:hover,
+    body.dark-mode .hero-link:focus-visible {
+      color: #FFFFFF;
     }
 
     body.dark-mode .content,
@@ -1020,7 +1032,7 @@
     body.dark-mode .impact-section p { color: #e5e7eb; }
     body.dark-mode .impact-metrics li { background: #111827; color: #f8fafc; }
     body.dark-mode .impact-metrics strong { color: #f8fafc; }
-    body.dark-mode .hero-cta--secondary { color: #f8fafc; }
+    body.dark-mode .hero-link::after { background: currentColor; }
 
     @media (max-width: 900px) {
       .dropdown-menu {
@@ -1072,8 +1084,8 @@
         line-height: 1.6;
       }
 
-      .hero-cta {
-        margin-top: 40px;
+      .hero-actions {
+        margin-top: 36px;
       }
 
       .projects-grid {
@@ -1134,9 +1146,12 @@
         font-size: 17px;
       }
 
-      .hero-cta {
-        width: 100%;
-        max-width: 260px;
+      .hero-actions {
+        gap: 8px 24px;
+      }
+
+      .hero-link {
+        font-size: 17px;
       }
 
       .hero-photo {
@@ -1236,9 +1251,25 @@
             I design accessible, scalable digital products and design systems, specialising in financial services, complex user journeys and production-ready interface design.
           </p>
           <p class="hero-secondary">I combine strong visual design craft with Figma, accessibility, data visualisation and close collaboration with product and engineering teams.</p>
-          <div class="hero-actions">
-            <a class="hero-cta" href="#projects">View case studies</a>
-            <a class="hero-cta hero-cta--secondary" href="Sophie_Purewal_Product_Designer_CV_2026.pdf" download="Sophie_Purewal_Product_Designer_CV_2026.pdf" aria-label="Download Sophie Purewal’s Product Designer CV">Download CV</a>
+          <div class="hero-actions" aria-label="Intro links">
+            <a class="hero-link" href="#projects">
+              <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" aria-hidden="true" focusable="false">
+                <path d="M480-400 40-640l440-240 440 240-440 240Zm0 160L63-467l84-46 333 182 333-182 84 46-417 227Zm0 160L63-307l84-46 333 182 333-182 84 46L480-80Zm0-411 273-149-273-149-273 149 273 149Zm0-149Z"/>
+              </svg>
+              Case studies
+            </a>
+            <a class="hero-link" href="Sophie_Purewal_Product_Designer_CV_2026.pdf" download="Sophie_Purewal_Product_Designer_CV_2026.pdf" aria-label="Download Sophie Purewal’s Product Designer CV">
+              <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" aria-hidden="true" focusable="false">
+                <path d="M480-320 280-520l56-58 104 104v-326h80v326l104-104 56 58-200 200ZM240-160q-33 0-56.5-23.5T160-240v-120h80v120h480v-120h80v120q0 33-23.5 56.5T720-160H240Z"/>
+              </svg>
+              Download CV
+            </a>
+            <a class="hero-link" href="mailto:sophiepurewaldesign@gmail.com">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960" aria-hidden="true" focusable="false">
+                <path d="M160-160q-33 0-56.5-23.5T80-240v-480q0-33 23.5-56.5T160-800h640q33 0 56.5 23.5T880-720v480q0 33-23.5 56.5T800-160H160Zm320-280L160-640v400h640v-400L480-440Zm0-80 320-200H160l320 200ZM160-640v-80 480-400Z"/>
+              </svg>
+              Contact
+            </a>
           </div>
         </div>
         <img class="hero-photo" src="sophie-profile.jpeg" alt="Portrait of Sophie Purewal">
