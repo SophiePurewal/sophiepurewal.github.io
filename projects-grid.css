@@ -256,3 +256,36 @@ body.dark-mode .project-card--featured {
     aspect-ratio: 1 / 1;
   }
 }
+
+
+.project-card--text {
+  display: flex;
+  min-height: 320px;
+  background:
+    radial-gradient(circle at 82% 16%, rgba(255, 255, 255, 0.18) 0 12%, transparent 13%),
+    linear-gradient(135deg, #A93442 0%, #6F2430 48%, #161616 100%);
+}
+
+.project-card--text::before {
+  content: "";
+  position: absolute;
+  inset: 24px;
+  border: 1px solid rgba(255, 255, 255, 0.28);
+  pointer-events: none;
+}
+
+.project-card--text .project-card__content {
+  position: relative;
+  min-height: 100%;
+  width: 100%;
+  background: linear-gradient(180deg, rgba(12, 13, 15, 0.04) 0%, rgba(12, 13, 15, 0.42) 100%);
+}
+
+.project-card--text:is(:hover, :focus-visible) .project-card__content,
+.project-card--text:focus-within .project-card__content {
+  background: linear-gradient(180deg, rgba(12, 13, 15, 0) 0%, rgba(12, 13, 15, 0.5) 100%);
+}
+
+.project-card--text .project-card__hint {
+  max-width: 42ch;
+}
