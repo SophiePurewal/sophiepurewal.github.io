@@ -690,6 +690,27 @@
       background: var(--brand-soft);
     }
 
+    .projects-intro {
+      max-width: 980px;
+      margin: 0 auto;
+      padding: 64px 24px 40px;
+    }
+
+    .projects-intro h2 {
+      margin: 0 0 16px;
+      font-size: clamp(1.9rem, 4vw, 2.6rem);
+      line-height: 1.1;
+      color: var(--brand-dark);
+    }
+
+    .projects-intro p:last-child {
+      max-width: 760px;
+      margin: 0;
+      color: #333;
+      font-size: 17px;
+      line-height: 1.6;
+    }
+
     .projects-grid {
       width: 100%;
       margin: 0;
@@ -895,17 +916,18 @@
       margin-top: 42px;
     }
     .hero-secondary { margin-top: 18px !important; }
+    .hero-availability { max-width: 620px; margin-top: 24px !important; font-size: 16px !important; line-height: 1.55 !important; font-weight: 600 !important; color: #3f3f3f !important; }
     .hero-contact { margin-top: 22px !important; font-size: 16px !important; font-weight: 600 !important; }
     .hero-contact a, .text-link { color: var(--brand-dark); font-weight: 700; text-underline-offset: 4px; }
-    .impact-section { max-width: 980px; margin: 0 auto 72px; padding: 28px 0; border-top: 1px solid #d0d0d0; border-bottom: 1px solid #d0d0d0; }
-    .impact-strip { display: grid; grid-template-columns: minmax(240px, .85fr) minmax(0, 1.15fr); gap: 28px; align-items: start; }
+    .impact-section { width: min(980px, calc(100% - 48px)); margin: 64px auto 0; padding: 32px 0; border-top: 1px solid #d0d0d0; border-bottom: 1px solid #d0d0d0; }
+    .impact-strip { display: grid; grid-template-columns: minmax(240px, .85fr) minmax(0, 1.15fr); gap: 28px; align-items: stretch; }
     .section-eyebrow { margin: 0 0 10px; font-size: 11px; letter-spacing: 0.14em; text-transform: uppercase; color: #6b7280; font-weight: 700; }
     .impact-section h2 { margin: 0 0 12px; font-size: clamp(1.8rem, 4vw, 2.6rem); line-height: 1.05; color: var(--brand-dark); }
     .impact-section p { color: #333; font-size: 16px; line-height: 1.6; }
-    .impact-metrics { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 12px; padding: 0; margin: 0; list-style: none; }
-    .impact-metrics li { padding: 16px; border-left: 4px solid var(--brand-dark); background: rgba(255,255,255,.55); color: #202020; }
-    .impact-metrics strong { display: block; margin-bottom: 6px; font-size: clamp(1.8rem, 4vw, 2.45rem); line-height: 1; color: var(--brand-dark); }
-    .impact-metrics span { display: block; font-size: 14px; line-height: 1.4; font-weight: 700; }
+    .impact-metrics { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 12px; padding: 0; margin: 0; list-style: none; align-items: stretch; }
+    .impact-metrics li { min-width: 0; height: 100%; padding: 18px; border-left: 4px solid var(--brand-dark); border-radius: 6px; background: rgba(255,255,255,.55); color: #202020; overflow-wrap: anywhere; }
+    .impact-metrics strong { display: block; margin-bottom: 8px; font-size: clamp(1.8rem, 3vw, 2.35rem); line-height: 1.05; color: var(--brand-dark); }
+    .impact-metrics span { display: block; font-size: 14px; line-height: 1.45; font-weight: 700; }
     .recommendations-link { margin-top: 24px !important; }
 
     footer {
@@ -979,6 +1001,7 @@
     body.dark-mode .social-list a,
     body.dark-mode .site-title a,
     body.dark-mode .hero p,
+    body.dark-mode .projects-intro p:last-child,
     body.dark-mode .content,
     body.dark-mode .content p,
     body.dark-mode .pull-quote p,
@@ -999,6 +1022,10 @@
 
     body.dark-mode .hero p {
       color: #e5e7eb;
+    }
+
+    body.dark-mode .hero-availability {
+      color: #d1d5db !important;
     }
 
     body.dark-mode .hero-link {
@@ -1031,6 +1058,7 @@
     body.dark-mode .endorsement-intro,
     body.dark-mode .endorsement-category h3,
     body.dark-mode .endorsement-section > h2,
+    body.dark-mode .projects-intro h2,
     body.dark-mode .impact-section h2 {
       color: #F8FAFC;
     }
@@ -1110,8 +1138,12 @@
         grid-template-columns: 1fr;
       }
       .impact-strip { grid-template-columns: 1fr; }
-      .impact-metrics { grid-template-columns: 1fr; }
+      .impact-metrics { grid-template-columns: repeat(3, minmax(0, 1fr)); }
       .hero-actions { justify-content: center; }
+
+      .projects-intro {
+        padding: 56px 20px 36px;
+      }
 
       .content {
         padding: 56px 20px;
@@ -1175,6 +1207,19 @@
 
       .hero-photo {
         width: min(78vw, 320px);
+      }
+
+      .impact-section {
+        width: calc(100% - 32px);
+        margin-top: 48px;
+      }
+
+      .impact-metrics {
+        grid-template-columns: 1fr;
+      }
+
+      .projects-intro {
+        padding: 48px 16px 32px;
       }
 
       .content {
@@ -1267,9 +1312,10 @@
         <div class="hero-copy">
           <h1>Senior UI &amp; Product Designer</h1>
           <p>
-            I design accessible, scalable digital products and design systems, specialising in financial services, complex user journeys and production-ready interface design.
+            I design accessible digital products and scalable design systems for complex, regulated services. My recent financial-services work includes reusable components adopted more than 21,000 times across shared product libraries.
           </p>
-          <p class="hero-secondary">I combine strong visual design craft with Figma, accessibility, data visualisation and close collaboration with product and engineering teams.</p>
+          <p class="hero-secondary">I bring together strong visual design craft, accessibility, product thinking and close collaboration with engineering—from early journeys to production-ready UI.</p>
+          <p class="hero-availability">Available for Senior UI and Product Design opportunities. Based in East Sussex and open to London hybrid and remote roles.</p>
           <div class="hero-actions" aria-label="Intro links">
             <a class="hero-link" href="#projects">
               <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" aria-hidden="true" focusable="false">
@@ -1295,10 +1341,34 @@
       </div>
     </section>
 
+    <section class="impact-section impact-strip" aria-labelledby="impact-title">
+      <div class="impact-copy">
+        <p class="section-eyebrow">Professional impact</p>
+        <h2 id="impact-title">Design-system impact at scale</h2>
+        <p>Recent financial-services design-system work includes measurable adoption across reusable components and governed releases.</p>
+      </div>
+      <ul class="impact-metrics" aria-label="Professional design-system impact metrics">
+        <li><strong>12,300+</strong> <span>tracked insertions across leading shared components</span></li>
+        <li><strong>6,300+</strong> <span>tracked insertions across modernised form components</span></li>
+        <li><strong>15</strong><span>redesigned Core Components progressed through review and release</span></li>
+      </ul>
+    </section>
+
     <section id="projects" class="projects-section" aria-labelledby="projects-title">
-      <h2 id="projects-title" class="visually-hidden">Selected case studies</h2>
+      <div class="projects-intro">
+        <p class="section-eyebrow">Selected work</p>
+        <h2 id="projects-title">Commercial experience and product design projects</h2>
+        <p>My recent commercial work includes regulated financial-services journeys, accessible component design, design-system governance and close collaboration with engineering teams. The selected projects below also demonstrate my product thinking, UI craft and approach to AI-assisted prototyping.</p>
+      </div>
       <div class="projects-grid">
-        <a class="project-card project-card--featured project-card--image project-box project-box--image" href="work/antelope-wealth.html" aria-label="View the Antelope Wealth App case study">
+        <a class="project-card project-card--featured project-card--image project-box project-box--image" href="work/chartstudio.html" aria-label="View the ChartStudio case study">
+          <img src="chartstudio-cover-square.png" alt="ChartStudio data visualisation plugin cover showing chart builder interface and live canvas previews.">
+          <div class="project-card__content">
+            <h3 class="project-card__title">ChartStudio</h3>
+            <p class="project-card__hint">Accessible data visualisation and Figma plugin prototype</p>
+          </div>
+        </a>
+        <a class="project-card project-card--image project-box project-box--image" href="work/antelope-wealth.html" aria-label="View the Antelope Wealth App case study">
           <img src="assets/projects/antelope-wealth/antelope-desktop-onboarding-hero.png" alt="Antelope Wealth fintech onboarding concept cover preview.">
           <div class="project-card__content">
             <h3 class="project-card__title">Antelope Wealth App</h3>
@@ -1312,30 +1382,10 @@
             <p class="project-card__hint">B2C bike-hire product and design system</p>
           </div>
         </a>
-        <a class="project-card project-card--image project-box project-box--image" href="work/chartstudio.html" aria-label="View the ChartStudio case study">
-          <img src="chartstudio-cover-square.png" alt="ChartStudio data visualisation plugin cover showing chart builder interface and live canvas previews.">
-          <div class="project-card__content">
-            <h3 class="project-card__title">ChartStudio</h3>
-            <p class="project-card__hint">Figma plugin for accessible financial data visualisation</p>
-          </div>
-        </a>
       </div>
     </section>
 
     <div class="content">
-      <section class="impact-section impact-strip" aria-labelledby="impact-title">
-        <div class="impact-copy">
-          <p class="section-eyebrow">Professional impact</p>
-          <h2 id="impact-title">Design-system impact at scale</h2>
-          <p>Recent financial-services design-system work includes measurable adoption across reusable components and governed releases.</p>
-        </div>
-        <ul class="impact-metrics" aria-label="Professional design-system impact metrics">
-          <li><strong>12,300+</strong> <span>tracked insertions across leading shared components</span></li>
-          <li><strong>6,300+</strong> <span>tracked insertions across modernised form components</span></li>
-          <li><strong>15</strong><span>redesigned Core Components progressed through review and release</span></li>
-        </ul>
-      </section>
-
       <section id="endorsements" class="endorsement-section" aria-label="Endorsements section">
         <h2>Endorsements</h2>
         <p class="endorsement-intro">A selection of recommendations spanning product design, project leadership, collaboration and delivery.</p>
