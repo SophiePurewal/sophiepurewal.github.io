@@ -4,7 +4,7 @@
 
 :root {
   --brand: #C0414E;
-  --brand-deep: #A63341;
+  --brand-dark: #C0414E;
   --background: #EFEFEF;
   --surface: rgba(255, 255, 255, 0.82);
   --surface-soft: rgba(255, 255, 255, 0.72);
@@ -990,7 +990,7 @@ body.dark-mode .skip-link {
   color: #FFFFFF;
   background:
     radial-gradient(circle at 86% 18%, rgba(255, 255, 255, 0.18) 0 14%, transparent 15%),
-    linear-gradient(135deg, #A93442 0%, #6F2430 52%, #111827 100%);
+    linear-gradient(135deg, #C0414E 0%, #C0414E 52%, #111827 100%);
   border-radius: 0;
   box-shadow: var(--shadow);
 }
