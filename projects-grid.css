@@ -264,7 +264,7 @@ body.dark-mode .project-card--featured {
   min-height: 320px;
   background:
     radial-gradient(circle at 82% 16%, rgba(255, 255, 255, 0.18) 0 12%, transparent 13%),
-    linear-gradient(135deg, #A93442 0%, #6F2430 48%, #161616 100%);
+    linear-gradient(135deg, #C0414E 0%, #C0414E 48%, #161616 100%);
 }
 
 .project-card--text::before {
