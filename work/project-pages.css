@@ -943,3 +943,23 @@ body.dark-mode .skip-link {
     gap: 28px;
   }
 }
+
+.case-study-section h3 {
+  margin: 0 0 12px;
+  font-size: clamp(1.2rem, 2.4vw, 1.5rem);
+  line-height: 1.25;
+  color: var(--text);
+}
+
+.case-study-section .approach-list,
+.case-study-section .feature-list {
+  margin-top: 20px;
+}
+
+.case-study-section .approach-list + p {
+  margin-top: 20px;
+}
+
+.case-study-section__layout + .case-study-section__layout {
+  margin-top: clamp(28px, 5vw, 48px);
+}
