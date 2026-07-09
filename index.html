@@ -929,6 +929,26 @@
     .impact-metrics strong { display: block; margin-bottom: 8px; font-size: clamp(1.8rem, 3vw, 2.35rem); line-height: 1.05; color: var(--brand-dark); }
     .impact-metrics span { display: block; font-size: 14px; line-height: 1.45; font-weight: 700; }
     .recommendations-link { margin-top: 24px !important; }
+    .recommendations-link .text-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      text-decoration: none;
+      text-decoration-thickness: 2px;
+      text-underline-offset: 4px;
+    }
+
+    .recommendations-link .text-link:hover,
+    .recommendations-link .text-link:focus-visible {
+      text-decoration: underline;
+    }
+
+    .recommendations-link .text-link svg {
+      width: 24px;
+      height: 24px;
+      flex-shrink: 0;
+      fill: currentColor;
+    }
 
     footer {
       padding: 24px;
@@ -1076,6 +1096,7 @@
     body.dark-mode .impact-section p { color: #e5e7eb; }
     body.dark-mode .impact-metrics li { background: #111827; color: #f8fafc; }
     body.dark-mode .impact-metrics strong { color: #f8fafc; }
+    body.dark-mode .recommendations-link .text-link { color: #F8FAFC; }
     @media (max-width: 900px) {
       .dropdown-menu {
         padding: 24px;
@@ -1418,7 +1439,14 @@
             <figcaption><cite>Emma McConachie</cite> — Director at Areté Ventures</figcaption>
           </figure>
         </div>
-        <p class="recommendations-link"><a class="text-link" href="https://www.linkedin.com/in/sophiepurewal/" target="_blank" rel="noopener noreferrer">View more recommendations on LinkedIn</a></p>
+        <p class="recommendations-link">
+          <a class="text-link" href="https://www.linkedin.com/in/sophiepurewal/" target="_blank" rel="noopener noreferrer">
+            <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" aria-hidden="true" focusable="false">
+              <path d="M720-120H280v-520l280-280 50 50q7 7 11.5 19t4.5 23v14l-44 174h258q32 0 56 24t24 56v80q0 7-2 15t-4 15L794-168q-9 20-30 34t-44 14Zm-360-80h360l120-280v-80H480l54-220-174 174v406Zm0-406v406-406Zm-80-34v80H160v360h120v80H80v-520h200Z"/>
+            </svg>
+            View more endorsements on LinkedIn
+          </a>
+        </p>
       </section>
 
     </div>
