@@ -242,6 +242,7 @@ body.dark-mode .project-card--featured {
 }
 
 .project-card--featured::before { content: none; }
+.project-card--featured img { object-position: center 48%; }
 .project-card--featured .project-card__title { font-size: clamp(2.25rem, 5vw, 4.4rem); }
 .project-card--featured .project-card__hint { font-size: clamp(1rem, 1.7vw, 1.25rem); }
 
