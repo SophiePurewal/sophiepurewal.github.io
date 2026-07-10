@@ -135,3 +135,24 @@ if (menuToggle && dropdownMenu) {
 window.addEventListener('scroll', toggleHeaderState, { passive: true });
 toggleHeaderState();
 initThemeToggle();
+
+
+document.querySelectorAll('[data-prototype-frame]').forEach((frame) => {
+  const iframe = frame.querySelector('iframe');
+  if (!iframe) return;
+
+  const fallbackDelayMs = Number(frame.dataset.fallbackDelayMs || 4500);
+  let loaded = false;
+
+  const fallbackTimer = window.setTimeout(() => {
+    if (!loaded) {
+      frame.classList.add('is-fallback');
+    }
+  }, fallbackDelayMs);
+
+  iframe.addEventListener('load', () => {
+    loaded = true;
+    window.clearTimeout(fallbackTimer);
+    frame.classList.remove('is-fallback');
+  });
+});

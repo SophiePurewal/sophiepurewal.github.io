@@ -9,17 +9,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="project-pages.css">
-  <style>
-    .screen-grid { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 22px; }
-    .phone-frame { padding: 12px; border-radius: 32px; background: #111; box-shadow: 0 18px 44px rgba(0,0,0,.18); }
-    .phone-frame img { width: 100%; display: block; border-radius: 22px; }
-    .cta-row { display: flex; flex-wrap: wrap; gap: 14px; margin-top: 26px; }
-    .button { display: inline-flex; align-items: center; justify-content: center; border-radius: 999px; padding: 12px 20px; font-weight: 700; text-decoration: none; }
-    .button-primary { background: var(--brand, #C0414E); color: #fff; }
-    .button-secondary { border: 2px solid var(--brand, #C0414E); color: var(--brand, #C0414E); }
-    @media (max-width: 900px) { .screen-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
-    @media (max-width: 560px) { .screen-grid { grid-template-columns: 1fr; } }
-  </style>
+  <link rel="stylesheet" href="../design-system/bike-design-system.css">
 </head>
 <body id="top">
   <a class="skip-link" href="#main">Skip to main content</a>
@@ -49,7 +39,34 @@
             <p class="project-subtitle">Product design and design system for a B2C bike-hire app.</p>
             <p class="project-intro">This project explores a mobile bike-hire experience supported by a reusable visual language and documented component system.</p>
           </div>
-          <figure class="hero-visual"><img src="../design-system/assets/02-home.png" alt="Dude, Where’s My Bike? home screen showing nearby bike hire options." loading="eager" decoding="async"></figure>
+          <div class="case-study-intro__prototype design-system-intro__prototype">
+            <div class="prototype-frame" data-prototype-frame data-fallback-delay-ms="4500">
+              <div class="prototype-screen">
+                <iframe
+                  src="https://dude-wheres-my-bike.figma.site/"
+                  title="Live Dude, Where’s My Bike interactive product prototype"
+                  loading="lazy"
+                  allowfullscreen
+                ></iframe>
+
+                <div class="prototype-frame__fallback" aria-hidden="true">
+                  <div class="image-frame">
+                    <img
+                      src="../design-system/assets/01-welcome.png"
+                      alt="Static preview of the Dude, Where’s My Bike product prototype."
+                      loading="lazy"
+                      decoding="async"
+                      onerror="this.parentElement.classList.add('is-missing');"
+                    >
+
+                    <div class="image-fallback">
+                      <p>The live embed may be blocked or unavailable. Open the working prototype directly to explore it.</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
         </section>
 
         <section class="case-study-section" aria-labelledby="overview-title">
@@ -71,28 +88,19 @@
           </ul>
         </section>
 
-        <section class="case-study-section" aria-labelledby="screens-title">
-          <h2 id="screens-title">Selected screens</h2>
-          <div class="screen-grid">
-            <figure class="phone-frame"><img src="../design-system/assets/01-welcome.png" alt="Welcome screen for the bike-hire app."></figure>
-            <figure class="phone-frame"><img src="../design-system/assets/02-home.png" alt="Home screen with nearby bike hire options."></figure>
-            <figure class="phone-frame"><img src="../design-system/assets/04-map-view.png" alt="Map view showing available bikes nearby."></figure>
-            <figure class="phone-frame"><img src="../design-system/assets/07-booking-summary.png" alt="Booking summary screen before confirming a bike hire."></figure>
-          </div>
-        </section>
-
         <section class="case-study-section" aria-labelledby="system-title">
           <h2 id="system-title">Design system</h2>
           <p>The product is supported by a documented design system covering foundations, colour, typography, icons, components and reusable interface patterns.</p>
-          <div class="cta-row">
-            <a class="button button-primary" href="../design-system/">Explore the prototype</a>
-            <a class="button button-secondary" href="../design-system/">Browse the design system</a>
-          </div>
         </section>
+
+        <nav class="case-study-actions" aria-label="Dude, Where’s My Bike links">
+          <a class="button button-primary" href="../design-system/">Explore the prototype</a>
+          <a class="button button-secondary" href="../design-system/">Browse the design system</a>
+        </nav>
       </article>
     </div>
   </main>
-  <footer class="project-footer site-shell"><a class="footer-link case-study-footer-link" href="../index.html#projects">Back to case studies</a></footer>
+  <footer class="project-footer site-shell"><a class="footer-link case-study-footer-link" href="../index.html#projects">Back to portfolio</a></footer>
   <script src="project-pages.js"></script>
 </body>
 </html>
