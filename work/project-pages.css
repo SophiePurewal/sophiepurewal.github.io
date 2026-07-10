@@ -480,6 +480,7 @@ nav,
   padding-bottom: 24px;
 }
 
+.text-link,
 .back-link,
 .footer-link,
 .case-study-footer-link {
@@ -489,6 +490,9 @@ nav,
   color: var(--brand);
   font-weight: 600;
   text-decoration: none;
+  text-underline-offset: 0.18em;
+  text-decoration-thickness: 1px;
+  transition: color 160ms ease;
 }
 
 .back-link::before,
@@ -497,20 +501,21 @@ nav,
   content: "←";
 }
 
+.text-link:hover,
 .back-link:hover,
-.back-link:focus-visible {
-  text-decoration: underline;
-}
-
-.case-study-footer-link {
-  transition: color 160ms ease;
-}
-
+.footer-link:hover,
 .case-study-footer-link:hover,
+.text-link:focus-visible,
+.back-link:focus-visible,
+.footer-link:focus-visible,
 .case-study-footer-link:focus-visible {
   color: var(--color-text);
+  text-decoration-line: underline;
 }
 
+.text-link:focus-visible,
+.back-link:focus-visible,
+.footer-link:focus-visible,
 .case-study-footer-link:focus-visible {
   outline: 2px solid currentColor;
   outline-offset: 4px;
@@ -531,7 +536,7 @@ nav,
 
 .case-study-hero--single {
   grid-template-columns: 1fr;
-  justify-items: center;
+  justify-items: start;
 }
 
 .case-study-hero__copy--wide {
@@ -585,6 +590,34 @@ nav,
   max-width: 30rem;
   height: auto;
   object-fit: contain;
+}
+
+
+.case-study-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 14px;
+  margin-top: clamp(32px, 6vw, 56px);
+}
+
+.button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 999px;
+  padding: 12px 20px;
+  font-weight: 700;
+  text-decoration: none;
+}
+
+.button-primary {
+  background: var(--brand);
+  color: #fff;
+}
+
+.button-secondary {
+  border: 2px solid var(--brand);
+  color: var(--brand);
 }
 
 .case-study-section {
@@ -963,6 +996,7 @@ body.dark-mode .skip-link {
   .feature-list {
     grid-template-columns: 1fr;
   }
+
 
   .case-study-section {
     padding-top: 32px;

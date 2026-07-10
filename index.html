@@ -924,7 +924,7 @@
     .hero-secondary { margin-top: 18px !important; }
     .hero-availability { max-width: 620px; margin-top: 24px !important; font-size: 16px !important; line-height: 1.55 !important; font-weight: 600 !important; color: #3f3f3f !important; }
     .hero-contact { margin-top: 22px !important; font-size: 16px !important; font-weight: 600 !important; }
-    .hero-contact a, .text-link { color: var(--brand-dark); font-weight: 700; text-underline-offset: 4px; }
+    .hero-contact a, .text-link { color: var(--brand-dark); font-weight: 700; text-decoration: none; text-underline-offset: 0.18em; text-decoration-thickness: 1px; transition: color 160ms ease; }
     .impact-section { width: min(var(--section-shell-max), calc(100% - var(--section-shell-gutter))); margin: 0 auto; padding: 56px 0; border-bottom: 1px solid #d0d0d0; }
     .impact-strip { display: grid; grid-template-columns: minmax(240px, .85fr) minmax(0, 1.15fr); gap: 28px; align-items: stretch; }
     .section-eyebrow {
@@ -948,14 +948,17 @@
       display: inline-flex;
       align-items: center;
       gap: 8px;
-      text-decoration: none;
-      text-decoration-thickness: 2px;
-      text-underline-offset: 4px;
     }
 
-    .recommendations-link .text-link:hover,
-    .recommendations-link .text-link:focus-visible {
-      text-decoration: underline;
+    .text-link:hover,
+    .text-link:focus-visible {
+      color: var(--text-dark);
+      text-decoration-line: underline;
+    }
+
+    .text-link:focus-visible {
+      outline: 2px solid currentColor;
+      outline-offset: 4px;
     }
 
     .recommendations-link .text-link svg {
