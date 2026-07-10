@@ -9,6 +9,7 @@
   --surface: rgba(255, 255, 255, 0.82);
   --surface-soft: rgba(255, 255, 255, 0.72);
   --text: #0C0D0F;
+  --color-text: var(--text);
   --muted: #4E535B;
   --line: rgba(12, 13, 15, 0.12);
   --shadow: 0 24px 48px rgba(12, 13, 15, 0.08);
@@ -480,7 +481,8 @@ nav,
 }
 
 .back-link,
-.footer-link {
+.footer-link,
+.case-study-footer-link {
   display: inline-flex;
   align-items: center;
   gap: 10px;
@@ -490,15 +492,28 @@ nav,
 }
 
 .back-link::before,
-.footer-link::before {
+.footer-link::before,
+.case-study-footer-link::before {
   content: "←";
 }
 
 .back-link:hover,
-.back-link:focus-visible,
-.footer-link:hover,
-.footer-link:focus-visible {
+.back-link:focus-visible {
   text-decoration: underline;
+}
+
+.case-study-footer-link {
+  transition: color 160ms ease;
+}
+
+.case-study-footer-link:hover,
+.case-study-footer-link:focus-visible {
+  color: var(--color-text);
+}
+
+.case-study-footer-link:focus-visible {
+  outline: 2px solid currentColor;
+  outline-offset: 4px;
 }
 
 .case-study-hero {
@@ -537,14 +552,14 @@ nav,
   margin: 0;
   font-family: "Playfair Display", Georgia, "Times New Roman", serif;
   font-size: clamp(3rem, 7.5vw, 4rem);
-  line-height: 0.96;
+  line-height: 1.08;
   letter-spacing: -0.03em;
   color: var(--brand);
 }
 
 .project-subtitle {
   margin: 22px 0 0;
-  max-width: 28ch;
+  max-width: 48rem;
   font-size: clamp(1.2rem, 2.8vw, 1.7rem);
   line-height: 1.35;
   font-weight: 500;
