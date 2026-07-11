@@ -1,3 +1,4 @@
+/* Global reset, typography, body, links, buttons, containers and shared layout rules. */
 * {
   box-sizing: border-box;
 }
@@ -900,8 +901,8 @@ body.dark-mode .skip-link {
   *,
   *::before,
   *::after {
-    animation: none !important;
-    transition: none !important;
+    animation: none;
+    transition: none;
   }
 
   .menu-toggle .menu-icon line {
@@ -1057,14 +1058,14 @@ body.dark-mode .skip-link {
 }
 
 .section-note {
-  margin-top: 18px !important;
+  margin-top: 18px;
   max-width: 74ch;
   font-size: 0.98rem;
 }
 
 .section-label {
-  margin: 0 0 16px !important;
-  color: var(--brand) !important;
+  margin: 0 0 16px;
+  color: var(--brand);
   font-size: 0.8rem;
   font-weight: 700;
   letter-spacing: 0.16em;
