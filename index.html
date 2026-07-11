@@ -30,6 +30,7 @@
       --section-shell-max: 980px;
       --section-shell-gutter: 48px;
       --section-shell-gutter-mobile: 32px;
+      --site-logo-size: 28px;
     }
 
     html { scroll-behavior: smooth; }
@@ -511,7 +512,11 @@
     .site-title {
       margin: 0;
       justify-self: center;
-      font-size: 28px;
+    }
+
+    .site-title,
+    .site-title a {
+      font-size: var(--site-logo-size);
       font-weight: 700;
       letter-spacing: -0.02em;
       line-height: 1;
@@ -1135,8 +1140,8 @@
         padding: 0 24px;
       }
 
-      .site-title {
-        font-size: 24px;
+      :root {
+        --site-logo-size: 24px;
       }
 
       .header-actions {
@@ -1217,8 +1222,8 @@
         padding: 0 16px;
       }
 
-      .site-title {
-        font-size: 21px;
+      :root {
+        --site-logo-size: 21px;
       }
 
       .dropdown-menu {
