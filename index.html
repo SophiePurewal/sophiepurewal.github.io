@@ -976,6 +976,7 @@
 
     body.dark-mode {
       color-scheme: dark;
+      --color-heading-dark-mode: #F8FAFC;
       color: #e5e7eb;
       background: #0b1020;
     }
@@ -994,7 +995,7 @@
 
     body.dark-mode .site-header .site-title,
     body.dark-mode .site-header.scrolled .site-title {
-      color: #C0414E;
+      color: var(--color-heading-dark-mode);
     }
 
     body.dark-mode .site-header .menu-toggle,
@@ -1004,7 +1005,7 @@
     body.dark-mode .site-header.scrolled .nav-list a,
     body.dark-mode .site-header.scrolled .social-list a,
     body.dark-mode .site-header.scrolled .site-title a {
-      color: #F8FAFC;
+      color: var(--color-heading-dark-mode);
     }
 
     body.dark-mode .dropdown-menu,
@@ -1050,7 +1051,7 @@
 
     body.dark-mode .site-title a,
     body.dark-mode .site-title {
-      color: #C0414E;
+      color: var(--color-heading-dark-mode);
     }
 
     body.dark-mode .hero {
@@ -1096,12 +1097,13 @@
       border-color: #334155;
     }
 
+    body.dark-mode .hero h1,
     body.dark-mode .endorsement-intro,
     body.dark-mode .endorsement-category h3,
     body.dark-mode .endorsement-section > h2,
     body.dark-mode .projects-intro h2,
     body.dark-mode .impact-section h2 {
-      color: #F8FAFC;
+      color: var(--color-heading-dark-mode);
     }
 
     body.dark-mode .endorsement-divider,
