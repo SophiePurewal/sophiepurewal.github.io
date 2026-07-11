@@ -45,15 +45,15 @@ const screens = [
   ['10-profile.png', 'Profile']
 ];
 
-const screenGrid = `<div class="screen-grid">${screens.map(([file, label]) => `
+const screenGrid = (assetBase = 'assets/') => `<div class="screen-grid">${screens.map(([file, label]) => `
   <figure class="screen-card">
     <div class="mobile-screen-frame screen-card__frame">
-      <img src="assets/${file}" alt="${label} screen from the Dude, Where's My Bike? prototype" loading="lazy" decoding="async">
+      <img src="${assetBase}${file}" alt="${label} screen from the Dude, Where's My Bike? prototype" loading="lazy" decoding="async">
     </div>
     <figcaption>${label}</figcaption>
   </figure>`).join('')}</div>`;
 
-const docs = [
+const getDocs = (assetBase = 'assets/') => [
   { group: 'Foundations', items: [
     ['overview','Overview','A practical mobile-first system for discovering local bike hire, comparing trusted providers and completing a booking with confidence.','<div class="hero-preview"><span>Dude, Where’s My Bike?</span><strong>Book a bike without the runaround.</strong><p>Warm orange, coral, pink and purple gradients give the app its distinctive personality; white cards and dark purple type keep booking tasks clear.</p><div class="button-stack"><button class="ds-btn primary">Find bikes nearby</button><button class="ds-btn secondary">View map</button></div></div>', ['Portfolio chrome stays in the existing Sophie Purewal style.', 'Every app component preview uses the bike app tokens and Nunito Sans.', 'Prototype screenshots are included as the source-of-truth reference.'], ['Font: Nunito Sans','Palette: warm orange, coral, pink, purple, dark purple','Shape language: large cards, pills and bottom sheets'] ],
     ['brand','Brand','The brand is friendly, direct and energetic, balancing playful language with clear trust and availability signals.','<div class="brand-board"><div><b>Warm</b><span>Sunset gradients and cream surfaces make the utility app feel local and welcoming.</span></div><div><b>Useful</b><span>Location, availability, ratings and prices are surfaced before decorative content.</span></div><div><b>Trust-led</b><span>Verified badges, reviews and clear booking summaries reduce uncertainty.</span></div></div>', ['Use expressive colour for discovery and confirmation moments.', 'Keep copy short, human and task-focused.']],
@@ -93,58 +93,97 @@ const docs = [
     ['reviews-ratings','Reviews and ratings','Reviews add confidence alongside concrete provider details such as availability and opening hours.','<div class="review"><strong>★ 4.9</strong><p>Friendly team, quick pickup, child seat ready.</p><small>Based on 128 rides</small></div>', ['Summarise review sentiment.', 'Do not replace safety or availability details with ratings.']]
   ]},
   { group: 'Prototype', items: [
-    ['app-screens','App screens','Uploaded prototype screenshots are displayed alongside the component documentation as the visual source of truth.', screenGrid, ['Use these screens to compare colour, spacing, card shapes and navigation treatments.', 'Captions are inferred from file names and visible prototype flow.']]
+    ['app-screens','App screens','Uploaded prototype screenshots are displayed alongside the component documentation as the visual source of truth.', screenGrid(assetBase), ['Use these screens to compare colour, spacing, card shapes and navigation treatments.', 'Captions are inferred from file names and visible prototype flow.']]
   ]}
 ];
 
-const nav = document.querySelector('#docs-nav');
-const select = document.querySelector('#section-select');
-const title = document.querySelector('#panel-title');
-const category = document.querySelector('#panel-category');
-const description = document.querySelector('#panel-description');
-const preview = document.querySelector('#panel-preview');
-const notes = document.querySelector('#panel-notes');
-const tokens = document.querySelector('#panel-tokens');
-const flatDocs = docs.flatMap(section => section.items.map(item => ({ group: section.group, id: item[0], title: item[1], description: item[2], preview: item[3], notes: item[4] || [], tokens: item[5] || [] })));
 
-docs.forEach(section => {
-  const group = document.createElement('section');
-  group.className = 'nav-group';
-  group.innerHTML = `<h2>${section.group}</h2>`;
-  section.items.forEach(item => {
-    const button = document.createElement('button');
-    button.type = 'button';
-    button.className = 'docs-nav-link';
-    button.dataset.section = item[0];
-    button.textContent = item[1];
-    button.addEventListener('click', () => renderSection(item[0], true));
-    group.append(button);
-    const option = document.createElement('option');
-    option.value = item[0];
-    option.textContent = `${section.group} — ${item[1]}`;
-    select.append(option);
-  });
-  nav.append(group);
-});
+function designSystemDocsTemplate() {
+  return `
+    <header class="case-study-section ds-section-heading design-system-docs__intro">
+      <p class="eyebrow">Design system</p>
+      <h2>Designing form and function as one system</h2>
+    </header>
 
-function renderSection(id, updateHash = false) {
-  const doc = flatDocs.find(item => item.id === id) || flatDocs[0];
-  category.textContent = doc.group;
-  title.textContent = doc.title;
-  description.textContent = doc.description;
-  preview.innerHTML = doc.preview;
-  notes.innerHTML = doc.notes.map(note => `<li>${note}</li>`).join('');
-  tokens.hidden = !doc.tokens.length;
-  tokens.innerHTML = doc.tokens.length ? `<h3>Token values</h3>${doc.tokens.map(token => `<code>${token}</code>`).join('')}` : '';
-  document.querySelectorAll('.docs-nav-link').forEach(link => {
-    const active = link.dataset.section === doc.id;
-    link.classList.toggle('is-active', active);
-    link.setAttribute('aria-current', active ? 'page' : 'false');
-  });
-  select.value = doc.id;
-  if (updateHash) history.replaceState(null, '', `#${doc.id}`);
+    <section class="docs-layout design-system-docs__layout" aria-label="Design system documentation">
+      <aside class="docs-sidebar design-system-docs__nav" aria-label="Design system sections">
+        <label class="section-select-label" for="section-select">Browse documentation</label>
+        <select id="section-select" class="section-select"></select>
+        <nav class="docs-nav" id="docs-nav" aria-label="Foundations, components and patterns"></nav>
+      </aside>
+
+      <section class="docs-panel design-system-docs__content" aria-live="polite">
+        <div class="panel-meta" id="panel-category">Foundation</div>
+        <h2 id="panel-title"></h2>
+        <p id="panel-description" class="panel-description"></p>
+        <div id="panel-preview" class="panel-preview"></div>
+        <div class="panel-notes">
+          <h3>Usage notes</h3>
+          <ul id="panel-notes"></ul>
+        </div>
+        <div id="panel-tokens" class="token-callout" hidden></div>
+      </section>
+    </section>`;
 }
 
-select.addEventListener('change', event => renderSection(event.target.value, true));
-window.addEventListener('hashchange', () => renderSection(location.hash.replace('#', '') || 'overview'));
-renderSection(location.hash.replace('#', '') || 'overview');
+function initDesignSystemDocs(root) {
+  if (!root) return;
+  const assetBase = root.dataset.assetBase || 'assets/';
+  root.classList.add('design-system-docs');
+  root.innerHTML = designSystemDocsTemplate();
+
+  const docs = getDocs(assetBase);
+  const nav = root.querySelector('#docs-nav');
+  const select = root.querySelector('#section-select');
+  const title = root.querySelector('#panel-title');
+  const category = root.querySelector('#panel-category');
+  const description = root.querySelector('#panel-description');
+  const preview = root.querySelector('#panel-preview');
+  const notes = root.querySelector('#panel-notes');
+  const tokens = root.querySelector('#panel-tokens');
+  const flatDocs = docs.flatMap(section => section.items.map(item => ({ group: section.group, id: item[0], title: item[1], description: item[2], preview: item[3], notes: item[4] || [], tokens: item[5] || [] })));
+
+  docs.forEach(section => {
+    const group = document.createElement('section');
+    group.className = 'nav-group';
+    group.innerHTML = `<h2>${section.group}</h2>`;
+    section.items.forEach(item => {
+      const button = document.createElement('button');
+      button.type = 'button';
+      button.className = 'docs-nav-link';
+      button.dataset.section = item[0];
+      button.textContent = item[1];
+      button.addEventListener('click', () => renderSection(item[0], true));
+      group.append(button);
+      const option = document.createElement('option');
+      option.value = item[0];
+      option.textContent = `${section.group} — ${item[1]}`;
+      select.append(option);
+    });
+    nav.append(group);
+  });
+
+  function renderSection(id, updateHash = false) {
+    const doc = flatDocs.find(item => item.id === id) || flatDocs[0];
+    category.textContent = doc.group;
+    title.textContent = doc.title;
+    description.textContent = doc.description;
+    preview.innerHTML = doc.preview;
+    notes.innerHTML = doc.notes.map(note => `<li>${note}</li>`).join('');
+    tokens.hidden = !doc.tokens.length;
+    tokens.innerHTML = doc.tokens.length ? `<h3>Token values</h3>${doc.tokens.map(token => `<code>${token}</code>`).join('')}` : '';
+    root.querySelectorAll('.docs-nav-link').forEach(link => {
+      const active = link.dataset.section === doc.id;
+      link.classList.toggle('is-active', active);
+      link.setAttribute('aria-current', active ? 'page' : 'false');
+    });
+    select.value = doc.id;
+    if (updateHash) history.replaceState(null, '', `#${doc.id}`);
+  }
+
+  select.addEventListener('change', event => renderSection(event.target.value, true));
+  window.addEventListener('hashchange', () => renderSection(location.hash.replace('#', '') || 'overview'));
+  renderSection(location.hash.replace('#', '') || 'overview');
+}
+
+document.querySelectorAll('[data-design-system-docs]').forEach(initDesignSystemDocs);
