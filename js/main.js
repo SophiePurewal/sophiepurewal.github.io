@@ -168,7 +168,7 @@ document.querySelectorAll('[data-prototype-frame]').forEach((frame) => {
   const preview = document.querySelector('#panel-preview');
   const notes = document.querySelector('#panel-notes');
   const tokens = document.querySelector('#panel-tokens');
-  if (!nav || !select || !title || !category || !description || !preview || !notes || !tokens) return;
+  const docsMount = document.querySelector('[data-design-system-docs]');
 
 const iconPaths = {
   home: '<path d="M3 11.5 12 4l9 7.5"/><path d="M5 10.5V21h5v-6h4v6h5V10.5"/>',
@@ -269,6 +269,35 @@ const docs = [
 ];
 
 const flatDocs = docs.flatMap(section => section.items.map(item => ({ group: section.group, id: item[0], title: item[1], description: item[2], preview: item[3], notes: item[4] || [], tokens: item[5] || [] })));
+
+const renderEmbeddedDocs = (mount) => {
+  const assetBase = mount.dataset.assetBase || 'assets/';
+  mount.className = 'embedded-design-system-docs';
+  mount.innerHTML = docs.map(section => `
+    <section class="case-study-section embedded-docs-section" aria-labelledby="embedded-${section.group.toLowerCase().replace(/[^a-z0-9]+/g, '-')}-title">
+      <h2 id="embedded-${section.group.toLowerCase().replace(/[^a-z0-9]+/g, '-')}-title">${section.group}</h2>
+      <div class="embedded-docs-grid">
+        ${section.items.map(item => {
+          const doc = flatDocs.find(entry => entry.id === item[0]);
+          const previewHtml = doc.preview.replaceAll('src="assets/', `src="${assetBase}`);
+          return `<article class="embedded-doc-card" id="${doc.id}">
+            <p class="panel-meta">${doc.group}</p>
+            <h3>${doc.title}</h3>
+            <p>${doc.description}</p>
+            <div class="panel-preview">${previewHtml}</div>
+            ${doc.notes.length ? `<ul class="approach-list">${doc.notes.map(note => `<li>${note}</li>`).join('')}</ul>` : ''}
+          </article>`;
+        }).join('')}
+      </div>
+    </section>
+  `).join('');
+};
+
+if (docsMount) {
+  renderEmbeddedDocs(docsMount);
+}
+
+if (!nav || !select || !title || !category || !description || !preview || !notes || !tokens) return;
 
 docs.forEach(section => {
   const group = document.createElement('section');

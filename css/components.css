@@ -1202,3 +1202,50 @@ body.bike-ds-page {
     grid-template-columns: repeat(auto-fit, minmax(118px, 1fr));
   }
 }
+
+/* Embedded design-system documentation used inside the Dude, Where's My Bike case study. */
+.embedded-design-system-docs {
+  display: grid;
+  gap: clamp(48px, 8vw, 88px);
+}
+
+.embedded-docs-section {
+  display: grid;
+  gap: clamp(20px, 4vw, 36px);
+}
+
+.embedded-docs-grid {
+  display: grid;
+  gap: clamp(24px, 4vw, 40px);
+}
+
+.embedded-doc-card {
+  display: grid;
+  gap: 16px;
+  min-width: 0;
+}
+
+.embedded-doc-card h3 {
+  margin: 0;
+  font-family: 'Playfair Display', Georgia, serif;
+  color: var(--brand);
+  font-size: clamp(2rem, 5vw, 3.4rem);
+  line-height: 1;
+  letter-spacing: -.03em;
+}
+
+.embedded-doc-card > p:not(.panel-meta) {
+  max-width: 760px;
+  margin: 0;
+  color: var(--muted);
+}
+
+.embedded-doc-card .panel-preview {
+  padding: clamp(18px, 3vw, 32px) 0;
+}
+
+@media (max-width: 720px) {
+  .embedded-doc-card h3 {
+    font-size: clamp(1.8rem, 11vw, 2.8rem);
+  }
+}
