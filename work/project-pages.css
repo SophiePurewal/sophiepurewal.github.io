@@ -814,6 +814,7 @@ nav,
 
 body.dark-mode {
   color-scheme: dark;
+  --color-heading-dark-mode: #F8FAFC;
   --background: #111827;
   --surface: rgba(17, 24, 39, 0.86);
   --surface-soft: rgba(17, 24, 39, 0.76);
@@ -889,6 +890,36 @@ body.dark-mode .dropdown-social-links a:hover svg {
 body.dark-mode .site-title a:hover,
 body.dark-mode .site-title a:focus-visible {
   color: var(--brand);
+}
+
+body.dark-mode.financial-services-page h1,
+body.dark-mode.financial-services-page h2,
+body.dark-mode.financial-services-page h3,
+body.dark-mode.financial-services-page .project-kicker,
+body.dark-mode.financial-services-page .section-label,
+body.dark-mode.financial-services-page .summary-item dt,
+body.dark-mode.financial-services-page .stat-grid strong,
+body.dark-mode.financial-services-page .project-main a,
+body.dark-mode.financial-services-page .project-footer a,
+body.dark-mode.financial-services-page .text-link,
+body.dark-mode.financial-services-page .back-link,
+body.dark-mode.financial-services-page .footer-link,
+body.dark-mode.financial-services-page .case-study-footer-link,
+body.dark-mode.financial-services-page .site-header .site-title,
+body.dark-mode.financial-services-page .site-header .site-title a,
+body.dark-mode.financial-services-page .site-header.scrolled .site-title,
+body.dark-mode.financial-services-page .site-header.scrolled .site-title a,
+body.dark-mode.financial-services-page .site-header.menu-open .site-title,
+body.dark-mode.financial-services-page .site-header.menu-open .site-title a,
+body.dark-mode.financial-services-page .site-header.scrolled.menu-open .site-title,
+body.dark-mode.financial-services-page .site-header.scrolled.menu-open .site-title a {
+  color: var(--color-heading-dark-mode);
+}
+
+body.dark-mode.financial-services-page a:hover,
+body.dark-mode.financial-services-page a:focus-visible {
+  color: var(--color-heading-dark-mode);
+  text-decoration-line: underline;
 }
 
 body.dark-mode .skip-link {
