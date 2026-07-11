@@ -922,6 +922,48 @@ body.dark-mode.financial-services-page a:focus-visible {
   text-decoration-line: underline;
 }
 
+body.dark-mode.chartstudio-page h1,
+body.dark-mode.chartstudio-page h2,
+body.dark-mode.chartstudio-page h3,
+body.dark-mode.chartstudio-page .project-kicker,
+body.dark-mode.chartstudio-page .section-label,
+body.dark-mode.chartstudio-page .summary-item dt,
+body.dark-mode.chartstudio-page .stat-grid strong,
+body.dark-mode.chartstudio-page .project-main a,
+body.dark-mode.chartstudio-page .project-footer a,
+body.dark-mode.chartstudio-page .text-link,
+body.dark-mode.chartstudio-page .back-link,
+body.dark-mode.chartstudio-page .footer-link,
+body.dark-mode.chartstudio-page .case-study-footer-link,
+body.dark-mode.chartstudio-page .site-header .site-title,
+body.dark-mode.chartstudio-page .site-header .site-title a,
+body.dark-mode.chartstudio-page .site-header.scrolled .site-title,
+body.dark-mode.chartstudio-page .site-header.scrolled .site-title a,
+body.dark-mode.chartstudio-page .site-header.menu-open .site-title,
+body.dark-mode.chartstudio-page .site-header.menu-open .site-title a,
+body.dark-mode.chartstudio-page .site-header.scrolled.menu-open .site-title,
+body.dark-mode.chartstudio-page .site-header.scrolled.menu-open .site-title a {
+  color: var(--color-heading-dark-mode);
+}
+
+body.dark-mode.chartstudio-page .project-main a:hover,
+body.dark-mode.chartstudio-page .project-main a:focus-visible,
+body.dark-mode.chartstudio-page .project-footer a:hover,
+body.dark-mode.chartstudio-page .project-footer a:focus-visible,
+body.dark-mode.chartstudio-page .text-link:hover,
+body.dark-mode.chartstudio-page .text-link:focus-visible,
+body.dark-mode.chartstudio-page .back-link:hover,
+body.dark-mode.chartstudio-page .back-link:focus-visible,
+body.dark-mode.chartstudio-page .footer-link:hover,
+body.dark-mode.chartstudio-page .footer-link:focus-visible,
+body.dark-mode.chartstudio-page .case-study-footer-link:hover,
+body.dark-mode.chartstudio-page .case-study-footer-link:focus-visible,
+body.dark-mode.chartstudio-page .site-title a:hover,
+body.dark-mode.chartstudio-page .site-title a:focus-visible {
+  color: var(--color-heading-dark-mode);
+  text-decoration-line: underline;
+}
+
 body.dark-mode .skip-link {
   background: #F8FAFC;
   color: #0C0D0F;
