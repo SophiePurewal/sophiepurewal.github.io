@@ -625,7 +625,11 @@
       white-space: nowrap;
     }
 
-    .hero p {
+    .home-page p {
+      font-size: 16px;
+    }
+
+    .home-page .hero-intro {
       margin: 30px 0 0;
       font-family: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
       font-size: 20px;
@@ -713,7 +717,6 @@
       max-width: 760px;
       margin: 0;
       color: #333;
-      font-size: 17px;
       line-height: 1.6;
     }
 
@@ -757,6 +760,10 @@
       max-width: 980px;
       margin: 0 auto;
       padding: 72px 24px;
+    }
+
+    .home-page .endorsements-content {
+      padding: 32px 24px;
     }
 
     .content section {
@@ -812,7 +819,7 @@
     .endorsement-section > h2 {
       margin: 0 0 18px;
       font-family: 'Playfair Display', Georgia, 'Times New Roman', serif;
-      font-size: clamp(2.4rem, 6vw, 4.25rem);
+      font-size: 42px;
       line-height: 1.02;
       font-weight: 700;
       letter-spacing: -0.035em;
@@ -822,7 +829,6 @@
     .endorsement-intro {
       max-width: 640px;
       margin: 0;
-      font-size: 18px;
       line-height: 1.7;
       font-weight: 300;
       color: #3f3f3f;
@@ -879,7 +885,6 @@
 
     .pull-quote p {
       margin: 0;
-      font-size: 17px;
       line-height: 1.55;
       color: #3f3f3f;
       quotes: "“" "”";
@@ -1038,7 +1043,7 @@
     body.dark-mode .nav-list a,
     body.dark-mode .social-list a,
     body.dark-mode .site-title a,
-    body.dark-mode .hero p,
+    body.dark-mode .hero-intro,
     body.dark-mode .projects-intro p:last-child,
     body.dark-mode .content,
     body.dark-mode .content p,
@@ -1062,7 +1067,7 @@
       background: #0b1020;
     }
 
-    body.dark-mode .hero p {
+    body.dark-mode .hero-intro {
       color: #e5e7eb;
     }
 
@@ -1165,13 +1170,17 @@
         white-space: normal;
       }
 
-      .hero p {
+      .home-page .hero-intro {
         font-size: 18px;
         line-height: 1.6;
       }
 
       .hero-copy p {
         text-align: left;
+      }
+
+      .home-page .endorsements-content {
+        padding: 32px 24px;
       }
 
       .hero-actions {
@@ -1236,7 +1245,7 @@
         font-size: clamp(1.85rem, 9vw, 2.6rem);
       }
 
-      .hero p {
+      .home-page .hero-intro {
         font-size: 17px;
         text-align: left;
       }
@@ -1270,6 +1279,10 @@
         padding: 48px 16px;
       }
 
+      .home-page .endorsements-content {
+        padding: 32px 24px;
+      }
+
       .content h2 {
         font-size: 28px;
       }
@@ -1288,7 +1301,7 @@
   <link rel="stylesheet" href="projects-grid.css">
 </head>
 
-<body id="top">
+<body id="top" class="home-page">
   <a class="skip-link" href="#main">Skip to main content</a>
   <header class="site-header">
     <nav class="top-nav" aria-label="Main navigation">
@@ -1355,10 +1368,10 @@
       <div class="hero-panel">
         <div class="hero-copy">
           <h1>Senior UI &amp; Product Designer</h1>
-          <p>
+          <p class="hero-intro">
             I design accessible digital products and scalable design systems for complex, regulated services. My recent financial-services work includes reusable components adopted more than 21,000 times across shared product libraries.
           </p>
-          <p class="hero-secondary">I bring together strong visual design craft, accessibility, product thinking and close collaboration with engineering—from early journeys to production-ready UI.</p>
+          <p class="hero-intro hero-secondary">I bring together strong visual design craft, accessibility, product thinking and close collaboration with engineering—from early journeys to production-ready UI.</p>
           <div class="hero-actions" aria-label="Intro links">
             <a class="hero-link" href="#projects">
               <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" aria-hidden="true" focusable="false">
@@ -1435,7 +1448,7 @@
       </div>
     </section>
 
-    <div class="content">
+    <div class="content endorsements-content">
       <section id="endorsements" class="endorsement-section" aria-label="Endorsements section">
         <h2>Endorsements</h2>
         <p class="endorsement-intro">A selection of recommendations spanning product design, project leadership, collaboration and delivery.</p>

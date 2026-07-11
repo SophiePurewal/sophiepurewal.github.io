@@ -270,6 +270,12 @@ body.dark-mode .project-card--featured {
 .project-card--featured .project-card__title { font-size: clamp(2.25rem, 5vw, 4.4rem); }
 .project-card--featured .project-card__hint { font-size: clamp(1rem, 1.7vw, 1.25rem); }
 
+.home-page .project-card__hint,
+.home-page .project-card--wide .project-card__hint,
+.home-page .project-card--featured .project-card__hint {
+  font-size: 16px;
+}
+
 .project-card:is(:hover, :focus-visible) .project-card__content,
 .project-card:focus-within .project-card__content {
   background: linear-gradient(180deg, rgba(12, 13, 15, 0.03) 0%, rgba(12, 13, 15, 0.94) 100%);
