@@ -855,3 +855,154 @@ body.bike-ds-page {
     grid-template-columns: repeat(auto-fit, minmax(118px, 1fr));
   }
 }
+
+/* Responsive documentation hardening for standalone and embedded contexts */
+.design-system-docs,
+.design-system-docs * {
+  box-sizing: border-box;
+}
+
+.design-system-docs {
+  width: 100%;
+  max-width: 100%;
+  min-width: 0;
+  overflow-wrap: break-word;
+}
+
+.design-system-docs__layout,
+.design-system-docs__content,
+.design-system-docs__section,
+.docs-layout,
+.docs-panel,
+.panel-preview,
+.panel-notes,
+.token-callout,
+.state-demo,
+.state-sample,
+.card-grid,
+.brand-board,
+.swatches,
+.gradient-grid,
+.radius-grid,
+.shadow-grid,
+.icon-inventory,
+.screen-grid,
+.type-spec,
+.form-demo,
+.search-demo,
+.bottom-nav,
+.map-demo,
+.sheet-demo,
+.price-card,
+.compare,
+.pattern-flow,
+.steps {
+  min-width: 0;
+  max-width: 100%;
+}
+
+.design-system-docs img,
+.design-system-docs svg,
+.design-system-docs iframe {
+  max-width: 100%;
+}
+
+.design-system-docs .case-study-section,
+.design-system-docs .docs-layout,
+.design-system-docs .docs-panel {
+  scroll-margin-top: 112px;
+}
+
+.design-system-docs .brand-board,
+.design-system-docs .swatches,
+.design-system-docs .gradient-grid,
+.design-system-docs .radius-grid,
+.design-system-docs .shadow-grid,
+.design-system-docs .card-grid,
+.design-system-docs .state-grid,
+.design-system-docs .type-spec,
+.design-system-docs .logo-guidance {
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 220px), 1fr));
+}
+
+.design-system-docs .icon-inventory {
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 132px), 1fr));
+}
+
+.design-system-docs .state-demo {
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 150px), 1fr));
+}
+
+.design-system-docs .screen-grid {
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 210px), 1fr));
+}
+
+.design-system-docs .compare {
+  overflow-x: auto;
+}
+
+.design-system-docs .compare > * {
+  min-width: 0;
+}
+
+@media (max-width: 980px) {
+  .design-system-docs .docs-layout {
+    grid-template-columns: 1fr;
+  }
+
+  .design-system-docs .docs-sidebar {
+    position: static;
+    inset: auto;
+    max-height: none;
+    overflow: visible;
+  }
+
+  .design-system-docs .docs-nav {
+    display: none;
+  }
+
+  .design-system-docs .section-select-label,
+  .design-system-docs .section-select {
+    display: block;
+  }
+
+  .design-system-docs .docs-panel {
+    padding: 28px 0 0;
+    border-left: 0;
+    border-top: 1px solid #E5E2DE;
+  }
+
+  .design-system-docs #panel-title {
+    font-size: clamp(2rem, 8vw, 3.25rem);
+    line-height: 1;
+  }
+}
+
+@media (max-width: 600px) {
+  .project-main.ds-main,
+  .bike-ds-page .ds-main {
+    width: 100%;
+    padding-inline: clamp(16px, 4vw, 48px);
+  }
+
+  .design-system-docs .spacing-scale,
+  .design-system-docs .pattern-flow,
+  .design-system-docs .steps,
+  .design-system-docs .compare {
+    grid-template-columns: 1fr;
+  }
+
+  .design-system-docs .search-demo,
+  .design-system-docs .button-stack {
+    align-items: stretch;
+    flex-direction: column;
+  }
+
+  .design-system-docs .ds-btn {
+    width: 100%;
+  }
+
+  .design-system-docs .panel-notes {
+    grid-template-columns: 1fr;
+  }
+}
