@@ -1446,8 +1446,9 @@ header.case-study-section.ds-section-heading { margin-top: 56px; margin-bottom: 
 
 .screen-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(210px, 1fr));
-  gap: clamp(16px, 3vw, 26px);
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 260px), 1fr));
+  gap: 32px;
+  align-items: start;
 }
 .screen-card {
   margin: 0;
@@ -1455,8 +1456,23 @@ header.case-study-section.ds-section-heading { margin-top: 56px; margin-bottom: 
   justify-items: center;
   gap: 12px;
 }
+.app-screen-frame {
+  width: min(100%, 320px);
+  margin-inline: auto;
+  padding: 6px;
+  border: 1px solid var(--line);
+  border-radius: 28px;
+  background: transparent;
+  box-shadow: none;
+}
+.app-screen-frame img {
+  display: block;
+  width: 100%;
+  height: auto;
+  border-radius: 22px;
+}
 .screen-card__frame {
-  width: min(100%, 230px);
+  width: min(100%, 320px);
 }
 .screen-card figcaption {
   color: var(--app-ink);
@@ -1464,16 +1480,13 @@ header.case-study-section.ds-section-heading { margin-top: 56px; margin-bottom: 
   text-align: center;
 }
 
-.screen-card:nth-child(1) .screen-card__frame img { object-fit: contain; background: #251238; }
-
 @media(max-width:980px){
   .spacing-scale{grid-template-columns:repeat(4,1fr)}
-  .screen-grid{grid-template-columns:repeat(auto-fit,minmax(180px,1fr))}
+  .screen-grid{grid-template-columns:repeat(auto-fit,minmax(min(100%, 220px),1fr))}
 }
 @media(max-width:520px){
   .spacing-scale{grid-template-columns:repeat(2,1fr)}
   .screen-grid{grid-template-columns:1fr}
-  .screen-card{border-radius:24px}
 }
 
 /* Editorial redesign and interactive component states */
