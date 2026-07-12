@@ -2302,3 +2302,156 @@ body.bike-ds-page {
     grid-template-columns: 1fr;
   }
 }
+
+/* Dude, Where's My Bike case-study polish */
+.dude-page .case-study-hero {
+  align-items: start;
+}
+
+.dude-page .case-study-hero__copy,
+.dude-page .case-study-intro__prototype {
+  align-self: start;
+}
+
+body.dark-mode.dude-page h1,
+body.dark-mode.dude-page h2,
+body.dark-mode.dude-page h3,
+body.dark-mode.dude-page .project-kicker,
+body.dark-mode.dude-page .eyebrow,
+body.dark-mode.dude-page .section-label,
+body.dark-mode.dude-page .project-main a:not(.button),
+body.dark-mode.dude-page .project-footer a,
+body.dark-mode.dude-page .text-link,
+body.dark-mode.dude-page .back-link,
+body.dark-mode.dude-page .footer-link,
+body.dark-mode.dude-page .case-study-footer-link,
+body.dark-mode.dude-page .site-header .site-title,
+body.dark-mode.dude-page .site-header .site-title a,
+body.dark-mode.dude-page .site-header.scrolled .site-title,
+body.dark-mode.dude-page .site-header.scrolled .site-title a,
+body.dark-mode.dude-page .site-header.menu-open .site-title,
+body.dark-mode.dude-page .site-header.menu-open .site-title a,
+body.dark-mode.dude-page .site-header.scrolled.menu-open .site-title,
+body.dark-mode.dude-page .site-header.scrolled.menu-open .site-title a {
+  color: var(--color-heading-dark-mode);
+}
+
+body.dark-mode.dude-page .project-main a:not(.button):hover,
+body.dark-mode.dude-page .project-main a:not(.button):focus-visible,
+body.dark-mode.dude-page .project-footer a:hover,
+body.dark-mode.dude-page .project-footer a:focus-visible,
+body.dark-mode.dude-page .text-link:hover,
+body.dark-mode.dude-page .text-link:focus-visible,
+body.dark-mode.dude-page .back-link:hover,
+body.dark-mode.dude-page .back-link:focus-visible,
+body.dark-mode.dude-page .footer-link:hover,
+body.dark-mode.dude-page .footer-link:focus-visible,
+body.dark-mode.dude-page .case-study-footer-link:hover,
+body.dark-mode.dude-page .case-study-footer-link:focus-visible,
+body.dark-mode.dude-page .site-title a:hover,
+body.dark-mode.dude-page .site-title a:focus-visible {
+  color: var(--color-heading-dark-mode);
+}
+
+.design-system-docs,
+.design-system-docs__layout,
+.design-system-docs__content,
+.design-system-docs__section {
+  width: 100%;
+  min-width: 0;
+  max-width: 100%;
+  box-sizing: border-box;
+}
+
+.design-system-docs .docs-layout {
+  grid-template-columns: minmax(0, 230px) minmax(0, 1fr);
+}
+
+.design-system-docs img,
+.design-system-docs svg,
+.design-system-docs iframe {
+  height: auto;
+}
+
+.design-system-docs .compare,
+.design-system-docs .panel-preview,
+.design-system-docs .screen-grid,
+.design-system-docs .icon-inventory {
+  max-width: 100%;
+  overflow-x: auto;
+}
+
+.dude-page .design-system-docs {
+  width: 100%;
+  max-width: 100%;
+}
+
+body.dark-mode .design-system-docs,
+body.dark-mode .design-system-docs .docs-layout,
+body.dark-mode .design-system-docs .docs-sidebar,
+body.dark-mode .design-system-docs .docs-panel,
+body.dark-mode .design-system-docs .docs-nav {
+  background: var(--background);
+  background-image: none;
+  color: var(--text);
+  box-shadow: none;
+}
+
+body.dark-mode .design-system-docs .panel-preview,
+body.dark-mode .design-system-docs .token-callout,
+body.dark-mode .design-system-docs .product-logo-card,
+body.dark-mode .design-system-docs .logo-guidance div,
+body.dark-mode .design-system-docs .icon-tile,
+body.dark-mode .design-system-docs .brand-board > *,
+body.dark-mode .design-system-docs .type-card,
+body.dark-mode .design-system-docs .mini-card,
+body.dark-mode .design-system-docs .provider,
+body.dark-mode .design-system-docs .review,
+body.dark-mode .design-system-docs .empty,
+body.dark-mode .design-system-docs .form-demo label,
+body.dark-mode .design-system-docs .search-demo,
+body.dark-mode .design-system-docs .bottom-nav,
+body.dark-mode .design-system-docs .sheet,
+body.dark-mode .design-system-docs .pattern-flow span,
+body.dark-mode .design-system-docs .steps li {
+  background: var(--surface);
+  color: var(--text);
+  border-color: var(--line);
+}
+
+body.dark-mode .design-system-docs .docs-panel,
+body.dark-mode .design-system-docs .docs-sidebar {
+  border-color: var(--line);
+}
+
+body.dark-mode .design-system-docs .panel-description,
+body.dark-mode .design-system-docs .docs-nav-link,
+body.dark-mode .design-system-docs .state-sample > span:first-child,
+body.dark-mode .design-system-docs .logo-guidance span,
+body.dark-mode .design-system-docs .icon-tile span {
+  color: var(--muted);
+}
+
+body.dark-mode .design-system-docs .docs-panel h2,
+body.dark-mode .design-system-docs .nav-group h2,
+body.dark-mode .design-system-docs .panel-meta,
+body.dark-mode .design-system-docs .docs-nav-link:hover,
+body.dark-mode .design-system-docs .docs-nav-link:focus-visible,
+body.dark-mode .design-system-docs .docs-nav-link.is-active,
+body.dark-mode .design-system-docs .docs-nav-link[aria-current="page"],
+body.dark-mode .design-system-docs .logo-guidance b,
+body.dark-mode .design-system-docs .icon-tile b {
+  color: var(--color-heading-dark-mode);
+}
+
+body.dark-mode .design-system-docs .section-select {
+  background: var(--surface);
+  color: var(--text);
+  border-color: var(--line);
+}
+
+@media (max-width: 980px) {
+  .design-system-docs .docs-layout {
+    grid-template-columns: minmax(0, 1fr);
+  }
+}
