@@ -2549,8 +2549,18 @@ body.dark-mode.dude-page .design-system-docs .token-callout {
 .design-system-docs .docs-layout {
   display: grid;
   grid-template-columns: minmax(0, 230px) minmax(0, 1fr);
+  align-items: start;
   width: 100%;
   max-width: 100%;
+}
+
+.design-system-docs .docs-sidebar,
+.design-system-docs .docs-panel {
+  align-self: start;
+}
+
+.design-system-docs .nav-group:first-child {
+  padding-top: 0;
 }
 
 .design-system-docs__content,
