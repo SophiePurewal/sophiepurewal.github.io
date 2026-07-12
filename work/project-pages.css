@@ -2527,3 +2527,132 @@ body.dark-mode.dude-page .design-system-docs .token-callout {
   background-image: none;
   box-shadow: none;
 }
+
+/* Responsive hardening for embedded Design System previews */
+.design-system-docs,
+.design-system-docs__layout,
+.design-system-docs__content,
+.design-system-docs__section,
+.design-system-docs__nav,
+.design-system-docs .docs-layout,
+.design-system-docs .docs-sidebar,
+.design-system-docs .docs-panel,
+.design-system-docs .panel-preview,
+.design-system-docs .panel-notes,
+.design-system-docs .token-callout {
+  min-width: 0;
+  max-width: 100%;
+  box-sizing: border-box;
+}
+
+.design-system-docs__layout,
+.design-system-docs .docs-layout {
+  display: grid;
+  grid-template-columns: minmax(0, 230px) minmax(0, 1fr);
+  width: 100%;
+  max-width: 100%;
+}
+
+.design-system-docs__content,
+.design-system-docs .docs-panel {
+  width: 100%;
+  padding-inline: clamp(24px, 4vw, 56px);
+}
+
+.design-system-docs .panel-preview {
+  width: 100%;
+  overflow: visible;
+}
+
+.design-system-docs .panel-preview :where(p, span, small, figcaption, code, b, strong, li, h1, h2, h3, label) {
+  overflow-wrap: anywhere;
+}
+
+.design-system-docs .panel-preview :where(button, .ds-btn, .chip, .badge, .bottom-nav a) {
+  overflow-wrap: normal;
+  white-space: normal;
+}
+
+.design-system-docs .panel-preview__grid,
+.design-system-docs .component-state-grid,
+.design-system-docs .button-state-grid,
+.design-system-docs .chip-state-grid,
+.design-system-docs .state-demo,
+.design-system-docs .card-grid,
+.design-system-docs .brand-board,
+.design-system-docs .swatches,
+.design-system-docs .gradient-grid,
+.design-system-docs .radius-grid,
+.design-system-docs .shadow-grid,
+.design-system-docs .state-grid,
+.design-system-docs .type-spec,
+.design-system-docs .logo-guidance {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 180px), 1fr));
+  gap: 24px;
+  width: 100%;
+  max-width: 100%;
+}
+
+.design-system-docs .state-sample,
+.design-system-docs .state-sample > *,
+.design-system-docs .form-demo label,
+.design-system-docs .search-demo,
+.design-system-docs .price-card,
+.design-system-docs .booking-card,
+.design-system-docs .empty,
+.design-system-docs .provider,
+.design-system-docs .mini-card,
+.design-system-docs .review {
+  min-width: 0;
+  max-width: 100%;
+}
+
+.design-system-docs .search-demo {
+  flex-wrap: wrap;
+}
+
+.design-system-docs .search-demo > span {
+  min-width: min(100%, 12rem);
+}
+
+.design-system-docs .button-stack,
+.design-system-docs .chips,
+.design-system-docs .badges,
+.design-system-docs .form-demo,
+.design-system-docs .logo-row {
+  width: 100%;
+  max-width: 100%;
+}
+
+.design-system-docs img,
+.design-system-docs svg,
+.design-system-docs iframe,
+.design-system-docs canvas {
+  max-width: 100%;
+  height: auto;
+}
+
+.design-system-docs .docs-table-wrap,
+.design-system-docs .wide-example-wrap,
+.design-system-docs .compare {
+  max-width: 100%;
+  overflow-x: auto;
+}
+
+.design-system-docs .screen-grid,
+.design-system-docs .icon-inventory {
+  overflow-x: visible;
+}
+
+@media (max-width: 980px) {
+  .design-system-docs__layout,
+  .design-system-docs .docs-layout {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .design-system-docs__content,
+  .design-system-docs .docs-panel {
+    padding-inline: clamp(16px, 4vw, 32px);
+  }
+}
