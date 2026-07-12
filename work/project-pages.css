@@ -2466,3 +2466,64 @@ body.dark-mode .design-system-docs .section-select {
     grid-template-columns: minmax(0, 1fr);
   }
 }
+
+/* Integrated Design System documentation backgrounds */
+body.bike-ds-page {
+  background: var(--background);
+}
+
+body.bike-ds-page .design-system-docs {
+  --docs-background: var(--background);
+}
+
+body.dude-page .design-system-docs {
+  --docs-background: transparent;
+}
+
+body.bike-ds-page .design-system-docs,
+body.bike-ds-page .design-system-docs__layout,
+body.bike-ds-page .design-system-docs__content,
+body.bike-ds-page .design-system-docs__section,
+body.bike-ds-page .design-system-docs .docs-layout,
+body.bike-ds-page .design-system-docs .docs-sidebar,
+body.bike-ds-page .design-system-docs .docs-panel,
+body.bike-ds-page .design-system-docs .docs-nav,
+body.bike-ds-page .design-system-docs .panel-preview,
+body.bike-ds-page .design-system-docs .panel-notes,
+body.bike-ds-page .design-system-docs .token-callout {
+  background: var(--docs-background);
+  background-image: none;
+  box-shadow: none;
+}
+
+body.dude-page .design-system-docs,
+body.dude-page .design-system-docs__layout,
+body.dude-page .design-system-docs__content,
+body.dude-page .design-system-docs__section,
+body.dude-page .design-system-docs .docs-layout,
+body.dude-page .design-system-docs .docs-sidebar,
+body.dude-page .design-system-docs .docs-panel,
+body.dude-page .design-system-docs .docs-nav,
+body.dude-page .design-system-docs .panel-preview,
+body.dude-page .design-system-docs .panel-notes,
+body.dude-page .design-system-docs .token-callout {
+  background: transparent;
+  background-image: none;
+  box-shadow: none;
+}
+
+body.dark-mode.dude-page .design-system-docs,
+body.dark-mode.dude-page .design-system-docs__layout,
+body.dark-mode.dude-page .design-system-docs__content,
+body.dark-mode.dude-page .design-system-docs__section,
+body.dark-mode.dude-page .design-system-docs .docs-layout,
+body.dark-mode.dude-page .design-system-docs .docs-sidebar,
+body.dark-mode.dude-page .design-system-docs .docs-panel,
+body.dark-mode.dude-page .design-system-docs .docs-nav,
+body.dark-mode.dude-page .design-system-docs .panel-preview,
+body.dark-mode.dude-page .design-system-docs .panel-notes,
+body.dark-mode.dude-page .design-system-docs .token-callout {
+  background: transparent;
+  background-image: none;
+  box-shadow: none;
+}
