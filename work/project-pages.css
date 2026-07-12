@@ -1458,18 +1458,21 @@ header.case-study-section.ds-section-heading { margin-top: 56px; margin-bottom: 
 }
 .app-screen-frame {
   width: min(100%, 320px);
+  aspect-ratio: 390 / 844;
   margin-inline: auto;
-  padding: 6px;
+  padding: 0;
   border: 1px solid var(--line);
   border-radius: 28px;
+  overflow: hidden;
   background: transparent;
   box-shadow: none;
 }
 .app-screen-frame img {
   display: block;
   width: 100%;
-  height: auto;
-  border-radius: 22px;
+  height: 100%;
+  object-fit: cover;
+  object-position: center top;
 }
 .screen-card__frame {
   width: min(100%, 320px);
