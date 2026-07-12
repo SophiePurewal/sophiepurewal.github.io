@@ -892,6 +892,54 @@ body.dark-mode .site-title a:focus-visible {
   color: var(--brand);
 }
 
+
+body.dark-mode.antelope-page h1,
+body.dark-mode.antelope-page h2,
+body.dark-mode.antelope-page h3,
+body.dark-mode.antelope-page .project-kicker,
+body.dark-mode.antelope-page .eyebrow,
+body.dark-mode.antelope-page .section-label,
+body.dark-mode.antelope-page .summary-item dt,
+body.dark-mode.antelope-page .stat-grid strong,
+body.dark-mode.antelope-page .screenshot-figure figcaption,
+body.dark-mode.antelope-page .project-main a:not(.button),
+body.dark-mode.antelope-page .project-footer a,
+body.dark-mode.antelope-page .text-link,
+body.dark-mode.antelope-page .back-link,
+body.dark-mode.antelope-page .footer-link,
+body.dark-mode.antelope-page .case-study-footer-link,
+body.dark-mode.antelope-page .site-header .site-title,
+body.dark-mode.antelope-page .site-header .site-title a,
+body.dark-mode.antelope-page .site-header.scrolled .site-title,
+body.dark-mode.antelope-page .site-header.scrolled .site-title a,
+body.dark-mode.antelope-page .site-header.menu-open .site-title,
+body.dark-mode.antelope-page .site-header.menu-open .site-title a,
+body.dark-mode.antelope-page .site-header.scrolled.menu-open .site-title,
+body.dark-mode.antelope-page .site-header.scrolled.menu-open .site-title a {
+  color: var(--color-heading-dark-mode);
+}
+
+body.dark-mode.antelope-page .project-main a:not(.button):hover,
+body.dark-mode.antelope-page .project-main a:not(.button):focus-visible,
+body.dark-mode.antelope-page .project-footer a:hover,
+body.dark-mode.antelope-page .project-footer a:focus-visible,
+body.dark-mode.antelope-page .text-link:hover,
+body.dark-mode.antelope-page .text-link:focus-visible,
+body.dark-mode.antelope-page .back-link:hover,
+body.dark-mode.antelope-page .back-link:focus-visible,
+body.dark-mode.antelope-page .footer-link:hover,
+body.dark-mode.antelope-page .footer-link:focus-visible,
+body.dark-mode.antelope-page .case-study-footer-link:hover,
+body.dark-mode.antelope-page .case-study-footer-link:focus-visible {
+  color: var(--color-heading-dark-mode);
+  text-decoration-line: underline;
+}
+
+body.dark-mode.antelope-page .site-title a:hover,
+body.dark-mode.antelope-page .site-title a:focus-visible {
+  color: var(--color-heading-dark-mode);
+}
+
 body.dark-mode.financial-services-page h1,
 body.dark-mode.financial-services-page h2,
 body.dark-mode.financial-services-page h3,
