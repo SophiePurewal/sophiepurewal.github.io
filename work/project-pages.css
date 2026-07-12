@@ -2386,6 +2386,17 @@ body.dark-mode.dude-page .site-title a:focus-visible {
   max-width: 100%;
 }
 
+body.dude-page .design-system-docs,
+body.dude-page .design-system-docs__layout,
+body.dude-page .design-system-docs .docs-layout,
+body.dude-page .design-system-docs .docs-sidebar,
+body.dude-page .design-system-docs .docs-panel,
+body.dude-page .design-system-docs .docs-nav {
+  background: transparent;
+  background-image: none;
+  box-shadow: none;
+}
+
 body.dark-mode .design-system-docs,
 body.dark-mode .design-system-docs .docs-layout,
 body.dark-mode .design-system-docs .docs-sidebar,
