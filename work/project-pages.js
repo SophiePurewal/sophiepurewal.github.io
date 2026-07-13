@@ -208,9 +208,7 @@ const screens = [
 const screenGrid = (assetBase = 'assets/') => `<div class="screen-grid">${screens.map(([file, label]) => `
   <figure class="screen-card">
     <div class="app-screen-frame screen-card__frame">
-      <div class="app-screen-viewport">
-        <img src="${assetBase}${file}" alt="${label} screen from the Dude, Where's My Bike? prototype" loading="lazy" decoding="async">
-      </div>
+      <img src="${assetBase}${file}" alt="${label} screen from the Dude, Where's My Bike? prototype" loading="lazy" decoding="async">
     </div>
     <figcaption>${label}</figcaption>
   </figure>`).join('')}</div>`;
