@@ -1457,10 +1457,8 @@ header.case-study-section.ds-section-heading { margin-top: 56px; margin-bottom: 
   gap: 12px;
 }
 .app-screen-frame {
+  display: inline-block;
   width: min(100%, 320px);
-  height: auto;
-  min-height: 0;
-  aspect-ratio: auto;
   margin-inline: auto;
   padding: 0;
   border: 1px solid var(--line);
