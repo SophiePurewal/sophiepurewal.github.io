@@ -88,7 +88,7 @@
     .dropdown-menu a,
     .dropdown-social-links a,
     .dropdown-link svg {
-      transition: color 0.35s ease, fill 0.35s ease, text-decoration-color 0.35s ease, opacity 0.35s ease;
+      transition: color 0.35s ease, fill 0.35s ease, stroke 0.35s ease, text-decoration-color 0.35s ease, opacity 0.35s ease;
     }
 
     .top-nav {
@@ -123,24 +123,11 @@
       text-decoration-thickness: 2px;
     }
 
-    .menu-toggle::after,
-    .theme-toggle::after {
-      content: "";
-      position: absolute;
-      left: 0;
-      bottom: -2px;
-      width: 100%;
-      height: 2px;
-      background: currentColor;
-      opacity: 0;
-      transition: opacity 0.2s ease;
-    }
-
-    .menu-toggle:hover::after,
-    .theme-toggle:hover::after,
     .dropdown-social-links a:hover::after,
-    .social-list a:hover::after {
-      opacity: 1;
+    .dropdown-social-links a:focus-visible::after,
+    .social-list a:hover::after,
+    .social-list a:focus-visible::after {
+      transform: scaleX(1);
     }
 
     .menu-toggle svg {
@@ -271,35 +258,25 @@
     .dropdown-link svg {
       width: 24px;
       height: 24px;
+      color: inherit;
       fill: currentColor;
-      color: #0C0D0F;
+      stroke: currentColor;
       flex-shrink: 0;
     }
 
     .dropdown-menu a:hover,
+    .dropdown-menu a:focus-visible,
     .dropdown-menu a:hover svg,
     .dropdown-menu a:focus-visible svg,
     .dropdown-social-links a:hover,
-    .dropdown-social-links a:hover svg {
-      color: #C0414E;
+    .dropdown-social-links a:focus-visible,
+    .dropdown-social-links a:hover svg,
+    .dropdown-social-links a:focus-visible svg {
+      color: inherit;
       fill: currentColor;
-      opacity: 0.82;
-      text-decoration: underline;
-      text-underline-offset: 4px;
-      text-decoration-thickness: 2px;
-    }
-
-    .site-header.scrolled .dropdown-menu a:hover,
-    .site-header.scrolled .dropdown-menu a:hover svg,
-    .site-header.scrolled .dropdown-menu a:focus-visible svg,
-    .site-header.scrolled .dropdown-social-links a:hover,
-    .site-header.scrolled .dropdown-social-links a:hover svg {
-      color: #FFFFFF;
-      fill: currentColor;
-      opacity: 0.82;
-      text-decoration: underline;
-      text-underline-offset: 4px;
-      text-decoration-thickness: 2px;
+      stroke: currentColor;
+      opacity: 1;
+      text-decoration: none;
     }
 
     .dropdown-social-links a.icon-email {
@@ -452,26 +429,9 @@
     .menu-toggle:focus-visible,
     .theme-toggle:hover,
     .theme-toggle:focus-visible {
-      color: #C0414E;
-      opacity: 0.82;
-      text-decoration: underline;
-      text-underline-offset: 4px;
-      text-decoration-thickness: 2px;
-    }
-
-    .site-header.scrolled .nav-list a:hover,
-    .site-header.scrolled .nav-list a:focus-visible,
-    .site-header.scrolled .social-list a:hover,
-    .site-header.scrolled .social-list a:focus-visible,
-    .site-header.scrolled .menu-toggle:hover,
-    .site-header.scrolled .menu-toggle:focus-visible,
-    .site-header.scrolled .theme-toggle:hover,
-    .site-header.scrolled .theme-toggle:focus-visible {
-      color: #FFFFFF;
-      opacity: 0.82;
-      text-decoration: underline;
-      text-underline-offset: 4px;
-      text-decoration-thickness: 2px;
+      color: inherit;
+      opacity: 1;
+      text-decoration: none;
     }
 
     .site-title a {
@@ -494,11 +454,6 @@
       opacity: 0.82;
     }
 
-    .social-list a:hover,
-    .social-list a:focus-visible {
-      text-decoration-color: currentColor;
-    }
-
     .social-list a::after,
     .dropdown-social-links a::after {
       content: "";
@@ -507,9 +462,39 @@
       bottom: -4px;
       width: 100%;
       height: 2px;
-      background: currentColor;
-      opacity: 0;
-      transition: opacity 0.2s ease;
+      background: var(--home-logo);
+      transform: scaleX(0);
+      transform-origin: left center;
+      transition: transform 0.2s ease;
+    }
+
+    .nav-list a,
+    .dropdown-link .nav-link-label {
+      position: relative;
+    }
+
+    .nav-list a::after,
+    .dropdown-link .nav-link-label::after {
+      content: "";
+      position: absolute;
+      left: 0;
+      right: 0;
+      bottom: -4px;
+      height: 2px;
+      background: var(--home-logo);
+      transform: scaleX(0);
+      transform-origin: left center;
+      transition: transform 0.2s ease;
+    }
+
+    .nav-list a:is(:hover, :focus-visible, .active, [aria-current="page"])::after,
+    .dropdown-link:is(:hover, :focus-visible, .active, [aria-current="page"]) .nav-link-label::after {
+      transform: scaleX(1);
+    }
+
+    .site-title a::after {
+      content: none;
+      display: none;
     }
 
     .site-title {
@@ -1051,6 +1036,8 @@
     body.home-page .site-header .dropdown-social-links a:hover svg,
     body.home-page .site-header .dropdown-social-links a:focus-visible svg {
       color: var(--home-logo);
+      fill: currentColor;
+      stroke: currentColor;
     }
 
     body.home-page .site-title,
@@ -1217,7 +1204,7 @@
 
     body.dark-mode.home-page {
       --home-surface: #0b1020;
-      --home-dark-accent: #D75463;
+      --home-header-divider: #334155;
     }
 
     body.dark-mode.home-page nav,
@@ -1230,8 +1217,8 @@
     body.dark-mode.home-page .site-header.scrolled .dropdown-menu {
       background: var(--home-surface);
       background-color: var(--home-surface);
-      border-color: #334155;
-      border-bottom-color: #334155;
+      border-color: var(--home-header-divider);
+      border-bottom-color: var(--home-header-divider);
       box-shadow: none;
     }
 
@@ -1262,6 +1249,19 @@
       color: var(--color-heading-dark-mode);
     }
 
+    body.dark-mode.home-page .site-header svg {
+      color: inherit;
+      stroke: currentColor;
+    }
+
+    body.dark-mode.home-page .site-header svg path {
+      fill: currentColor;
+    }
+
+    body.dark-mode.home-page .site-header .menu-icon line {
+      stroke: currentColor;
+    }
+
     body.dark-mode.home-page .site-header .nav-list a:hover,
     body.dark-mode.home-page .site-header .nav-list a:focus-visible,
     body.dark-mode.home-page .site-header .social-list a:hover,
@@ -1280,8 +1280,9 @@
     body.dark-mode.home-page .site-header .dropdown-social-links a:focus-visible,
     body.dark-mode.home-page .site-header .dropdown-social-links a:hover svg,
     body.dark-mode.home-page .site-header .dropdown-social-links a:focus-visible svg {
-      color: var(--home-dark-accent);
+      color: var(--color-heading-dark-mode);
       fill: currentColor;
+      stroke: currentColor;
     }
     @media (max-width: 900px) {
       .dropdown-menu {
@@ -1487,25 +1488,25 @@
           <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" aria-hidden="true" focusable="false">
             <path d="M480-400 40-640l440-240 440 240-440 240Zm0 160L63-467l84-46 333 182 333-182 84 46-417 227Zm0 160L63-307l84-46 333 182 333-182 84 46L480-80Zm0-411 273-149-273-149-273 149 273 149Zm0-149Z"/>
           </svg>
-          Case studies
+          <span class="nav-link-label">Case studies</span>
         </a>
         <a href="/request-cv.html" class="dropdown-link" aria-label="Request Sophie Purewal’s Product Designer CV">
           <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" aria-hidden="true" focusable="false">
             <path d="M480-320 280-520l56-58 104 104v-326h80v326l104-104 56 58-200 200ZM240-160q-33 0-56.5-23.5T160-240v-120h80v120h480v-120h80v120q0 33-23.5 56.5T720-160H240Z"/>
           </svg>
-          Request CV
+          <span class="nav-link-label">Request CV</span>
         </a>
         <a href="#endorsements" class="dropdown-link">
           <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" aria-hidden="true" focusable="false">
             <path d="M720-120H280v-520l280-280 50 50q7 7 11.5 19t4.5 23v14l-44 174h258q32 0 56 24t24 56v80q0 7-2 15t-4 15L794-168q-9 20-30 34t-44 14Zm-360-80h360l120-280v-80H480l54-220-174 174v406Zm0-406v406-406Zm-80-34v80H160v360h120v80H80v-520h200Z"/>
           </svg>
-          Endorsements
+          <span class="nav-link-label">Endorsements</span>
         </a>
         <a href="mailto:sophiepurewaldesign@gmail.com" class="dropdown-link">
           <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960" aria-hidden="true" focusable="false">
             <path d="M160-160q-33 0-56.5-23.5T80-240v-480q0-33 23.5-56.5T160-800h640q33 0 56.5 23.5T880-720v480q0 33-23.5 56.5T800-160H160Zm320-280L160-640v400h640v-400L480-440Zm0-80 320-200H160l320 200ZM160-640v-80 480-400Z" />
           </svg>
-          Contact
+          <span class="nav-link-label">Contact</span>
         </a>
         <div class="dropdown-social-links" aria-label="Social links">
           <a href="https://www.behance.net/sophiepurewal" aria-label="Visit Sophie Purewal's Behance profile" title="Behance (opens in a new tab)" target="_blank" rel="noopener noreferrer">Bē<span class="visually-hidden">Behance</span></a>
