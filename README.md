@@ -1,53 +1,38 @@
-# Sophie Purewal — Product and UI Design Portfolio
+# Financial Services Platform Case Study (Private Working Copy)
 
-The source code for my personal portfolio, showcasing commercial product
-design work, design systems, accessible interface design and AI-assisted
-prototyping.
+This private repository contains a standalone working copy of the Financial Services Platform case study from Sophie Purewal’s portfolio.
 
-## Live site
+It is intended for private editing, source-screenshot storage and anonymised portfolio mock-up preparation only. GitHub Pages and public deployment are not enabled in this repository.
 
-https://sophiepurewal.github.io
+## Included files
 
-## About the portfolio
+- `index.html` — standalone case-study page.
+- `assets/css/case-study.css` — required styles for the page layout, responsive behaviour, dark mode, focus states and navigation.
+- `assets/js/case-study.js` — required navigation and dark-mode interactions.
+- `assets/icons/favicon.svg` — local favicon used by the page.
+- `assets/screenshots/reference/` — private source screenshots; do not publish client-sensitive or non-anonymised images.
+- `assets/images/portfolio/` — anonymised portfolio-ready mock-ups and visual assets.
 
-This site presents selected work across:
+## Preview locally
 
-- regulated financial-services journeys
-- scalable design systems
-- accessible UI and component design
-- product concepts and interactive prototypes
-- collaboration with engineering and delivery teams
+From the repository root, run a local static server:
 
-## Featured case studies
+```bash
+python3 -m http.server 8000
+```
 
-- Financial Services Platform
-- Antelope Wealth
-- ChartStudio
-- Dude, Where’s My Bike?
+Then open:
 
-## Built with
+```text
+http://localhost:8000/
+```
 
-- Semantic HTML
-- CSS
-- JavaScript
-- GitHub Pages
-- Figma prototypes
+You can also open `index.html` directly in a browser, but a local server is preferred because it more closely matches browser behaviour for static assets.
 
-I designed the experience and used AI-assisted development tools, including
-Codex, to support implementation, testing and refinement.
+## Editing notes
 
-## Accessibility
-
-The site has been designed with responsive layouts, keyboard navigation,
-visible focus states, colour-contrast considerations and semantic structure
-in mind.
-
-## Running locally
-
-Clone the repository and open `index.html`, or serve the directory with a
-local development server.
-
-## Author
-
-Sophie Purewal  
-Senior Product and UI Designer# sophiepurewal.github.io
+- Keep this repository private.
+- Do not enable GitHub Pages or any public deployment.
+- Store non-anonymised reference screenshots only in `assets/screenshots/reference/`.
+- Store anonymised, portfolio-safe mock-ups only in `assets/images/portfolio/`.
+- Preserve semantic HTML, visible focus styles, keyboard navigation, responsive layout and dark-mode behaviour when editing.
