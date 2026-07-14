@@ -1324,14 +1324,6 @@
       stroke: currentColor;
     }
 
-    body.dark-mode.home-page .site-header .dropdown-link .nav-link-label::after {
-      background: var(--dark-theme-foreground);
-    }
-
-    body.dark-mode.home-page .site-header .dropdown-link:is(:hover, :focus-visible) .nav-link-label::after {
-      transform: scaleX(1);
-    }
-
     body.dark-mode.home-page .site-header .nav-list a::after,
     body.dark-mode.home-page .site-header .social-list a::after,
     body.dark-mode.home-page .site-header .menu-toggle::after,
@@ -1361,9 +1353,30 @@
       opacity: 1;
     }
 
+    body.dark-mode.home-page .site-header .dropdown-menu.open a:is(:hover, :focus-visible, .active, [aria-current="page"]),
+    body.dark-mode.home-page .site-header.scrolled .dropdown-menu.open a:is(:hover, :focus-visible, .active, [aria-current="page"]),
+    body.dark-mode.home-page .site-header .dropdown-menu.open a:is(:hover, :focus-visible, .active, [aria-current="page"]) .nav-link-label,
+    body.dark-mode.home-page .site-header.scrolled .dropdown-menu.open a:is(:hover, :focus-visible, .active, [aria-current="page"]) .nav-link-label,
+    body.dark-mode.home-page .site-header .dropdown-menu.open a:is(:hover, :focus-visible, .active, [aria-current="page"]) svg,
+    body.dark-mode.home-page .site-header.scrolled .dropdown-menu.open a:is(:hover, :focus-visible, .active, [aria-current="page"]) svg,
+    body.dark-mode.home-page .site-header .dropdown-menu.open a:is(:hover, :focus-visible, .active, [aria-current="page"]) svg path,
+    body.dark-mode.home-page .site-header.scrolled .dropdown-menu.open a:is(:hover, :focus-visible, .active, [aria-current="page"]) svg path,
+    body.dark-mode.home-page .site-header .dropdown-social-links a:is(:hover, :focus-visible, .active, [aria-current="page"]),
+    body.dark-mode.home-page .site-header.scrolled .dropdown-social-links a:is(:hover, :focus-visible, .active, [aria-current="page"]),
+    body.dark-mode.home-page .site-header .dropdown-social-links a:is(:hover, :focus-visible, .active, [aria-current="page"]) svg,
+    body.dark-mode.home-page .site-header.scrolled .dropdown-social-links a:is(:hover, :focus-visible, .active, [aria-current="page"]) svg,
+    body.dark-mode.home-page .site-header .dropdown-social-links a:is(:hover, :focus-visible, .active, [aria-current="page"]) svg path,
+    body.dark-mode.home-page .site-header.scrolled .dropdown-social-links a:is(:hover, :focus-visible, .active, [aria-current="page"]) svg path {
+      color: #FFFFFF;
+      fill: currentColor;
+      stroke: currentColor;
+      opacity: 1;
+    }
+
     body.dark-mode.home-page .site-header .dropdown-menu.open a:visited,
     body.dark-mode.home-page .site-header.scrolled .dropdown-menu.open a:visited,
-    body.dark-mode.home-page .site-header .dropdown-social-links a:visited {
+    body.dark-mode.home-page .site-header .dropdown-social-links a:visited,
+    body.dark-mode.home-page .site-header.scrolled .dropdown-social-links a:visited {
       color: #FFFFFF;
     }
 
