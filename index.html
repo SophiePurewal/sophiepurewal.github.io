@@ -13,7 +13,7 @@
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Playfair+Display:wght@700;900&display=swap" rel="stylesheet">
 
   <style>
     * { box-sizing: border-box; }
@@ -27,12 +27,12 @@
       --panel: #EFEFEF;
       --line: #efefef;
       --color-eyebrow: #333;
-      --section-shell-max: 980px;
+      --section-shell-max: 1180px;
       --section-shell-gutter: 48px;
       --section-shell-gutter-mobile: 32px;
       --site-logo-size: 28px;
       --home-surface: #FBFAF8;
-      --home-logo: #920C39;
+      --home-logo: #930B38;
       --home-header-divider: #D9D6D2;
     }
 
@@ -97,6 +97,8 @@
       align-items: center;
       min-height: 86px;
       padding: 0 40px;
+      max-width: 1180px;
+      margin: 0 auto;
       color: #0C0D0F;
       background-color: inherit;
       position: relative;
@@ -123,6 +125,10 @@
       text-decoration-thickness: 2px;
     }
 
+    .menu-toggle:hover::after,
+    .menu-toggle:focus-visible::after,
+    .theme-toggle:hover::after,
+    .theme-toggle:focus-visible::after,
     .dropdown-social-links a:hover::after,
     .dropdown-social-links a:focus-visible::after,
     .social-list a:hover::after,
@@ -326,6 +332,7 @@
       width: 20px;
       height: 20px;
       fill: currentColor;
+      stroke: currentColor;
       display: block;
     }
 
@@ -418,6 +425,7 @@
       width: 20px;
       height: 20px;
       fill: currentColor;
+      stroke: currentColor;
       display: block;
     }
 
@@ -444,16 +452,18 @@
     .site-title a:focus-visible {
       color: #C0414E;
       text-decoration: none;
-      opacity: 0.82;
+      opacity: 1;
     }
 
     .site-header.scrolled .site-title a:hover,
     .site-header.scrolled .site-title a:focus-visible {
       color: #FFFFFF;
       text-decoration: none;
-      opacity: 0.82;
+      opacity: 1;
     }
 
+    .menu-toggle::after,
+    .theme-toggle::after,
     .social-list a::after,
     .dropdown-social-links a::after {
       content: "";
@@ -466,6 +476,20 @@
       transform: scaleX(0);
       transform-origin: left center;
       transition: transform 0.2s ease;
+    }
+
+    .menu-toggle::after,
+    .theme-toggle::after {
+      left: 50%;
+      width: 24px;
+      transform: translateX(-50%) scaleX(0);
+    }
+
+    .menu-toggle:hover::after,
+    .menu-toggle:focus-visible::after,
+    .theme-toggle:hover::after,
+    .theme-toggle:focus-visible::after {
+      transform: translateX(-50%) scaleX(1);
     }
 
     .nav-list a,
@@ -505,8 +529,9 @@
     .site-title,
     .site-title a {
       font-size: var(--site-logo-size);
-      font-weight: 700;
-      letter-spacing: -0.02em;
+      font-family: "Playfair Display", serif;
+      font-weight: 900;
+      letter-spacing: -0.04em;
       line-height: 1;
     }
 
@@ -546,7 +571,7 @@
     }
 
     .theme-toggle:hover {
-      opacity: 0.82;
+      opacity: 1;
     }
 
     .visually-hidden {
@@ -750,7 +775,7 @@
     }
 
     .content {
-      max-width: 980px;
+      max-width: 1180px;
       margin: 0 auto;
       padding: 72px 24px;
     }
@@ -1052,7 +1077,7 @@
     body.home-page .site-header.scrolled .site-title a:hover,
     body.home-page .site-header.scrolled .site-title a:focus-visible {
       color: var(--home-logo);
-      opacity: 0.82;
+      opacity: 1;
     }
 
     body.dark-mode {
@@ -1109,12 +1134,13 @@
       border-top-color: #334155;
     }
 
-    body.dark-mode .dropdown-menu a:hover,
-    body.dark-mode .dropdown-menu a:hover svg,
-    body.dark-mode .dropdown-social-links a:hover,
-    body.dark-mode .dropdown-social-links a:hover svg {
-      color: #C0414E;
+    body.dark-mode .dropdown-menu a:is(:hover, :focus-visible),
+    body.dark-mode .dropdown-menu a:is(:hover, :focus-visible) svg,
+    body.dark-mode .dropdown-social-links a:is(:hover, :focus-visible),
+    body.dark-mode .dropdown-social-links a:is(:hover, :focus-visible) svg {
+      color: #FFFFFF;
       fill: currentColor;
+      stroke: currentColor;
     }
 
     body.dark-mode .nav-list a,
@@ -1297,9 +1323,13 @@
       transform: scaleX(1);
     }
 
+    body.dark-mode.home-page .site-header .nav-list a::after,
+    body.dark-mode.home-page .site-header .social-list a::after,
+    body.dark-mode.home-page .site-header .menu-toggle::after,
+    body.dark-mode.home-page .site-header .theme-toggle::after,
+    body.dark-mode.home-page .site-header .dropdown-link .nav-link-label::after,
     body.dark-mode.home-page .site-header .dropdown-social-links a::after {
-      content: none;
-      display: none;
+      background: #FFFFFF;
     }
     @media (max-width: 900px) {
       .dropdown-menu {
@@ -1467,11 +1497,6 @@
         font-size: 24px;
       }
 
-      .menu-toggle::after,
-      .theme-toggle::after,
-      .social-list a.icon-email::after {
-        display: none;
-      }
     }
   </style>
   <link rel="stylesheet" href="projects-grid.css">
