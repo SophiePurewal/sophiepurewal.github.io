@@ -1295,7 +1295,7 @@
     body.dark-mode.home-page .site-header .dropdown-social-links a,
     body.dark-mode.home-page .site-header .dropdown-social-links a svg,
     body.dark-mode.home-page .site-header .dropdown-social-links a span {
-      color: inherit;
+      color: #FFFFFF;
       fill: currentColor;
       stroke: currentColor;
       text-decoration-color: currentColor;
@@ -1328,7 +1328,7 @@
       background: var(--dark-theme-foreground);
     }
 
-    body.dark-mode.home-page .site-header .dropdown-link:is(:hover, :focus-visible, .active, [aria-current="page"]) .nav-link-label::after {
+    body.dark-mode.home-page .site-header .dropdown-link:is(:hover, :focus-visible) .nav-link-label::after {
       transform: scaleX(1);
     }
 
@@ -1339,6 +1339,50 @@
     body.dark-mode.home-page .site-header .dropdown-link .nav-link-label::after,
     body.dark-mode.home-page .site-header .dropdown-social-links a::after {
       background: #FFFFFF;
+    }
+
+    body.dark-mode.home-page .site-header .dropdown-menu.open a,
+    body.dark-mode.home-page .site-header.scrolled .dropdown-menu.open a,
+    body.dark-mode.home-page .site-header .dropdown-menu.open .nav-link-label,
+    body.dark-mode.home-page .site-header.scrolled .dropdown-menu.open .nav-link-label,
+    body.dark-mode.home-page .site-header .dropdown-menu.open a svg,
+    body.dark-mode.home-page .site-header.scrolled .dropdown-menu.open a svg,
+    body.dark-mode.home-page .site-header .dropdown-menu.open a svg path,
+    body.dark-mode.home-page .site-header.scrolled .dropdown-menu.open a svg path,
+    body.dark-mode.home-page .site-header .dropdown-social-links a,
+    body.dark-mode.home-page .site-header.scrolled .dropdown-social-links a,
+    body.dark-mode.home-page .site-header .dropdown-social-links a svg,
+    body.dark-mode.home-page .site-header.scrolled .dropdown-social-links a svg,
+    body.dark-mode.home-page .site-header .dropdown-social-links a svg path,
+    body.dark-mode.home-page .site-header.scrolled .dropdown-social-links a svg path {
+      color: #FFFFFF;
+      fill: currentColor;
+      stroke: currentColor;
+      opacity: 1;
+    }
+
+    body.dark-mode.home-page .site-header .dropdown-menu.open a:visited,
+    body.dark-mode.home-page .site-header.scrolled .dropdown-menu.open a:visited,
+    body.dark-mode.home-page .site-header .dropdown-social-links a:visited {
+      color: #FFFFFF;
+    }
+
+    body.dark-mode.home-page .site-header .dropdown-link .nav-link-label::after {
+      background: #FFFFFF;
+      transform: scaleX(0);
+    }
+
+    body.dark-mode.home-page .site-header .dropdown-link:is(:hover, :focus-visible) .nav-link-label::after {
+      transform: scaleX(1);
+    }
+
+    body.dark-mode.home-page .site-header .dropdown-social-links a::after {
+      background: #FFFFFF;
+      transform: scaleX(0);
+    }
+
+    body.dark-mode.home-page .site-header .dropdown-social-links a:is(:hover, :focus-visible)::after {
+      transform: scaleX(1);
     }
     @media (max-width: 900px) {
       .dropdown-menu {
