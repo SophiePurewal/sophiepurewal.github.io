@@ -31,6 +31,9 @@
       --section-shell-gutter: 48px;
       --section-shell-gutter-mobile: 32px;
       --site-logo-size: 28px;
+      --home-surface: #FBFAF8;
+      --home-logo: #920C39;
+      --home-header-divider: #D9D6D2;
     }
 
     html { scroll-behavior: smooth; }
@@ -982,6 +985,84 @@
       text-align: center;
       color: #666;
       border-top: 1px solid #efefef;
+    }
+
+    body.home-page {
+      background: var(--home-surface);
+      background-color: var(--home-surface);
+    }
+
+    body.home-page nav,
+    body.home-page .navbar,
+    body.home-page .site-header,
+    body.home-page .site-header.scrolled {
+      background: var(--home-surface);
+      background-color: var(--home-surface);
+    }
+
+    body.home-page .site-header,
+    body.home-page .site-header.scrolled {
+      border-bottom: 1px solid var(--home-header-divider);
+      box-shadow: none;
+    }
+
+    body.home-page .site-header.menu-open,
+    body.home-page .site-header.scrolled.menu-open {
+      border-bottom-color: var(--home-header-divider);
+    }
+
+    body.home-page .hero,
+    body.home-page .projects-section {
+      background: var(--home-surface);
+    }
+
+    body.home-page .site-header.scrolled .dropdown-menu {
+      background: var(--home-surface);
+      border-color: var(--home-header-divider);
+      box-shadow: none;
+      --focus-outline-color: var(--home-logo);
+    }
+
+    body.home-page .site-header.scrolled .menu-toggle,
+    body.home-page .site-header.scrolled .theme-toggle,
+    body.home-page .site-header.scrolled .nav-list a,
+    body.home-page .site-header.scrolled .social-list a,
+    body.home-page .site-header.scrolled .dropdown-menu.open a,
+    body.home-page .site-header.scrolled .dropdown-menu.open a svg,
+    body.home-page .site-header.scrolled .dropdown-social-links a,
+    body.home-page .site-header.scrolled .dropdown-social-links a svg {
+      color: #0C0D0F;
+    }
+
+    body.home-page .site-header.scrolled .nav-list a:hover,
+    body.home-page .site-header.scrolled .nav-list a:focus-visible,
+    body.home-page .site-header.scrolled .social-list a:hover,
+    body.home-page .site-header.scrolled .social-list a:focus-visible,
+    body.home-page .site-header.scrolled .menu-toggle:hover,
+    body.home-page .site-header.scrolled .menu-toggle:focus-visible,
+    body.home-page .site-header.scrolled .theme-toggle:hover,
+    body.home-page .site-header.scrolled .theme-toggle:focus-visible,
+    body.home-page .site-header.scrolled .dropdown-menu a:hover,
+    body.home-page .site-header.scrolled .dropdown-menu a:hover svg,
+    body.home-page .site-header.scrolled .dropdown-menu a:focus-visible svg,
+    body.home-page .site-header.scrolled .dropdown-social-links a:hover,
+    body.home-page .site-header.scrolled .dropdown-social-links a:hover svg {
+      color: #C0414E;
+    }
+
+    body.home-page .site-title,
+    body.home-page .site-title a,
+    body.home-page .site-header.scrolled .site-title,
+    body.home-page .site-header.scrolled .site-title a {
+      color: var(--home-logo);
+    }
+
+    body.home-page .site-title a:hover,
+    body.home-page .site-title a:focus-visible,
+    body.home-page .site-header.scrolled .site-title a:hover,
+    body.home-page .site-header.scrolled .site-title a:focus-visible {
+      color: var(--home-logo);
+      opacity: 0.82;
     }
 
     body.dark-mode {
