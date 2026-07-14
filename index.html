@@ -1058,6 +1058,7 @@
     body.dark-mode {
       color-scheme: dark;
       --color-heading-dark-mode: #F8FAFC;
+      --dark-theme-foreground: var(--text-light);
       color: #e5e7eb;
       background: #0b1020;
     }
@@ -1205,6 +1206,7 @@
     body.dark-mode.home-page {
       --home-surface: #0b1020;
       --home-header-divider: #334155;
+      --focus-outline-color: var(--dark-theme-foreground);
     }
 
     body.dark-mode.home-page nav,
@@ -1227,7 +1229,7 @@
     body.dark-mode.home-page .site-header.menu-open,
     body.dark-mode.home-page .site-header.scrolled.menu-open,
     body.dark-mode.home-page .site-header.scrolled .dropdown-menu {
-      --focus-outline-color: var(--color-heading-dark-mode);
+      --focus-outline-color: var(--dark-theme-foreground);
     }
 
     body.dark-mode.home-page .site-header .site-title,
@@ -1236,26 +1238,32 @@
     body.dark-mode.home-page .site-header.scrolled .site-title a,
     body.dark-mode.home-page .site-header .menu-toggle,
     body.dark-mode.home-page .site-header .theme-toggle,
-    body.dark-mode.home-page .site-header .dropdown-menu a,
-    body.dark-mode.home-page .site-header .dropdown-menu a svg,
-    body.dark-mode.home-page .site-header .dropdown-social-links a,
-    body.dark-mode.home-page .site-header .dropdown-social-links a svg,
     body.dark-mode.home-page .site-header .nav-list a,
     body.dark-mode.home-page .site-header .social-list a,
     body.dark-mode.home-page .site-header.scrolled .menu-toggle,
     body.dark-mode.home-page .site-header.scrolled .theme-toggle,
     body.dark-mode.home-page .site-header.scrolled .nav-list a,
     body.dark-mode.home-page .site-header.scrolled .social-list a {
-      color: var(--color-heading-dark-mode);
+      color: var(--dark-theme-foreground);
     }
 
-    body.dark-mode.home-page .site-header svg {
+    body.dark-mode.home-page .site-header .dropdown-menu {
+      color: var(--dark-theme-foreground);
+      --focus-outline-color: var(--dark-theme-foreground);
+    }
+
+    body.dark-mode.home-page .site-header .dropdown-menu a,
+    body.dark-mode.home-page .site-header .dropdown-menu button,
+    body.dark-mode.home-page .site-header .dropdown-menu span,
+    body.dark-mode.home-page .site-header .dropdown-menu svg,
+    body.dark-mode.home-page .site-header .dropdown-menu svg path,
+    body.dark-mode.home-page .site-header .dropdown-social-links a,
+    body.dark-mode.home-page .site-header .dropdown-social-links a svg,
+    body.dark-mode.home-page .site-header .dropdown-social-links a span {
       color: inherit;
-      stroke: currentColor;
-    }
-
-    body.dark-mode.home-page .site-header svg path {
       fill: currentColor;
+      stroke: currentColor;
+      text-decoration-color: currentColor;
     }
 
     body.dark-mode.home-page .site-header .menu-icon line {
@@ -1274,15 +1282,24 @@
     body.dark-mode.home-page .site-header .site-title a:focus-visible,
     body.dark-mode.home-page .site-header .dropdown-menu a:hover,
     body.dark-mode.home-page .site-header .dropdown-menu a:focus-visible,
-    body.dark-mode.home-page .site-header .dropdown-menu a:hover svg,
-    body.dark-mode.home-page .site-header .dropdown-menu a:focus-visible svg,
     body.dark-mode.home-page .site-header .dropdown-social-links a:hover,
-    body.dark-mode.home-page .site-header .dropdown-social-links a:focus-visible,
-    body.dark-mode.home-page .site-header .dropdown-social-links a:hover svg,
-    body.dark-mode.home-page .site-header .dropdown-social-links a:focus-visible svg {
-      color: var(--color-heading-dark-mode);
+    body.dark-mode.home-page .site-header .dropdown-social-links a:focus-visible {
+      color: var(--dark-theme-foreground);
       fill: currentColor;
       stroke: currentColor;
+    }
+
+    body.dark-mode.home-page .site-header .dropdown-link .nav-link-label::after {
+      background: var(--dark-theme-foreground);
+    }
+
+    body.dark-mode.home-page .site-header .dropdown-link:is(:hover, :focus-visible, .active, [aria-current="page"]) .nav-link-label::after {
+      transform: scaleX(1);
+    }
+
+    body.dark-mode.home-page .site-header .dropdown-social-links a::after {
+      content: none;
+      display: none;
     }
     @media (max-width: 900px) {
       .dropdown-menu {
