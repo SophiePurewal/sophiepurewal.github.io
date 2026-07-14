@@ -3,1354 +3,63 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Sophie Purewal — Senior UI &amp; Product Designer</title>
-  <meta name="description" content="Senior UI and Product Designer specialising in design systems, accessible financial products, complex digital journeys and production-ready interface design.">
-  <meta property="og:title" content="Sophie Purewal — Senior UI &amp; Product Designer">
-  <meta property="og:description" content="Senior UI and Product Designer specialising in design systems, accessible financial products, complex digital journeys and production-ready interface design.">
-  <meta property="og:url" content="https://sophiepurewal.github.io/index.html">
-  <meta property="og:image" content="https://sophiepurewal.github.io/assets/projects/antelope-wealth/antelope-desktop-onboarding-hero.png">
-  <link rel="icon" type="image/svg+xml" href="favicon.svg">
-
+  <title>Financial Services Platform | Sophie Purewal</title>
+  <meta name="description" content="Senior UI design case study covering component refinement, salary-sacrifice calculator redesign and UAT for a large UK financial-services website.">
+  <meta property="og:title" content="Financial Services Platform | Sophie Purewal">
+  <meta property="og:description" content="Senior UI design case study covering component refinement, salary-sacrifice calculator redesign and UAT for a large UK financial-services website.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="./">
+  <link rel="icon" type="image/svg+xml" href="assets/icons/favicon.svg">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
-
-  <style>
-    * { box-sizing: border-box; }
-
-    :root {
-      --brand: #C0414E;
-      --brand-dark: #C0414E;
-      --brand-soft: #EFEFEF;
-      --text-light: #ffffff;
-      --text-dark: #0C0D0F;
-      --panel: #EFEFEF;
-      --line: #efefef;
-      --color-eyebrow: #333;
-      --section-shell-max: 980px;
-      --section-shell-gutter: 48px;
-      --section-shell-gutter-mobile: 32px;
-      --site-logo-size: 28px;
-    }
-
-    html { scroll-behavior: smooth; }
-
-    body {
-      margin: 0;
-      font-family: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
-      line-height: 1.6;
-      color: var(--text-dark);
-      background: #EFEFEF;
-      background-color: #EFEFEF;
-    }
-
-    nav,
-    .navbar {
-      background-color: #EFEFEF;
-    }
-
-    .site-header {
-      position: sticky;
-      top: 0;
-      z-index: 100;
-      background: #EFEFEF;
-      border-bottom: 1px solid rgba(12, 13, 15, 0.14);
-      transition: background-color 0.35s ease, border-bottom-color 0.35s ease, box-shadow 0.35s ease;
-    }
-
-    .site-header.scrolled {
-      background: #C0414E;
-      border-bottom: 1px solid rgba(255, 255, 255, 0.25);
-      box-shadow: 0 2px 10px rgba(192, 65, 78, 0.24);
-      --focus-outline-color: #ffffff;
-    }
-
-    .site-header.scrolled.menu-open {
-      border-bottom-color: transparent;
-    }
-
-    .site-header.scrolled .social-list a,
-    .site-header.scrolled .menu-toggle,
-    .site-header.scrolled .theme-toggle,
-    .site-header.scrolled .nav-list a,
-    .site-header.scrolled .site-title,
-    .site-header.scrolled .site-title a {
-      color: #FFFFFF;
-    }
-
-    .site-title,
-    .menu-toggle,
-    .theme-toggle,
-    .social-list a,
-    .dropdown-menu a,
-    .dropdown-social-links a,
-    .dropdown-link svg {
-      transition: color 0.35s ease, fill 0.35s ease, text-decoration-color 0.35s ease, opacity 0.35s ease;
-    }
-
-    .top-nav {
-      display: grid;
-      grid-template-columns: 1fr auto 1fr;
-      align-items: center;
-      min-height: 86px;
-      padding: 0 40px;
-      color: #0C0D0F;
-      background-color: inherit;
-      position: relative;
-    }
-
-    .menu-toggle {
-      display: inline-flex;
-      appearance: none;
-      border: none;
-      background: transparent;
-      color: #0C0D0F;
-      line-height: 1;
-      border-radius: 8px;
-      padding: 8px 0;
-      cursor: pointer;
-      align-items: center;
-      justify-content: center;
-      justify-self: start;
-      outline: none;
-      box-shadow: none;
-      position: relative;
-      text-decoration: none;
-      text-underline-offset: 4px;
-      text-decoration-thickness: 2px;
-    }
-
-    .menu-toggle::after,
-    .theme-toggle::after {
-      content: "";
-      position: absolute;
-      left: 0;
-      bottom: -2px;
-      width: 100%;
-      height: 2px;
-      background: currentColor;
-      opacity: 0;
-      transition: opacity 0.2s ease;
-    }
-
-    .menu-toggle:hover::after,
-    .theme-toggle:hover::after,
-    .dropdown-social-links a:hover::after,
-    .social-list a:hover::after {
-      opacity: 1;
-    }
-
-    .menu-toggle svg {
-      width: 24px;
-      height: 24px;
-      display: block;
-    }
-
-    .menu-toggle .menu-icon line {
-      stroke: currentColor;
-      stroke-width: 80;
-      stroke-linecap: round;
-      transform-box: fill-box;
-      transform-origin: center;
-      transition: transform 0.25s ease, opacity 0.2s ease;
-    }
-
-    .menu-toggle .menu-icon .line-top {
-      transform: translateY(-200px);
-    }
-
-    .menu-toggle .menu-icon .line-bottom {
-      transform: translateY(200px);
-    }
-
-    .menu-toggle[aria-expanded="true"] .menu-icon .line-top {
-      transform: rotate(45deg);
-    }
-
-    .menu-toggle[aria-expanded="true"] .menu-icon .line-bottom {
-      transform: rotate(-45deg);
-    }
-
-    @media (prefers-reduced-motion: reduce) {
-      html {
-        scroll-behavior: auto;
-      }
-
-      *,
-      *::before,
-      *::after {
-        animation: none !important;
-        transition: none !important;
-      }
-
-      .menu-toggle .menu-icon line {
-        transition: none;
-      }
-
-    }
-
-    .dropdown-menu {
-      position: absolute;
-      left: 0;
-      top: 100%;
-      width: 100%;
-      background: #EFEFEF;
-      border: 1px solid rgba(12, 13, 15, 0.14);
-      border-radius: 0;
-      padding: 24px 40px;
-      display: flex;
-      flex-direction: column;
-      gap: 24px;
-      color: #0C0D0F;
-      overflow: hidden;
-      max-height: 0;
-      opacity: 0;
-      visibility: hidden;
-      pointer-events: none;
-      transform-origin: top center;
-      transform: translateY(-10px) scaleY(0.92);
-      transition:
-        max-height 0.42s cubic-bezier(0.22, 1, 0.36, 1),
-        opacity 0.28s ease,
-        transform 0.42s cubic-bezier(0.22, 1, 0.36, 1),
-        visibility 0s linear 0.42s;
-      will-change: max-height, opacity, transform;
-      --focus-outline-color: #C0414E;
-    }
-
-    .site-header.scrolled .dropdown-menu {
-      background: #C0414E;
-      border-color: rgba(255, 255, 255, 0.25);
-      color: #FFFFFF;
-      --focus-outline-color: #FFFFFF;
-    }
-
-    .site-header.scrolled.menu-open .dropdown-menu {
-      border-top-color: transparent;
-    }
-
-    .site-header.scrolled .dropdown-menu.open a,
-    .site-header.scrolled .dropdown-menu.open a svg,
-    .site-header.scrolled .dropdown-social-links a,
-    .site-header.scrolled .dropdown-social-links a svg {
-      color: #FFFFFF;
-      fill: currentColor;
-    }
-
-    .dropdown-menu.open {
-      max-height: 560px;
-      opacity: 1;
-      visibility: visible;
-      pointer-events: auto;
-      transform: translateY(0) scaleY(1);
-      transition:
-        max-height 0.42s cubic-bezier(0.22, 1, 0.36, 1),
-        opacity 0.28s ease,
-        transform 0.42s cubic-bezier(0.22, 1, 0.36, 1),
-        visibility 0s linear 0s;
-    }
-
-    .dropdown-menu a {
-      color: #0C0D0F;
-      text-decoration: none;
-      font-size: 16px;
-      text-underline-offset: 4px;
-      text-decoration-thickness: 2px;
-    }
-
-    .dropdown-link {
-      display: inline-flex;
-      align-items: center;
-      gap: 10px;
-      width: fit-content;
-    }
-
-    .dropdown-link svg {
-      width: 24px;
-      height: 24px;
-      fill: currentColor;
-      color: #0C0D0F;
-      flex-shrink: 0;
-    }
-
-    .dropdown-menu a:hover,
-    .dropdown-menu a:hover svg,
-    .dropdown-menu a:focus-visible svg,
-    .dropdown-social-links a:hover,
-    .dropdown-social-links a:hover svg {
-      color: #C0414E;
-      fill: currentColor;
-      opacity: 0.82;
-      text-decoration: underline;
-      text-underline-offset: 4px;
-      text-decoration-thickness: 2px;
-    }
-
-    .site-header.scrolled .dropdown-menu a:hover,
-    .site-header.scrolled .dropdown-menu a:hover svg,
-    .site-header.scrolled .dropdown-menu a:focus-visible svg,
-    .site-header.scrolled .dropdown-social-links a:hover,
-    .site-header.scrolled .dropdown-social-links a:hover svg {
-      color: #FFFFFF;
-      fill: currentColor;
-      opacity: 0.82;
-      text-decoration: underline;
-      text-underline-offset: 4px;
-      text-decoration-thickness: 2px;
-    }
-
-    .dropdown-social-links a.icon-email {
-      width: 20px;
-      height: 20px;
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-    }
-
-    .dropdown-social-links a.icon-email svg {
-      width: 20px;
-      height: 20px;
-      fill: currentColor;
-      display: block;
-    }
-
-    .dropdown-social-links {
-      display: flex;
-      align-items: center;
-      gap: 24px;
-      flex-wrap: wrap;
-      border-top: 1px solid rgba(12, 13, 15, 0.14);
-      padding-top: 16px;
-    }
-
-    .dropdown-social-links a {
-      width: 20px;
-      height: 20px;
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 20px;
-      line-height: 1;
-      color: #0C0D0F;
-      text-decoration: none;
-      text-decoration-thickness: 2px;
-      text-underline-offset: 4px;
-      position: relative;
-    }
-
-    .site-header.scrolled .dropdown-social-links {
-      border-top-color: rgba(255, 255, 255, 0.25);
-    }
-
-    .dropdown-social-links a svg {
-      width: 20px;
-      height: 20px;
-      fill: currentColor;
-      display: block;
-    }
-
-    :where(a, button):focus-visible {
-      outline: 3px solid var(--focus-outline-color, #C0414E);
-      outline-offset: 3px;
-      border-radius: 6px;
-      opacity: 1;
-    }
-
-    .nav-list,
-    .social-list {
-      list-style: none;
-      display: flex;
-      gap: 28px;
-      margin: 0;
-      padding: 0;
-      align-items: center;
-    }
-
-    .social-list {
-      justify-self: end;
-      column-gap: 24px;
-      align-items: flex-end;
-    }
-
-    .social-list li {
-      display: flex;
-      align-items: flex-end;
-    }
-
-    .nav-list a,
-    .social-list a {
-      color: #0C0D0F;
-      text-decoration: none;
-    }
-
-    .site-title {
-      color: #C0414E;
-      text-decoration: none;
-    }
-
-    .site-title,
-    h1,
-    h2,
-    h3,
-    h4,
-    h5,
-    h6 {
-      font-family: 'Playfair Display', Georgia, 'Times New Roman', serif;
-      font-weight: 700;
-    }
-
-    .nav-list a,
-    .social-list a,
-    .site-title a,
-    .menu-toggle,
-    .theme-toggle {
-      font-weight: 500;
-      line-height: 1;
-      transition: color 0.2s ease, opacity 0.2s ease, text-decoration-color 0.2s ease;
-      text-underline-offset: 4px;
-      text-decoration-thickness: 2px;
-    }
-
-    .nav-list a {
-      font-size: 16px;
-    }
-
-    .social-list a {
-      font-size: 20px;
-      width: 20px;
-      height: 20px;
-      display: inline-flex;
-      align-items: flex-end;
-      justify-content: center;
-      color: #0C0D0F;
-      text-underline-offset: 4px;
-      text-decoration-thickness: 2px;
-      text-decoration-color: transparent;
-      position: relative;
-    }
-
-    .social-list a.icon-email {
-      width: 20px;
-      height: 20px;
-    }
-
-    .social-list a.icon-email svg {
-      width: 20px;
-      height: 20px;
-      fill: currentColor;
-      display: block;
-    }
-
-    .nav-list a:hover,
-    .nav-list a:focus-visible,
-    .social-list a:hover,
-    .social-list a:focus-visible,
-    .menu-toggle:hover,
-    .menu-toggle:focus-visible,
-    .theme-toggle:hover,
-    .theme-toggle:focus-visible {
-      color: #C0414E;
-      opacity: 0.82;
-      text-decoration: underline;
-      text-underline-offset: 4px;
-      text-decoration-thickness: 2px;
-    }
-
-    .site-header.scrolled .nav-list a:hover,
-    .site-header.scrolled .nav-list a:focus-visible,
-    .site-header.scrolled .social-list a:hover,
-    .site-header.scrolled .social-list a:focus-visible,
-    .site-header.scrolled .menu-toggle:hover,
-    .site-header.scrolled .menu-toggle:focus-visible,
-    .site-header.scrolled .theme-toggle:hover,
-    .site-header.scrolled .theme-toggle:focus-visible {
-      color: #FFFFFF;
-      opacity: 0.82;
-      text-decoration: underline;
-      text-underline-offset: 4px;
-      text-decoration-thickness: 2px;
-    }
-
-    .site-title a {
-      color: inherit;
-      text-decoration: none;
-      transition: opacity 0.2s ease;
-    }
-
-    .site-title a:hover,
-    .site-title a:focus-visible {
-      color: #C0414E;
-      text-decoration: none;
-      opacity: 0.82;
-    }
-
-    .site-header.scrolled .site-title a:hover,
-    .site-header.scrolled .site-title a:focus-visible {
-      color: #FFFFFF;
-      text-decoration: none;
-      opacity: 0.82;
-    }
-
-    .social-list a:hover,
-    .social-list a:focus-visible {
-      text-decoration-color: currentColor;
-    }
-
-    .social-list a::after,
-    .dropdown-social-links a::after {
-      content: "";
-      position: absolute;
-      left: 0;
-      bottom: -4px;
-      width: 100%;
-      height: 2px;
-      background: currentColor;
-      opacity: 0;
-      transition: opacity 0.2s ease;
-    }
-
-    .site-title {
-      margin: 0;
-      justify-self: center;
-    }
-
-    .site-title,
-    .site-title a {
-      font-size: var(--site-logo-size);
-      font-weight: 700;
-      letter-spacing: -0.02em;
-      line-height: 1;
-    }
-
-    .header-actions {
-      justify-self: end;
-      display: flex;
-      align-items: center;
-      gap: 16px;
-    }
-
-    .theme-toggle {
-      appearance: none;
-      border: none;
-      background: transparent;
-      color: #0C0D0F;
-      width: 30px;
-      height: 30px;
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      cursor: pointer;
-      border-radius: 8px;
-      padding: 0;
-      transition: color 0.2s ease, opacity 0.2s ease, text-decoration-color 0.2s ease;
-      position: relative;
-      text-decoration: none;
-    }
-
-    .theme-toggle svg {
-      width: 24px;
-      height: 24px;
-      display: block;
-    }
-
-    .theme-toggle svg path {
-      fill: currentColor;
-    }
-
-    .theme-toggle:hover {
-      opacity: 0.82;
-    }
-
-    .visually-hidden {
-      position: absolute;
-      width: 1px;
-      height: 1px;
-      margin: -1px;
-      padding: 0;
-      overflow: hidden;
-      clip: rect(0 0 0 0);
-      border: 0;
-      white-space: nowrap;
-    }
-
-    .skip-link {
-      position: absolute;
-      top: -48px;
-      left: 16px;
-      background: #111111;
-      color: #ffffff;
-      padding: 10px 14px;
-      border-radius: 8px;
-      text-decoration: none;
-      z-index: 200;
-    }
-
-    .skip-link:focus-visible {
-      top: 12px;
-      outline-color: #ffffff;
-    }
-
-    .skip-link {
-      --focus-outline-color: #ffffff;
-    }
-
-    .hero {
-      background: #f7f7f7;
-      color: #1f1f1f;
-      min-height: 72vh;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      padding: 86px 40px 92px;
-    }
-
-    .hero-panel {
-      width: min(1180px, 100%);
-      margin: 0 auto;
-      display: grid;
-      grid-template-columns: repeat(12, minmax(0, 1fr));
-      column-gap: 92px;
-      row-gap: 22px;
-      align-items: center;
-    }
-
-    .hero-copy {
-      grid-column: 2 / span 6;
-      max-width: 680px;
-    }
-
-    .hero h1 {
-      margin: 0;
-      font-family: 'Playfair Display', Georgia, 'Times New Roman', serif;
-      font-size: 42px;
-      line-height: 1.1;
-      font-weight: 700;
-      color: #C0414E;
-      letter-spacing: -0.02em;
-      white-space: nowrap;
-    }
-
-    .home-page p {
-      font-size: 16px;
-    }
-
-    .home-page .hero-intro {
-      margin: 30px 0 0;
-      font-family: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
-      font-size: 20px;
-      line-height: 26px;
-      font-weight: 300;
-      color: #0C0D0F;
-    }
-
-    .hero-link {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      gap: 10px;
-      min-height: 44px;
-      padding: 8px 0;
-      border-radius: 6px;
-      color: var(--brand-dark);
-      text-decoration: none;
-      font-family: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
-      font-size: 18px;
-      line-height: 1.2;
-      font-weight: 700;
-      position: relative;
-      transition: color 0.25s ease;
-    }
-
-    .hero-link svg {
-      width: 24px;
-      height: 24px;
-      flex-shrink: 0;
-      fill: currentColor;
-      transition: fill 0.25s ease;
-    }
-
-    .hero-link__label {
-      text-decoration-line: underline;
-      text-decoration-color: transparent;
-      text-decoration-thickness: 2px;
-      text-underline-offset: 6px;
-      transition: text-decoration-color 0.25s ease;
-    }
-
-    .hero-link:hover,
-    .hero-link:focus-visible {
-      color: var(--text-dark);
-    }
-
-    .hero-link:hover .hero-link__label,
-    .hero-link:focus-visible .hero-link__label {
-      text-decoration-color: currentColor;
-    }
-
-    .hero-photo {
-      grid-column: 8 / span 4;
-      justify-self: center;
-      width: clamp(240px, 24vw, 340px);
-      aspect-ratio: 1 / 1;
-      object-fit: cover;
-      border-radius: 50%;
-      border: 6px solid #f0eded;
-    }
-
-    .projects-section {
-      width: 100%;
-      margin: 0 0 56px;
-      padding: 0;
-      background: var(--brand-soft);
-      transition: background-color 0.35s ease;
-    }
-
-    .projects-intro {
-      width: min(var(--section-shell-max), calc(100% - var(--section-shell-gutter)));
-      margin: 0 auto;
-      padding: 56px 0 40px;
-    }
-
-    .projects-intro h2 {
-      margin: 0 0 16px;
-      font-size: clamp(1.9rem, 4vw, 2.6rem);
-      line-height: 1.1;
-      color: var(--brand-dark);
-    }
-
-    .projects-intro p:last-child {
-      max-width: 760px;
-      margin: 0;
-      color: #333;
-      line-height: 1.6;
-    }
-
-    .projects-grid {
-      width: 100%;
-      margin: 0;
-      display: grid;
-      grid-template-columns: repeat(2, minmax(0, 1fr));
-      gap: 1px;
-      background: var(--brand);
-    }
-
-    .project-box {
-      background: #ffffff;
-      color: var(--brand-dark);
-      border: none;
-      border-radius: 0;
-      aspect-ratio: 1 / 1;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 18px;
-      font-weight: 700;
-      letter-spacing: 0.02em;
-      text-transform: uppercase;
-    }
-
-    .project-box--image {
-      padding: 0;
-      overflow: hidden;
-    }
-
-    .project-box--image img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      display: block;
-    }
-
-    .content {
-      max-width: 980px;
-      margin: 0 auto;
-      padding: 72px 24px;
-    }
-
-    .home-page .endorsements-content {
-      padding: 32px 24px;
-    }
-
-    .content section {
-      background: transparent;
-      border: none;
-      border-radius: 0;
-      padding: 0;
-      margin-bottom: 56px;
-    }
-
-    .content section:last-of-type {
-      margin-bottom: 0;
-    }
-
-    .content h3 {
-      margin-top: 0;
-      margin-bottom: 8px;
-      font-size: 28px;
-    }
-
-    .content h2 {
-      margin: 0 0 28px;
-      font-size: 34px;
-      line-height: 1.2;
-      color: var(--brand-dark);
-    }
-
-    .content p { margin: 0; }
-
-    .cv-preview {
-      margin-top: 0;
-      width: 100%;
-      display: flex;
-      justify-content: center;
-    }
-
-    .cv-preview img {
-      width: 100%;
-      max-width: 720px;
-      height: auto;
-      display: block;
-      border-radius: 10px;
-      border: none;
-      box-shadow: 0 4px 14px rgba(0, 0, 0, 0.08);
-    }
-
-    .endorsement-section {
-      max-width: 880px;
-      margin: 0 auto;
-      padding: 18px 0 0;
-    }
-
-    .endorsement-section > h2 {
-      margin: 0 0 18px;
-      font-family: 'Playfair Display', Georgia, 'Times New Roman', serif;
-      font-size: 42px;
-      line-height: 1.02;
-      font-weight: 700;
-      letter-spacing: -0.035em;
-      color: var(--brand-dark);
-    }
-
-    .endorsement-intro {
-      max-width: 640px;
-      margin: 0;
-      line-height: 1.7;
-      font-weight: 300;
-      color: #3f3f3f;
-    }
-
-    .endorsement-divider {
-      border: 0;
-      border-top: 1px solid rgba(12, 13, 15, 0.14);
-      margin: 32px 0;
-    }
-
-    .endorsement-category {
-      padding: 34px 0 38px;
-      border-top: 1px solid rgba(12, 13, 15, 0.14);
-    }
-
-    .endorsement-category:last-child {
-      padding-bottom: 0;
-    }
-
-    .endorsement-category h3 {
-      max-width: 720px;
-      margin: 0 0 22px;
-      font-family: 'Playfair Display', Georgia, 'Times New Roman', serif;
-      font-size: clamp(1.75rem, 3.6vw, 2.55rem);
-      line-height: 1.08;
-      font-weight: 700;
-      letter-spacing: -0.025em;
-      color: var(--brand-dark);
-    }
-
-    .pull-quote-list {
-      display: grid;
-      gap: 0;
-      grid-template-columns: 1fr;
-      max-width: 760px;
-    }
-
-    .pull-quote {
-      margin: 0;
-      padding: 24px 0;
-      background: transparent;
-      border-radius: 0;
-      box-shadow: none;
-    }
-
-    .pull-quote:first-child {
-      padding-top: 0;
-    }
-
-    .pull-quote + .pull-quote {
-      border-top: 1px solid #d9d9d9;
-    }
-
-    .pull-quote p {
-      margin: 0;
-      line-height: 1.55;
-      color: #3f3f3f;
-      quotes: "“" "”";
-      letter-spacing: -0.01em;
-    }
-
-    .pull-quote p::before {
-      content: open-quote;
-      color: var(--brand-dark);
-      font-weight: 500;
-    }
-
-    .pull-quote p::after {
-      content: close-quote;
-      color: var(--brand-dark);
-      font-weight: 500;
-    }
-
-    .pull-quote figcaption {
-      margin-top: 14px;
-      max-width: 620px;
-      font-size: 14px;
-      line-height: 1.45;
-      font-weight: 700;
-      text-align: left;
-      color: #4c4c4c;
-    }
-
-    .pull-quote cite {
-      font-style: normal;
-      font-weight: inherit;
-      color: inherit;
-    }
-
-    .hero-actions {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 12px 32px;
-      align-items: center;
-      margin-top: 42px;
-    }
-    .hero-secondary { margin-top: 18px !important; }
-    .hero-contact { margin-top: 22px !important; font-size: 16px !important; font-weight: 600 !important; }
-    .hero-contact a, .text-link { color: var(--brand-dark); font-weight: 700; text-decoration: none; text-underline-offset: 0.18em; text-decoration-thickness: 1px; transition: color 160ms ease; }
-    .impact-section { width: min(var(--section-shell-max), calc(100% - var(--section-shell-gutter))); margin: 0 auto; padding: 56px 0; border-bottom: 1px solid #d0d0d0; }
-    .impact-strip { display: grid; grid-template-columns: minmax(240px, .85fr) minmax(0, 1.15fr); gap: 28px; align-items: stretch; }
-    .section-eyebrow {
-      margin: 0 0 12px;
-      font-size: 16px;
-      line-height: 1.4;
-      font-weight: 700;
-      letter-spacing: 0.14em;
-      text-transform: uppercase;
-      color: var(--color-eyebrow);
-      opacity: 1;
-    }
-    .impact-section h2 { margin: 0 0 12px; font-size: clamp(1.8rem, 4vw, 2.6rem); line-height: 1.05; color: var(--brand-dark); }
-    .impact-section p:not(.section-eyebrow) { color: #333; font-size: 16px; line-height: 1.6; }
-    .impact-metrics { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 12px; padding: 0; margin: 0; list-style: none; align-items: stretch; }
-    .impact-metrics li { min-width: 0; height: 100%; padding: 18px; border-left: 4px solid var(--brand-dark); border-radius: 6px; background: rgba(255,255,255,.55); color: #202020; overflow-wrap: anywhere; }
-    .impact-metrics strong { display: inline-block; margin-bottom: 8px; font-size: clamp(1.8rem, 3vw, 2.35rem); line-height: 1.05; color: var(--brand-dark); white-space: nowrap; overflow-wrap: normal; word-break: normal; }
-    .impact-metrics span { display: block; font-size: 14px; line-height: 1.45; font-weight: 700; }
-    .recommendations-link { margin-top: 24px !important; }
-    .recommendations-link .text-link {
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
-    }
-
-    .text-link:hover,
-    .text-link:focus-visible {
-      color: var(--text-dark);
-      text-decoration-line: underline;
-    }
-
-    .text-link:focus-visible {
-      outline: 2px solid currentColor;
-      outline-offset: 4px;
-    }
-
-    .recommendations-link .text-link svg {
-      width: 24px;
-      height: 24px;
-      flex-shrink: 0;
-      fill: currentColor;
-    }
-
-    footer {
-      padding: 24px;
-      text-align: center;
-      color: #666;
-      border-top: 1px solid #efefef;
-    }
-
-    body.dark-mode {
-      color-scheme: dark;
-      --color-heading-dark-mode: #F8FAFC;
-      color: #e5e7eb;
-      background: #0b1020;
-    }
-
-    body.dark-mode .site-header,
-    body.dark-mode .site-header.scrolled {
-      background: #111827;
-      border-bottom-color: #334155;
-      box-shadow: 0 8px 24px rgba(2, 6, 23, 0.45);
-    }
-
-    body.dark-mode .site-header.menu-open,
-    body.dark-mode .site-header.scrolled.menu-open {
-      border-bottom-color: transparent;
-    }
-
-    body.dark-mode .site-header .site-title,
-    body.dark-mode .site-header.scrolled .site-title {
-      color: var(--color-heading-dark-mode);
-    }
-
-    body.dark-mode .site-header .menu-toggle,
-    body.dark-mode .site-header .theme-toggle,
-    body.dark-mode .site-header.scrolled .menu-toggle,
-    body.dark-mode .site-header.scrolled .theme-toggle,
-    body.dark-mode .site-header.scrolled .nav-list a,
-    body.dark-mode .site-header.scrolled .social-list a,
-    body.dark-mode .site-header.scrolled .site-title a {
-      color: var(--color-heading-dark-mode);
-    }
-
-    body.dark-mode .dropdown-menu,
-    body.dark-mode .site-header.scrolled .dropdown-menu {
-      background: #111827;
-      border-color: #334155;
-      color: #F8FAFC;
-    }
-
-    body.dark-mode .dropdown-menu a,
-    body.dark-mode .dropdown-link svg,
-    body.dark-mode .dropdown-social-links a,
-    body.dark-mode .dropdown-social-links a svg {
-      color: #F8FAFC;
-      fill: currentColor;
-    }
-
-    body.dark-mode .dropdown-social-links {
-      border-top-color: #334155;
-    }
-
-    body.dark-mode .dropdown-menu a:hover,
-    body.dark-mode .dropdown-menu a:hover svg,
-    body.dark-mode .dropdown-social-links a:hover,
-    body.dark-mode .dropdown-social-links a:hover svg {
-      color: #C0414E;
-      fill: currentColor;
-    }
-
-    body.dark-mode .nav-list a,
-    body.dark-mode .social-list a,
-    body.dark-mode .site-title a,
-    body.dark-mode .hero-intro,
-    body.dark-mode .projects-intro p:last-child,
-    body.dark-mode .content,
-    body.dark-mode .content p,
-    body.dark-mode .pull-quote p,
-    body.dark-mode .pull-quote figcaption,
-    body.dark-mode .theme-toggle,
-    body.dark-mode .menu-toggle {
-      color: #e5e7eb;
-    }
-
-    body.dark-mode .site-title a,
-    body.dark-mode .site-title {
-      color: var(--color-heading-dark-mode);
-    }
-
-    body.dark-mode .hero {
-      background: #121622;
-    }
-
-    body.dark-mode .projects-section {
-      background: #0b1020;
-    }
-
-    body.dark-mode .hero-intro {
-      color: #e5e7eb;
-    }
-
-
-    body.dark-mode .hero-link {
-      color: #F8FAFC;
-    }
-
-    body.dark-mode .hero-link:hover,
-    body.dark-mode .hero-link:focus-visible {
-      color: #FFFFFF;
-    }
-
-    body.dark-mode .content,
-    body.dark-mode .content section,
-    body.dark-mode .cv-preview img,
-    body.dark-mode .pull-quote,
-    body.dark-mode .dropdown-social-links,
-    body.dark-mode footer {
-      border-color: #334155;
-    }
-
-    body.dark-mode {
-      --color-eyebrow: #B7C0CE;
-    }
-
-    body.dark-mode footer {
-      color: #94a3b8;
-    }
-
-    body.dark-mode .pull-quote + .pull-quote {
-      border-color: #334155;
-    }
-
-    body.dark-mode .hero h1,
-    body.dark-mode .endorsement-intro,
-    body.dark-mode .endorsement-category h3,
-    body.dark-mode .endorsement-section > h2,
-    body.dark-mode .projects-intro h2,
-    body.dark-mode .impact-section h2 {
-      color: var(--color-heading-dark-mode);
-    }
-
-    body.dark-mode .endorsement-divider,
-    body.dark-mode .endorsement-category {
-      border-top-color: #334155;
-    }
-
-    body.dark-mode .project-box {
-      background: #111827;
-      color: #F8FAFC;
-    }
-    body.dark-mode .impact-section { border-color: #334155; }
-    body.dark-mode .impact-section p:not(.section-eyebrow) { color: #e5e7eb; }
-    body.dark-mode .impact-metrics li { background: #111827; color: #f8fafc; }
-    body.dark-mode .impact-metrics strong { color: #f8fafc; }
-    body.dark-mode .recommendations-link .text-link { color: #F8FAFC; }
-    @media (max-width: 900px) {
-      .dropdown-menu {
-        padding: 24px;
-      }
-
-      .top-nav {
-        min-height: 72px;
-        padding: 0 24px;
-      }
-
-      :root {
-        --site-logo-size: 24px;
-      }
-
-      .header-actions {
-        gap: 12px;
-      }
-
-      .hero {
-        min-height: auto;
-        padding: 72px 28px 80px;
-      }
-
-      .hero-panel {
-        grid-template-columns: 1fr;
-        column-gap: 0;
-        row-gap: 32px;
-        justify-items: center;
-        text-align: center;
-      }
-
-      .hero-copy,
-      .hero-photo {
-        grid-column: auto;
-      }
-
-      .hero-copy {
-        max-width: 560px;
-      }
-
-      .hero h1 {
-        font-size: 36px;
-        white-space: normal;
-      }
-
-      .home-page .hero-intro {
-        font-size: 18px;
-        line-height: 1.6;
-      }
-
-      .hero-copy p {
-        text-align: left;
-      }
-
-      .home-page .endorsements-content {
-        padding: 32px 24px;
-      }
-
-      .hero-actions {
-        margin-top: 36px;
-      }
-
-      .projects-grid {
-        grid-template-columns: 1fr;
-      }
-      .impact-strip { grid-template-columns: 1fr; }
-      .impact-metrics { grid-template-columns: repeat(3, minmax(0, 1fr)); }
-      .hero-actions { justify-content: center; }
-
-      .projects-intro {
-        padding: 56px 0 36px;
-      }
-
-      .content {
-        padding: 56px 20px;
-      }
-
-      .content h2 {
-        font-size: 30px;
-      }
-
-      .pull-quote {
-        padding: 24px 0;
-      }
-    }
-
-    @media (max-width: 640px) {
-      .top-nav {
-        min-height: 64px;
-        padding: 0 16px;
-      }
-
-      :root {
-        --site-logo-size: 21px;
-      }
-
-      .dropdown-menu {
-        padding: 20px 16px;
-      }
-
-      .dropdown-social-links {
-        gap: 20px;
-      }
-
-      .hero {
-        padding: 56px 20px 64px;
-      }
-
-      .hero-panel {
-        row-gap: 24px;
-      }
-
-      .hero-copy {
-        max-width: 100%;
-      }
-
-      .hero h1 {
-        font-size: clamp(1.85rem, 9vw, 2.6rem);
-      }
-
-      .home-page .hero-intro {
-        font-size: 17px;
-        text-align: left;
-      }
-
-      .hero-actions {
-        gap: 8px 24px;
-      }
-
-      .hero-link {
-        font-size: 17px;
-      }
-
-      .hero-photo {
-        width: min(78vw, 320px);
-      }
-
-      .impact-section,
-      .projects-intro {
-        width: calc(100% - var(--section-shell-gutter-mobile));
-      }
-
-      .impact-metrics {
-        grid-template-columns: 1fr;
-      }
-
-      .projects-intro {
-        padding: 56px 0 32px;
-      }
-
-      .content {
-        padding: 48px 16px;
-      }
-
-      .home-page .endorsements-content {
-        padding: 32px 24px;
-      }
-
-      .content h2 {
-        font-size: 28px;
-      }
-
-      .content h3 {
-        font-size: 24px;
-      }
-
-      .menu-toggle::after,
-      .theme-toggle::after,
-      .social-list a.icon-email::after {
-        display: none;
-      }
-    }
-  </style>
-  <link rel="stylesheet" href="projects-grid.css">
+  <link rel="stylesheet" href="assets/css/case-study.css">
 </head>
-
-<body id="top" class="home-page">
+<body id="top" class="financial-services-page">
   <a class="skip-link" href="#main">Skip to main content</a>
   <header class="site-header">
     <nav class="top-nav" aria-label="Main navigation">
       <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="dropdown-menu" aria-label="Toggle navigation menu">
         <svg class="menu-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960" aria-hidden="true" focusable="false">
-          <line class="line-top" x1="200" y1="-480" x2="760" y2="-480" />
-          <line class="line-bottom" x1="200" y1="-480" x2="760" y2="-480" />
+          <line class="line-top" x1="200" y1="-480" x2="760" y2="-480"></line>
+          <line class="line-bottom" x1="200" y1="-480" x2="760" y2="-480"></line>
         </svg>
       </button>
 
       <p class="site-title">
-        <a href="#intro" aria-label="Go to intro section"> Sophie Purewal</a>
+        <a href="#top" aria-label="Go to homepage">Sophie Purewal</a>
       </p>
 
       <div class="header-actions">
         <button class="theme-toggle" type="button" aria-label="Activate dark mode" aria-pressed="false" title="Activate dark mode">
           <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" aria-hidden="true" focusable="false">
-            <path d="M480-120q-133 0-226.5-92.5T160-436q0-66 25-122t69-100l226-222 226 222q44 44 69 100t25 122q0 131-93.5 223.5T480-120Zm0-80v-568L310-600q-35 33-52.5 74.5T240-436q0 97 70 166.5T480-200Z"/>
+            <path d="M480-120q-133 0-226.5-92.5T160-436q0-66 25-122t69-100l226-222 226 222q44 44 69 100t25 122q0 131-93.5 223.5T480-120Zm0-80v-568L310-600q-35 33-52.5 74.5T240-436q0 97 70 166.5T480-200Z"></path>
           </svg>
         </button>
       </div>
 
       <div id="dropdown-menu" class="dropdown-menu" aria-label="Navigation links">
-        <a href="#projects" class="dropdown-link" aria-label="View selected case studies">
+        <a href="#top" class="dropdown-link" aria-label="View selected case studies">
           <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" aria-hidden="true" focusable="false">
-            <path d="M480-400 40-640l440-240 440 240-440 240Zm0 160L63-467l84-46 333 182 333-182 84 46-417 227Zm0 160L63-307l84-46 333 182 333-182 84 46L480-80Zm0-411 273-149-273-149-273 149 273 149Zm0-149Z"/>
+            <path d="M480-400 40-640l440-240 440 240-440 240Zm0 160L63-467l84-46 333 182 333-182 84 46-417 227Zm0 160L63-307l84-46 333 182 333-182 84 46L480-80Zm0-411 273-149-273-149-273 149 273 149Zm0-149Z"></path>
           </svg>
           Case studies
         </a>
-        <a href="/request-cv.html" class="dropdown-link" aria-label="Request Sophie Purewal’s Product Designer CV">
+        <a href="mailto:sophiepurewaldesign@gmail.com" class="dropdown-link" aria-label="Email Sophie Purewal">
           <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" aria-hidden="true" focusable="false">
-            <path d="M480-320 280-520l56-58 104 104v-326h80v326l104-104 56 58-200 200ZM240-160q-33 0-56.5-23.5T160-240v-120h80v120h480v-120h80v120q0 33-23.5 56.5T720-160H240Z"/>
+            <path d="M480-320 280-520l56-58 104 104v-326h80v326l104-104 56 58-200 200ZM240-160q-33 0-56.5-23.5T160-240v-120h80v120h480v-120h80v120q0 33-23.5 56.5T720-160H240Z"></path>
           </svg>
-          Request CV
+          Email
         </a>
-        <a href="#endorsements" class="dropdown-link">
+        <a href="#top" class="dropdown-link">
           <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" aria-hidden="true" focusable="false">
-            <path d="M720-120H280v-520l280-280 50 50q7 7 11.5 19t4.5 23v14l-44 174h258q32 0 56 24t24 56v80q0 7-2 15t-4 15L794-168q-9 20-30 34t-44 14Zm-360-80h360l120-280v-80H480l54-220-174 174v406Zm0-406v406-406Zm-80-34v80H160v360h120v80H80v-520h200Z"/>
+            <path d="M720-120H280v-520l280-280 50 50q7 7 11.5 19t4.5 23v14l-44 174h258q32 0 56 24t24 56v80q0 7-2 15t-4 15L794-168q-9 20-30 34t-44 14Zm-360-80h360l120-280v-80H480l54-220-174 174v406Zm0-406v406-406Zm-80-34v80H160v360h120v80H80v-520h200Z"></path>
           </svg>
           Endorsements
         </a>
         <a href="mailto:sophiepurewaldesign@gmail.com" class="dropdown-link">
           <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960" aria-hidden="true" focusable="false">
-            <path d="M160-160q-33 0-56.5-23.5T80-240v-480q0-33 23.5-56.5T160-800h640q33 0 56.5 23.5T880-720v480q0 33-23.5 56.5T800-160H160Zm320-280L160-640v400h640v-400L480-440Zm0-80 320-200H160l320 200ZM160-640v-80 480-400Z" />
+            <path d="M160-160q-33 0-56.5-23.5T80-240v-480q0-33 23.5-56.5T160-800h640q33 0 56.5 23.5T880-720v480q0 33-23.5 56.5T800-160H160Zm320-280L160-640v400h640v-400L480-440Zm0-80 320-200H160l320 200ZM160-640v-80 480-400Z"></path>
           </svg>
           Contact
         </a>
@@ -1358,7 +67,7 @@
           <a href="https://www.behance.net/sophiepurewal" aria-label="Visit Sophie Purewal's Behance profile" title="Behance (opens in a new tab)" target="_blank" rel="noopener noreferrer">Bē<span class="visually-hidden">Behance</span></a>
           <a href="https://www.instagram.com/sophiepurewaldesign/" aria-label="Visit Sophie Purewal's Instagram profile" title="Instagram (opens in a new tab)" target="_blank" rel="noopener noreferrer">
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
-              <path d="M7 2C4.24 2 2 4.24 2 7v10c0 2.76 2.24 5 5 5h10c2.76 0 5-2.24 5-5V7c0-2.76-2.24-5-5-5H7Zm10 2a3 3 0 0 1 3 3v10a3 3 0 0 1-3 3H7a3 3 0 0 1-3-3V7a3 3 0 0 1 3-3h10Zm.5 1.5a1 1 0 1 0 .001 2.001A1 1 0 0 0 17.5 5.5ZM12 7a5 5 0 1 0 0 10 5 5 0 0 0 0-10Zm0 2a3 3 0 1 1 0 6 3 3 0 0 1 0-6Z"/>
+              <path d="M7 2C4.24 2 2 4.24 2 7v10c0 2.76 2.24 5 5 5h10c2.76 0 5-2.24 5-5V7c0-2.76-2.24-5-5-5H7Zm10 2a3 3 0 0 1 3 3v10a3 3 0 0 1-3 3H7a3 3 0 0 1-3-3V7a3 3 0 0 1 3-3h10Zm.5 1.5a1 1 0 1 0 .001 2.001A1 1 0 0 0 17.5 5.5ZM12 7a5 5 0 1 0 0 10 5 5 0 0 0 0-10Zm0 2a3 3 0 1 1 0 6 3 3 0 0 1 0-6Z"></path>
             </svg>
             <span class="visually-hidden">Instagram</span>
           </a>
@@ -1368,253 +77,127 @@
     </nav>
   </header>
 
-  <main id="main">
-    <section class="hero" id="intro" aria-label="Intro section">
-      <div class="hero-panel">
-        <div class="hero-copy">
-          <h1>Senior UI &amp; Product Designer</h1>
-          <p class="hero-intro">
-            I design accessible digital products and scalable design systems for complex, regulated services. My recent financial-services work includes reusable components adopted more than 21,000 times across shared product libraries.
-          </p>
-          <p class="hero-intro hero-secondary">I bring together strong visual design craft, accessibility, product thinking and close collaboration with engineering—from early journeys to production-ready UI.</p>
-          <div class="hero-actions" aria-label="Intro links">
-            <a class="hero-link" href="#projects">
-              <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" aria-hidden="true" focusable="false">
-                <path d="M480-400 40-640l440-240 440 240-440 240Zm0 160L63-467l84-46 333 182 333-182 84 46-417 227Zm0 160L63-307l84-46 333 182 333-182 84 46L480-80Zm0-411 273-149-273-149-273 149 273 149Zm0-149Z"/>
-              </svg>
-              <span class="hero-link__label">Case studies</span>
-            </a>
-            <a class="hero-link" href="/request-cv.html" aria-label="Request Sophie Purewal’s Product Designer CV">
-              <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" aria-hidden="true" focusable="false">
-                <path d="M480-320 280-520l56-58 104 104v-326h80v326l104-104 56 58-200 200ZM240-160q-33 0-56.5-23.5T160-240v-120h80v120h480v-120h80v120q0 33-23.5 56.5T720-160H240Z"/>
-              </svg>
-              <span class="hero-link__label">Request CV</span>
-            </a>
-            <a class="hero-link" href="mailto:sophiepurewaldesign@gmail.com">
-              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960" aria-hidden="true" focusable="false">
-                <path d="M160-160q-33 0-56.5-23.5T80-240v-480q0-33 23.5-56.5T160-800h640q33 0 56.5 23.5T880-720v480q0 33-23.5 56.5T800-160H160Zm320-280L160-640v400h640v-400L480-440Zm0-80 320-200H160l320 200ZM160-640v-80 480-400Z"/>
-              </svg>
-              <span class="hero-link__label">Contact</span>
-            </a>
-          </div>
-        </div>
-        <img class="hero-photo" src="sophie-profile.jpeg" alt="Portrait of Sophie Purewal">
+    <main id="main" class="project-main">
+    <div class="site-shell">
+      <div class="project-context">
+        <a class="back-link" href="#top">Back to portfolio</a>
       </div>
-    </section>
 
-    <section class="impact-section impact-strip" aria-labelledby="impact-title">
-      <div class="impact-copy">
-        <p class="section-eyebrow">Professional impact</p>
-        <h2 id="impact-title">Design-system impact at scale</h2>
-        <p>Recent financial-services design-system work includes measurable adoption across reusable components and governed releases.</p>
-      </div>
-      <ul class="impact-metrics" aria-label="Professional design-system impact metrics">
-        <li><strong>12,300+</strong> <span>tracked insertions across leading shared components</span></li>
-        <li><strong>6,300+</strong> <span>tracked insertions across modernised form components</span></li>
-        <li><strong>15</strong><span>redesigned Core Components progressed through review and release</span></li>
-      </ul>
-    </section>
-
-    <section id="projects" class="projects-section" aria-labelledby="projects-title">
-      <div class="projects-intro">
-        <p class="section-eyebrow">Selected work</p>
-        <h2 id="projects-title">Commercial experience and product design projects</h2>
-        <p>My recent commercial work includes regulated financial-services journeys, accessible component design, design-system governance and close collaboration with engineering teams. The selected projects below also demonstrate my product thinking, UI craft and approach to AI-assisted prototyping.</p>
-      </div>
-      <div class="projects-grid">
-        <a class="project-card project-card--featured project-card--image project-box project-box--image" href="work/financial-services-platform.html" aria-label="View the Financial-services platform case study">
-          <img src="assets/markus-winkler-IrRbSND5EUc-unsplash.jpg" alt="Stock-market chart displayed on a laptop screen.">
-          <div class="project-card__content">
-            <h3 class="project-card__title">Financial-services platform</h3>
-            <p class="project-card__hint">Commercial UI refinement, calculator redesign and UAT for a regulated digital service</p>
+      <article class="case-study case-study--commercial">
+        <section class="case-study-hero case-study-hero--single" aria-labelledby="project-title">
+          <div class="case-study-hero__copy case-study-hero__copy--wide">
+            <p class="project-kicker">Commercial UI design case study</p>
+            <h1 id="project-title">Supporting the launch of a high-traffic financial-services platform</h1>
+            <p class="project-subtitle">UI refinement, component redesign and UAT during the final delivery phase of a large regulated website.</p>
+            <p class="project-intro">I joined the project during its later delivery phase, when the website’s core structure and journeys were already established. My role was to strengthen the final interface quality, redesign selected components and support UAT ahead of release.</p>
+            <p class="project-intro">My work included refining parts of the salary-sacrifice calculator, reviewing responsive behaviour and visual consistency, documenting design and usability issues, and working with the wider team to verify fixes.</p>
           </div>
-        </a>
-        <a class="project-card project-card--wide project-card--full-width project-card--image project-box project-box--image" href="work/chartstudio.html" aria-label="View the ChartStudio case study">
-          <img src="chartstudio-cover-square.png" alt="ChartStudio data visualisation plugin cover showing chart builder interface and live canvas previews.">
-          <div class="project-card__content">
-            <h3 class="project-card__title">ChartStudio</h3>
-            <p class="project-card__hint">Accessible data visualisation and Figma plugin prototype</p>
-          </div>
-        </a>
-        <a class="project-card project-card--image project-box project-box--image" href="work/antelope-wealth.html" aria-label="View the Antelope Wealth App case study">
-          <img src="assets/projects/antelope-wealth/antelope-desktop-onboarding-hero.png" alt="Antelope Wealth fintech onboarding concept cover preview.">
-          <div class="project-card__content">
-            <h3 class="project-card__title">Antelope Wealth App</h3>
-            <p class="project-card__hint">Fintech onboarding and financial-goal planning concept</p>
-          </div>
-        </a>
-        <a class="project-card project-card--image project-box project-box--image" href="work/dude-wheres-my-bike.html" aria-label="View the Dude, Where’s My Bike? product design case study">
-          <img src="design-system/assets/02-home.png" alt="Dude, Where’s My Bike? mobile bike hire product interface">
-          <div class="project-card__content">
-            <h3 class="project-card__title">Dude, Where’s My Bike?</h3>
-            <p class="project-card__hint">B2C bike-hire product and design system</p>
-          </div>
-        </a>
-      </div>
-    </section>
+        </section>
 
-    <div class="content endorsements-content">
-      <section id="endorsements" class="endorsement-section" aria-label="Endorsements section">
-        <h2>Endorsements</h2>
-        <p class="endorsement-intro">A selection of recommendations spanning product design, project leadership, collaboration and delivery.</p>
-        <hr class="endorsement-divider">
+        <section class="case-study-section" aria-labelledby="project-summary-title">
+          <h2 id="project-summary-title">Project summary</h2>
+          <dl class="summary-grid">
+            <div class="summary-item"><dt>Role</dt><dd>Senior UI Designer</dd></div>
+            <div class="summary-item"><dt>Project stage</dt><dd>Late-stage delivery and launch support</dd></div>
+            <div class="summary-item"><dt>My contribution</dt><dd>Component redesign, salary-sacrifice calculator UI, design-quality assurance and UAT</dd></div>
+            <div class="summary-item"><dt>Environment</dt><dd>Regulated financial services, responsive web and cross-functional delivery</dd></div>
+            <div class="summary-item summary-item--wide summary-item--no-divider"><dt>Service context</dt><dd>A well-established, high-traffic financial-services website with sustained usage across multiple years</dd></div>
+          </dl>
+        </section>
 
-        <div class="pull-quote-list endorsement-panel">
-          <figure class="pull-quote">
-            <p>Sophie consistently demonstrates exceptional expertise as a senior UX designer. Her deep understanding of user experience principles, combined with her strong focus on accessibility, enables her to create inclusive, user-centred solutions that make a real impact.<br><br>
-              She is supportive, approachable and always willing to share her knowledge with colleagues and stakeholders. Her professionalism, collaborative spirit and commitment to high-quality work make her a valued member of any team.<br><br>
-              What particularly stands out is Sophie’s ability to champion accessibility while maintaining excellent user experiences, ensuring products are both intuitive and accessible to a wide range of users.</p>
-            <figcaption><cite>Prantick Biswas</cite> — Senior Engineer, Tata Consultancy Services (TCS)</figcaption>
-          </figure>
-          <figure class="pull-quote">
-            <p>Sophie designed the UI for a large web based application we were developing in-house. She is wonderful to work with, has attention to detail, is very professional and highly efficient.</p>
-            <figcaption><cite>Mark Trinick</cite> — CEO, eSuite | eTrackrILP | eSpirALS | eSignUp | eApprentice | eTimetable | eHub</figcaption>
-          </figure>
-          <figure class="pull-quote">
-            <p>Sophie has a clear understanding of seeing a project through… keeping focus on the user experience.</p>
-            <figcaption><cite>Dieter De Duytschaever</cite> — Strategic Program Manager, ex-Yahoo!, ex-BBC</figcaption>
-          </figure>
-          <figure class="pull-quote">
-            <p>Efficient, professional, totally understood our brief, excellent product. Highly recommended.</p>
-            <figcaption><cite>Emma McConachie</cite> — Director at Areté Ventures</figcaption>
-          </figure>
-        </div>
-        <p class="recommendations-link">
-          <a class="text-link" href="https://www.linkedin.com/in/sophiepurewal/" target="_blank" rel="noopener noreferrer">
-            <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" aria-hidden="true" focusable="false">
-              <path d="M720-120H280v-520l280-280 50 50q7 7 11.5 19t4.5 23v14l-44 174h258q32 0 56 24t24 56v80q0 7-2 15t-4 15L794-168q-9 20-30 34t-44 14Zm-360-80h360l120-280v-80H480l54-220-174 174v406Zm0-406v406-406Zm-80-34v80H160v360h120v80H80v-520h200Z"/>
-            </svg>
-            View more endorsements on LinkedIn
-          </a>
-        </p>
-      </section>
+        <section class="case-study-section" aria-labelledby="context-title">
+          <h2 id="context-title">Context and challenge</h2>
+          <p>The project was already well advanced when I joined. The challenge was therefore not to redefine the entire product, but to improve selected areas while working within an established design system, delivery plan and technical implementation.</p>
+          <p>This required quickly understanding the existing patterns, identifying inconsistencies and usability risks, and making focused improvements without disrupting the wider service.</p>
+        </section>
 
+        <section class="case-study-section" aria-labelledby="owned-title">
+          <h2 id="owned-title">What I owned</h2>
+          <ul class="approach-list">
+            <li>UI refinement of selected production components</li>
+            <li>Redesign of parts of the salary-sacrifice calculator</li>
+            <li>Responsive layout and component review</li>
+            <li>Visual consistency against established design-system patterns</li>
+            <li>Review of interaction states and error handling</li>
+            <li>Identification and documentation of UAT issues</li>
+            <li>Collaboration with product, engineering and delivery colleagues</li>
+            <li>Verification of fixes before release</li>
+          </ul>
+        </section>
+
+        <section class="case-study-section" aria-labelledby="calculator-title">
+          <h2 id="calculator-title">Salary-sacrifice calculator</h2>
+          <p>The salary-sacrifice calculator was one of the main areas I contributed to.</p>
+          <p>The salary-sacrifice calculator presented complex financial information and required a clear hierarchy between user inputs, supporting guidance and calculated outcomes. I refined selected parts of the interface to make the flow easier to follow and more consistent with the wider design system.</p>
+          <ul class="feature-list">
+            <li>Clearer visual hierarchy</li>
+            <li>More consistent spacing and alignment</li>
+            <li>Improved grouping of related inputs</li>
+            <li>Clearer distinction between editable fields and calculated outputs</li>
+            <li>Review of responsive behaviour</li>
+            <li>Review of validation and interaction states</li>
+            <li>Alignment with existing component patterns</li>
+          </ul>
+        </section>
+
+        <section class="case-study-section" aria-labelledby="uat-title">
+          <h2 id="uat-title">UAT and design-quality assurance</h2>
+          <p>A significant part of my contribution involved reviewing the implemented website during UAT. I assessed the interface across pages and screen sizes, comparing the live implementation with the intended design and identifying issues that could affect clarity, consistency or usability.</p>
+          <ol class="process-list">
+            <li>Review the implemented page or component</li>
+            <li>Compare it with the approved design and established UI patterns</li>
+            <li>Record the issue clearly with supporting context</li>
+            <li>Prioritise issues based on user impact and severity</li>
+            <li>Discuss fixes with the relevant delivery colleagues</li>
+            <li>Recheck the implementation after changes were made</li>
+          </ol>
+          <p>This work helped protect final design quality during delivery, without implying that every defect across the website was found or resolved.</p>
+        </section>
+
+        <section class="case-study-section" aria-labelledby="judgement-title">
+          <h2 id="judgement-title">Senior UI design judgement</h2>
+          <p>Joining late in delivery required a different kind of design judgement from leading an early-stage concept. I needed to understand the existing system quickly, distinguish between critical issues and lower-priority polish, and recommend improvements that were realistic within the remaining delivery constraints.</p>
+          <div class="theme-grid">
+            <section><h3>Working within constraints</h3><p>Improving the interface without destabilising established journeys or delivery commitments.</p></section>
+            <section><h3>Prioritising user impact</h3><p>Focusing attention on clarity, interaction states, responsive behaviour and areas involving complex financial information.</p></section>
+            <section><h3>Collaborating through delivery</h3><p>Communicating issues clearly and working with product and engineering colleagues to reach practical resolutions.</p></section>
+          </div>
+        </section>
+
+        <section class="case-study-section" aria-labelledby="scale-title">
+          <h2 id="scale-title">Service context</h2>
+          <p class="section-label">Wider platform context</p>
+          <ul class="stat-grid stat-grid--context" aria-label="Anonymised wider platform context metrics">
+            <li><strong>13%</strong><span>Increase in average time on site between 2024 and 2026</span></li>
+            <li><strong>4%</strong><span>Increase in average monthly visits between 2024 and 2026</span></li>
+          </ul>
+          <p>These figures describe overall website trends and are included to illustrate the scale and continued use of the live service. They should not be interpreted as changes caused by my individual design contribution.</p>
+        </section>
+
+        <section class="case-study-section" aria-labelledby="outcome-title">
+          <h2 id="outcome-title">Outcome</h2>
+          <p>My contribution supported the final stages of delivery by improving selected production components, strengthening parts of the salary-sacrifice calculator experience and helping the team identify and resolve UI issues during UAT.</p>
+          <p>The project demonstrates my ability to contribute effectively within an established product environment, work carefully with regulated financial content and maintain design quality during a pressured delivery phase.</p>
+        </section>
+
+        <section class="case-study-section" aria-labelledby="learned-title">
+          <h2 id="learned-title">What I learned</h2>
+          <ul class="approach-list">
+            <li>Late-stage design work requires strong prioritisation</li>
+            <li>UAT is an important part of product-design quality</li>
+            <li>Small component decisions can significantly affect consistency</li>
+            <li>Clear issue documentation improves collaboration with engineering</li>
+            <li>Regulated financial interfaces require particular care around hierarchy, guidance and interaction states</li>
+          </ul>
+        </section>
+
+      </article>
     </div>
   </main>
 
-  <footer>© 2026 Sophie Purewal</footer>
-
-  <script>
-    const siteHeader = document.querySelector('.site-header');
-    const menuToggle = document.querySelector('.menu-toggle');
-    const dropdownMenu = document.querySelector('#dropdown-menu');
-    const themeToggle = document.querySelector('.theme-toggle');
-    const darkModeStorageKey = 'sophie-theme';
-    const dropdownInactivityDelayMs = 5000;
-    let dropdownInactivityTimer = null;
-
-    const syncHeaderMenuState = () => {
-      if (!siteHeader || !dropdownMenu) return;
-      siteHeader.classList.toggle('menu-open', dropdownMenu.classList.contains('open'));
-    };
-
-    const toggleHeaderState = () => {
-      if (!siteHeader) return;
-      siteHeader.classList.toggle('scrolled', window.scrollY > 24);
-      syncHeaderMenuState();
-    };
-
-    const closeDropdownMenu = () => {
-      if (!dropdownMenu || !menuToggle) return;
-      dropdownMenu.classList.remove('open');
-      menuToggle.setAttribute('aria-expanded', 'false');
-      syncHeaderMenuState();
-      if (dropdownInactivityTimer) {
-        clearTimeout(dropdownInactivityTimer);
-        dropdownInactivityTimer = null;
-      }
-    };
-
-    const resetDropdownInactivityTimer = () => {
-      if (!dropdownMenu || !dropdownMenu.classList.contains('open')) return;
-      if (dropdownInactivityTimer) {
-        clearTimeout(dropdownInactivityTimer);
-      }
-      dropdownInactivityTimer = setTimeout(() => {
-        closeDropdownMenu();
-      }, dropdownInactivityDelayMs);
-    };
-
-    const syncThemeToggleLabel = (isDarkMode) => {
-      if (!themeToggle) return;
-      themeToggle.setAttribute('aria-pressed', String(isDarkMode));
-      themeToggle.setAttribute('aria-label', isDarkMode ? 'Deactivate dark mode' : 'Activate dark mode');
-      themeToggle.title = isDarkMode ? 'Deactivate dark mode' : 'Activate dark mode';
-    };
-
-    const applyTheme = (mode) => {
-      const isDarkMode = mode === 'dark';
-      document.body.classList.toggle('dark-mode', isDarkMode);
-      syncThemeToggleLabel(isDarkMode);
-    };
-
-    const initThemeToggle = () => {
-      if (!themeToggle) return;
-      const storedMode = localStorage.getItem(darkModeStorageKey);
-      applyTheme(storedMode === 'dark' ? 'dark' : 'light');
-
-      themeToggle.addEventListener('click', () => {
-        const willBeDarkMode = !document.body.classList.contains('dark-mode');
-        const nextMode = willBeDarkMode ? 'dark' : 'light';
-        applyTheme(nextMode);
-        localStorage.setItem(darkModeStorageKey, nextMode);
-      });
-    };
-
-    if (menuToggle && dropdownMenu) {
-      menuToggle.addEventListener('click', () => {
-        const isOpen = dropdownMenu.classList.toggle('open');
-        menuToggle.setAttribute('aria-expanded', String(isOpen));
-        syncHeaderMenuState();
-        if (isOpen) {
-          resetDropdownInactivityTimer();
-        } else if (dropdownInactivityTimer) {
-          clearTimeout(dropdownInactivityTimer);
-          dropdownInactivityTimer = null;
-        }
-      });
-
-      dropdownMenu.querySelectorAll('a').forEach((link) => {
-        link.addEventListener('click', closeDropdownMenu);
-      });
-
-      ['pointermove', 'click', 'keydown', 'focusin', 'touchstart'].forEach((eventName) => {
-        dropdownMenu.addEventListener(eventName, resetDropdownInactivityTimer, { passive: eventName !== 'keydown' });
-      });
-
-      window.addEventListener('resize', () => {
-        if (window.innerWidth > 900) {
-          closeDropdownMenu();
-        }
-      });
-
-      document.addEventListener('keydown', (event) => {
-        if (event.key === 'Escape' && dropdownMenu.classList.contains('open')) {
-          closeDropdownMenu();
-          menuToggle.focus();
-        }
-      });
-
-      document.addEventListener('pointerdown', (event) => {
-        if (!dropdownMenu.classList.contains('open')) return;
-        const clickedInsideDropdown = dropdownMenu.contains(event.target);
-        const clickedMenuToggle = menuToggle.contains(event.target);
-        if (!clickedInsideDropdown && !clickedMenuToggle) {
-          closeDropdownMenu();
-        }
-      });
-
-      window.addEventListener('scroll', () => {
-        if (dropdownMenu.classList.contains('open')) {
-          closeDropdownMenu();
-        }
-      }, { passive: true });
-    }
-
-    window.addEventListener('scroll', toggleHeaderState, { passive: true });
-    toggleHeaderState();
-    initThemeToggle();
-  </script>
-
+  <footer class="project-footer site-shell">
+    <a class="footer-link case-study-footer-link" href="#top">Back to case studies</a>
+  </footer>
+  <script src="assets/js/case-study.js"></script>
 </body>
 </html>
