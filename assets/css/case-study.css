@@ -15,6 +15,19 @@
   --shadow: 0 24px 48px rgba(12, 13, 15, 0.08);
   --shadow-soft: 0 18px 34px rgba(12, 13, 15, 0.08);
   --site-logo-size: 28px;
+  --portfolio-heading: #17202A;
+  --portfolio-body: #5D6875;
+  --portfolio-eyebrow: #143D59;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: "Inter", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  color: var(--portfolio-heading);
 }
 
 html {
@@ -24,8 +37,8 @@ html {
 body {
   margin: 0;
   font-family: "Inter", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
-  color: var(--text);
-  line-height: 1.7;
+  color: var(--portfolio-body);
+  line-height: 1.65;
   background: #F3F4F6;
 }
 
@@ -550,20 +563,23 @@ nav,
 
 .project-kicker {
   margin: 0 0 16px;
-  font-size: 0.8rem;
-  font-weight: 700;
-  letter-spacing: 0.16em;
+  font-family: "Inter", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  font-size: 0.875rem;
+  line-height: 1.4;
+  font-weight: 800;
+  letter-spacing: 0.14em;
   text-transform: uppercase;
-  color: var(--brand);
+  color: var(--portfolio-eyebrow);
 }
 
 .case-study-hero h1 {
   margin: 0;
-  font-family: "Playfair Display", Georgia, "Times New Roman", serif;
-  font-size: clamp(3rem, 7.5vw, 4rem);
-  line-height: 1.08;
-  letter-spacing: -0.03em;
-  color: var(--brand);
+  font-family: "Inter", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  font-size: clamp(3rem, 7vw, 5.5rem);
+  line-height: 0.98;
+  letter-spacing: -0.045em;
+  font-weight: 800;
+  color: var(--portfolio-heading);
 }
 
 .project-subtitle {
@@ -572,14 +588,14 @@ nav,
   font-size: clamp(1.2rem, 2.8vw, 1.7rem);
   line-height: 1.35;
   font-weight: 500;
-  color: var(--text);
+  color: var(--portfolio-body);
 }
 
 .project-intro {
   margin: 24px 0 0;
   max-width: 68ch;
   font-size: 1.05rem;
-  color: var(--muted);
+  color: var(--portfolio-body);
 }
 
 .hero-visual {
@@ -632,17 +648,18 @@ nav,
 
 .case-study-section h2 {
   margin: 0 0 18px;
-  font-family: "Playfair Display", Georgia, "Times New Roman", serif;
-  font-size: clamp(2rem, 4vw, 2.8rem);
-  line-height: 1.06;
-  letter-spacing: -0.02em;
-  color: var(--brand);
+  font-family: "Inter", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  font-size: clamp(2.25rem, 5vw, 4rem);
+  line-height: 1.02;
+  letter-spacing: -0.04em;
+  font-weight: 800;
+  color: var(--portfolio-heading);
 }
 
 .case-study-section p {
   margin: 0;
   max-width: 72ch;
-  color: var(--muted);
+  color: var(--portfolio-body);
 }
 
 .case-study-section p + p {
@@ -691,14 +708,14 @@ nav,
   font-weight: 700;
   letter-spacing: 0.14em;
   text-transform: uppercase;
-  color: var(--muted);
+  color: var(--portfolio-eyebrow);
 }
 
 .summary-item dd {
   margin: 10px 0 0;
   font-size: 1.05rem;
   font-weight: 600;
-  color: var(--text);
+  color: var(--portfolio-heading);
 }
 
 .approach-list,
@@ -717,7 +734,7 @@ nav,
 .approach-list li {
   position: relative;
   padding-left: 24px;
-  color: var(--muted);
+  color: var(--portfolio-body);
 }
 
 .approach-list li::before {
@@ -742,7 +759,7 @@ nav,
   padding: 16px 0;
   border-bottom: 1px solid var(--line);
   font-weight: 600;
-  color: var(--text);
+  color: var(--portfolio-heading);
 }
 
 .section-figure {
@@ -1012,6 +1029,15 @@ body.dark-mode.chartstudio-page .site-title a:focus-visible {
   text-decoration-line: underline;
 }
 
+body.dark-mode .section-label {
+  color: var(--color-heading-dark-mode) !important;
+}
+
+body.dark-mode .theme-grid section,
+body.dark-mode .stat-grid li {
+  box-shadow: var(--shadow-soft);
+}
+
 body.dark-mode .skip-link {
   background: #F8FAFC;
   color: #0C0D0F;
@@ -1128,6 +1154,18 @@ body.dark-mode .skip-link {
     margin-top: 44px;
   }
 
+  .case-study-hero h1 {
+    font-size: clamp(2.65rem, 13vw, 4.1rem);
+    line-height: 1;
+    letter-spacing: -0.04em;
+  }
+
+  .case-study-section h2 {
+    font-size: clamp(2rem, 10vw, 3rem);
+    line-height: 1.04;
+    letter-spacing: -0.035em;
+  }
+
   .screenshot-grid {
     gap: 28px;
   }
@@ -1136,8 +1174,10 @@ body.dark-mode .skip-link {
 .case-study-section h3 {
   margin: 0 0 12px;
   font-size: clamp(1.2rem, 2.4vw, 1.5rem);
-  line-height: 1.25;
-  color: var(--text);
+  line-height: 1.1;
+  letter-spacing: -0.025em;
+  font-weight: 800;
+  color: var(--portfolio-heading);
 }
 
 .case-study-section .approach-list,
@@ -1189,10 +1229,12 @@ body.dark-mode .skip-link {
 
 .section-label {
   margin: 0 0 16px !important;
-  color: var(--brand) !important;
-  font-size: 0.8rem;
-  font-weight: 700;
-  letter-spacing: 0.16em;
+  color: var(--portfolio-eyebrow) !important;
+  font-family: "Inter", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  font-size: 0.875rem;
+  line-height: 1.4;
+  font-weight: 800;
+  letter-spacing: 0.14em;
   text-transform: uppercase;
 }
 
@@ -1206,7 +1248,7 @@ body.dark-mode .skip-link {
   max-width: 72ch;
   margin: 22px 0 0;
   padding-left: 1.4rem;
-  color: var(--muted);
+  color: var(--portfolio-body);
 }
 
 .process-list li::marker {
@@ -1227,7 +1269,7 @@ body.dark-mode .skip-link {
   padding: 22px;
   border: 1px solid var(--line);
   background: var(--surface-soft);
-  box-shadow: var(--shadow-soft);
+  box-shadow: none;
 }
 
 .theme-grid p {
@@ -1262,15 +1304,16 @@ body.dark-mode .skip-link {
 }
 
 .stat-grid strong {
-  color: var(--brand);
-  font-family: "Playfair Display", Georgia, "Times New Roman", serif;
+  color: var(--portfolio-heading);
+  font-family: "Inter", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  font-weight: 800;
   font-size: clamp(2rem, 4vw, 3rem);
   line-height: 1;
 }
 
 .stat-grid span {
   margin-top: 12px;
-  color: var(--text);
+  color: var(--portfolio-body);
   font-weight: 600;
 }
 
