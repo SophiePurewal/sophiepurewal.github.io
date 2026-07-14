@@ -96,7 +96,7 @@
       grid-template-columns: 1fr auto 1fr;
       align-items: center;
       min-height: 86px;
-      padding: 0 40px;
+      padding: 0 clamp(16px, 4vw, 40px);
       max-width: 1180px;
       margin: 0 auto;
       color: #0C0D0F;
@@ -1123,21 +1123,28 @@
     }
 
     body.dark-mode .dropdown-menu a,
+    body.dark-mode .dropdown-menu a svg,
+    body.dark-mode .dropdown-menu a svg path,
     body.dark-mode .dropdown-link svg,
+    body.dark-mode .dropdown-link svg path,
     body.dark-mode .dropdown-social-links a,
-    body.dark-mode .dropdown-social-links a svg {
-      color: #F8FAFC;
+    body.dark-mode .dropdown-social-links a svg,
+    body.dark-mode .dropdown-social-links a svg path {
+      color: #FFFFFF;
       fill: currentColor;
+      stroke: currentColor;
     }
 
     body.dark-mode .dropdown-social-links {
       border-top-color: #334155;
     }
 
-    body.dark-mode .dropdown-menu a:is(:hover, :focus-visible),
-    body.dark-mode .dropdown-menu a:is(:hover, :focus-visible) svg,
-    body.dark-mode .dropdown-social-links a:is(:hover, :focus-visible),
-    body.dark-mode .dropdown-social-links a:is(:hover, :focus-visible) svg {
+    body.dark-mode .dropdown-menu a:is(:hover, :focus-visible, .active, [aria-current="page"]),
+    body.dark-mode .dropdown-menu a:is(:hover, :focus-visible, .active, [aria-current="page"]) svg,
+    body.dark-mode .dropdown-menu a:is(:hover, :focus-visible, .active, [aria-current="page"]) svg path,
+    body.dark-mode .dropdown-social-links a:is(:hover, :focus-visible, .active, [aria-current="page"]),
+    body.dark-mode .dropdown-social-links a:is(:hover, :focus-visible, .active, [aria-current="page"]) svg,
+    body.dark-mode .dropdown-social-links a:is(:hover, :focus-visible, .active, [aria-current="page"]) svg path {
       color: #FFFFFF;
       fill: currentColor;
       stroke: currentColor;
@@ -1279,6 +1286,7 @@
     }
 
     body.dark-mode.home-page .site-header .dropdown-menu a,
+    body.dark-mode.home-page .site-header .dropdown-menu a:is(:hover, :focus-visible, .active, [aria-current="page"]),
     body.dark-mode.home-page .site-header .dropdown-menu button,
     body.dark-mode.home-page .site-header .dropdown-menu span,
     body.dark-mode.home-page .site-header .dropdown-menu svg,
