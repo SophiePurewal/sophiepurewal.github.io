@@ -93,27 +93,33 @@
       margin-left: auto;
       margin-right: auto;
       display: grid;
-      grid-template-columns: repeat(12, minmax(0, 1fr));
-      column-gap: 92px;
+      grid-template-columns: minmax(0, 1fr) clamp(240px, 24vw, 340px);
+      column-gap: clamp(48px, 7vw, 92px);
       row-gap: 22px;
       align-items: center;
     }
 
     .hero-copy {
-      grid-column: 1 / span 6;
-      max-width: 680px;
+      grid-column: 1;
+      max-width: none;
+      min-width: 0;
     }
 
-    .hero h1 {
+    .home-page .hero h1 {
       margin: 0;
       font-family: 'Inter', system-ui, sans-serif;
       font-size: 64px;
       line-height: 1.05;
       font-weight: 700;
-      letter-spacing: -0.04em;
+      letter-spacing: -2.3742px;
+      font-kerning: normal;
       color: #17202A;
       white-space: normal;
       text-wrap: balance;
+    }
+
+    .hero-title-primary {
+      white-space: nowrap;
     }
 
     .home-page main p,
@@ -176,7 +182,7 @@
     }
 
     .hero-photo {
-      grid-column: 8 / -1;
+      grid-column: 2;
       justify-self: end;
       width: clamp(240px, 24vw, 340px);
       aspect-ratio: 1 / 1;
@@ -569,9 +575,14 @@
         max-width: 100%;
       }
 
-      .hero h1 {
+      .hero-title-primary {
+        white-space: normal;
+      }
+
+      .home-page .hero h1 {
         font-size: 40px;
         line-height: 1.08;
+        letter-spacing: -1.5px;
       }
 
       .home-page main h2 {
@@ -695,7 +706,9 @@
     <section class="hero" id="intro" aria-label="Intro section">
       <div class="hero-panel">
         <div class="hero-copy">
-          <h1>Senior Product Designer, Design Systems</h1>
+          <h1>
+            <span class="hero-title-primary">Senior Product Designer</span><span class="hero-title-specialism">, Design Systems</span>
+          </h1>
           <p class="hero-intro">
             I design accessible digital products and scalable design systems for complex, regulated services. My recent financial-services work includes reusable components adopted more than 21,000 times across shared product libraries.
           </p>
