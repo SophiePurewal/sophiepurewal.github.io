@@ -144,15 +144,46 @@
       margin-top: clamp(32px, 5vw, 56px);
     }
 
-    .prototype-section .section-header {
-      max-width: 72ch;
+    .antelope-page .prototype-section__layout {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) minmax(320px, 390px);
+      gap: clamp(40px, 7vw, 88px);
+      align-items: start;
     }
 
-    .prototype-frame {
+    .antelope-page .prototype-section .section-header {
+      max-width: none;
+    }
+
+    .antelope-page .prototype-section__copy {
+      min-width: 0;
+    }
+
+    .antelope-page .prototype-direction {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      max-width: 46ch;
+    }
+
+    .prototype-direction__mobile {
+      display: none;
+    }
+
+    .antelope-page .prototype-direction__icon {
+      width: 28px;
+      height: 28px;
+      flex: 0 0 28px;
+      fill: currentColor;
+    }
+
+    .antelope-page .prototype-frame {
       position: relative;
+      align-self: start;
+      justify-self: end;
       width: min(100%, 390px);
       aspect-ratio: 390 / 812;
-      margin: 36px auto 0;
+      margin: 0;
       padding: clamp(10px, 2vw, 14px);
       border-radius: 44px;
       border: 1px solid rgba(12, 13, 15, 0.18);
@@ -216,40 +247,6 @@
       display: block;
     }
 
-    .prototype-actions {
-      margin-top: 24px;
-    }
-
-    .button {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      min-height: 52px;
-      padding: 0 22px;
-      border-radius: 999px;
-      border: 1px solid transparent;
-      font-weight: 700;
-      text-decoration: none;
-      transition: transform 0.2s ease, box-shadow 0.2s ease, opacity 0.2s ease;
-    }
-
-    .button:hover,
-    .button:focus-visible {
-      transform: translateY(-1px);
-    }
-
-    .button-primary {
-      background: var(--brand);
-      color: #FFFFFF;
-      box-shadow: var(--shadow-soft);
-    }
-
-    .button-primary:hover,
-    .button-primary:focus-visible {
-      opacity: 0.92;
-      text-decoration: none;
-    }
-
     .gallery-intro {
       margin-top: 16px;
     }
@@ -291,14 +288,39 @@
       background: var(--surface-soft);
     }
 
-    body.dark-mode .button-primary {
-      color: #FFFFFF;
+    body.dark-mode.antelope-page .prototype-direction {
+      color: var(--muted);
+    }
+
+    body.dark-mode.antelope-page .prototype-direction__icon {
+      fill: currentColor;
     }
 
     @media (max-width: 900px) {
       .case-study-section__layout {
         grid-template-columns: 1fr;
         gap: 24px;
+      }
+
+      .antelope-page .prototype-section__layout {
+        grid-template-columns: 1fr;
+        gap: 32px;
+      }
+
+      .antelope-page .prototype-frame {
+        justify-self: center;
+      }
+
+      .prototype-direction__desktop {
+        display: none;
+      }
+
+      .prototype-direction__mobile {
+        display: inline;
+      }
+
+      .prototype-direction__icon {
+        transform: rotate(90deg);
       }
 
       .case-study-section__layout--reverse .case-study-section__body,
@@ -429,39 +451,44 @@
         </section>
 
         <section class="case-study-section prototype-section" aria-labelledby="prototype-title">
-          <div class="section-header">
-            <p class="eyebrow">Working prototype</p>
-            <h2 id="prototype-title">Explore the prototype</h2>
-            <p>Open the working prototype to explore the goal-first onboarding flow, permission prompt and first-plan experience.</p>
-          </div>
+          <div class="prototype-section__layout">
+            <div class="section-header prototype-section__copy">
+              <p class="eyebrow">Working prototype</p>
+              <h2 id="prototype-title">Explore the prototype</h2>
 
-          <div class="prototype-frame" data-prototype-frame data-fallback-delay-ms="4500">
-            <div class="prototype-screen">
-              <iframe
-                src="https://antelope-wealth.lovable.app/"
-                title="Live Antelope Wealth conceptual finance working prototype"
-                loading="lazy"
-                allowfullscreen>
-              </iframe>
-              <div class="prototype-frame__fallback" aria-hidden="true">
-                <div class="image-frame">
-                  <img src="../assets/antelope-mobile-welcome.png" alt="Static preview of the Antelope Wealth finance onboarding prototype." loading="lazy" decoding="async" onerror="this.parentElement.classList.add('is-missing');">
-                  <div class="image-fallback">
-                    <p>The live embed may be blocked or unavailable. Use the button below to open the working prototype directly.</p>
+              <p class="prototype-direction">
+                Explore the interactive prototype <span class="prototype-direction__desktop">to the right</span><span class="prototype-direction__mobile">below</span> to experience the
+                goal-led onboarding flow, permission prompt and first-plan journey.
+                <svg
+                  class="prototype-direction__icon"
+                  xmlns="http://www.w3.org/2000/svg"
+                  viewBox="0 -960 960 960"
+                  aria-hidden="true"
+                  focusable="false"
+                >
+                  <path d="m561-240-57-56 144-144H160v-80h488L504-664l57-56 240 240-240 240Z"/>
+                </svg>
+              </p>
+            </div>
+
+            <div class="prototype-frame" data-prototype-frame data-fallback-delay-ms="4500">
+              <div class="prototype-screen">
+                <iframe
+                  src="https://antelope-wealth.lovable.app/"
+                  title="Live Antelope Wealth conceptual finance working prototype"
+                  loading="lazy"
+                  allowfullscreen>
+                </iframe>
+                <div class="prototype-frame__fallback" aria-hidden="true">
+                  <div class="image-frame">
+                    <img src="../assets/antelope-mobile-welcome.png" alt="Static preview of the Antelope Wealth finance onboarding prototype." loading="lazy" decoding="async" onerror="this.parentElement.classList.add('is-missing');">
+                    <div class="image-fallback">
+                      <p>The live prototype may be temporarily unavailable. Please try the interactive frame again shortly.</p>
+                    </div>
                   </div>
                 </div>
               </div>
             </div>
-          </div>
-
-          <div class="prototype-actions">
-            <a
-              class="button button-primary"
-              href="https://antelope-wealth.lovable.app/"
-              target="_blank"
-              rel="noopener noreferrer">
-              Open live prototype
-            </a>
           </div>
         </section>
 
