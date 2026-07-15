@@ -2340,7 +2340,29 @@ body.chartstudio-page .site-shell {
   margin-inline: auto;
 }
 
-body.chartstudio-page .project-context,
+body.chartstudio-page .project-context {
+  width: 100%;
+  max-width: none;
+  margin: 0;
+  padding: 24px 0;
+  text-align: left;
+}
+
+body.chartstudio-page .project-context .back-link {
+  display: inline-flex;
+  align-items: center;
+  justify-content: flex-start;
+  margin: 0;
+  padding: 0;
+  position: static;
+  transform: none;
+}
+
+body.chartstudio-page .project-context .back-link::before {
+  position: static;
+  flex: 0 0 auto;
+}
+
 body.chartstudio-page .case-study,
 body.chartstudio-page .case-study-hero,
 body.chartstudio-page .case-study-section,
