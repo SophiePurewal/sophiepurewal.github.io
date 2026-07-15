@@ -2308,7 +2308,30 @@ body.financial-services-page .site-shell {
   margin-inline: auto;
 }
 
-body.financial-services-page .project-context,
+body.financial-services-page .project-context {
+  width: 100%;
+  max-width: none;
+  margin: 0;
+  padding: 24px 0;
+  text-align: left;
+}
+
+body.financial-services-page .project-context .back-link {
+  display: inline-flex;
+  align-items: center;
+  justify-content: flex-start;
+  margin: 0;
+  padding: 0;
+  position: static;
+  left: auto;
+  transform: none;
+}
+
+body.financial-services-page .project-context .back-link::before {
+  position: static;
+  flex: 0 0 auto;
+}
+
 body.financial-services-page .case-study,
 body.financial-services-page .case-study-hero,
 body.financial-services-page .case-study-section,
