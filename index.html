@@ -630,9 +630,15 @@
         text-align: left;
       }
 
-      .hero-copy,
-      .hero-photo {
+      .hero-copy {
         grid-column: auto;
+      }
+
+      body.home-page .hero-photo {
+        grid-column: auto;
+        justify-self: center;
+        margin-left: auto;
+        margin-right: auto;
       }
 
       .hero-copy {
@@ -715,8 +721,10 @@
         font-size: 17px;
       }
 
-      .hero-photo {
+      body.home-page .hero-photo {
         width: min(78vw, 320px);
+        justify-self: center;
+        margin-inline: auto;
       }
 
       .impact-section,
