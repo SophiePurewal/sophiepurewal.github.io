@@ -186,12 +186,17 @@
   border-left-color: transparent;
 }
 
+.home-page .project-box,
+.home-page .project-card {
+  background: var(--page-surface-raised);
+}
+
 body.dark-mode .project-card {
-  background: #111827;
+  background: var(--page-surface-raised);
 }
 
 body.dark-mode .project-card--featured {
-  background: #111827;
+  background: var(--page-surface-raised);
 }
 
 @media (max-width: 900px) {
@@ -604,6 +609,7 @@ body.dark-mode .project-card--featured {
 }
 
 body.home-page .projects-grid {
+  background: var(--page-border);
   display: grid;
   grid-template-columns: minmax(0, 1fr);
   width: 100%;
