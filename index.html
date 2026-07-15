@@ -420,8 +420,8 @@
     .hero-secondary { margin-top: 18px !important; }
     .hero-contact { margin-top: 22px !important; font-size: 16px !important; font-weight: 600 !important; }
     .hero-contact a, .text-link { color: var(--brand-dark); font-weight: 700; text-decoration: none; text-underline-offset: 0.18em; text-decoration-thickness: 1px; transition: color 160ms ease; }
-    .impact-section { width: min(var(--section-shell-max), calc(100% - var(--section-shell-gutter))); margin: 0 auto; padding: 56px 0; border-bottom: 1px solid #d0d0d0; }
-    .impact-strip { display: grid; grid-template-columns: minmax(240px, .85fr) minmax(0, 1.15fr); gap: 28px; align-items: stretch; }
+    .impact-section { width: min(var(--section-shell-max), calc(100% - var(--section-shell-gutter))); margin: 0 auto; padding: 64px 0; border-bottom: 1px solid #d0d0d0; }
+    .impact-strip { display: grid; grid-template-columns: minmax(240px, .68fr) minmax(0, 1.32fr); gap: clamp(28px, 4vw, 56px); align-items: stretch; }
     .home-page .section-eyebrow {
       margin: 0 0 12.8px;
       font-family: "Inter", ui-sans-serif, system-ui, -apple-system,
@@ -435,10 +435,11 @@
     }
     .impact-section h2 { margin: 0 0 12px; }
     .impact-section p:not(.section-eyebrow) { font-size: 16px; line-height: 1.6; }
-    .impact-metrics { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 12px; padding: 0; margin: 0; list-style: none; align-items: stretch; }
-    .impact-metrics li { min-width: 0; height: 100%; padding: 18px; border-left: 4px solid var(--brand-dark); border-radius: 6px; background: rgba(255,255,255,.55); overflow-wrap: anywhere; }
-    .impact-metrics strong { display: inline-block; margin-bottom: 8px; font-size: clamp(1.8rem, 3vw, 2.35rem); line-height: 1.05; color: var(--brand-dark); white-space: nowrap; overflow-wrap: normal; word-break: normal; }
-    .impact-metrics span { display: block; font-size: 14px; line-height: 1.45; font-weight: 700; }
+    .impact-metrics { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 16px; padding: 0; margin: 0; list-style: none; align-items: stretch; }
+    .impact-card { position: relative; min-width: 0; height: 100%; padding: clamp(22px, 2.4vw, 30px); border: 1px solid #d8dde3; border-radius: 12px; background: rgba(255,255,255,.82); overflow-wrap: anywhere; }
+    .impact-card::before { content: ""; display: block; width: 34px; height: 2px; margin-bottom: 28px; background: var(--brand-dark); }
+    .impact-section .impact-card__value { margin: 0 0 18px; font-family: "Inter", ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; font-size: clamp(2.35rem, 4.2vw, 3.25rem); line-height: .95; font-weight: 700; letter-spacing: -0.055em; color: #920E38; white-space: nowrap; overflow-wrap: normal; word-break: normal; }
+    .impact-section .impact-card__description { margin: 0; max-width: 20ch; font-family: "Inter", ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; font-size: 15px; line-height: 1.5; font-weight: 600; color: #5D6875; }
     .recommendations-link { margin-top: 24px !important; }
     .recommendations-link .text-link {
       display: inline-flex;
@@ -549,6 +550,8 @@
       }
       .impact-strip { grid-template-columns: 1fr; }
       .impact-metrics { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+      .impact-card { padding: 22px; }
+      .impact-section .impact-card__description { max-width: 24ch; }
       .hero-actions { justify-content: center; }
 
       .projects-intro {
@@ -607,6 +610,19 @@
 
       .impact-metrics {
         grid-template-columns: 1fr;
+        gap: 14px;
+      }
+
+      .impact-card {
+        padding: 24px;
+      }
+
+      .impact-card::before {
+        margin-bottom: 22px;
+      }
+
+      .impact-section .impact-card__description {
+        max-width: 30ch;
       }
 
       .projects-intro {
@@ -784,9 +800,18 @@
         <p>Recent financial-services design-system work includes measurable adoption across reusable components and governed releases.</p>
       </div>
       <ul class="impact-metrics" aria-label="Professional design-system impact metrics">
-        <li><strong>12,300+</strong> <span>tracked insertions across leading shared components</span></li>
-        <li><strong>6,300+</strong> <span>tracked insertions across modernised form components</span></li>
-        <li><strong>15</strong><span>redesigned Core Components progressed through review and release</span></li>
+        <li class="impact-card">
+          <p class="impact-card__value">12,300+</p>
+          <p class="impact-card__description">tracked insertions across leading shared components</p>
+        </li>
+        <li class="impact-card">
+          <p class="impact-card__value">6,300+</p>
+          <p class="impact-card__description">tracked insertions across modernised form components</p>
+        </li>
+        <li class="impact-card">
+          <p class="impact-card__value">15</p>
+          <p class="impact-card__description">redesigned Core Components progressed through review and release</p>
+        </li>
       </ul>
     </section>
 
