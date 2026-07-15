@@ -364,10 +364,11 @@ body.dark-mode .project-card--featured {
   padding-bottom: clamp(48px, 7vw, 88px);
   background: linear-gradient(
     180deg,
-    rgba(12, 13, 15, 0.9) 0%,
-    rgba(12, 13, 15, 0.68) 28%,
-    rgba(12, 13, 15, 0.26) 58%,
-    rgba(12, 13, 15, 0) 100%
+    rgba(12, 13, 15, 0.94) 0%,
+    rgba(12, 13, 15, 0.82) 22%,
+    rgba(12, 13, 15, 0.56) 46%,
+    rgba(12, 13, 15, 0.22) 72%,
+    rgba(12, 13, 15, 0.04) 100%
   );
 }
 
@@ -432,10 +433,11 @@ body.dark-mode .project-card--featured {
 .project-card--featured:focus-within .project-card__content {
   background: linear-gradient(
     180deg,
-    rgba(12, 13, 15, 0.94) 0%,
-    rgba(12, 13, 15, 0.72) 28%,
-    rgba(12, 13, 15, 0.3) 58%,
-    rgba(12, 13, 15, 0) 100%
+    rgba(12, 13, 15, 0.96) 0%,
+    rgba(12, 13, 15, 0.84) 24%,
+    rgba(12, 13, 15, 0.58) 48%,
+    rgba(12, 13, 15, 0.24) 74%,
+    rgba(12, 13, 15, 0.05) 100%
   );
 }
 
