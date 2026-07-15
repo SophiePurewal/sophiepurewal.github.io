@@ -160,10 +160,21 @@
     }
 
     .antelope-page .prototype-direction {
-      display: flex;
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) 28px;
       align-items: center;
-      gap: 12px;
+      column-gap: 14px;
       max-width: 46ch;
+    }
+
+    .antelope-page .prototype-direction__text {
+      display: inline;
+      min-width: 0;
+    }
+
+    .antelope-page .prototype-direction__desktop,
+    .antelope-page .prototype-direction__mobile {
+      white-space: nowrap;
     }
 
     .prototype-direction__mobile {
@@ -173,7 +184,7 @@
     .antelope-page .prototype-direction__icon {
       width: 28px;
       height: 28px;
-      flex: 0 0 28px;
+      display: block;
       fill: currentColor;
     }
 
@@ -319,7 +330,7 @@
         display: inline;
       }
 
-      .prototype-direction__icon {
+      .antelope-page .prototype-direction__icon {
         transform: rotate(90deg);
       }
 
@@ -331,6 +342,17 @@
 
       .screenshot-grid {
         grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+    }
+
+    @media (max-width: 640px) {
+      .antelope-page .prototype-direction {
+        grid-template-columns: 1fr;
+        row-gap: 12px;
+      }
+
+      .antelope-page .prototype-direction__icon {
+        justify-self: start;
       }
     }
 
@@ -457,8 +479,13 @@
               <h2 id="prototype-title">Explore the prototype</h2>
 
               <p class="prototype-direction">
-                Explore the interactive prototype <span class="prototype-direction__desktop">to the right</span><span class="prototype-direction__mobile">below</span> to experience the
-                goal-led onboarding flow, permission prompt and first-plan journey.
+                <span class="prototype-direction__text">
+                  Explore the interactive prototype
+                  <span class="prototype-direction__desktop">to the right</span>
+                  <span class="prototype-direction__mobile">below</span>
+                  to experience the goal-led onboarding flow, permission prompt and first-plan journey.
+                </span>
+
                 <svg
                   class="prototype-direction__icon"
                   xmlns="http://www.w3.org/2000/svg"
