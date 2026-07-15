@@ -28,7 +28,6 @@
       --text-dark: #0C0D0F;
       --panel: #FEFEFE;
       --line: #FEFEFE;
-      --color-eyebrow: #333;
       --section-shell-max: 1180px;
       --section-shell-gutter: 48px;
       --section-shell-gutter-mobile: 32px;
@@ -423,15 +422,16 @@
     .hero-contact a, .text-link { color: var(--brand-dark); font-weight: 700; text-decoration: none; text-underline-offset: 0.18em; text-decoration-thickness: 1px; transition: color 160ms ease; }
     .impact-section { width: min(var(--section-shell-max), calc(100% - var(--section-shell-gutter))); margin: 0 auto; padding: 56px 0; border-bottom: 1px solid #d0d0d0; }
     .impact-strip { display: grid; grid-template-columns: minmax(240px, .85fr) minmax(0, 1.15fr); gap: 28px; align-items: stretch; }
-    .section-eyebrow {
-      margin: 0 0 12px;
-      font-size: 16px;
-      line-height: 1.4;
+    .home-page .section-eyebrow {
+      margin: 0 0 12.8px;
+      font-family: "Inter", ui-sans-serif, system-ui, -apple-system,
+        BlinkMacSystemFont, "Segoe UI", sans-serif;
+      font-size: 12.48px;
+      line-height: 19.968px;
       font-weight: 700;
-      letter-spacing: 0.14em;
+      letter-spacing: 1.6224px;
       text-transform: uppercase;
-      color: var(--color-eyebrow);
-      opacity: 1;
+      color: #143D59;
     }
     .impact-section h2 { margin: 0 0 12px; }
     .impact-section p:not(.section-eyebrow) { font-size: 16px; line-height: 1.6; }
@@ -501,6 +501,10 @@
     body.dark-mode.home-page main li,
     body.dark-mode.home-page .hero-intro {
       color: #B7C0CE;
+    }
+
+    body.dark-mode.home-page .section-eyebrow {
+      color: #B9D3E5;
     }
 
     @media (max-width: 900px) {
