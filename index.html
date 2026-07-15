@@ -105,21 +105,29 @@
       min-width: 0;
     }
 
+    .home-page .hero-copy,
+    .home-page .hero h1,
+    .home-page main h2 {
+      text-align: left;
+    }
+
+    .home-page .hero h1,
+    .home-page main h2 {
+      letter-spacing: -0.055em;
+      font-kerning: normal;
+      font-feature-settings: "kern" 1;
+    }
+
     .home-page .hero h1 {
       margin: 0;
       font-family: 'Inter', system-ui, sans-serif;
-      font-size: 64px;
-      line-height: 1.05;
+      font-size: clamp(2.5rem, 5vw, 4rem);
+      line-height: 1.02;
       font-weight: 700;
-      letter-spacing: -2.3742px;
-      font-kerning: normal;
       color: #17202A;
       white-space: normal;
       text-wrap: balance;
-    }
-
-    .hero-title-primary {
-      white-space: nowrap;
+      max-width: 100%;
     }
 
     .home-page main p,
@@ -478,10 +486,9 @@
 
     .home-page main h2 {
       font-family: 'Inter', system-ui, sans-serif;
-      font-size: 56px;
+      font-size: clamp(2.25rem, 4.4vw, 3.5rem);
       line-height: 1.05;
       font-weight: 700;
-      letter-spacing: -0.04em;
       color: #17202A;
     }
 
@@ -508,7 +515,7 @@
         column-gap: 0;
         row-gap: 32px;
         justify-items: center;
-        text-align: center;
+        text-align: left;
       }
 
       .hero-copy,
@@ -519,14 +526,6 @@
       .hero-copy {
         max-width: 100%;
         width: 100%;
-      }
-
-      .hero h1 {
-        font-size: 52px;
-      }
-
-      .home-page main h2 {
-        font-size: 46px;
       }
 
       .hero-copy p {
@@ -575,18 +574,7 @@
         max-width: 100%;
       }
 
-      .hero-title-primary {
-        white-space: normal;
-      }
-
-      .home-page .hero h1 {
-        font-size: 40px;
-        line-height: 1.08;
-        letter-spacing: -1.5px;
-      }
-
       .home-page main h2 {
-        font-size: 36px;
         line-height: 1.1;
       }
 
@@ -755,9 +743,7 @@
     <section class="hero" id="intro" aria-label="Intro section">
       <div class="hero-panel">
         <div class="hero-copy">
-          <h1>
-            <span class="hero-title-primary">Senior Product Designer</span><span class="hero-title-specialism">, Design Systems</span>
-          </h1>
+          <h1>Senior Product Designer. Design Systems</h1>
           <p class="hero-intro">
             I design accessible digital products and scalable design systems for complex, regulated services. My recent financial-services work includes reusable components adopted more than 21,000 times across shared product libraries.
           </p>
