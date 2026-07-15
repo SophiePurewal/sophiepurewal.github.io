@@ -106,27 +106,29 @@
 
     .hero h1 {
       margin: 0;
-      font-family: 'Playfair Display', Georgia, 'Times New Roman', serif;
-      font-size: 42px;
-      line-height: 1.1;
+      font-family: 'Inter', system-ui, sans-serif;
+      font-size: 64px;
+      line-height: 1.05;
       font-weight: 700;
-      color: #920E38;
-      letter-spacing: -0.02em;
+      letter-spacing: -0.04em;
+      color: #17202A;
       white-space: normal;
       text-wrap: balance;
     }
 
-    .home-page p {
-      font-size: 16px;
+    .home-page main p,
+    .home-page main li {
+      color: #5D6875;
     }
 
     .home-page .hero-intro {
       margin: 30px 0 0;
-      font-family: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
-      font-size: 20px;
-      line-height: 26px;
-      font-weight: 300;
-      color: #0C0D0F;
+      font-family: 'Inter', system-ui, sans-serif;
+      font-size: 22px;
+      line-height: 36px;
+      font-weight: 400;
+      letter-spacing: normal;
+      color: #5D6875;
     }
 
     .hero-link {
@@ -199,15 +201,11 @@
 
     .projects-intro h2 {
       margin: 0 0 16px;
-      font-size: clamp(1.9rem, 4vw, 2.6rem);
-      line-height: 1.1;
-      color: var(--brand-dark);
     }
 
     .projects-intro p:last-child {
       max-width: 760px;
       margin: 0;
-      color: #333;
       line-height: 1.6;
     }
 
@@ -277,9 +275,6 @@
 
     .content h2 {
       margin: 0 0 28px;
-      font-size: 34px;
-      line-height: 1.2;
-      color: var(--brand-dark);
     }
 
     .content p { margin: 0; }
@@ -309,12 +304,6 @@
 
     .endorsement-section > h2 {
       margin: 0 0 18px;
-      font-family: 'Playfair Display', Georgia, 'Times New Roman', serif;
-      font-size: 42px;
-      line-height: 1.02;
-      font-weight: 700;
-      letter-spacing: -0.035em;
-      color: var(--brand-dark);
     }
 
     .endorsement-intro {
@@ -322,7 +311,6 @@
       margin: 0;
       line-height: 1.7;
       font-weight: 300;
-      color: #3f3f3f;
     }
 
     .endorsement-divider {
@@ -377,7 +365,6 @@
     .pull-quote p {
       margin: 0;
       line-height: 1.55;
-      color: #3f3f3f;
       quotes: "“" "”";
       letter-spacing: -0.01em;
     }
@@ -432,10 +419,10 @@
       color: var(--color-eyebrow);
       opacity: 1;
     }
-    .impact-section h2 { margin: 0 0 12px; font-size: clamp(1.8rem, 4vw, 2.6rem); line-height: 1.05; color: var(--brand-dark); }
-    .impact-section p:not(.section-eyebrow) { color: #333; font-size: 16px; line-height: 1.6; }
+    .impact-section h2 { margin: 0 0 12px; }
+    .impact-section p:not(.section-eyebrow) { font-size: 16px; line-height: 1.6; }
     .impact-metrics { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 12px; padding: 0; margin: 0; list-style: none; align-items: stretch; }
-    .impact-metrics li { min-width: 0; height: 100%; padding: 18px; border-left: 4px solid var(--brand-dark); border-radius: 6px; background: rgba(255,255,255,.55); color: #202020; overflow-wrap: anywhere; }
+    .impact-metrics li { min-width: 0; height: 100%; padding: 18px; border-left: 4px solid var(--brand-dark); border-radius: 6px; background: rgba(255,255,255,.55); overflow-wrap: anywhere; }
     .impact-metrics strong { display: inline-block; margin-bottom: 8px; font-size: clamp(1.8rem, 3vw, 2.35rem); line-height: 1.05; color: var(--brand-dark); white-space: nowrap; overflow-wrap: normal; word-break: normal; }
     .impact-metrics span { display: block; font-size: 14px; line-height: 1.45; font-weight: 700; }
     .recommendations-link { margin-top: 24px !important; }
@@ -483,6 +470,26 @@
       --focus-outline-color: var(--dark-theme-foreground);
     }
 
+    .home-page main h2 {
+      font-family: 'Inter', system-ui, sans-serif;
+      font-size: 56px;
+      line-height: 1.05;
+      font-weight: 700;
+      letter-spacing: -0.04em;
+      color: #17202A;
+    }
+
+    body.dark-mode.home-page .hero h1,
+    body.dark-mode.home-page main h2 {
+      color: #FFFFFF;
+    }
+
+    body.dark-mode.home-page main p,
+    body.dark-mode.home-page main li,
+    body.dark-mode.home-page .hero-intro {
+      color: #B7C0CE;
+    }
+
     @media (max-width: 900px) {
       .hero {
         min-height: auto;
@@ -509,13 +516,11 @@
       }
 
       .hero h1 {
-        font-size: 36px;
-        white-space: normal;
+        font-size: 52px;
       }
 
-      .home-page .hero-intro {
-        font-size: 18px;
-        line-height: 1.6;
+      .home-page main h2 {
+        font-size: 46px;
       }
 
       .hero-copy p {
@@ -545,10 +550,6 @@
         padding: 56px 20px;
       }
 
-      .content h2 {
-        font-size: 30px;
-      }
-
       .pull-quote {
         padding: 24px 0;
       }
@@ -569,11 +570,18 @@
       }
 
       .hero h1 {
-        font-size: clamp(1.85rem, 9vw, 2.6rem);
+        font-size: 40px;
+        line-height: 1.08;
+      }
+
+      .home-page main h2 {
+        font-size: 36px;
+        line-height: 1.1;
       }
 
       .home-page .hero-intro {
-        font-size: 17px;
+        font-size: 19px;
+        line-height: 30px;
         text-align: left;
       }
 
@@ -608,10 +616,6 @@
 
       .home-page .endorsements-content {
         padding: 32px 24px;
-      }
-
-      .content h2 {
-        font-size: 28px;
       }
 
       .content h3 {
