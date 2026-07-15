@@ -31,7 +31,7 @@
       --section-shell-gutter: 48px;
       --section-shell-gutter-mobile: 32px;
       --site-logo-size: 28px;
-      --home-surface: #FBFAF8;
+      --home-surface: #FDFCFB;
       --home-logo: #930B38;
       --home-header-divider: #D9D6D2;
     }
@@ -1006,7 +1006,8 @@
     body.home-page nav,
     body.home-page .navbar,
     body.home-page .site-header,
-    body.home-page .site-header.scrolled {
+    body.home-page .site-header.scrolled,
+    body.home-page .dropdown-menu {
       background: var(--home-surface);
       background-color: var(--home-surface);
     }
@@ -1027,8 +1028,10 @@
       background: var(--home-surface);
     }
 
+    body.home-page .dropdown-menu,
     body.home-page .site-header.scrolled .dropdown-menu {
       background: var(--home-surface);
+      background-color: var(--home-surface);
       border-color: var(--home-header-divider);
       box-shadow: none;
       --focus-outline-color: var(--home-logo);
