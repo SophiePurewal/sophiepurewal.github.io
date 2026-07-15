@@ -2329,3 +2329,40 @@ body.financial-services-page .summary-grid {
     width: calc(100% - var(--section-shell-gutter-mobile));
   }
 }
+
+/* ChartStudio alignment with the shared header shell. */
+body.chartstudio-page .site-shell {
+  width: min(
+    var(--section-shell-max),
+    calc(100% - var(--section-shell-gutter))
+  );
+  max-width: none;
+  margin-inline: auto;
+}
+
+body.chartstudio-page .project-context,
+body.chartstudio-page .case-study,
+body.chartstudio-page .case-study-hero,
+body.chartstudio-page .case-study-section,
+body.chartstudio-page .project-footer {
+  margin-left: 0;
+  margin-right: 0;
+}
+
+body.chartstudio-page .case-study-hero {
+  width: 100%;
+  margin-inline: 0;
+}
+
+body.chartstudio-page .case-study,
+body.chartstudio-page .case-study-section,
+body.chartstudio-page .case-study-section__layout,
+body.chartstudio-page .summary-grid {
+  width: 100%;
+}
+
+@media (max-width: 640px) {
+  body.chartstudio-page .site-shell {
+    width: calc(100% - var(--section-shell-gutter-mobile));
+  }
+}
