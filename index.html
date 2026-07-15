@@ -106,8 +106,16 @@
     }
 
     .home-page .hero-copy,
-    .home-page .hero h1 {
+    .home-page .hero h1,
+    .home-page main h2 {
       text-align: left;
+    }
+
+    .home-page .hero h1,
+    .home-page main h2 {
+      letter-spacing: -0.055em;
+      font-kerning: normal;
+      font-feature-settings: "kern" 1;
     }
 
     .home-page .hero h1 {
@@ -116,8 +124,6 @@
       font-size: clamp(2.5rem, 5vw, 4rem);
       line-height: 1.02;
       font-weight: 700;
-      letter-spacing: -2.8px;
-      font-kerning: normal;
       color: #17202A;
       white-space: normal;
       text-wrap: balance;
@@ -480,10 +486,9 @@
 
     .home-page main h2 {
       font-family: 'Inter', system-ui, sans-serif;
-      font-size: 56px;
+      font-size: clamp(2.25rem, 4.4vw, 3.5rem);
       line-height: 1.05;
       font-weight: 700;
-      letter-spacing: -0.04em;
       color: #17202A;
     }
 
@@ -521,10 +526,6 @@
       .hero-copy {
         max-width: 100%;
         width: 100%;
-      }
-
-      .home-page main h2 {
-        font-size: 46px;
       }
 
       .hero-copy p {
@@ -573,12 +574,7 @@
         max-width: 100%;
       }
 
-      .home-page .hero h1 {
-        letter-spacing: -2px;
-      }
-
       .home-page main h2 {
-        font-size: 36px;
         line-height: 1.1;
       }
 
