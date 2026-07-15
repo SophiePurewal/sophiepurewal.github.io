@@ -2297,3 +2297,35 @@ body.chartstudio-page.dark-mode .button-secondary:focus-visible {
 body.chartstudio-page.dark-mode :where(a, button):focus-visible {
   outline-color: #FFFFFF;
 }
+
+/* Financial Services Platform alignment with the shared header shell. */
+body.financial-services-page .site-shell {
+  width: min(
+    var(--section-shell-max),
+    calc(100% - var(--section-shell-gutter))
+  );
+  max-width: none;
+  margin-inline: auto;
+}
+
+body.financial-services-page .project-context,
+body.financial-services-page .case-study,
+body.financial-services-page .case-study-hero,
+body.financial-services-page .case-study-section,
+body.financial-services-page .project-footer {
+  margin-left: 0;
+  margin-right: 0;
+}
+
+body.financial-services-page .case-study,
+body.financial-services-page .case-study-section,
+body.financial-services-page .summary-grid {
+  width: 100%;
+  max-width: none;
+}
+
+@media (max-width: 640px) {
+  body.financial-services-page .site-shell {
+    width: calc(100% - var(--section-shell-gutter-mobile));
+  }
+}
