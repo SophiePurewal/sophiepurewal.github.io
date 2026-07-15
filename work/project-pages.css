@@ -3,9 +3,11 @@
 }
 
 :root {
-  --brand: #C0414E;
-  --brand-dark: #C0414E;
-  --background: #EFEFEF;
+  --brand-claret: #920E38;
+  --site-background-light: #FEFEFE;
+  --brand: var(--brand-claret);
+  --brand-dark: var(--brand-claret);
+  --background: var(--site-background-light);
   --surface: rgba(255, 255, 255, 0.82);
   --surface-soft: rgba(255, 255, 255, 0.72);
   --text: #0C0D0F;
@@ -19,6 +21,7 @@
 
 html {
   scroll-behavior: smooth;
+  background: var(--background);
 }
 
 body {
@@ -26,7 +29,7 @@ body {
   font-family: "Inter", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
   color: var(--text);
   line-height: 1.7;
-  background: #F3F4F6;
+  background: var(--background);
 }
 
 img {
@@ -45,7 +48,7 @@ a {
 }
 
 :where(a, button):focus-visible {
-  outline: 3px solid var(--focus-outline-color, #C0414E);
+  outline: 3px solid var(--focus-outline-color, #920E38);
   outline-offset: 3px;
   border-radius: 6px;
   opacity: 1;
@@ -66,10 +69,10 @@ nav,
 }
 
 .site-header.scrolled {
-  background: var(--brand);
-  border-bottom: 1px solid rgba(255, 255, 255, 0.25);
-  box-shadow: 0 2px 10px rgba(192, 65, 78, 0.24);
-  --focus-outline-color: #FFFFFF;
+  background: var(--background);
+  border-bottom: 1px solid rgba(12, 13, 15, 0.14);
+  box-shadow: none;
+  --focus-outline-color: var(--brand);
 }
 
 .site-header.scrolled.menu-open {
@@ -77,10 +80,13 @@ nav,
 }
 
 .site-header.scrolled .menu-toggle,
-.site-header.scrolled .theme-toggle,
+.site-header.scrolled .theme-toggle {
+  color: var(--text);
+}
+
 .site-header.scrolled .site-title,
 .site-header.scrolled .site-title a {
-  color: #FFFFFF;
+  color: var(--brand);
 }
 
 .site-title,
@@ -138,8 +144,11 @@ nav,
 }
 
 .menu-toggle:hover::after,
+.menu-toggle:focus-visible::after,
 .theme-toggle:hover::after,
-.dropdown-social-links a:hover::after {
+.theme-toggle:focus-visible::after,
+.dropdown-social-links a:hover::after,
+.dropdown-social-links a:focus-visible::after {
   opacity: 1;
 }
 
@@ -200,14 +209,14 @@ nav,
     transform 0.42s cubic-bezier(0.22, 1, 0.36, 1),
     visibility 0s linear 0.42s;
   will-change: max-height, opacity, transform;
-  --focus-outline-color: #C0414E;
+  --focus-outline-color: #920E38;
 }
 
 .site-header.scrolled .dropdown-menu {
-  background: var(--brand);
-  border-color: rgba(255, 255, 255, 0.25);
-  color: #FFFFFF;
-  --focus-outline-color: #FFFFFF;
+  background: var(--background);
+  border-color: rgba(12, 13, 15, 0.14);
+  color: var(--text);
+  --focus-outline-color: var(--brand);
 }
 
 .site-header.scrolled.menu-open .dropdown-menu {
@@ -218,7 +227,7 @@ nav,
 .site-header.scrolled .dropdown-menu.open a svg,
 .site-header.scrolled .dropdown-social-links a,
 .site-header.scrolled .dropdown-social-links a svg {
-  color: #FFFFFF;
+  color: var(--text);
   fill: currentColor;
 }
 
@@ -259,27 +268,35 @@ nav,
 }
 
 .dropdown-menu a:hover,
+.dropdown-menu a:focus-visible,
 .dropdown-menu a:hover svg,
 .dropdown-menu a:focus-visible svg,
 .dropdown-social-links a:hover,
-.dropdown-social-links a:hover svg {
+.dropdown-social-links a:focus-visible,
+.dropdown-social-links a:hover svg,
+.dropdown-social-links a:focus-visible svg {
   color: var(--brand);
   fill: currentColor;
-  opacity: 0.82;
+  opacity: 1;
   text-decoration: underline;
+  text-decoration-color: var(--brand);
   text-underline-offset: 4px;
   text-decoration-thickness: 2px;
 }
 
 .site-header.scrolled .dropdown-menu a:hover,
+.site-header.scrolled .dropdown-menu a:focus-visible,
 .site-header.scrolled .dropdown-menu a:hover svg,
 .site-header.scrolled .dropdown-menu a:focus-visible svg,
 .site-header.scrolled .dropdown-social-links a:hover,
-.site-header.scrolled .dropdown-social-links a:hover svg {
-  color: #FFFFFF;
+.site-header.scrolled .dropdown-social-links a:focus-visible,
+.site-header.scrolled .dropdown-social-links a:hover svg,
+.site-header.scrolled .dropdown-social-links a:focus-visible svg {
+  color: var(--brand);
   fill: currentColor;
-  opacity: 0.82;
+  opacity: 1;
   text-decoration: underline;
+  text-decoration-color: var(--brand);
   text-underline-offset: 4px;
   text-decoration-thickness: 2px;
 }
@@ -309,7 +326,7 @@ nav,
 }
 
 .site-header.scrolled .dropdown-social-links {
-  border-top-color: rgba(255, 255, 255, 0.25);
+  border-top-color: rgba(12, 13, 15, 0.14);
 }
 
 .dropdown-social-links a svg {
@@ -354,14 +371,14 @@ nav,
 .site-title a:focus-visible {
   color: var(--brand);
   text-decoration: none;
-  opacity: 0.82;
+  opacity: 1;
 }
 
 .site-header.scrolled .site-title a:hover,
 .site-header.scrolled .site-title a:focus-visible {
-  color: #FFFFFF;
+  color: var(--brand);
   text-decoration: none;
-  opacity: 0.82;
+  opacity: 1;
 }
 
 .menu-toggle:hover,
@@ -369,8 +386,9 @@ nav,
 .theme-toggle:hover,
 .theme-toggle:focus-visible {
   color: var(--brand);
-  opacity: 0.82;
+  opacity: 1;
   text-decoration: underline;
+  text-decoration-color: var(--brand);
   text-underline-offset: 4px;
   text-decoration-thickness: 2px;
 }
@@ -379,8 +397,8 @@ nav,
 .site-header.scrolled .menu-toggle:focus-visible,
 .site-header.scrolled .theme-toggle:hover,
 .site-header.scrolled .theme-toggle:focus-visible {
-  color: #FFFFFF;
-  opacity: 0.82;
+  color: var(--brand);
+  opacity: 1;
   text-decoration: underline;
   text-underline-offset: 4px;
   text-decoration-thickness: 2px;
@@ -434,7 +452,7 @@ nav,
 }
 
 .theme-toggle:hover {
-  opacity: 0.82;
+  opacity: 1;
 }
 
 .visually-hidden {
@@ -491,7 +509,7 @@ nav,
   display: inline-flex;
   align-items: center;
   gap: 10px;
-  color: var(--brand);
+  color: var(--text);
   font-weight: 600;
   text-decoration: none;
   text-underline-offset: 0.18em;
@@ -513,8 +531,9 @@ nav,
 .back-link:focus-visible,
 .footer-link:focus-visible,
 .case-study-footer-link:focus-visible {
-  color: var(--color-text);
+  color: var(--brand);
   text-decoration-line: underline;
+  text-decoration-color: var(--brand);
 }
 
 .text-link:focus-visible,
@@ -846,7 +865,7 @@ body.dark-mode .site-header.scrolled.menu-open {
 
 body.dark-mode .site-header .site-title,
 body.dark-mode .site-header.scrolled .site-title {
-  color: var(--brand);
+  color: var(--color-heading-dark-mode);
 }
 
 body.dark-mode .site-header .menu-toggle,
@@ -897,7 +916,7 @@ body.dark-mode .dropdown-social-links a:is(:hover, :focus-visible, .active, [ari
 
 body.dark-mode .site-title a:hover,
 body.dark-mode .site-title a:focus-visible {
-  color: var(--brand);
+  color: var(--color-heading-dark-mode);
 }
 
 
@@ -1172,7 +1191,7 @@ body.dark-mode .skip-link {
   color: #FFFFFF;
   background:
     radial-gradient(circle at 86% 18%, rgba(255, 255, 255, 0.18) 0 14%, transparent 15%),
-    linear-gradient(135deg, #C0414E 0%, #C0414E 52%, #111827 100%);
+    linear-gradient(135deg, #920E38 0%, #920E38 52%, #111827 100%);
   border-radius: 0;
   box-shadow: var(--shadow);
 }
@@ -1350,7 +1369,7 @@ header.case-study-section.ds-section-heading { margin-top: 56px; margin-bottom: 
 .docs-nav-link[aria-current="page"] {
   background: var(--brand);
   color: #fff;
-  box-shadow: 0 12px 24px rgba(192, 65, 78, .22);
+  box-shadow: 0 12px 24px rgba(146, 14, 56, .22);
 }
 
 .panel-preview :where(button, input, a):focus-visible {
