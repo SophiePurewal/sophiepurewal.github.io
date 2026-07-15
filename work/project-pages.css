@@ -2113,3 +2113,95 @@ body.dark-mode .summary-item dt {
     line-height: 30px;
   }
 }
+
+/* Financial Services Platform dark-mode claret accent override. */
+body.financial-services-page.dark-mode {
+  --brand: #FFFFFF;
+  --brand-dark: #FFFFFF;
+  --brand-claret: #FFFFFF;
+  --focus-outline-color: #FFFFFF;
+}
+
+body.financial-services-page.dark-mode .site-header,
+body.financial-services-page.dark-mode .site-header a,
+body.financial-services-page.dark-mode .site-header button,
+body.financial-services-page.dark-mode .site-header svg,
+body.financial-services-page.dark-mode .site-header svg path,
+body.financial-services-page.dark-mode .site-header .menu-icon line,
+body.financial-services-page.dark-mode .site-header a:hover,
+body.financial-services-page.dark-mode .site-header a:focus-visible,
+body.financial-services-page.dark-mode .site-header button:hover,
+body.financial-services-page.dark-mode .site-header button:focus-visible,
+body.financial-services-page.dark-mode .site-header .dropdown-menu a:hover,
+body.financial-services-page.dark-mode .site-header .dropdown-menu a:focus-visible,
+body.financial-services-page.dark-mode .site-header .dropdown-social-links a:hover,
+body.financial-services-page.dark-mode .site-header .dropdown-social-links a:focus-visible {
+  color: #FFFFFF;
+}
+
+body.financial-services-page.dark-mode .site-header a:hover,
+body.financial-services-page.dark-mode .site-header a:focus-visible,
+body.financial-services-page.dark-mode .site-header .dropdown-menu a:hover,
+body.financial-services-page.dark-mode .site-header .dropdown-menu a:focus-visible,
+body.financial-services-page.dark-mode .site-header .dropdown-social-links a:hover,
+body.financial-services-page.dark-mode .site-header .dropdown-social-links a:focus-visible {
+  text-decoration-color: #FFFFFF;
+}
+
+body.financial-services-page.dark-mode .text-link,
+body.financial-services-page.dark-mode .back-link,
+body.financial-services-page.dark-mode .footer-link,
+body.financial-services-page.dark-mode .case-study-footer-link,
+body.financial-services-page.dark-mode .project-main a:not(.button),
+body.financial-services-page.dark-mode .project-footer a {
+  color: #FFFFFF;
+}
+
+body.financial-services-page.dark-mode .text-link:hover,
+body.financial-services-page.dark-mode .text-link:focus-visible,
+body.financial-services-page.dark-mode .back-link:hover,
+body.financial-services-page.dark-mode .back-link:focus-visible,
+body.financial-services-page.dark-mode .footer-link:hover,
+body.financial-services-page.dark-mode .footer-link:focus-visible,
+body.financial-services-page.dark-mode .case-study-footer-link:hover,
+body.financial-services-page.dark-mode .case-study-footer-link:focus-visible,
+body.financial-services-page.dark-mode .project-main a:not(.button):hover,
+body.financial-services-page.dark-mode .project-main a:not(.button):focus-visible,
+body.financial-services-page.dark-mode .project-footer a:hover,
+body.financial-services-page.dark-mode .project-footer a:focus-visible {
+  color: #FFFFFF;
+  text-decoration-color: #FFFFFF;
+}
+
+body.financial-services-page.dark-mode .approach-list li::before,
+body.financial-services-page.dark-mode .feature-list li::before {
+  background: #FFFFFF;
+}
+
+body.financial-services-page.dark-mode .process-list li::marker {
+  color: #FFFFFF;
+}
+
+body.financial-services-page.dark-mode .stat-grid strong {
+  color: #FFFFFF;
+}
+
+body.financial-services-page.dark-mode .button-primary,
+body.financial-services-page.dark-mode .button-secondary {
+  background: transparent;
+  border: 2px solid #FFFFFF;
+  color: #FFFFFF;
+}
+
+body.financial-services-page.dark-mode .button-primary:hover,
+body.financial-services-page.dark-mode .button-primary:focus-visible,
+body.financial-services-page.dark-mode .button-secondary:hover,
+body.financial-services-page.dark-mode .button-secondary:focus-visible {
+  background: #FFFFFF;
+  border-color: #FFFFFF;
+  color: #111827;
+}
+
+body.financial-services-page.dark-mode :where(a, button):focus-visible {
+  outline-color: #FFFFFF;
+}
