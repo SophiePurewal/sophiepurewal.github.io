@@ -210,14 +210,24 @@
       text-decoration-color: currentColor;
     }
 
-    .hero-photo {
+    .hero-photo-wrap {
       grid-column: 2;
-      justify-self: end;
+      width: 100%;
+      display: flex;
+      justify-content: flex-end;
+      align-items: center;
+      min-width: 0;
+    }
+
+    .hero-photo {
+      display: block;
       width: clamp(240px, 24vw, 340px);
+      height: auto;
       aspect-ratio: 1 / 1;
       object-fit: cover;
       border-radius: 50%;
       border: 6px solid #f0eded;
+      margin: 0;
     }
 
     .projects-section {
@@ -634,11 +644,21 @@
         grid-column: auto;
       }
 
+      body.home-page .hero-photo-wrap {
+        grid-column: 1;
+        grid-row: auto;
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        justify-self: stretch;
+        margin: 0;
+        padding: 0;
+      }
+
       body.home-page .hero-photo {
-        grid-column: auto;
-        justify-self: center;
-        margin-left: auto;
-        margin-right: auto;
+        margin: 0;
+        flex: 0 0 auto;
       }
 
       .hero-copy {
@@ -721,10 +741,14 @@
         font-size: 17px;
       }
 
+      body.home-page .hero-photo-wrap {
+        width: 100%;
+        justify-content: center;
+      }
+
       body.home-page .hero-photo {
         width: min(78vw, 320px);
-        justify-self: center;
-        margin-inline: auto;
+        margin: 0;
       }
 
       .impact-section,
@@ -898,7 +922,13 @@
             </a>
           </div>
         </div>
-        <img class="hero-photo" src="sophie-profile.jpeg" alt="Portrait of Sophie Purewal">
+        <div class="hero-photo-wrap">
+          <img
+            class="hero-photo"
+            src="sophie-profile.jpeg"
+            alt="Portrait of Sophie Purewal"
+          >
+        </div>
       </div>
     </section>
 
