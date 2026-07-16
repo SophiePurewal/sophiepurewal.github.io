@@ -48,6 +48,11 @@
     body.cv-request-page .submit-button__label { text-decoration-line: underline; text-decoration-color: transparent; text-decoration-thickness: 2px; text-underline-offset: 5px; transition: text-decoration-color 180ms ease; }
     body.cv-request-page .submit-button:hover, body.cv-request-page .submit-button:focus-visible { border-color: #0C0D0F; background: #0C0D0F; color: #FFFFFF; }
     body.cv-request-page .submit-button:hover .submit-button__label, body.cv-request-page .submit-button:focus-visible .submit-button__label { text-decoration-color: currentColor; }
+    body.cv-request-page .submit-button:disabled { opacity: 0.48; cursor: not-allowed; }
+    body.cv-request-page .submit-button:disabled .submit-button__label { text-decoration-color: transparent; }
+    body.cv-request-page .submit-button:disabled:hover, body.cv-request-page .submit-button:disabled:focus { background: #0C0D0F; border-color: #0C0D0F; color: #FFFFFF; }
+    body.cv-request-page .form-status { margin: 16px 0 0; max-width: 640px; color: #143D59; font-size: 15px; line-height: 1.5; font-weight: 600; }
+    body.cv-request-page .form-status.is-error { color: var(--form-error); }
     .privacy-note { margin: 16px 0 0; color: #4B5563; font-size: 15px; max-width: 640px; }
     .text-link { color: #0C0D0F; font-weight: 800; text-underline-offset: 6px; text-decoration-thickness: 2px; }
     .text-link:hover, .text-link:focus-visible { color: var(--brand-claret); text-decoration-line: underline; text-decoration-color: var(--brand-claret); }
@@ -69,6 +74,9 @@
     body.dark-mode .text-link:hover, body.dark-mode .text-link:focus-visible { color: #e5e7eb; }
     body.dark-mode.cv-request-page .submit-button { border-color: #FFFFFF; background: #FFFFFF; color: #0C0D0F; }
     body.dark-mode.cv-request-page .submit-button:hover, body.dark-mode.cv-request-page .submit-button:focus-visible { border-color: #FFFFFF; background: #FFFFFF; color: #0C0D0F; }
+    body.dark-mode.cv-request-page .submit-button:disabled:hover, body.dark-mode.cv-request-page .submit-button:disabled:focus { background: #FFFFFF; border-color: #FFFFFF; color: #0C0D0F; }
+    body.dark-mode.cv-request-page .form-status { color: #B9D3E5; }
+    body.dark-mode.cv-request-page .form-status.is-error { color: var(--form-error); }
     @media (max-width: 900px) { body.cv-request-page .page-main { padding: 72px 0 80px; } body.cv-request-page .hero-panel { width: calc(100% - var(--section-shell-gutter)); grid-template-columns: 1fr; justify-items: start; text-align: left; } body.cv-request-page .hero-copy { width: 100%; max-width: 680px; } }
     @media (max-width: 640px) { body.cv-request-page .page-main { padding: 56px 0 64px; } body.cv-request-page .hero-panel { width: calc(100% - var(--section-shell-gutter-mobile)); } body.cv-request-page .hero h1 { font-size: clamp(2.25rem, 11vw, 3rem); } body.cv-request-page .hero-intro { font-size: 19px; line-height: 30px; } body.cv-request-page .submit-button { width: 100%; } }
   </style>
@@ -150,12 +158,15 @@
         <p class="hero-intro">Please complete the form below and I’ll send you my CV.</p>
         <form class="cv-request-form" action="https://formspree.io/f/xqerzpny" method="POST">
           <input type="hidden" name="_subject" value="New CV request from Sophie Purewal’s portfolio">
-          <input type="hidden" name="_next" value="https://sophiepurewal.github.io/request-cv-thank-you.html">
           <div class="form-field"><input id="cv-name" name="name" type="text" autocomplete="name" placeholder=" " required aria-describedby="cv-name-error"><label for="cv-name">Name<span class="required-marker" aria-hidden="true">*</span></label><svg class="form-field__error-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960" aria-hidden="true" focusable="false"><path d="m336-280 144-144 144 144 56-56-144-144 144-144-56-56-144 144-144-144-56 56 144 144-144 144 56 56ZM480-80q-83 0-156-31.5T197-197q-54-54-85.5-127T80-480q0-83 31.5-156T197-763q54-54 127-85.5T480-880q83 0 156 31.5T763-763q54 54 85.5 127T880-480q0 83-31.5 156T763-197q-54 54-127 85.5T480-80Zm0-80q134 0 227-93t93-227q0-134-93-227t-227-93q-134 0-227 93t-93 227q0 134 93 227t227 93Z"/></svg><p id="cv-name-error" class="form-field__support" aria-live="polite"><span aria-hidden="true">*</span><span class="form-field__error-text">Required</span></p></div>
           <div class="form-field"><input id="cv-email" name="email" type="email" autocomplete="email" placeholder=" " required aria-describedby="cv-email-error"><label for="cv-email">Email address<span class="required-marker" aria-hidden="true">*</span></label><svg class="form-field__error-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960" aria-hidden="true" focusable="false"><path d="m336-280 144-144 144 144 56-56-144-144 144-144-56-56-144 144-144-144-56 56 144 144-144 144 56 56ZM480-80q-83 0-156-31.5T197-197q-54-54-85.5-127T80-480q0-83 31.5-156T197-763q54-54 127-85.5T480-880q83 0 156 31.5T763-763q54 54 85.5 127T880-480q0 83-31.5 156T763-197q-54 54-127 85.5T480-80Zm0-80q134 0 227-93t93-227q0-134-93-227t-227-93q-134 0-227 93t-93 227q0 134 93 227t227 93Z"/></svg><p id="cv-email-error" class="form-field__support" aria-live="polite"><span aria-hidden="true">*</span><span class="form-field__error-text">Required</span></p></div>
           <div class="form-field"><input id="cv-company" name="company" type="text" autocomplete="organization" placeholder=" " required aria-describedby="cv-company-error"><label for="cv-company">Company<span class="required-marker" aria-hidden="true">*</span></label><svg class="form-field__error-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960" aria-hidden="true" focusable="false"><path d="m336-280 144-144 144 144 56-56-144-144 144-144-56-56-144 144-144-144-56 56 144 144-144 144 56 56ZM480-80q-83 0-156-31.5T197-197q-54-54-85.5-127T80-480q0-83 31.5-156T197-763q54-54 127-85.5T480-880q83 0 156 31.5T763-763q54 54 85.5 127T880-480q0 83-31.5 156T763-197q-54 54-127 85.5T480-80Zm0-80q134 0 227-93t93-227q0-134-93-227t-227-93q-134 0-227 93t-93 227q0 134 93 227t227 93Z"/></svg><p id="cv-company-error" class="form-field__support" aria-live="polite"><span aria-hidden="true">*</span><span class="form-field__error-text">Required</span></p></div>
-          <button class="submit-button" type="submit"><span class="submit-button__label">Request CV</span></button>
+          <button class="submit-button" type="submit" disabled aria-disabled="true"><span class="submit-button__label">Download CV</span></button>
+          <p class="form-status" role="status" aria-live="polite" aria-atomic="true" hidden></p>
         </form>
+        <noscript>
+          <p class="form-status is-error">JavaScript must be enabled to submit the form and download the CV.</p>
+        </noscript>
         <p class="privacy-note">I’ll only use these details to respond to your CV request.</p>
       </div>
     </section>
@@ -172,6 +183,55 @@
       const fields = Array.from(
         form.querySelectorAll(".form-field")
       );
+
+      const submitButton = form.querySelector(
+        ".submit-button"
+      );
+
+      const submitButtonLabel = form.querySelector(
+        ".submit-button__label"
+      );
+
+      const formStatus = form.querySelector(
+        ".form-status"
+      );
+
+      const cvFilePath =
+        "Sophie_Purewal_Product_Design_CV_2026.pdf";
+
+      const cvFileName =
+        "Sophie_Purewal_Product_Design_CV_2026.pdf";
+
+      let isSubmitting = false;
+
+      const syncSubmitButtonState = () => {
+        if (!submitButton) {
+          return;
+        }
+
+        const canSubmit =
+          form.checkValidity() && !isSubmitting;
+
+        submitButton.disabled = !canSubmit;
+
+        submitButton.setAttribute(
+          "aria-disabled",
+          String(!canSubmit)
+        );
+      };
+
+      const downloadCv = () => {
+        const downloadLink =
+          document.createElement("a");
+
+        downloadLink.href = cvFilePath;
+        downloadLink.download = cvFileName;
+        downloadLink.hidden = true;
+
+        document.body.appendChild(downloadLink);
+        downloadLink.click();
+        downloadLink.remove();
+      };
 
       const updateFieldState = (field, force = false) => {
         const input = field.querySelector("input");
@@ -218,10 +278,12 @@
         input.addEventListener("blur", () => {
           field.dataset.touched = "true";
           updateFieldState(field);
+          syncSubmitButtonState();
         });
 
         input.addEventListener("input", () => {
           updateFieldState(field);
+          syncSubmitButtonState();
         });
       });
 
@@ -238,9 +300,93 @@
 
           field.dataset.touched = "true";
           updateFieldState(field, true);
+          syncSubmitButtonState();
         },
         true
       );
+
+      form.addEventListener("submit", async (event) => {
+        event.preventDefault();
+
+        fields.forEach((field) => {
+          field.dataset.touched = "true";
+          updateFieldState(field, true);
+        });
+
+        if (!form.checkValidity()) {
+          form.reportValidity();
+          syncSubmitButtonState();
+          return;
+        }
+
+        if (
+          !submitButton ||
+          !submitButtonLabel ||
+          !formStatus
+        ) {
+          return;
+        }
+
+        isSubmitting = true;
+        syncSubmitButtonState();
+
+        submitButton.setAttribute(
+          "aria-busy",
+          "true"
+        );
+
+        submitButtonLabel.textContent =
+          "Preparing download…";
+
+        formStatus.hidden = false;
+        formStatus.classList.remove("is-error");
+        formStatus.textContent =
+          "Submitting your details…";
+
+        try {
+          const response = await fetch(form.action, {
+            method: "POST",
+            body: new FormData(form),
+            headers: {
+              Accept: "application/json"
+            }
+          });
+
+          if (!response.ok) {
+            throw new Error(
+              "The form submission was unsuccessful."
+            );
+          }
+
+          downloadCv();
+
+          formStatus.textContent =
+            "Your CV download has started.";
+
+          submitButtonLabel.textContent =
+            "Download CV";
+
+          submitButton.removeAttribute("aria-busy");
+
+          isSubmitting = false;
+          syncSubmitButtonState();
+        } catch (error) {
+          formStatus.classList.add("is-error");
+
+          formStatus.textContent =
+            "Your details could not be submitted. Please try again.";
+
+          submitButtonLabel.textContent =
+            "Download CV";
+
+          submitButton.removeAttribute("aria-busy");
+
+          isSubmitting = false;
+          syncSubmitButtonState();
+        }
+      });
+
+      syncSubmitButtonState();
     });
   </script>
 </body>
