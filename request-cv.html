@@ -18,6 +18,7 @@
     a:focus-visible, button:focus-visible, input:focus-visible { outline: 3px solid var(--focus-outline-color); outline-offset: 4px; }
     .skip-link { position: absolute; top: -48px; left: 16px; background: #111; color: #fff; padding: 10px 14px; border-radius: 8px; text-decoration: none; z-index: 200; --focus-outline-color: #fff; }
     .skip-link:focus-visible { top: 12px; }
+    body.cv-request-page { --form-error: #920E38; }
     body.cv-request-page .page-main { min-height: calc(100vh - 160px); padding: 86px 0 92px; background: var(--site-background-light); }
     .hero { background: var(--site-background-light); color: #1f1f1f; display: flex; align-items: center; justify-content: center; }
     body.cv-request-page .hero-panel { width: min(var(--section-shell-max), calc(100% - var(--section-shell-gutter))); max-width: none; margin-inline: auto; display: grid; grid-template-columns: minmax(0, 1fr); row-gap: 22px; align-items: start; }
@@ -27,14 +28,22 @@
     body.cv-request-page .section-eyebrow { margin: 0 0 12.8px; font-family: "Inter", ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; font-size: 12.48px; line-height: 19.968px; font-weight: 700; letter-spacing: 1.6224px; text-transform: uppercase; color: #143D59; }
     body.cv-request-page .cv-request-form { display: grid; gap: 24px; width: 100%; max-width: 640px; margin-top: 32px; padding: 0; border: 0; border-radius: 0; background: transparent; box-shadow: none; }
     body.cv-request-page .form-field { position: relative; display: block; width: 100%; }
-    body.cv-request-page .form-field input { display: block; box-sizing: border-box; width: 100%; min-height: 60px; margin: 0; padding: 18px 16px 10px; border: 1px solid #747474; border-radius: 0; background: #FEFEFE; color: #0C0D0F; font: inherit; font-size: 17px; line-height: 1.4; box-shadow: none; }
+    body.cv-request-page .form-field input { display: block; box-sizing: border-box; width: 100%; min-height: 60px; margin: 0; padding: 18px 52px 10px 16px; border: 1px solid #747474; border-radius: 0; background: #FEFEFE; color: #0C0D0F; font: inherit; font-size: 17px; line-height: 1.4; box-shadow: none; }
     body.cv-request-page .form-field label { position: absolute; top: 50%; left: 12px; z-index: 1; max-width: calc(100% - 24px); margin: 0; padding: 0 4px; background: #FEFEFE; color: #5D6875; font-family: "Inter", system-ui, sans-serif; font-size: 17px; line-height: 1; font-weight: 400; pointer-events: none; transform: translateY(-50%); transform-origin: left center; transition: top 160ms ease, transform 160ms ease, font-size 160ms ease, color 160ms ease; }
-    body.cv-request-page .form-field input:focus + label, body.cv-request-page .form-field input:not(:placeholder-shown) + label, body.cv-request-page .form-field input:-webkit-autofill + label { top: 0; font-size: 12px; font-weight: 600; transform: translateY(-50%); }
+    body.cv-request-page .form-field input:focus + label, body.cv-request-page .form-field input:not(:placeholder-shown) + label, body.cv-request-page .form-field input:-webkit-autofill + label, body.cv-request-page .form-field.is-invalid label { top: 0; font-size: 12px; font-weight: 600; transform: translateY(-50%); }
     body.cv-request-page .form-field input:focus, body.cv-request-page .form-field input:focus-visible { border: 2px solid #143D59; outline: none; box-shadow: 0 0 0 3px rgba(20, 61, 89, 0.12); }
     body.cv-request-page .form-field input:focus + label { color: #143D59; }
     body.cv-request-page .form-field input:not(:placeholder-shown):not(:focus) + label { color: #5D6875; }
-    body.cv-request-page .form-field input:invalid:not(:placeholder-shown) { border-color: #A11F2B; }
-    body.cv-request-page .form-field input:invalid:not(:placeholder-shown) + label { color: #A11F2B; }
+    body.cv-request-page .required-marker { color: inherit; font-weight: inherit; }
+    body.cv-request-page .form-field__error-icon { position: absolute; top: 30px; right: 16px; width: 24px; height: 24px; display: none; color: var(--form-error); fill: currentColor; pointer-events: none; transform: translateY(-50%); }
+    body.cv-request-page .form-field__support { display: none; align-items: baseline; gap: 2px; margin: 8px 0 0 16px; color: var(--form-error); font-family: "Inter", system-ui, sans-serif; font-size: 14px; line-height: 1.4; font-weight: 500; }
+    body.cv-request-page .form-field.is-invalid input { border-color: var(--form-error); }
+    body.cv-request-page .form-field.is-invalid label { color: var(--form-error); }
+    body.cv-request-page .form-field.is-invalid input:focus, body.cv-request-page .form-field.is-invalid input:focus-visible { border-color: var(--form-error); box-shadow: 0 0 0 3px rgba(146, 14, 56, 0.16); }
+    body.cv-request-page .form-field.is-invalid input:focus + label { color: var(--form-error); }
+    body.cv-request-page .form-field.is-invalid .required-marker { color: var(--form-error); }
+    body.cv-request-page .form-field.is-invalid .form-field__error-icon { display: block; }
+    body.cv-request-page .form-field.is-invalid .form-field__support { display: flex; }
     body.cv-request-page .submit-button { justify-self: start; min-height: 48px; padding: 12px 24px; border: 2px solid #0C0D0F; border-radius: 999px; background: #FFFFFF; color: #0C0D0F; font: inherit; font-weight: 700; cursor: pointer; box-shadow: none; }
     body.cv-request-page .submit-button:hover, body.cv-request-page .submit-button:focus-visible { border-color: #0C0D0F; background: #0C0D0F; color: #FFFFFF; }
     .privacy-note { margin: 16px 0 0; color: #4B5563; font-size: 15px; max-width: 640px; }
@@ -50,6 +59,9 @@
     body.dark-mode.cv-request-page .form-field label { background: #0B1020; color: #B7C0CE; }
     body.dark-mode.cv-request-page .form-field input:focus, body.dark-mode.cv-request-page .form-field input:focus-visible { border-color: #F8FAFC; box-shadow: 0 0 0 3px rgba(248, 250, 252, 0.14); }
     body.dark-mode.cv-request-page .form-field input:focus + label { color: #F8FAFC; }
+    body.dark-mode.cv-request-page .form-field.is-invalid input { border-color: var(--form-error); }
+    body.dark-mode.cv-request-page .form-field.is-invalid input:focus, body.dark-mode.cv-request-page .form-field.is-invalid input:focus-visible { border-color: var(--form-error); box-shadow: 0 0 0 3px rgba(146, 14, 56, 0.16); }
+    body.dark-mode.cv-request-page .form-field.is-invalid label, body.dark-mode.cv-request-page .form-field.is-invalid input:focus + label { color: var(--form-error); }
     body.dark-mode .privacy-note, body.dark-mode footer { color: #94a3b8; }
     body.dark-mode .text-link { color: #F8FAFC; }
     body.dark-mode .text-link:hover, body.dark-mode .text-link:focus-visible { color: #e5e7eb; }
@@ -127,13 +139,13 @@
       <div class="hero-copy">
         <p class="section-eyebrow">Contact</p>
         <h1 id="request-cv-title">Request my CV</h1>
-        <p class="hero-intro">Please complete the form below and I’ll send you a copy of my Senior Product Designer, Design Systems CV.</p>
+        <p class="hero-intro">Please complete the form below and I’ll send you my CV.</p>
         <form class="cv-request-form" action="https://formspree.io/f/xqerzpny" method="POST">
           <input type="hidden" name="_subject" value="New CV request from Sophie Purewal’s portfolio">
           <input type="hidden" name="_next" value="https://sophiepurewal.github.io/request-cv-thank-you.html">
-          <div class="form-field"><input id="cv-name" name="name" type="text" autocomplete="name" placeholder=" " required><label for="cv-name">Name</label></div>
-          <div class="form-field"><input id="cv-email" name="email" type="email" autocomplete="email" placeholder=" " required><label for="cv-email">Email address</label></div>
-          <div class="form-field"><input id="cv-company" name="company" type="text" autocomplete="organization" placeholder=" " required><label for="cv-company">Company</label></div>
+          <div class="form-field"><input id="cv-name" name="name" type="text" autocomplete="name" placeholder=" " required aria-describedby="cv-name-error"><label for="cv-name">Name<span class="required-marker" aria-hidden="true">*</span></label><svg class="form-field__error-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960" aria-hidden="true" focusable="false"><path d="m336-280 144-144 144 144 56-56-144-144 144-144-56-56-144 144-144-144-56 56 144 144-144 144 56 56ZM480-80q-83 0-156-31.5T197-197q-54-54-85.5-127T80-480q0-83 31.5-156T197-763q54-54 127-85.5T480-880q83 0 156 31.5T763-763q54 54 85.5 127T880-480q0 83-31.5 156T763-197q-54 54-127 85.5T480-80Zm0-80q134 0 227-93t93-227q0-134-93-227t-227-93q-134 0-227 93t-93 227q0 134 93 227t227 93Z"/></svg><p id="cv-name-error" class="form-field__support" aria-live="polite"><span aria-hidden="true">*</span><span class="form-field__error-text">Required</span></p></div>
+          <div class="form-field"><input id="cv-email" name="email" type="email" autocomplete="email" placeholder=" " required aria-describedby="cv-email-error"><label for="cv-email">Email address<span class="required-marker" aria-hidden="true">*</span></label><svg class="form-field__error-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960" aria-hidden="true" focusable="false"><path d="m336-280 144-144 144 144 56-56-144-144 144-144-56-56-144 144-144-144-56 56 144 144-144 144 56 56ZM480-80q-83 0-156-31.5T197-197q-54-54-85.5-127T80-480q0-83 31.5-156T197-763q54-54 127-85.5T480-880q83 0 156 31.5T763-763q54 54 85.5 127T880-480q0 83-31.5 156T763-197q-54 54-127 85.5T480-80Zm0-80q134 0 227-93t93-227q0-134-93-227t-227-93q-134 0-227 93t-93 227q0 134 93 227t227 93Z"/></svg><p id="cv-email-error" class="form-field__support" aria-live="polite"><span aria-hidden="true">*</span><span class="form-field__error-text">Required</span></p></div>
+          <div class="form-field"><input id="cv-company" name="company" type="text" autocomplete="organization" placeholder=" " required aria-describedby="cv-company-error"><label for="cv-company">Company<span class="required-marker" aria-hidden="true">*</span></label><svg class="form-field__error-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960" aria-hidden="true" focusable="false"><path d="m336-280 144-144 144 144 56-56-144-144 144-144-56-56-144 144-144-144-56 56 144 144-144 144 56 56ZM480-80q-83 0-156-31.5T197-197q-54-54-85.5-127T80-480q0-83 31.5-156T197-763q54-54 127-85.5T480-880q83 0 156 31.5T763-763q54 54 85.5 127T880-480q0 83-31.5 156T763-197q-54 54-127 85.5T480-80Zm0-80q134 0 227-93t93-227q0-134-93-227t-227-93q-134 0-227 93t-93 227q0 134 93 227t227 93Z"/></svg><p id="cv-company-error" class="form-field__support" aria-live="polite"><span aria-hidden="true">*</span><span class="form-field__error-text">Required</span></p></div>
           <button class="submit-button" type="submit">Request CV</button>
         </form>
         <p class="privacy-note">I’ll only use these details to respond to your Senior Product Designer, Design Systems CV request.</p>
@@ -141,5 +153,87 @@
     </section>
   </main>
   <footer>© 2026 Sophie Purewal</footer>
+  <script>
+    document.addEventListener("DOMContentLoaded", () => {
+      const form = document.querySelector(".cv-request-form");
+
+      if (!form) {
+        return;
+      }
+
+      const fields = Array.from(
+        form.querySelectorAll(".form-field")
+      );
+
+      const updateFieldState = (field, force = false) => {
+        const input = field.querySelector("input");
+        const errorText = field.querySelector(
+          ".form-field__error-text"
+        );
+
+        if (!input || !errorText) {
+          return;
+        }
+
+        const hasBeenTouched =
+          field.dataset.touched === "true";
+
+        const shouldShowError =
+          !input.validity.valid &&
+          (hasBeenTouched || force);
+
+        field.classList.toggle(
+          "is-invalid",
+          shouldShowError
+        );
+
+        input.setAttribute(
+          "aria-invalid",
+          shouldShowError ? "true" : "false"
+        );
+
+        if (input.validity.valueMissing) {
+          errorText.textContent = "Required";
+        } else if (input.validity.typeMismatch) {
+          errorText.textContent =
+            "Enter a valid email address";
+        }
+      };
+
+      fields.forEach((field) => {
+        const input = field.querySelector("input");
+
+        if (!input) {
+          return;
+        }
+
+        input.addEventListener("blur", () => {
+          field.dataset.touched = "true";
+          updateFieldState(field);
+        });
+
+        input.addEventListener("input", () => {
+          updateFieldState(field);
+        });
+      });
+
+      form.addEventListener(
+        "invalid",
+        (event) => {
+          const field = event.target.closest(
+            ".form-field"
+          );
+
+          if (!field) {
+            return;
+          }
+
+          field.dataset.touched = "true";
+          updateFieldState(field, true);
+        },
+        true
+      );
+    });
+  </script>
 </body>
 </html>
