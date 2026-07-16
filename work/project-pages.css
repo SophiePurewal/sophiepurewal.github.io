@@ -2379,43 +2379,51 @@ body.chartstudio-page .site-shell {
   margin-inline: auto;
 }
 
-body.chartstudio-page .project-context {
+body.chartstudio-page .case-study {
   width: 100%;
   max-width: none;
   margin: 0;
-  padding: 24px 0;
+}
+
+body.chartstudio-page .project-context,
+body.chartstudio-page .project-footer {
+  width: 100%;
+  max-width: none;
+  margin: 0;
+  padding-left: 0;
+  padding-right: 0;
   text-align: left;
 }
 
-body.chartstudio-page .project-context .back-link {
+body.chartstudio-page .project-context {
+  padding-top: 24px;
+  padding-bottom: 24px;
+}
+
+body.chartstudio-page .project-footer {
+  padding-top: 40px;
+  padding-bottom: 56px;
+}
+
+body.chartstudio-page .project-context .back-link,
+body.chartstudio-page .project-footer .case-study-footer-link {
   display: inline-flex;
   align-items: center;
   justify-content: flex-start;
   margin: 0;
   padding: 0;
   position: static;
+  left: auto;
   transform: none;
 }
 
-body.chartstudio-page .project-context .back-link::before {
+body.chartstudio-page .back-link::before,
+body.chartstudio-page .case-study-footer-link::before {
   position: static;
   flex: 0 0 auto;
 }
 
-body.chartstudio-page .case-study,
 body.chartstudio-page .case-study-hero,
-body.chartstudio-page .case-study-section,
-body.chartstudio-page .project-footer {
-  margin-left: 0;
-  margin-right: 0;
-}
-
-body.chartstudio-page .case-study-hero {
-  width: 100%;
-  margin-inline: 0;
-}
-
-body.chartstudio-page .case-study,
 body.chartstudio-page .case-study-section,
 body.chartstudio-page .case-study-section__layout,
 body.chartstudio-page .summary-grid {
