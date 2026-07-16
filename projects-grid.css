@@ -146,7 +146,12 @@ body.home-page .projects-grid > .project-card {
   font-weight: 700;
   letter-spacing: 1.6224px;
   text-transform: uppercase;
-  color: #143D59;
+}
+
+body.home-page:not(.dark-mode)
+  .project-card--split
+  .project-card__eyebrow {
+  color: var(--eyebrow-color);
 }
 
 .home-page .project-card--split .project-card__title {

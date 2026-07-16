@@ -5,6 +5,7 @@
 :root {
   --brand-claret: #920E38;
   --site-background-light: #FEFEFE;
+  --eyebrow-color: #143D59;
   --brand: var(--brand-claret);
   --brand-dark: var(--brand-claret);
   --background: var(--site-background-light);
@@ -166,7 +167,13 @@ a {
   font-weight: 700;
   letter-spacing: 1.6224px;
   text-transform: uppercase;
-  color: #143D59;
+}
+
+body:not(.dark-mode) .project-kicker,
+body:not(.dark-mode) .section-label,
+body:not(.dark-mode) .case-study .section-eyebrow,
+body:not(.dark-mode) .case-study .eyebrow {
+  color: var(--eyebrow-color);
 }
 
 .case-study-hero h1 {
