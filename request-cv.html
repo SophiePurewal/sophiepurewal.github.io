@@ -19,9 +19,9 @@
     .skip-link { position: absolute; top: -48px; left: 16px; background: #111; color: #fff; padding: 10px 14px; border-radius: 8px; text-decoration: none; z-index: 200; --focus-outline-color: #fff; }
     .skip-link:focus-visible { top: 12px; }
     body.cv-request-page { --form-error: #920E38; }
-    body.cv-request-page .page-main { min-height: calc(100vh - 160px); padding: 86px 0 92px; background: var(--site-background-light); }
+    body.cv-request-page .page-main { min-height: calc(100vh - 160px); padding: 48px 0 92px; background: var(--site-background-light); }
     .hero { background: var(--site-background-light); color: #1f1f1f; display: flex; align-items: center; justify-content: center; }
-    body.cv-request-page .hero-panel { width: min(var(--section-shell-max), calc(100% - var(--section-shell-gutter))); max-width: none; margin-inline: auto; display: grid; grid-template-columns: minmax(0, 1fr); row-gap: 22px; align-items: start; }
+    body.cv-request-page .hero-panel { width: min(var(--section-shell-max), calc(100% - var(--section-shell-gutter))); max-width: none; margin-inline: auto; display: grid; grid-template-columns: minmax(0, 1fr); row-gap: 56px; align-items: start; }
     body.cv-request-page .hero-copy { grid-column: 1; width: 100%; max-width: 680px; margin: 0; }
     body.cv-request-page .page-context { width: 100%; max-width: 680px; margin: 0; }
     body.cv-request-page .back-link { display: inline-flex; align-items: center; gap: 10px; color: #0C0D0F; font-weight: 600; text-decoration: none; text-underline-offset: 0.18em; text-decoration-thickness: 1px; transition: color 160ms ease; }
@@ -84,8 +84,8 @@
     body.dark-mode.cv-request-page .submit-button:disabled:hover, body.dark-mode.cv-request-page .submit-button:disabled:focus { background: #FFFFFF; border-color: #FFFFFF; color: #0C0D0F; }
     body.dark-mode.cv-request-page .form-status { color: #B9D3E5; }
     body.dark-mode.cv-request-page .form-status.is-error { color: var(--form-error); }
-    @media (max-width: 900px) { body.cv-request-page .page-main { padding: 72px 0 80px; } body.cv-request-page .hero-panel { width: calc(100% - var(--section-shell-gutter)); grid-template-columns: 1fr; justify-items: start; text-align: left; } body.cv-request-page .hero-copy { width: 100%; max-width: 680px; } }
-    @media (max-width: 640px) { body.cv-request-page .page-main { padding: 56px 0 64px; } body.cv-request-page .hero-panel { width: calc(100% - var(--section-shell-gutter-mobile)); } body.cv-request-page .hero h1 { font-size: clamp(2.25rem, 11vw, 3rem); } body.cv-request-page .hero-intro { font-size: 19px; line-height: 30px; } body.cv-request-page .submit-button { width: 100%; } }
+    @media (max-width: 900px) { body.cv-request-page .page-main { padding: 40px 0 80px; } body.cv-request-page .hero-panel { width: calc(100% - var(--section-shell-gutter)); grid-template-columns: 1fr; justify-items: start; text-align: left; } body.cv-request-page .hero-copy { width: 100%; max-width: 680px; } }
+    @media (max-width: 640px) { body.cv-request-page .page-main { padding: 32px 0 64px; } body.cv-request-page .hero-panel { width: calc(100% - var(--section-shell-gutter-mobile)); } body.cv-request-page .hero h1 { font-size: clamp(2.25rem, 11vw, 3rem); } body.cv-request-page .hero-intro { font-size: 19px; line-height: 30px; } body.cv-request-page .submit-button { width: 100%; } }
   </style>
   <script src="assets/js/site-header.js"></script>
   <link rel="stylesheet" href="assets/css/site-header.css">
