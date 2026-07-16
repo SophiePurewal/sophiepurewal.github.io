@@ -28,6 +28,7 @@
     :root {
       --brand-claret: #920E38;
       --site-background-light: #FEFEFE;
+      --eyebrow-color: #143D59;
       --brand: var(--brand-claret);
       --brand-dark: var(--brand-claret);
       --brand-soft: #FEFEFE;
@@ -471,7 +472,10 @@
       font-weight: 700;
       letter-spacing: 1.6224px;
       text-transform: uppercase;
-      color: #143D59;
+    }
+
+    body.home-page:not(.dark-mode) .section-eyebrow {
+      color: var(--eyebrow-color);
     }
     .impact-section h2 { margin: 0 0 12px; }
     .impact-section
@@ -515,11 +519,14 @@
       border-color: var(--page-border);
     }
 
-    .home-page .project-card__eyebrow,
     .home-page .project-card__title,
     .home-page .project-card__hint,
     .home-page .project-card__description {
       color: #FFFFFF;
+    }
+
+    body.home-page:not(.dark-mode) .project-card__eyebrow {
+      color: var(--eyebrow-color);
     }
 
     body.dark-mode.home-page .pull-quote p::before,
