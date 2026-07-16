@@ -2317,9 +2317,13 @@ body.financial-services-page .project-context {
 }
 
 body.financial-services-page .project-context .back-link {
+  display: inline-flex;
+  align-items: center;
+  justify-content: flex-start;
   margin: 0;
   padding: 0;
   position: static;
+  left: auto;
   transform: none;
 }
 
@@ -2328,12 +2332,6 @@ body.financial-services-page .project-context .back-link::before {
   width: 16px;
   flex: 0 0 16px;
   text-align: center;
-}
-
-@media (min-width: 641px) {
-  body.financial-services-page .project-context .back-link {
-    margin-inline-start: -26px;
-  }
 }
 
 body.financial-services-page .case-study,
@@ -2368,10 +2366,6 @@ body.financial-services-page .summary-grid {
 @media (max-width: 640px) {
   body.financial-services-page .site-shell {
     width: calc(100% - var(--section-shell-gutter-mobile));
-  }
-
-  body.financial-services-page .project-context .back-link {
-    margin-inline-start: 0;
   }
 }
 
