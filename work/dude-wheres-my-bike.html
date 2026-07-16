@@ -83,14 +83,42 @@
     <div class="site-shell">
       <article class="case-study">
         <div class="project-context"><a class="back-link" href="../index.html#projects">Back to portfolio</a></div>
-        <section class="case-study-hero" aria-labelledby="project-title">
+        <section class="case-study-hero case-study-hero--single" aria-labelledby="project-title">
           <div class="case-study-hero__copy">
             <p class="project-kicker">Product design case study</p>
             <h1 id="project-title">Dude, Where’s My Bike?</h1>
             <p class="project-subtitle">Product design and design system for a B2C bike-hire app.</p>
             <p class="project-intro">This project explores a mobile bike-hire experience supported by a reusable visual language and documented component system.</p>
           </div>
-          <div class="case-study-intro__prototype design-system-intro__prototype">
+        </section>
+
+        <section class="case-study-section prototype-section" aria-labelledby="prototype-title">
+          <div class="prototype-section__layout">
+            <div class="section-header prototype-section__copy">
+              <p class="eyebrow">Working prototype</p>
+
+              <h2 id="prototype-title">Explore the prototype</h2>
+
+              <p class="prototype-direction">
+                <span class="prototype-direction__text">
+                  Explore the interactive prototype
+                  <span class="prototype-direction__desktop">to the right</span>
+                  <span class="prototype-direction__mobile">below</span>
+                  to experience the end-to-end bike-hire journey, from finding nearby bikes and checking availability to reserving, unlocking and starting a ride.
+                </span>
+
+                <svg
+                  class="prototype-direction__icon"
+                  xmlns="http://www.w3.org/2000/svg"
+                  viewBox="0 -960 960 960"
+                  aria-hidden="true"
+                  focusable="false"
+                >
+                  <path d="m561-240-57-56 144-144H160v-80h488L504-664l57-56 240 240-240 240Z" />
+                </svg>
+              </p>
+            </div>
+
             <div class="prototype-frame" data-prototype-frame data-fallback-delay-ms="4500">
               <div class="prototype-screen">
                 <iframe
@@ -111,7 +139,7 @@
                     >
 
                     <div class="image-fallback">
-                      <p>The live embed may be blocked or unavailable. Open the working prototype directly to explore it.</p>
+                      <p>The live prototype may be temporarily unavailable. Please try the interactive frame again shortly.</p>
                     </div>
                   </div>
                 </div>
@@ -140,10 +168,6 @@
         </section>
 
         <div data-design-system-docs data-asset-base="../design-system/assets/"></div>
-
-        <nav class="case-study-actions" aria-label="Dude, Where’s My Bike links">
-          <a class="button button-primary" href="https://dude-wheres-my-bike.figma.site/" target="_blank" rel="noopener noreferrer">Open the live prototype</a>
-        </nav>
 
         <footer class="project-footer">
           <a class="footer-link case-study-footer-link" href="../index.html#projects">Back to case studies</a>
