@@ -183,10 +183,11 @@ nav,
 
 .dropdown-menu {
   position: absolute;
-  left: 0;
+  left: auto;
   right: 0;
   top: 100%;
-  width: 100%;
+  width: max-content;
+  max-width: calc(100vw - var(--section-shell-gutter));
   background: var(--site-background-light);
   border: 1px solid rgba(12, 13, 15, 0.14);
   border-radius: 0;
@@ -261,6 +262,7 @@ nav,
 .dropdown-link .nav-link-label {
   position: relative;
   display: inline-block;
+  white-space: nowrap;
 }
 
 .dropdown-link .nav-link-label::after {
@@ -455,6 +457,10 @@ body.dark-mode .site-header .site-title a:focus-visible {
   }
 
   .dropdown-menu {
+    left: auto;
+    right: 0;
+    width: max-content;
+    max-width: 100%;
     padding: 20px 16px;
   }
 }
