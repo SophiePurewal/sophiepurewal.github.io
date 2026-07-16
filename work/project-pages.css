@@ -1810,6 +1810,112 @@ body.dude-page .case-study-hero {
   align-self: start;
 }
 
+
+body.dude-page .prototype-section {
+  margin-top: clamp(32px, 5vw, 56px);
+}
+
+body.dude-page .prototype-section__layout {
+  display: grid;
+  grid-template-columns:
+    minmax(0, 1fr)
+    minmax(320px, 390px);
+  gap: clamp(40px, 7vw, 88px);
+  align-items: start;
+  width: 100%;
+  margin-inline: 0;
+}
+
+body.dude-page .prototype-section__copy {
+  min-width: 0;
+}
+
+body.dude-page
+  .prototype-section
+  .section-header {
+  max-width: none;
+}
+
+body.dude-page
+  .prototype-section
+  .prototype-frame {
+  align-self: start;
+  justify-self: end;
+  width: min(100%, 390px);
+  margin: 0;
+}
+
+body.dude-page .prototype-direction {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 28px;
+  align-items: center;
+  column-gap: 14px;
+  max-width: 48ch;
+}
+
+body.dude-page .prototype-direction__text {
+  display: inline;
+  min-width: 0;
+}
+
+body.dude-page
+  .prototype-direction__desktop,
+body.dude-page
+  .prototype-direction__mobile {
+  white-space: nowrap;
+}
+
+body.dude-page .prototype-direction__mobile {
+  display: none;
+}
+
+body.dude-page .prototype-direction__icon {
+  display: block;
+  width: 28px;
+  height: 28px;
+  fill: currentColor;
+  flex: 0 0 auto;
+}
+
+
+@media (max-width: 900px) {
+  body.dude-page .prototype-section__layout {
+    grid-template-columns: 1fr;
+    gap: 32px;
+  }
+
+  body.dude-page
+    .prototype-section
+    .prototype-frame {
+    justify-self: center;
+  }
+
+  body.dude-page
+    .prototype-direction__desktop {
+    display: none;
+  }
+
+  body.dude-page
+    .prototype-direction__mobile {
+    display: inline;
+  }
+
+  body.dude-page .prototype-direction__icon {
+    transform: rotate(90deg);
+  }
+}
+
+@media (max-width: 640px) {
+  body.dude-page .prototype-direction {
+    grid-template-columns: 1fr;
+    row-gap: 12px;
+  }
+
+  body.dude-page .prototype-direction__icon {
+    justify-self: start;
+  }
+}
+
 body.dark-mode.dude-page h1,
 body.dark-mode.dude-page h2,
 body.dark-mode.dude-page h3,
