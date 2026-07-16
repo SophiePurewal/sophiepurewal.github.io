@@ -23,6 +23,11 @@
     .hero { background: var(--site-background-light); color: #1f1f1f; display: flex; align-items: center; justify-content: center; }
     body.cv-request-page .hero-panel { width: min(var(--section-shell-max), calc(100% - var(--section-shell-gutter))); max-width: none; margin-inline: auto; display: grid; grid-template-columns: minmax(0, 1fr); row-gap: 22px; align-items: start; }
     body.cv-request-page .hero-copy { grid-column: 1; width: 100%; max-width: 680px; margin: 0; }
+    body.cv-request-page .page-context { width: 100%; max-width: 680px; margin: 0; }
+    body.cv-request-page .back-link { display: inline-flex; align-items: center; gap: 10px; color: #0C0D0F; font-weight: 600; text-decoration: none; text-underline-offset: 0.18em; text-decoration-thickness: 1px; transition: color 160ms ease; }
+    body.cv-request-page .back-link::before { content: "←"; }
+    body.cv-request-page .back-link:hover, body.cv-request-page .back-link:focus-visible { color: var(--brand-claret); text-decoration-line: underline; text-decoration-color: var(--brand-claret); }
+    body.cv-request-page .back-link:focus-visible { outline: 2px solid currentColor; outline-offset: 4px; }
     body.cv-request-page .hero h1 { margin: 0; max-width: 100%; font-family: 'Inter', ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; font-size: clamp(2.5rem, 5vw, 4rem); line-height: 1.02; font-weight: 700; letter-spacing: -0.055em; font-kerning: normal; font-feature-settings: 'kern' 1; color: #17202A; text-align: left; white-space: normal; text-wrap: balance; }
     body.cv-request-page .hero-intro { margin: 24px 0 0; max-width: 68ch; font-family: 'Inter', system-ui, sans-serif; font-size: 22px; line-height: 36px; font-weight: 400; letter-spacing: normal; color: #5D6875; text-align: left; }
     body.cv-request-page .section-eyebrow { margin: 0 0 12.8px; font-family: "Inter", ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; font-size: 12.48px; line-height: 19.968px; font-weight: 700; letter-spacing: 1.6224px; text-transform: uppercase; color: #143D59; }
@@ -60,6 +65,8 @@
     body.dark-mode { color-scheme: dark; color: #e5e7eb; background: #0b1020; --focus-outline-color: #F8FAFC; }
     body.dark-mode .page-main, body.dark-mode .hero { background: #121622; }
     body.dark-mode.cv-request-page .hero h1 { color: #FFFFFF; }
+    body.dark-mode.cv-request-page .back-link { color: #F8FAFC; }
+    body.dark-mode.cv-request-page .back-link:hover, body.dark-mode.cv-request-page .back-link:focus-visible { color: #FFFFFF; text-decoration-color: #FFFFFF; }
     body.dark-mode.cv-request-page .hero-intro { color: #B7C0CE; }
     body.dark-mode.cv-request-page .section-eyebrow { color: #B9D3E5; }
     body.dark-mode.cv-request-page .form-field input { background: #0B1020; border-color: #94A3B8; color: #E5E7EB; }
@@ -152,6 +159,11 @@
   </header>
   <main id="main" class="page-main hero">
     <section class="hero-panel" aria-labelledby="request-cv-title">
+      <div class="page-context">
+        <a class="back-link" href="index.html#projects">
+          Back to portfolio
+        </a>
+      </div>
       <div class="hero-copy">
         <p class="section-eyebrow">Contact</p>
         <h1 id="request-cv-title">Request my CV</h1>
