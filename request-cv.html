@@ -24,13 +24,18 @@
     body.cv-request-page .hero-copy { grid-column: 1; width: 100%; max-width: 680px; margin: 0; }
     body.cv-request-page .hero h1 { margin: 0; max-width: 100%; font-family: 'Inter', ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; font-size: clamp(2.5rem, 5vw, 4rem); line-height: 1.02; font-weight: 700; letter-spacing: -0.055em; font-kerning: normal; font-feature-settings: 'kern' 1; color: #17202A; text-align: left; white-space: normal; text-wrap: balance; }
     body.cv-request-page .hero-intro { margin: 24px 0 0; max-width: 68ch; font-family: 'Inter', system-ui, sans-serif; font-size: 22px; line-height: 36px; font-weight: 400; letter-spacing: normal; color: #5D6875; text-align: left; }
-    .cv-request-form { display: grid; gap: 24px; max-width: 640px; margin-top: 32px; background: transparent; border: 0; box-shadow: none; border-radius: 0; padding: 0; }
-    .form-field { display: grid; gap: 8px; }
-    label { font-weight: 700; color: #0C0D0F; }
-    input { width: 100%; min-height: 52px; border: 1px solid #747474; border-radius: 6px; background: transparent; color: #0C0D0F; padding: 12px 14px; font: inherit; box-shadow: none; }
-    input:focus-visible { border-color: var(--brand-claret); box-shadow: 0 0 0 3px rgba(146,14,56,.2); }
-    input:invalid:not(:placeholder-shown) { border-color: #A11F2B; }
-    body.cv-request-page .submit-button { justify-self: start; min-height: 48px; border: 2px solid #0C0D0F; border-radius: 6px; background: #FFFFFF; color: #0C0D0F; padding: 12px 24px; font: inherit; font-weight: 700; cursor: pointer; box-shadow: none; }
+    body.cv-request-page .section-eyebrow { margin: 0 0 12.8px; font-family: "Inter", ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; font-size: 12.48px; line-height: 19.968px; font-weight: 700; letter-spacing: 1.6224px; text-transform: uppercase; color: #143D59; }
+    body.cv-request-page .cv-request-form { display: grid; gap: 24px; width: 100%; max-width: 640px; margin-top: 32px; padding: 0; border: 0; border-radius: 0; background: transparent; box-shadow: none; }
+    body.cv-request-page .form-field { position: relative; display: block; width: 100%; }
+    body.cv-request-page .form-field input { display: block; box-sizing: border-box; width: 100%; min-height: 60px; margin: 0; padding: 18px 16px 10px; border: 1px solid #747474; border-radius: 0; background: #FEFEFE; color: #0C0D0F; font: inherit; font-size: 17px; line-height: 1.4; box-shadow: none; }
+    body.cv-request-page .form-field label { position: absolute; top: 50%; left: 12px; z-index: 1; max-width: calc(100% - 24px); margin: 0; padding: 0 4px; background: #FEFEFE; color: #5D6875; font-family: "Inter", system-ui, sans-serif; font-size: 17px; line-height: 1; font-weight: 400; pointer-events: none; transform: translateY(-50%); transform-origin: left center; transition: top 160ms ease, transform 160ms ease, font-size 160ms ease, color 160ms ease; }
+    body.cv-request-page .form-field input:focus + label, body.cv-request-page .form-field input:not(:placeholder-shown) + label, body.cv-request-page .form-field input:-webkit-autofill + label { top: 0; font-size: 12px; font-weight: 600; transform: translateY(-50%); }
+    body.cv-request-page .form-field input:focus, body.cv-request-page .form-field input:focus-visible { border: 2px solid #143D59; outline: none; box-shadow: 0 0 0 3px rgba(20, 61, 89, 0.12); }
+    body.cv-request-page .form-field input:focus + label { color: #143D59; }
+    body.cv-request-page .form-field input:not(:placeholder-shown):not(:focus) + label { color: #5D6875; }
+    body.cv-request-page .form-field input:invalid:not(:placeholder-shown) { border-color: #A11F2B; }
+    body.cv-request-page .form-field input:invalid:not(:placeholder-shown) + label { color: #A11F2B; }
+    body.cv-request-page .submit-button { justify-self: start; min-height: 48px; padding: 12px 24px; border: 2px solid #0C0D0F; border-radius: 999px; background: #FFFFFF; color: #0C0D0F; font: inherit; font-weight: 700; cursor: pointer; box-shadow: none; }
     body.cv-request-page .submit-button:hover, body.cv-request-page .submit-button:focus-visible { border-color: #0C0D0F; background: #0C0D0F; color: #FFFFFF; }
     .privacy-note { margin: 16px 0 0; color: #4B5563; font-size: 15px; max-width: 640px; }
     .text-link { color: #0C0D0F; font-weight: 800; text-underline-offset: 6px; text-decoration-thickness: 2px; }
@@ -40,8 +45,11 @@
     body.dark-mode .page-main, body.dark-mode .hero { background: #121622; }
     body.dark-mode.cv-request-page .hero h1 { color: #FFFFFF; }
     body.dark-mode.cv-request-page .hero-intro { color: #B7C0CE; }
-    body.dark-mode label { color: #e5e7eb; }
-    body.dark-mode input { background: #0b1020; border-color: #94a3b8; color: #e5e7eb; }
+    body.dark-mode.cv-request-page .section-eyebrow { color: #B9D3E5; }
+    body.dark-mode.cv-request-page .form-field input { background: #0B1020; border-color: #94A3B8; color: #E5E7EB; }
+    body.dark-mode.cv-request-page .form-field label { background: #0B1020; color: #B7C0CE; }
+    body.dark-mode.cv-request-page .form-field input:focus, body.dark-mode.cv-request-page .form-field input:focus-visible { border-color: #F8FAFC; box-shadow: 0 0 0 3px rgba(248, 250, 252, 0.14); }
+    body.dark-mode.cv-request-page .form-field input:focus + label { color: #F8FAFC; }
     body.dark-mode .privacy-note, body.dark-mode footer { color: #94a3b8; }
     body.dark-mode .text-link { color: #F8FAFC; }
     body.dark-mode .text-link:hover, body.dark-mode .text-link:focus-visible { color: #e5e7eb; }
@@ -117,14 +125,15 @@
   <main id="main" class="page-main hero">
     <section class="hero-panel" aria-labelledby="request-cv-title">
       <div class="hero-copy">
+        <p class="section-eyebrow">Contact</p>
         <h1 id="request-cv-title">Request my CV</h1>
         <p class="hero-intro">Please complete the form below and I’ll send you a copy of my Senior Product Designer, Design Systems CV.</p>
         <form class="cv-request-form" action="https://formspree.io/f/xqerzpny" method="POST">
           <input type="hidden" name="_subject" value="New CV request from Sophie Purewal’s portfolio">
           <input type="hidden" name="_next" value="https://sophiepurewal.github.io/request-cv-thank-you.html">
-          <div class="form-field"><label for="cv-name">Name</label><input id="cv-name" name="name" type="text" autocomplete="name" required></div>
-          <div class="form-field"><label for="cv-email">Email address</label><input id="cv-email" name="email" type="email" autocomplete="email" required></div>
-          <div class="form-field"><label for="cv-company">Company</label><input id="cv-company" name="company" type="text" autocomplete="organization" required></div>
+          <div class="form-field"><input id="cv-name" name="name" type="text" autocomplete="name" placeholder=" " required><label for="cv-name">Name</label></div>
+          <div class="form-field"><input id="cv-email" name="email" type="email" autocomplete="email" placeholder=" " required><label for="cv-email">Email address</label></div>
+          <div class="form-field"><input id="cv-company" name="company" type="text" autocomplete="organization" placeholder=" " required><label for="cv-company">Company</label></div>
           <button class="submit-button" type="submit">Request CV</button>
         </form>
         <p class="privacy-note">I’ll only use these details to respond to your Senior Product Designer, Design Systems CV request.</p>
