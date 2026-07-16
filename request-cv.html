@@ -204,13 +204,24 @@
 
       let isSubmitting = false;
 
+      const isFormValid = () => {
+        return fields.every((field) => {
+          const input = field.querySelector("input");
+
+          return Boolean(
+            input &&
+            (!input.willValidate || input.validity.valid)
+          );
+        });
+      };
+
       const syncSubmitButtonState = () => {
         if (!submitButton) {
           return;
         }
 
         const canSubmit =
-          form.checkValidity() && !isSubmitting;
+          isFormValid() && !isSubmitting;
 
         submitButton.disabled = !canSubmit;
 
