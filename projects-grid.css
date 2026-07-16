@@ -187,12 +187,19 @@ body.home-page:not(.dark-mode)
   width: fit-content;
   margin-top: 32px;
   padding-bottom: 4px;
-  border-bottom: 2px solid currentColor;
   font-family: "Inter", system-ui, sans-serif;
   font-size: 15px;
   line-height: 1.2;
   font-weight: 700;
   color: var(--page-heading);
+}
+
+.home-page .project-card__cta-label {
+  text-decoration-line: underline;
+  text-decoration-color: transparent;
+  text-decoration-thickness: 2px;
+  text-underline-offset: 6px;
+  transition: text-decoration-color 200ms ease;
 }
 
 .home-page .project-card__cta svg {
@@ -202,7 +209,20 @@ body.home-page:not(.dark-mode)
   transition: transform 200ms ease;
 }
 
-.home-page .project-card--split:is(:hover, :focus-visible) .project-card__cta svg {
+.home-page
+  .project-card--split:is(:hover, :focus-visible)
+  .project-card__cta-label {
+  text-decoration-color: currentColor;
+}
+
+.home-page
+  .project-card--split:focus-within
+  .project-card__cta-label {
+  text-decoration-color: currentColor;
+}
+
+.home-page .project-card--split:is(:hover, :focus-visible) .project-card__cta svg,
+.home-page .project-card--split:focus-within .project-card__cta svg {
   transform: translateX(4px);
 }
 
