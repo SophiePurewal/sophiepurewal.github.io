@@ -2338,10 +2338,24 @@ body.financial-services-page .project-context .back-link::before {
 
 body.financial-services-page .case-study,
 body.financial-services-page .case-study-hero,
-body.financial-services-page .case-study-section,
-body.financial-services-page .project-footer {
+body.financial-services-page .case-study-section {
   margin-left: 0;
   margin-right: 0;
+}
+
+body.financial-services-page .project-footer {
+  width: 100%;
+  max-width: none;
+  margin: 0;
+  padding: 40px 0 56px;
+  text-align: left;
+}
+
+body.financial-services-page .case-study-footer-link {
+  margin: 0;
+  padding: 0;
+  position: static;
+  transform: none;
 }
 
 body.financial-services-page .case-study,
