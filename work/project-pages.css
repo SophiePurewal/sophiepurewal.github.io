@@ -2317,13 +2317,9 @@ body.financial-services-page .project-context {
 }
 
 body.financial-services-page .project-context .back-link {
-  display: inline-flex;
-  align-items: center;
-  justify-content: flex-start;
   margin: 0;
   padding: 0;
   position: static;
-  left: auto;
   transform: none;
 }
 
