@@ -1,0 +1,43 @@
+.financial-services-interface-grid {
+  display: grid;
+  grid-template-columns: minmax(0, 3fr) minmax(210px, 1fr);
+  gap: clamp(24px, 4vw, 48px);
+  align-items: start;
+  margin-top: clamp(28px, 4vw, 40px);
+}
+
+.financial-services-interface-grid .screenshot-figure {
+  min-width: 0;
+  margin: 0;
+}
+
+.financial-services-interface-grid .screenshot-figure img {
+  display: block;
+  width: 100%;
+  height: auto;
+  border: 1px solid var(--line);
+  background: #FFFFFF;
+  object-fit: contain;
+}
+
+.financial-services-interface-grid .screenshot-figure figcaption {
+  margin-top: 12px;
+  color: var(--muted);
+  font-size: 0.95rem;
+  font-weight: 500;
+  line-height: 1.5;
+}
+
+.financial-services-interface-grid + .feature-list {
+  margin-top: clamp(28px, 4vw, 40px);
+}
+
+@media (max-width: 760px) {
+  .financial-services-interface-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .financial-services-interface-grid .screenshot-figure--mobile {
+    width: min(100%, 360px);
+  }
+}
