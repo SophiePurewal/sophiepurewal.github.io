@@ -1,0 +1,75 @@
+name: Update homepage impact stats
+
+on:
+  push:
+    branches:
+      - main
+    paths:
+      - '.github/workflows/update-homepage-impact.yml'
+
+permissions:
+  contents: write
+
+jobs:
+  update-homepage:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v4
+
+      - name: Update homepage copy and metrics
+        shell: bash
+        run: |
+          python - <<'PY'
+          from pathlib import Path
+
+          path = Path('index.html')
+          text = path.read_text(encoding='utf-8')
+
+          replacements = [
+              (
+                  "I design accessible digital products and scalable design systems for complex, regulated services. My recent financial-services work includes reusable components adopted more than 21,000 times across shared product libraries.",
+                  "I design accessible digital products and scalable design systems for complex, regulated services. My recent financial-services work includes reusable components supporting 21,000+ Figma-tracked insertions across header, status, feedback, layout and form patterns over 12 months."
+              ),
+              (
+                  ".impact-metrics { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 0; margin: 0; padding: 0; list-style: none; border: 1px solid var(--page-border); border-radius: 0; background: var(--page-surface-raised); align-items: stretch; }",
+                  ".impact-metrics { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 1px; margin: 0; padding: 0; list-style: none; border: 1px solid var(--page-border); border-radius: 0; background: var(--page-border); align-items: stretch; }"
+              ),
+              (
+                  ".impact-metrics li { min-width: 0; padding: clamp(28px, 4vw, 48px); border: 0; border-right: 1px solid var(--page-border); border-radius: 0; background: var(--page-surface-raised); }",
+                  ".impact-metrics li { min-width: 0; padding: clamp(28px, 4vw, 48px); border: 0; border-radius: 0; background: var(--page-surface-raised); }"
+              ),
+              (
+                  "      .impact-metrics {\n        grid-template-columns: 1fr;\n      }",
+                  "      .impact-metrics {\n        grid-template-columns: 1fr;\n        gap: 0;\n      }"
+              ),
+              (
+                  "            <p class=\"impact-card__description\">tracked insertions across leading shared components</p>",
+                  "            <p class=\"impact-card__description\">Figma-tracked insertions across status, feedback and layout components</p>"
+              ),
+              (
+                  "            <p class=\"impact-card__description\">tracked insertions across modernised form components</p>",
+                  "            <p class=\"impact-card__description\">Figma-tracked insertions across modernised form components</p>"
+              ),
+              (
+                  "        <li class=\"impact-card\">\n          <p class=\"impact-card__value\">15</p>\n          <p class=\"impact-card__description\">redesigned Core Components progressed through review and release</p>\n        </li>",
+                  "        <li class=\"impact-card\">\n          <p class=\"impact-card__value\">2,510</p>\n          <p class=\"impact-card__description\">Figma-tracked insertions of the shared Header Framework across 14 files and 4 teams</p>\n        </li>\n        <li class=\"impact-card\">\n          <p class=\"impact-card__value\">15</p>\n          <p class=\"impact-card__description\">redesigned Core Components progressed through peer design and engineering review into the shared Figma library</p>\n        </li>"
+              ),
+          ]
+
+          for old, new in replacements:
+              if old not in text:
+                  raise SystemExit(f'Expected homepage text not found: {old[:120]!r}')
+              text = text.replace(old, new, 1)
+
+          path.write_text(text, encoding='utf-8')
+          PY
+
+      - name: Commit homepage update
+        shell: bash
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add index.html
+          git commit -m "Update homepage design-system impact stats"
+          git push
