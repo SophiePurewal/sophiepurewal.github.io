@@ -112,8 +112,78 @@
     copy.append(summary);
   };
 
+  const initHomepageImpact = () => {
+    if (!document.body.classList.contains('home-page')) return;
+
+    const heroIntro = document.querySelector('.hero-intro');
+    if (heroIntro) {
+      heroIntro.textContent = 'I design accessible digital products and scalable design systems for complex, regulated services. My recent financial-services work includes reusable components supporting 21,000+ Figma-tracked insertions across header, status, feedback, layout and form patterns over 12 months.';
+    }
+
+    const impactIntro = document.querySelector('.impact-copy > p:last-child');
+    if (impactIntro) {
+      impactIntro.textContent = 'Recent financial-services design-system work includes measurable Figma usage across reusable components and governed releases.';
+    }
+
+    const metrics = document.querySelector('.impact-metrics');
+    if (metrics) {
+      metrics.innerHTML = `
+        <li class="impact-card">
+          <p class="impact-card__value">12,300+</p>
+          <p class="impact-card__description">Figma-tracked insertions across status, feedback and layout components</p>
+        </li>
+        <li class="impact-card">
+          <p class="impact-card__value">6,300+</p>
+          <p class="impact-card__description">Figma-tracked insertions across modernised form components</p>
+        </li>
+        <li class="impact-card">
+          <p class="impact-card__value">2,510</p>
+          <p class="impact-card__description">Figma-tracked insertions of the shared Header Framework across 14 files and 4 teams</p>
+        </li>
+        <li class="impact-card">
+          <p class="impact-card__value">15</p>
+          <p class="impact-card__description">redesigned Core Components progressed through peer design and engineering review into the shared Figma library</p>
+        </li>
+      `;
+    }
+
+    if (!document.querySelector('style[data-homepage-impact-update]')) {
+      const style = document.createElement('style');
+      style.dataset.homepageImpactUpdate = '';
+      style.textContent = `
+        body.home-page .impact-metrics {
+          grid-template-columns: repeat(2, minmax(0, 1fr));
+          gap: 1px;
+          background: var(--page-border);
+        }
+
+        body.home-page .impact-metrics li {
+          border: 0;
+          background: var(--page-surface-raised);
+        }
+
+        @media (max-width: 760px) {
+          body.home-page .impact-metrics {
+            grid-template-columns: 1fr;
+            gap: 0;
+          }
+
+          body.home-page .impact-metrics li {
+            border-bottom: 1px solid var(--page-border);
+          }
+
+          body.home-page .impact-metrics li:last-child {
+            border-bottom: 0;
+          }
+        }
+      `;
+      document.head.append(style);
+    }
+  };
+
   const initSiteHeader = () => {
     initCaseStudyIntro();
+    initHomepageImpact();
 
     const siteHeader = document.querySelector('.site-header');
     const menuToggle = document.querySelector('.menu-toggle');
