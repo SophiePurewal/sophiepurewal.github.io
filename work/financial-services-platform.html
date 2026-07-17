@@ -4,9 +4,9 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Financial Services Platform and Salary-Sacrifice Calculator | Sophie Purewal</title>
-  <meta name="description" content="Senior UI design case study covering responsive website refinement, salary-sacrifice calculator brand alignment and Agile UAT for a large UK financial-services platform.">
+  <meta name="description" content="Senior UI design case study covering responsive website refinement, salary-sacrifice calculator UI updates and Agile UAT for a large UK financial-services platform.">
   <meta property="og:title" content="Financial Services Platform and Salary-Sacrifice Calculator | Sophie Purewal">
-  <meta property="og:description" content="Senior UI design case study covering responsive website refinement, salary-sacrifice calculator brand alignment and Agile UAT for a large UK financial-services platform.">
+  <meta property="og:description" content="Senior UI design case study covering responsive website refinement, salary-sacrifice calculator UI updates and Agile UAT for a large UK financial-services platform.">
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://sophiepurewal.github.io/work/financial-services-platform.html">
   <meta property="og:image" content="https://sophiepurewal.github.io/assets/markus-winkler-IrRbSND5EUc-unsplash.jpg">
@@ -15,6 +15,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Playfair+Display:wght@700;900&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="project-pages.css">
+  <link rel="stylesheet" href="financial-services-platform.css">
   <script src="../assets/js/site-header.js"></script>
   <link rel="stylesheet" href="../assets/css/site-header.css">
 </head>
@@ -23,11 +24,7 @@
   <header class="site-header">
     <nav class="top-nav" aria-label="Main navigation">
       <p class="site-title">
-        <a
-          class="site-title__home-link"
-          href="../index.html"
-          aria-label="Go to the top of the homepage"
-        >
+        <a class="site-title__home-link" href="../index.html" aria-label="Go to the top of the homepage">
           Sophie Purewal
         </a>
       </p>
@@ -68,7 +65,7 @@
         </a>
         <a href="mailto:sophiepurewaldesign@gmail.com" class="dropdown-link">
           <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960" aria-hidden="true" focusable="false">
-            <path d="M160-160q-33 0-56.5-23.5T80-240v-480q0-33 23.5-56.5T160-800h640q33 0 56 24t24 56v480q0 33-23.5 56.5T800-160H160Zm320-280L160-640v400h640v-400L480-440Zm0-80 320-200H160l320 200ZM160-640v-80 480-400Z" />
+            <path d="M160-160q-33 0-56.5-23.5T80-240v-480q0-33 23.5-56.5T160-800h640q33 0 56.5 23.5T880-720v480q0 33-23.5 56.5T800-160H160Zm320-280L160-640v400h640v-400L480-440Zm0-80 320-200H160l320 200ZM160-640v-80 480-400Z" />
           </svg>
           <span class="nav-link-label">Contact</span>
         </a>
@@ -139,21 +136,42 @@
         </section>
 
         <section class="case-study-section" aria-labelledby="responsive-title">
-          <h2 id="responsive-title">Responsive website experience</h2>
-          <p>Beyond the calculator, I reviewed selected areas of the broader website experience across desktop and mobile. The service needed to explain its proposition clearly, answer common questions and guide users towards relevant next steps without overwhelming them.</p>
-          <p>My review focused on whether the interface maintained a clear hierarchy, readable content and consistent routes to action across screen sizes.</p>
+          <p class="section-label">Responsive website</p>
+          <h2 id="responsive-title">A wider website experience that works across desktop and mobile</h2>
+          <p>The website experience needed to communicate the broader service proposition clearly across devices. I reviewed how hierarchy, content, navigation and calls to action translated from desktop to mobile so the experience remained clear, readable and easy to act on.</p>
+          <div class="financial-services-interface-grid" aria-label="Responsive website interface examples">
+            <figure class="screenshot-figure">
+              <img src="../assets/case-studies/financial-services/home-desktop-reference.png" alt="Desktop view of the Aegon website homepage showing the Live your best life hero and service announcement" loading="lazy" decoding="async">
+              <figcaption>Desktop website interface</figcaption>
+            </figure>
+            <figure class="screenshot-figure screenshot-figure--mobile">
+              <img src="../assets/case-studies/financial-services/home-mobile-reference.png" alt="Mobile view of the Aegon website homepage showing the responsive hero and service announcement" loading="lazy" decoding="async">
+              <figcaption>Mobile website interface</figcaption>
+            </figure>
+          </div>
           <ul class="feature-list">
             <li>Simple page hierarchy that supported scanning and comparison</li>
             <li>Plain-language content and guidance for a complex financial proposition</li>
-            <li>Responsive layout patterns that kept key information readable on smaller screens</li>
+            <li>Responsive layout patterns that kept key content readable on smaller screens</li>
             <li>Calls to action that supported exploration without forcing commitment too early</li>
           </ul>
         </section>
 
         <section class="case-study-section" aria-labelledby="calculator-title">
-          <h2 id="calculator-title">Helping users understand potential savings with a focused salary-sacrifice calculator</h2>
-          <p>The calculator enabled users to input salary information and see potential savings generated through salary sacrifice. The experience needed to make a financial calculation feel simple and accessible while maintaining clarity and confidence.</p>
+          <p class="section-label">Salary-sacrifice calculator</p>
+          <h2 id="calculator-title">Helping users understand potential savings with a focused calculator flow</h2>
+          <p>The calculator enabled users to enter salary information and see potential savings generated through salary sacrifice. The experience needed to make a financial calculation feel simple and accessible while maintaining clarity and confidence.</p>
           <p>My role was to update the interface and ensure it aligned with Aegon’s identity, brand standards and established component patterns. I reviewed the presentation of guidance, inputs, validation and calculated outcomes across desktop and smaller screens.</p>
+          <div class="financial-services-interface-grid" aria-label="Salary-sacrifice calculator interface examples">
+            <figure class="screenshot-figure">
+              <img src="../assets/case-studies/financial-services/calculator-desktop.png" alt="Desktop view of the Aegon salary-sacrifice calculator with employee detail and salary input fields" loading="lazy" decoding="async">
+              <figcaption>Desktop calculator interface</figcaption>
+            </figure>
+            <figure class="screenshot-figure screenshot-figure--mobile">
+              <img src="../assets/case-studies/financial-services/calculator-mobile.png" alt="Mobile view of the Aegon salary-sacrifice calculator showing the responsive form flow" loading="lazy" decoding="async">
+              <figcaption>Mobile calculator interface</figcaption>
+            </figure>
+          </div>
           <ul class="feature-list">
             <li>Alignment with Aegon’s identity and visual brand standards</li>
             <li>Consistent typography, spacing and component styling</li>
