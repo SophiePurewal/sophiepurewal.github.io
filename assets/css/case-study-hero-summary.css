@@ -1,0 +1,56 @@
+.portfolio-summary-hero {
+  grid-template-columns: 1fr;
+  justify-items: start;
+}
+
+.portfolio-summary-hero .case-study-hero__copy {
+  width: 100%;
+  max-width: 936px;
+}
+
+.portfolio-summary-hero .hero-visual[hidden] {
+  display: none;
+}
+
+.portfolio-hero-summary {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  width: 100%;
+  margin: clamp(32px, 5vw, 48px) 0 0;
+  border: 1px solid var(--line);
+}
+
+.portfolio-hero-summary > div {
+  min-width: 0;
+  padding: 20px 18px;
+}
+
+.portfolio-hero-summary > div + div {
+  border-left: 1px solid var(--line);
+}
+
+.portfolio-hero-summary dt {
+  margin: 0;
+  color: var(--muted);
+  font-size: 0.86rem;
+  font-weight: 400;
+}
+
+.portfolio-hero-summary dd {
+  margin: 4px 0 0;
+  color: var(--text);
+  font-size: 1rem;
+  font-weight: 700;
+  line-height: 1.45;
+}
+
+@media (max-width: 760px) {
+  .portfolio-hero-summary {
+    grid-template-columns: 1fr;
+  }
+
+  .portfolio-hero-summary > div + div {
+    border-top: 1px solid var(--line);
+    border-left: 0;
+  }
+}
