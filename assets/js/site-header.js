@@ -1,6 +1,37 @@
 (() => {
   const darkModeStorageKey = 'sophie-theme';
 
+  const caseStudyIntroConfigs = {
+    'chartstudio-page': {
+      eyebrow: 'Product design and interactive prototype',
+      summary: 'A self-initiated Figma plugin concept that helps product designers create consistent, accessible charts without rebuilding them manually. I designed the workflow, interface, responsive presets and accessibility rules, then directed the AI-assisted prototype implementation.',
+      boxes: [
+        ['Role', 'Product design, UX and UI'],
+        ['Focus', 'Accessible data visualisation'],
+        ['Format', 'Interactive Figma plugin prototype'],
+      ],
+      hideHeroVisual: true,
+    },
+    'antelope-page': {
+      eyebrow: 'Fintech product design case study',
+      summary: 'A self-initiated fintech onboarding concept exploring how a personal-finance product can build trust from the first interaction through goal-led onboarding, plain-language permissions and a calm first money snapshot.',
+      boxes: [
+        ['Role', 'Product design, UX and UI'],
+        ['Focus', 'Trust-led wealth onboarding'],
+        ['Format', 'Interactive mobile prototype'],
+      ],
+    },
+    'dude-page': {
+      eyebrow: 'Mobile product design case study',
+      summary: 'A mobile-first bike-hire concept that helps people find nearby bikes, understand availability and move from reservation to ride with minimal friction, supported by a reusable visual language and documented design system.',
+      boxes: [
+        ['Role', 'Product design, UX and UI'],
+        ['Focus', 'Mobile bike hire and design systems'],
+        ['Format', 'Interactive prototype and design system'],
+      ],
+    },
+  };
+
   const getStoredMode = () => {
     try {
       return window.localStorage.getItem(darkModeStorageKey);
@@ -21,7 +52,69 @@
     }
   };
 
+  const getCaseStudyIntroConfig = () => {
+    return Object.entries(caseStudyIntroConfigs).find(([className]) => {
+      return document.body.classList.contains(className);
+    })?.[1] || null;
+  };
+
+  const loadCaseStudyIntroStyles = () => {
+    if (document.querySelector('link[data-case-study-hero-summary]')) return;
+
+    const stylesheet = document.createElement('link');
+    stylesheet.rel = 'stylesheet';
+    stylesheet.href = '../assets/css/case-study-hero-summary.css';
+    stylesheet.dataset.caseStudyHeroSummary = '';
+    document.head.append(stylesheet);
+  };
+
+  const initCaseStudyIntro = () => {
+    const config = getCaseStudyIntroConfig();
+    if (!config) return;
+
+    const hero = document.querySelector('.case-study-hero');
+    const copy = hero?.querySelector('.case-study-hero__copy');
+    if (!hero || !copy || copy.querySelector('.portfolio-hero-summary')) return;
+
+    loadCaseStudyIntroStyles();
+
+    hero.classList.add('portfolio-summary-hero');
+    copy.classList.add('case-study-hero__copy--wide');
+
+    const kicker = copy.querySelector('.project-kicker');
+    const subtitle = copy.querySelector('.project-subtitle');
+    const heroVisual = hero.querySelector('.hero-visual');
+
+    if (kicker) kicker.textContent = config.eyebrow;
+    if (subtitle) subtitle.textContent = config.summary;
+
+    copy.querySelectorAll('.project-intro').forEach((paragraph) => paragraph.remove());
+
+    if (config.hideHeroVisual && heroVisual) {
+      heroVisual.hidden = true;
+    }
+
+    const summary = document.createElement('dl');
+    summary.className = 'portfolio-hero-summary';
+    summary.setAttribute('aria-label', 'Project summary');
+
+    config.boxes.forEach(([label, value]) => {
+      const item = document.createElement('div');
+      const term = document.createElement('dt');
+      const description = document.createElement('dd');
+
+      term.textContent = label;
+      description.textContent = value;
+      item.append(term, description);
+      summary.append(item);
+    });
+
+    copy.append(summary);
+  };
+
   const initSiteHeader = () => {
+    initCaseStudyIntro();
+
     const siteHeader = document.querySelector('.site-header');
     const menuToggle = document.querySelector('.menu-toggle');
     const dropdownMenu = document.querySelector('#dropdown-menu');
@@ -73,7 +166,6 @@
     };
 
     applyTheme(getStoredMode() === 'dark' ? 'dark' : 'light');
-
 
     if (siteTitleHomeLink) {
       siteTitleHomeLink.addEventListener('click', (event) => {
