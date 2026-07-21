@@ -2645,3 +2645,23 @@ body.dark-mode.dude-page .design-system-docs #panel-title {
     font-size: clamp(32px, 10vw, 40px);
   }
 }
+
+/* Dude design-system docs sidebar scroll behavior */
+@media (min-width: 981px) {
+  .dude-page .design-system-docs .docs-sidebar {
+    position: sticky;
+    top: 112px;
+    max-height: calc(100vh - 132px);
+    overflow-y: auto;
+    overflow-x: hidden;
+    overscroll-behavior: contain;
+  }
+}
+
+@media (max-width: 980px) {
+  .dude-page .design-system-docs .docs-sidebar {
+    position: static;
+    max-height: none;
+    overflow: visible;
+  }
+}
