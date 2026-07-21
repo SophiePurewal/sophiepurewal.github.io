@@ -49,11 +49,6 @@ body.antelope-page .case-study-section > h2 {
   margin-bottom: 32px;
 }
 
-/* Tighten the Design Approach image-to-content spacing without affecting other sections. */
-body.antelope-page #approach-title + .case-study-section__layout {
-  column-gap: 32px;
-}
-
 /* Remove inherited list spacing so the Design Approach content aligns with its image. */
 body.antelope-page #approach-title + .case-study-section__layout .approach-list {
   margin-top: 0;
@@ -64,8 +59,13 @@ body.antelope-page #approach-title + .case-study-section__layout .approach-list 
   margin-top: 32px;
 }
 
-/* Align the Design Approach phone frame with the first screenshot column below. */
+/* Keep the phone column only as wide as the image and place the content close beside it. */
 @media (min-width: 901px) {
+  body.antelope-page #approach-title + .case-study-section__layout {
+    grid-template-columns: minmax(0, 390px) minmax(0, 1fr);
+    column-gap: 16px;
+  }
+
   body.antelope-page #approach-title + .case-study-section__layout .section-figure .mobile-screen-frame {
     margin-left: 0;
     margin-right: auto;
