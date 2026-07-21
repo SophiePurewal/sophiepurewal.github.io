@@ -44,6 +44,29 @@
   line-height: 1.45;
 }
 
+/* Keep section-heading spacing consistent across the Antelope case study. */
+body.antelope-page .case-study-section > h2 {
+  margin-bottom: 32px;
+}
+
+/* Remove inherited list spacing so the Design Approach content aligns with its image. */
+body.antelope-page #approach-title + .case-study-section__layout .approach-list {
+  margin-top: 0;
+}
+
+/* Give the secondary heading clear separation from the preceding approach bullets. */
+body.antelope-page #approach-title + .case-study-section__layout .approach-list + h3 {
+  margin-top: 32px;
+}
+
+/* Align the Design Approach phone frame with the first screenshot column below. */
+@media (min-width: 901px) {
+  body.antelope-page #approach-title + .case-study-section__layout .section-figure .mobile-screen-frame {
+    margin-left: 0;
+    margin-right: auto;
+  }
+}
+
 body.dark-mode:is(.antelope-page, .dude-page) .project-context .back-link,
 body.dark-mode:is(.antelope-page, .dude-page) .project-footer .case-study-footer-link {
   color: #FFFFFF;
