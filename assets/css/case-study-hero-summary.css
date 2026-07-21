@@ -44,6 +44,27 @@
   line-height: 1.45;
 }
 
+body.dark-mode:is(.antelope-page, .dude-page) .project-context .back-link,
+body.dark-mode:is(.antelope-page, .dude-page) .project-footer .case-study-footer-link {
+  color: #FFFFFF;
+}
+
+body.dark-mode:is(.antelope-page, .dude-page) .project-context .back-link:hover,
+body.dark-mode:is(.antelope-page, .dude-page) .project-context .back-link:focus-visible,
+body.dark-mode:is(.antelope-page, .dude-page) .project-footer .case-study-footer-link:hover,
+body.dark-mode:is(.antelope-page, .dude-page) .project-footer .case-study-footer-link:focus-visible {
+  color: #FFFFFF;
+  text-decoration-color: #FFFFFF;
+}
+
+body.dark-mode:is(.antelope-page, .dude-page) .approach-list li::before {
+  background: #FFFFFF;
+}
+
+body.dark-mode:is(.antelope-page, .dude-page) .case-study li::marker {
+  color: #FFFFFF;
+}
+
 @media (max-width: 760px) {
   .portfolio-hero-summary {
     grid-template-columns: 1fr;
