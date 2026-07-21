@@ -68,6 +68,30 @@
     document.head.append(stylesheet);
   };
 
+  const loadCaseStudyDarkModeStyles = () => {
+    if (!document.body.matches('.antelope-page, .dude-page')) return;
+    if (document.querySelector('style[data-case-study-dark-mode-overrides]')) return;
+
+    const style = document.createElement('style');
+    style.dataset.caseStudyDarkModeOverrides = '';
+    style.textContent = `
+      body.dark-mode:is(.antelope-page, .dude-page) .project-context .back-link:hover,
+      body.dark-mode:is(.antelope-page, .dude-page) .project-context .back-link:focus-visible {
+        color: #FFFFFF;
+        text-decoration-color: #FFFFFF;
+      }
+
+      body.dark-mode:is(.antelope-page, .dude-page) .approach-list li::before {
+        background: #FFFFFF;
+      }
+
+      body.dark-mode:is(.antelope-page, .dude-page) .case-study li::marker {
+        color: #FFFFFF;
+      }
+    `;
+    document.head.append(style);
+  };
+
   const initCaseStudyIntro = () => {
     const config = getCaseStudyIntroConfig();
     if (!config) return;
@@ -182,6 +206,7 @@
   };
 
   const initSiteHeader = () => {
+    loadCaseStudyDarkModeStyles();
     initCaseStudyIntro();
     initHomepageImpact();
 
