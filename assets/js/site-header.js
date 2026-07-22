@@ -203,6 +203,13 @@
           }
         }
 
+        @media (min-width: 1100px) {
+          body.home-page .hero h1 {
+            font-size: clamp(2.5rem, 3.25vw, 2.75rem);
+            white-space: nowrap;
+          }
+        }
+
         @media (max-width: 760px) {
           body.home-page .impact-metrics {
             grid-template-columns: 1fr;
