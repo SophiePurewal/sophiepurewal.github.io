@@ -1,0 +1,51 @@
+name: Update homepage hero heading
+
+on:
+  push:
+    branches:
+      - main
+    paths:
+      - .github/workflows/update-homepage-hero-heading.yml
+
+permissions:
+  contents: write
+
+jobs:
+  update-heading:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v4
+
+      - name: Update heading text and size
+        shell: bash
+        run: |
+          python - <<'PY'
+          from pathlib import Path
+
+          page = Path('index.html')
+          content = page.read_text(encoding='utf-8')
+
+          old_size = "font-size: clamp(2.5rem, 5vw, 4rem);"
+          new_size = "font-size: clamp(2.75rem, 5.4vw, 4.35rem);"
+          old_heading = "<h1>Senior Product Designer. Design Systems</h1>"
+          new_heading = "<h1>Senior Product Designer.<br>Design Systems &amp; AI Prototyping</h1>"
+
+          if content.count(old_size) != 1:
+              raise SystemExit(f'Expected one hero font-size declaration, found {content.count(old_size)}.')
+          if content.count(old_heading) != 1:
+              raise SystemExit(f'Expected one old heading, found {content.count(old_heading)}.')
+
+          content = content.replace(old_size, new_size)
+          content = content.replace(old_heading, new_heading)
+          page.write_text(content, encoding='utf-8')
+          PY
+
+      - name: Commit homepage update
+        shell: bash
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add index.html
+          git commit -m "Enlarge homepage role heading"
+          git push
