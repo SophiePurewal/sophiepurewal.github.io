@@ -1,0 +1,44 @@
+name: Set homepage hero heading to 43.3px
+
+on:
+  push:
+    branches:
+      - main
+    paths:
+      - .github/workflows/set-homepage-hero-heading-43-3.yml
+
+permissions:
+  contents: write
+
+jobs:
+  update-heading-size:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v4
+
+      - name: Set homepage hero heading size
+        shell: bash
+        run: |
+          python - <<'PY'
+          from pathlib import Path
+
+          page = Path('index.html')
+          old = "font-size: clamp(2.75rem, 5.4vw, 4.35rem);"
+          new = "font-size: 43.3px;"
+
+          content = page.read_text(encoding='utf-8')
+          if content.count(old) != 1:
+              raise SystemExit(f'Expected exactly one heading size declaration, found {content.count(old)}.')
+
+          page.write_text(content.replace(old, new), encoding='utf-8')
+          PY
+
+      - name: Commit homepage update
+        shell: bash
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add index.html
+          git commit -m "Set homepage hero heading to 43.3px"
+          git push
