@@ -141,7 +141,7 @@
 
     const heroTitle = document.querySelector('.hero h1');
     if (heroTitle) {
-      heroTitle.textContent = 'Senior Product Designer • Design Systems • AI Prototyping';
+      heroTitle.innerHTML = 'Senior Product Designer.<br>Design Systems &amp; AI Prototyping';
     }
 
     document.title = 'Sophie Purewal — Senior Product Designer, Design Systems & AI Prototyping';
