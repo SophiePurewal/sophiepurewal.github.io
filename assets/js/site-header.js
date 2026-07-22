@@ -139,6 +139,17 @@
   const initHomepageImpact = () => {
     if (!document.body.classList.contains('home-page')) return;
 
+    const heroTitle = document.querySelector('.hero h1');
+    if (heroTitle) {
+      heroTitle.textContent = 'Senior Product Designer • Design Systems • AI Prototyping';
+    }
+
+    document.title = 'Sophie Purewal — Senior Product Designer, Design Systems & AI Prototyping';
+    const openGraphTitle = document.querySelector('meta[property="og:title"]');
+    if (openGraphTitle) {
+      openGraphTitle.content = 'Sophie Purewal — Senior Product Designer, Design Systems & AI Prototyping';
+    }
+
     const heroIntro = document.querySelector('.hero-intro');
     if (heroIntro) {
       heroIntro.textContent = 'I design accessible digital products and scalable design systems for complex, regulated services. My recent financial-services work includes reusable components supporting 21,000+ Figma-tracked insertions across header, status, feedback, layout and form patterns over 12 months.';
@@ -184,6 +195,12 @@
         body.home-page .impact-metrics li {
           border: 0;
           background: var(--page-surface-raised);
+        }
+
+        @media (min-width: 901px) {
+          body.home-page .hero h1 {
+            font-size: clamp(3rem, 4.25vw, 3.5rem);
+          }
         }
 
         @media (max-width: 760px) {
