@@ -356,3 +356,10 @@ body.dark-mode.home-page .project-card--split .project-card__eyebrow {
     width: calc(100% - var(--section-shell-gutter-mobile));
   }
 }
+
+@media (min-width: 1000px) {
+  .home-page .hero h1 {
+    font-size: 44px !important;
+    white-space: nowrap;
+  }
+}
