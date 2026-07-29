@@ -78,3 +78,18 @@
     width: min(100%, 360px);
   }
 }
+/* Centre custom bullets against each complete list item. */
+.financial-services-page .approach-list li {
+  display: grid;
+  grid-template-columns: 8px minmax(0, 1fr);
+  column-gap: 16px;
+  align-items: center;
+  padding-left: 0;
+}
+
+.financial-services-page .approach-list li::before {
+  position: static;
+  width: 8px;
+  height: 8px;
+}
+
