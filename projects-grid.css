@@ -209,20 +209,11 @@ body.home-page:not(.dark-mode)
   transition: transform 200ms ease;
 }
 
-.home-page .project-card--split .project-card__eyebrow,
-.home-page .project-card--split .project-card__title,
-.home-page .project-card--split .project-card__hint,
 .home-page .project-card--split .project-card__cta {
   transition: color 200ms ease;
 }
 
-.home-page .project-card--split:is(:hover, :focus-visible) .project-card__eyebrow,
-.home-page .project-card--split:is(:hover, :focus-visible) .project-card__title,
-.home-page .project-card--split:is(:hover, :focus-visible) .project-card__hint,
 .home-page .project-card--split:is(:hover, :focus-visible) .project-card__cta,
-.home-page .project-card--split:focus-within .project-card__eyebrow,
-.home-page .project-card--split:focus-within .project-card__title,
-.home-page .project-card--split:focus-within .project-card__hint,
 .home-page .project-card--split:focus-within .project-card__cta {
   color: var(--brand-claret);
 }
