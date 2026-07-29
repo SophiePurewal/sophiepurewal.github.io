@@ -152,12 +152,12 @@
 
     const heroIntro = document.querySelector('.hero-intro');
     if (heroIntro) {
-      heroIntro.textContent = 'I design accessible digital products and scalable design systems for complex, regulated services. My recent financial-services work includes reusable components supporting 21,000+ Figma-tracked insertions across header, status, feedback, layout and form patterns over 12 months.';
+      heroIntro.textContent = 'I design accessible digital products and scalable design systems for complex, regulated services. My recent work includes reusable components supporting 21,000+ Figma-tracked insertions across header, status, feedback, layout and form patterns over 12 months.';
     }
 
     const impactIntro = document.querySelector('.impact-copy > p:last-child');
     if (impactIntro) {
-      impactIntro.textContent = 'Recent financial-services design-system work includes measurable Figma usage across reusable components and governed releases.';
+      impactIntro.textContent = 'Recent design-system work includes measurable adoption across reusable components and governed releases.';
     }
 
     const metrics = document.querySelector('.impact-metrics');
