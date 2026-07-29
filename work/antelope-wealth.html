@@ -414,7 +414,28 @@
         max-height: none;
       }
     }
-  </style>
+  
+
+    /* Centre custom bullets against each complete list item. */
+    body.antelope-page .approach-list li {
+      display: grid;
+      grid-template-columns: 8px minmax(0, 1fr);
+      column-gap: 16px;
+      align-items: center;
+      padding-left: 0;
+    }
+
+    body.antelope-page .approach-list li::before {
+      position: static;
+      width: 8px;
+      height: 8px;
+    }
+
+    /* Keep 32px between the Design approach image and copy. */
+    #approach-title + .case-study-section__layout {
+      gap: 32px;
+    }
+</style>
   <script src="../assets/js/site-header.js"></script>
   <link rel="stylesheet" href="../assets/css/site-header.css">
 </head>
