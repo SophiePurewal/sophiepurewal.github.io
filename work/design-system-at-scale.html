@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Scaling a Financial-Services Design System | Sophie Purewal</title>
+  <meta name="description" content="An anonymised senior product design case study covering component modernisation, governance and more than 21,000 Figma-tracked insertions across multidisciplinary teams.">
+  <meta property="og:title" content="Scaling a Financial-Services Design System | Sophie Purewal">
+  <meta property="og:description" content="Component modernisation, governance and measurable adoption across a financial-services design system.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://sophiepurewal.github.io/work/design-system-at-scale.html">
+  <meta property="og:image" content="https://sophiepurewal.github.io/assets/case-studies/design-system/design-system-cover.svg">
+  <link rel="icon" type="image/svg+xml" href="../favicon.svg">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Playfair+Display:wght@700;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="project-pages.css">
+  <link rel="stylesheet" href="design-system-at-scale.css?v=20260729-1">
+  <script src="../assets/js/site-header.js"></script>
+  <link rel="stylesheet" href="../assets/css/site-header.css">
+</head>
+<body id="top" class="design-system-page">
+  <a class="skip-link" href="#main">Skip to main content</a>
+  <header class="site-header">
+    <nav class="top-nav" aria-label="Main navigation">
+      <p class="site-title">
+        <a class="site-title__home-link" href="../index.html" aria-label="Go to the top of the homepage">Sophie Purewal</a>
+      </p>
+      <div class="header-actions">
+        <button class="theme-toggle" type="button" aria-label="Activate dark mode" aria-pressed="false" title="Activate dark mode">
+          <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" aria-hidden="true" focusable="false">
+            <path d="M480-120q-133 0-226.5-92.5T160-436q0-66 25-122t69-100l226-222 226 222q44 44 69 100t25 122q0 131-93.5 223.5T480-120Zm0-80v-568L310-600q-35 33-52.5 74.5T240-436q0 97 70 166.5T480-200Z"/>
+          </svg>
+        </button>
+        <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="dropdown-menu" aria-label="Toggle navigation menu">
+          <svg class="menu-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960" aria-hidden="true" focusable="false">
+            <line class="line-top" x1="200" y1="-480" x2="760" y2="-480"/>
+            <line class="line-bottom" x1="200" y1="-480" x2="760" y2="-480"/>
+          </svg>
+        </button>
+      </div>
+      <div id="dropdown-menu" class="dropdown-menu" aria-label="Navigation links">
+        <a href="../index.html#projects" class="dropdown-link" aria-label="View selected case studies">
+          <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" aria-hidden="true" focusable="false"><path d="M480-400 40-640l440-240 440 240-440 240Zm0 160L63-467l84-46 333 182 333-182 84 46-417 227Zm0 160L63-307l84-46 333 182 333-182 84 46L480-80Z"/></svg>
+          <span class="nav-link-label">Case studies</span>
+        </a>
+        <a href="../request-cv.html" class="dropdown-link" aria-label="Request Sophie Purewal’s CV">
+          <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" aria-hidden="true" focusable="false"><path d="M480-320 280-520l56-58 104 104v-326h80v326l104-104 56 58-200 200ZM240-160q-33 0-56.5-23.5T160-240v-120h80v120h480v-120h80v120q0 33-23.5 56.5T720-160H240Z"/></svg>
+          <span class="nav-link-label">Request CV</span>
+        </a>
+        <a href="../index.html#endorsements" class="dropdown-link">
+          <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" aria-hidden="true" focusable="false"><path d="M720-120H280v-520l280-280 50 50q7 7 11.5 19t4.5 23v14l-44 174h258q32 0 56 24t24 56v80q0 7-2 15t-4 15L794-168q-9 20-30 34t-44 14Z"/></svg>
+          <span class="nav-link-label">Endorsements</span>
+        </a>
+        <a href="mailto:sophiepurewaldesign@gmail.com" class="dropdown-link">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960" aria-hidden="true" focusable="false"><path d="M160-160q-33 0-56.5-23.5T80-240v-480q0-33 23.5-56.5T160-800h640q33 0 56.5 23.5T880-720v480q0 33-23.5 56.5T800-160H160Zm320-280L160-640v400h640v-400L480-440Zm0-80 320-200H160l320 200Z"/></svg>
+          <span class="nav-link-label">Contact</span>
+        </a>
+      </div>
+    </nav>
+  </header>
+
+  <main id="main" class="project-main">
+    <div class="site-shell">
+      <article class="case-study case-study--commercial">
+        <div class="project-context">
+          <a class="back-link" href="../index.html#projects"><span class="back-link__label">Back to portfolio</span></a>
+        </div>
+
+        <section class="case-study-hero case-study-hero--single" aria-labelledby="project-title">
+          <div class="case-study-hero__copy case-study-hero__copy--wide">
+            <p class="project-kicker">Anonymised design-system case study</p>
+            <h1 id="project-title">Scaling a financial-services design system</h1>
+            <p class="project-subtitle">Component modernisation, governance and measurable adoption across multidisciplinary product teams.</p>
+            <dl class="financial-services-hero-summary" aria-label="Project summary">
+              <div><dt>Role</dt><dd>Senior UI Designer</dd></div>
+              <div><dt>Contribution</dt><dd>Component design, governance and enablement</dd></div>
+              <div><dt>Period</dt><dd>12 months of Figma adoption data</dd></div>
+            </dl>
+            <p class="ds-confidentiality">This case study has been anonymised to protect proprietary product and design-system information. The responsibilities, processes and Figma adoption figures reflect my professional work; internal interfaces and documentation are not reproduced.</p>
+            <ul class="ds-hero-metrics" aria-label="Headline design-system impact">
+              <li><strong>21,000+</strong><span>Figma-tracked component insertions</span></li>
+              <li><strong>15</strong><span>Core Components progressed through review and release</span></li>
+              <li><strong>20+</strong><span>UX specialists supported alongside engineering teams</span></li>
+            </ul>
+          </div>
+        </section>
+
+        <section class="case-study-section" aria-labelledby="challenge-title">
+          <p class="section-label">Challenge</p>
+          <h2 id="challenge-title">Creating consistency across complex product journeys</h2>
+          <p>Multiple product teams needed accessible, reusable UI patterns that could support regulated services without repeatedly solving the same interface problems. Fragmented legacy patterns and evolving requirements created inconsistency across forms, navigation, feedback and layout.</p>
+          <p>My work focused on modernising shared components, defining their behaviour and states, progressing them through design and engineering governance, and helping teams adopt them confidently.</p>
+        </section>
+
+        <section class="case-study-section" aria-labelledby="role-title">
+          <p class="section-label">My contribution</p>
+          <h2 id="role-title">Designing components and supporting adoption</h2>
+          <ul class="approach-list">
+            <li>Audited and modernised shared UI components</li>
+            <li>Defined responsive behaviour, variants and interaction states</li>
+            <li>Improved accessibility across form and feedback patterns</li>
+            <li>Collaborated with designers and engineers through governance and release</li>
+            <li>Created documentation and supported adoption through training and mentoring</li>
+          </ul>
+        </section>
+
+        <section class="case-study-section" aria-labelledby="impact-stories-title">
+          <p class="section-label">Focused impact</p>
+          <h2 id="impact-stories-title">Three component families with measurable reach</h2>
+          <div class="ds-story-grid">
+            <article class="ds-story">
+              <h3>Header Framework</h3>
+              <p>A reusable framework that supported consistent navigation and responsive structure across product work.</p>
+              <p class="ds-story__value">2,510</p>
+              <p class="ds-story__meta">insertions · 14 files · 4 teams</p>
+            </article>
+            <article class="ds-story">
+              <h3>Forms modernisation</h3>
+              <p>Modernised input, selection and control patterns with clearer states, validation and accessibility behaviour.</p>
+              <p class="ds-story__value">6,300+</p>
+              <p class="ds-story__meta">tracked insertions across form components</p>
+            </article>
+            <article class="ds-story">
+              <h3>Shared UI patterns</h3>
+              <p>Reusable status, feedback and layout patterns that helped teams communicate consistently across journeys.</p>
+              <p class="ds-story__value">12,300+</p>
+              <p class="ds-story__meta">tracked insertions across shared components</p>
+            </article>
+          </div>
+        </section>
+
+        <section class="case-study-section" aria-labelledby="adoption-title">
+          <p class="section-label">Adoption evidence</p>
+          <h2 id="adoption-title">Component use across files and teams</h2>
+          <p>Figma analytics provided a practical measure of whether shared components were being reused across active product work. The chart ranks the nine components with the strongest recorded insertion counts in the reviewed period.</p>
+          <div class="ds-chart" role="img" aria-label="Horizontal bar chart ranking nine components by Figma-tracked insertions. Badge is highest at 3,000, followed by Header Framework at 2,510 and Text Input Set 1 at 1,700.">
+            <ol class="ds-chart__list">
+              <li class="ds-chart__row"><span class="ds-chart__label">Badge</span><span class="ds-chart__track"><span class="ds-chart__bar" style="--bar-width:100%"></span></span><span class="ds-chart__value">3,000</span></li>
+              <li class="ds-chart__row"><span class="ds-chart__label">Header Framework</span><span class="ds-chart__track"><span class="ds-chart__bar" style="--bar-width:83.7%"></span></span><span class="ds-chart__value">2,510</span></li>
+              <li class="ds-chart__row"><span class="ds-chart__label">Text Input Set 1</span><span class="ds-chart__track"><span class="ds-chart__bar" style="--bar-width:56.7%"></span></span><span class="ds-chart__value">1,700</span></li>
+              <li class="ds-chart__row"><span class="ds-chart__label">Radio</span><span class="ds-chart__track"><span class="ds-chart__bar" style="--bar-width:38.3%"></span></span><span class="ds-chart__value">1,150</span></li>
+              <li class="ds-chart__row"><span class="ds-chart__label">Notification</span><span class="ds-chart__track"><span class="ds-chart__bar" style="--bar-width:36.5%"></span></span><span class="ds-chart__value">1,095</span></li>
+              <li class="ds-chart__row"><span class="ds-chart__label">Toggle</span><span class="ds-chart__track"><span class="ds-chart__bar" style="--bar-width:34.9%"></span></span><span class="ds-chart__value">1,048</span></li>
+              <li class="ds-chart__row"><span class="ds-chart__label">Accordion</span><span class="ds-chart__track"><span class="ds-chart__bar" style="--bar-width:34.4%"></span></span><span class="ds-chart__value">1,033</span></li>
+              <li class="ds-chart__row"><span class="ds-chart__label">Text Input Set 2</span><span class="ds-chart__track"><span class="ds-chart__bar" style="--bar-width:34.1%"></span></span><span class="ds-chart__value">1,023</span></li>
+              <li class="ds-chart__row"><span class="ds-chart__label">Grid</span><span class="ds-chart__track"><span class="ds-chart__bar" style="--bar-width:29.5%"></span></span><span class="ds-chart__value">885</span></li>
+            </ol>
+            <p class="ds-chart__note">Insertions measure component usage in Figma files. They are not unique users or customer interactions.</p>
+          </div>
+        </section>
+
+        <section class="case-study-section" aria-labelledby="governance-title">
+          <p class="section-label">Governance</p>
+          <h2 id="governance-title">Moving components from audit to adoption</h2>
+          <p>Components were treated as shared product infrastructure rather than isolated design assets. Fifteen redesigned Core Components progressed through peer-design and engineering review before release into the shared library.</p>
+          <ol class="ds-process" aria-label="Design-system governance process">
+            <li><strong>01</strong>Audit existing patterns</li>
+            <li><strong>02</strong>Prioritise component needs</li>
+            <li><strong>03</strong>Redesign states and behaviour</li>
+            <li><strong>04</strong>Review accessibility</li>
+            <li><strong>05</strong>Peer-design review</li>
+            <li><strong>06</strong>Engineering review</li>
+            <li><strong>07</strong>Release to the library</li>
+            <li><strong>08</strong>Measure adoption</li>
+          </ol>
+        </section>
+
+        <section class="case-study-section" aria-labelledby="detail-title">
+          <p class="section-label">Detailed evidence</p>
+          <h2 id="detail-title">Insertion, file and team reach</h2>
+          <p>File and team counts show how component adoption extended beyond a single design file or immediate project group.</p>
+          <div class="ds-table-wrap">
+            <table class="ds-table">
+              <thead><tr><th scope="col">Component</th><th scope="col">Insertions</th><th scope="col">Files</th><th scope="col">Teams</th></tr></thead>
+              <tbody>
+                <tr><td>Badge</td><td>3,000</td><td>38</td><td>9</td></tr>
+                <tr><td>Header Framework</td><td>2,510</td><td>14</td><td>4</td></tr>
+                <tr><td>Text Input Set 1</td><td>1,700</td><td>29</td><td>5</td></tr>
+                <tr><td>Radio</td><td>1,150</td><td>12</td><td>5</td></tr>
+                <tr><td>Notification</td><td>1,095</td><td>37</td><td>8</td></tr>
+                <tr><td>Toggle</td><td>1,048</td><td>8</td><td>2</td></tr>
+                <tr><td>Accordion</td><td>1,033</td><td>8</td><td>6</td></tr>
+                <tr><td>Text Input Set 2</td><td>1,023</td><td>19</td><td>7</td></tr>
+                <tr><td>Grid</td><td>885</td><td>35</td><td>3</td></tr>
+              </tbody>
+            </table>
+          </div>
+        </section>
+
+        <section class="case-study-section" aria-labelledby="enablement-title">
+          <p class="section-label">Enablement</p>
+          <h2 id="enablement-title">Helping teams use the system confidently</h2>
+          <div class="ds-enable-grid">
+            <article class="ds-enable-card"><strong>Documentation</strong><p>Created component guidance to clarify usage, states and expected behaviour.</p></article>
+            <article class="ds-enable-card"><strong>Five designers trained</strong><p>Delivered Figma fundamentals training to improve consistency and shared working practices.</p></article>
+            <article class="ds-enable-card"><strong>Seven months of mentoring</strong><p>Mentored a graduate designer through practical product design and UAT work.</p></article>
+          </div>
+        </section>
+
+        <section class="case-study-section" aria-labelledby="outcome-title">
+          <p class="section-label">Outcome</p>
+          <h2 id="outcome-title">A more reusable and measurable design foundation</h2>
+          <p>Over 12 months, the components I built and modernised recorded more than 21,000 Figma-tracked insertions across header, status, feedback, layout and form patterns.</p>
+          <p>The adoption data demonstrates more than component production: it shows reuse across files and teams, supported by governance, documentation, engineering collaboration and designer enablement.</p>
+        </section>
+      </article>
+
+      <footer class="project-footer">
+        <a class="footer-link case-study-footer-link" href="../index.html#projects">Back to case studies</a>
+      </footer>
+    </div>
+  </main>
+  <script src="project-pages.js"></script>
+</body>
+</html>
