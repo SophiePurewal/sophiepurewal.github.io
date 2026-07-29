@@ -1,0 +1,36 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 760" role="img" aria-labelledby="title desc">
+  <title id="title">Design system at scale</title>
+  <desc id="desc">Abstract interface components, adoption bars and governance connections.</desc>
+  <rect width="1200" height="760" fill="#F3F4F6"/>
+  <rect x="68" y="62" width="1064" height="636" rx="20" fill="#FEFEFE" stroke="#D8DEE5" stroke-width="2"/>
+  <rect x="112" y="112" width="420" height="64" rx="8" fill="#17202A"/>
+  <rect x="112" y="202" width="284" height="22" rx="5" fill="#CBD2DA"/>
+  <rect x="112" y="242" width="350" height="22" rx="5" fill="#E3E7EB"/>
+  <rect x="112" y="310" width="420" height="76" rx="8" fill="#FEFEFE" stroke="#920E38" stroke-width="4"/>
+  <rect x="136" y="332" width="162" height="16" rx="4" fill="#5D6875"/>
+  <rect x="136" y="358" width="230" height="12" rx="3" fill="#CBD2DA"/>
+  <rect x="112" y="412" width="200" height="54" rx="8" fill="#920E38"/>
+  <rect x="332" y="412" width="200" height="54" rx="8" fill="#FEFEFE" stroke="#17202A" stroke-width="2"/>
+  <circle cx="124" cy="526" r="12" fill="#920E38"/>
+  <rect x="152" y="516" width="304" height="20" rx="5" fill="#5D6875"/>
+  <circle cx="124" cy="574" r="12" fill="#143D59"/>
+  <rect x="152" y="564" width="244" height="20" rx="5" fill="#5D6875"/>
+  <circle cx="124" cy="622" r="12" fill="#CBD2DA"/>
+  <rect x="152" y="612" width="278" height="20" rx="5" fill="#5D6875"/>
+  <text x="642" y="138" fill="#143D59" font-family="Inter, Arial, sans-serif" font-size="18" font-weight="700" letter-spacing="2">ADOPTION</text>
+  <text x="642" y="208" fill="#920E38" font-family="Inter, Arial, sans-serif" font-size="72" font-weight="800">21,000+</text>
+  <text x="642" y="248" fill="#5D6875" font-family="Inter, Arial, sans-serif" font-size="22">tracked component insertions</text>
+  <rect x="642" y="306" width="384" height="26" rx="6" fill="#E3E7EB"/>
+  <rect x="642" y="306" width="384" height="26" rx="6" fill="#920E38"/>
+  <rect x="642" y="358" width="384" height="26" rx="6" fill="#E3E7EB"/>
+  <rect x="642" y="358" width="322" height="26" rx="6" fill="#143D59"/>
+  <rect x="642" y="410" width="384" height="26" rx="6" fill="#E3E7EB"/>
+  <rect x="642" y="410" width="218" height="26" rx="6" fill="#5D6875"/>
+  <rect x="642" y="462" width="384" height="26" rx="6" fill="#E3E7EB"/>
+  <rect x="642" y="462" width="148" height="26" rx="6" fill="#8B96A3"/>
+  <circle cx="682" cy="574" r="28" fill="#920E38"/>
+  <circle cx="830" cy="574" r="28" fill="#143D59"/>
+  <circle cx="978" cy="574" r="28" fill="#5D6875"/>
+  <path d="M710 574H802M858 574H950" stroke="#CBD2DA" stroke-width="8" stroke-linecap="round"/>
+  <text x="642" y="646" fill="#17202A" font-family="Inter, Arial, sans-serif" font-size="22" font-weight="700">Design · Engineering · Release</text>
+</svg>
