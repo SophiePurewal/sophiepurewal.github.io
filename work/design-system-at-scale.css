@@ -1,3 +1,46 @@
+
+.financial-services-hero-summary {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  margin: clamp(32px, 5vw, 48px) 0 0;
+  border: 1px solid var(--line);
+}
+
+.financial-services-hero-summary > div {
+  min-width: 0;
+  padding: 20px 18px;
+}
+
+.financial-services-hero-summary > div + div {
+  border-left: 1px solid var(--line);
+}
+
+.financial-services-hero-summary dt {
+  margin: 0;
+  color: var(--muted);
+  font-size: 0.86rem;
+  font-weight: 400;
+}
+
+.financial-services-hero-summary dd {
+  margin: 4px 0 0;
+  color: var(--text);
+  font-size: 1rem;
+  font-weight: 700;
+  line-height: 1.45;
+}
+
+.design-system-page .approach-list li {
+  display: grid;
+  grid-template-columns: 8px minmax(0, 1fr);
+  column-gap: 16px;
+  align-items: center;
+  padding-left: 0;
+}
+
+.design-system-page .approach-list li::before {
+  position: static;
+}
 .design-system-page {
   --ds-claret: #920E38;
   --ds-blue: #143D59;
@@ -246,6 +289,15 @@
 }
 
 @media (max-width: 640px) {
+  .financial-services-hero-summary {
+    grid-template-columns: 1fr;
+  }
+
+  .financial-services-hero-summary > div + div {
+    border-top: 1px solid var(--line);
+    border-left: 0;
+  }
+
   .ds-hero-metrics {
     grid-template-columns: 1fr;
   }
