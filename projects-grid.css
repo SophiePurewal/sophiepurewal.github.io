@@ -213,8 +213,8 @@ body.home-page:not(.dark-mode)
   transition: color 200ms ease;
 }
 
-.home-page .project-card--split:is(:hover, :focus-visible) .project-card__cta,
-.home-page .project-card--split:focus-within .project-card__cta {
+body.home-page:not(.dark-mode) .project-card--split:is(:hover, :focus-visible) .project-card__cta,
+body.home-page:not(.dark-mode) .project-card--split:focus-within .project-card__cta {
   color: var(--brand-claret);
 }
 
