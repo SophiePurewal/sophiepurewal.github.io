@@ -1,3 +1,10 @@
+.design-system-page .site-shell {
+  width: min(
+    var(--section-shell-max, 1180px),
+    calc(100% - var(--section-shell-gutter, 48px))
+  );
+}
+
 
 .financial-services-hero-summary {
   display: grid;
@@ -289,6 +296,13 @@
 }
 
 @media (max-width: 640px) {
+  .design-system-page .site-shell {
+    width: min(
+      var(--section-shell-max, 1180px),
+      calc(100% - var(--section-shell-gutter-mobile, 32px))
+    );
+  }
+
   .financial-services-hero-summary {
     grid-template-columns: 1fr;
   }
