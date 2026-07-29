@@ -2665,3 +2665,19 @@ body.dark-mode.dude-page .design-system-docs #panel-title {
     overflow: visible;
   }
 }
+
+
+/* Centre ChartStudio custom bullets against each complete list item. */
+body.chartstudio-page .approach-list li {
+  display: grid;
+  grid-template-columns: 8px minmax(0, 1fr);
+  column-gap: 16px;
+  align-items: center;
+  padding-left: 0;
+}
+
+body.chartstudio-page .approach-list li::before {
+  position: static;
+  width: 8px;
+  height: 8px;
+}
