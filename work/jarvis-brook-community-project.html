@@ -19,6 +19,42 @@
   <script src="../assets/js/site-header.js"></script>
   <link rel="stylesheet" href="../assets/css/site-header.css">
   <link rel="stylesheet" href="../assets/css/case-study-hero-summary.css" data-case-study-hero-summary>
+  <style>
+    .jarvis-page .jarvis-prototype-demo {
+      width: 100%;
+      min-width: 0;
+    }
+
+    .jarvis-page .jarvis-prototype-demo .prototype-frame {
+      width: 100%;
+      margin-inline: auto;
+    }
+
+    .jarvis-page .jarvis-prototype-link {
+      margin: 56px 0 0;
+    }
+
+    @media (max-width: 760px) {
+      .jarvis-page .jarvis-prototype-section .prototype-section__layout {
+        grid-template-columns: minmax(0, 1fr);
+      }
+
+      .jarvis-page .jarvis-prototype-demo {
+        width: 100%;
+        max-width: 430px;
+        margin-inline: auto;
+        justify-self: center;
+      }
+
+      .jarvis-page .jarvis-prototype-demo .prototype-frame,
+      .jarvis-page .jarvis-prototype-demo .prototype-screen,
+      .jarvis-page .jarvis-prototype-demo iframe {
+        width: 100%;
+        max-width: none;
+        margin-inline: auto;
+      }
+    }
+  </style>
 </head>
 <body id="top" class="jarvis-page">
   <a class="skip-link" href="#main">Skip to main content</a>
@@ -108,7 +144,7 @@
           </div>
         </section>
 
-        <section class="case-study-section prototype-section" aria-labelledby="prototype-title">
+        <section class="case-study-section prototype-section jarvis-prototype-section" aria-labelledby="prototype-title">
           <div class="prototype-section__layout">
             <div class="section-header prototype-section__copy">
               <p class="eyebrow">Live responsive website</p>
@@ -117,34 +153,35 @@
                 <span class="prototype-direction__text">
                   Explore the live mobile website in the interactive preview to see how the campaign story, extension plans, fundraising activity and support actions work together.
                 </span>
-                <svg class="prototype-direction__icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960" aria-hidden="true" focusable="false">
-                  <path d="m561-240-57-56 144-144H160v-80h488L504-664l57-56 240 240-240 240Z"/>
-                </svg>
               </p>
-              <p><a class="footer-link case-study-footer-link" href="https://jbskatepark.github.io/" target="_blank" rel="noopener noreferrer">Open the full website in a new tab</a></p>
             </div>
 
-            <div class="prototype-frame" data-prototype-frame data-fallback-delay-ms="5000">
-              <div class="prototype-screen">
-                <iframe
-                  src="https://jbskatepark.github.io/"
-                  title="Live mobile view of the Jarvis Brook Skatepark campaign website"
-                  loading="lazy"
-                  allowfullscreen>
-                </iframe>
-                <div class="prototype-frame__fallback" aria-hidden="true">
-                  <div class="image-frame">
-                    <img
-                      src="https://jbskatepark.github.io/jarvis-brook-skatepark-hero.webp"
-                      alt="Static preview of the Jarvis Brook Skatepark campaign website"
-                      loading="lazy"
-                      decoding="async">
-                    <div class="image-fallback">
-                      <p>The live website may be temporarily unavailable. Open it in a new tab using the link beside the preview.</p>
+            <div class="jarvis-prototype-demo">
+              <div class="prototype-frame" data-prototype-frame data-fallback-delay-ms="5000">
+                <div class="prototype-screen">
+                  <iframe
+                    src="https://jbskatepark.github.io/"
+                    title="Live mobile view of the Jarvis Brook Skatepark campaign website"
+                    loading="lazy"
+                    allowfullscreen>
+                  </iframe>
+                  <div class="prototype-frame__fallback" aria-hidden="true">
+                    <div class="image-frame">
+                      <img
+                        src="https://jbskatepark.github.io/jarvis-brook-skatepark-hero.webp"
+                        alt="Static preview of the Jarvis Brook Skatepark campaign website"
+                        loading="lazy"
+                        decoding="async">
+                      <div class="image-fallback">
+                        <p>The live website may be temporarily unavailable. Open it in a new tab using the link below the preview.</p>
+                      </div>
                     </div>
                   </div>
                 </div>
               </div>
+              <p class="jarvis-prototype-link">
+                <a class="footer-link case-study-footer-link" href="https://jbskatepark.github.io/" target="_blank" rel="noopener noreferrer">Open the full website in a new tab</a>
+              </p>
             </div>
           </div>
         </section>
