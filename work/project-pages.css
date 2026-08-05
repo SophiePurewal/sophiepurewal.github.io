@@ -2825,8 +2825,9 @@ body.dude-page .approach-list li::before {
   width: 100%;
 }
 
-.dude-page #origin-title {
-  margin-bottom: 32px;
+.dude-page .case-study-section > h2,
+.dude-page .prototype-section__copy > h2 {
+  margin-bottom: 46px;
 }
 
 .dude-page .bike-research-findings {
