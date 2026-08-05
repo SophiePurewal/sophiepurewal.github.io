@@ -105,7 +105,7 @@
       display: flex;
       align-items: center;
       justify-content: center;
-      padding: 86px 0 92px;
+      padding: 86px 0 96px;
     }
 
     .hero-panel {
@@ -257,8 +257,8 @@
 
     .projects-section {
       width: 100%;
-      margin: 0 0 56px;
-      padding: 0;
+      margin: 0;
+      padding: 0 0 96px;
       background: var(--page-surface);
       transition: background-color 0.35s ease;
     }
@@ -266,7 +266,7 @@
     .projects-intro {
       width: min(var(--section-shell-max), calc(100% - var(--section-shell-gutter)));
       margin: 0 auto;
-      padding: 56px 0 40px;
+      padding: 96px 0 40px;
     }
 
     .projects-intro h2 {
@@ -328,7 +328,8 @@
       );
       max-width: none;
       margin-inline: auto;
-      padding: 64px 0;
+      padding: 96px 0;
+      border-top: 1px solid var(--page-border);
     }
 
     .content section {
@@ -485,7 +486,7 @@
     .hero-secondary { margin-top: 18px !important; }
     .hero-contact { margin-top: 22px !important; font-size: 16px !important; font-weight: 600 !important; }
     .hero-contact a, .text-link { color: var(--brand-dark); font-weight: 700; text-decoration: none; text-underline-offset: 0.18em; text-decoration-thickness: 1px; transition: color 160ms ease; }
-    .impact-section { width: min(var(--section-shell-max), calc(100% - var(--section-shell-gutter))); margin: 0 auto; padding: 64px 0; background: var(--page-surface); border-top: 1px solid var(--page-border); border-bottom: 1px solid var(--page-border); }
+    .impact-section { width: min(var(--section-shell-max), calc(100% - var(--section-shell-gutter))); margin: 0 auto; padding: 96px 0; background: var(--page-surface); border-top: 1px solid var(--page-border); border-bottom: 1px solid var(--page-border); }
     .impact-strip { display: grid; grid-template-columns: minmax(240px, .68fr) minmax(0, 1.32fr); gap: clamp(28px, 4vw, 56px); align-items: stretch; }
     .home-page .section-eyebrow {
       margin: 0 0 12.8px;
@@ -659,7 +660,7 @@
     @media (max-width: 900px) {
       .hero {
         min-height: auto;
-        padding: 72px 0 80px;
+        padding: 72px 0 96px;
       }
 
       .hero-panel {
@@ -712,7 +713,7 @@
       .hero-actions { justify-content: center; }
 
       .projects-intro {
-        padding: 56px 0 36px;
+        padding: 96px 0 36px;
       }
 
       .content {
@@ -742,7 +743,7 @@
 
     @media (max-width: 640px) {
       .hero {
-        padding: 56px 0 64px;
+        padding: 56px 0 96px;
       }
 
       .hero-panel {
@@ -789,7 +790,7 @@
 
 
       .projects-intro {
-        padding: 56px 0 32px;
+        padding: 96px 0 32px;
       }
 
       .content {
@@ -798,7 +799,7 @@
 
       .home-page .endorsements-content {
         width: calc(100% - var(--section-shell-gutter-mobile));
-        padding: 56px 0;
+        padding: 96px 0;
       }
 
       .content h3 {
@@ -807,7 +808,7 @@
 
     }
   </style>
-  <link rel="stylesheet" href="projects-grid.css?v=20260729-3">
+  <link rel="stylesheet" href="projects-grid.css?v=20260805-main-divider-spacing">
   <script src="assets/js/site-header.js?v=20260729-2"></script>
   <link rel="stylesheet" href="assets/css/site-header.css">
 
