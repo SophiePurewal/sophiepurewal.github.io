@@ -2810,6 +2810,21 @@ body.dude-page .approach-list li::before {
   margin-inline: auto;
 }
 
+.dude-page .bike-product-figure--device {
+  width: min(100%, 320px);
+  margin-inline: auto;
+  padding: 10px;
+  overflow: hidden;
+  border: 1px solid rgba(37, 18, 56, 0.12);
+  border-radius: 48px;
+  background: #F4F5F7;
+  box-shadow: 0 18px 40px rgba(37, 18, 56, 0.16);
+}
+
+.dude-page .bike-product-figure--device img {
+  width: 100%;
+}
+
 .dude-page #origin-title {
   margin-bottom: 32px;
 }
