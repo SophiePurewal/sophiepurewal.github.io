@@ -56,6 +56,22 @@ body.home-page .projects-grid > .project-card {
   z-index: 2;
 }
 
+.home-page .projects-grid .project-card--split:last-child::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  width: min(
+    var(--section-shell-max),
+    calc(100% - var(--section-shell-gutter))
+  );
+  height: 1px;
+  background: var(--page-border);
+  transform: translateX(-50%);
+  pointer-events: none;
+  z-index: 2;
+}
+
 .home-page .project-card__inner {
   width: min(
     var(--section-shell-max),
