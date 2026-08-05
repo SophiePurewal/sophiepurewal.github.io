@@ -63,7 +63,7 @@
 
     const stylesheet = document.createElement('link');
     stylesheet.rel = 'stylesheet';
-    stylesheet.href = '../assets/css/case-study-hero-summary.css?v=20260805-chartstudio-layout';
+    stylesheet.href = '../assets/css/case-study-hero-summary.css?v=20260805-chartstudio-layout-2';
     stylesheet.dataset.caseStudyHeroSummary = '';
     document.head.append(stylesheet);
   };
