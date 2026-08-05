@@ -2803,3 +2803,79 @@ body.dude-page .approach-list li::before {
   width: 8px;
   height: 8px;
 }
+
+/* Dude, Where's My Bike product-story layouts. */
+.dude-page .bike-product-figure img {
+  width: min(100%, 300px);
+  margin-inline: auto;
+}
+
+.dude-page .bike-research-findings {
+  max-width: none;
+  margin-top: 28px;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 24px;
+}
+
+.dude-page .bike-research-findings li {
+  display: grid;
+  gap: 8px;
+  align-content: start;
+  padding: 24px 0;
+}
+
+.dude-page .bike-research-findings span,
+.dude-page .bike-journey span {
+  color: var(--muted);
+  font-weight: 400;
+}
+
+.dude-page .bike-journey {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 24px;
+  margin: 28px 0 0;
+  padding: 0;
+  list-style: none;
+  counter-reset: bike-journey;
+}
+
+.dude-page .bike-journey li {
+  display: grid;
+  gap: 8px;
+  align-content: start;
+  padding-top: 20px;
+  border-top: 1px solid var(--line);
+  counter-increment: bike-journey;
+}
+
+.dude-page .bike-journey li::before {
+  content: "0" counter(bike-journey);
+  color: var(--brand);
+  font-size: 0.78rem;
+  font-weight: 800;
+  letter-spacing: 0.12em;
+}
+
+.dude-page .bike-journey-screens {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 24px;
+  align-items: start;
+  margin-top: 40px;
+}
+
+@media (max-width: 900px) {
+  .dude-page .bike-research-findings,
+  .dude-page .bike-journey {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 640px) {
+  .dude-page .bike-research-findings,
+  .dude-page .bike-journey,
+  .dude-page .bike-journey-screens {
+    grid-template-columns: 1fr;
+  }
+}
