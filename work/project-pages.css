@@ -227,6 +227,15 @@ body:not(.dark-mode) .case-study .eyebrow {
   object-fit: contain;
 }
 
+.hero-visual video {
+  display: block;
+  width: 100%;
+  max-width: 30rem;
+  height: auto;
+  border-radius: 18px;
+  box-shadow: 0 22px 60px rgba(23, 32, 42, 0.16);
+}
+
 
 .case-study-actions {
   display: flex;
@@ -423,6 +432,31 @@ body:not(.dark-mode) .case-study .eyebrow {
   grid-template-columns: 1fr;
   gap: 32px 28px;
   margin-top: 32px;
+}
+
+.case-study-video {
+  margin: 32px 0 0;
+}
+
+.case-study-video video {
+  display: block;
+  width: 100%;
+  height: auto;
+  border-radius: 18px;
+  background: #111820;
+  box-shadow: 0 22px 60px rgba(23, 32, 42, 0.14);
+}
+
+.case-study-video figcaption {
+  margin-top: 14px;
+  font-size: 0.96rem;
+  line-height: 1.5;
+  font-weight: 600;
+  color: var(--text);
+}
+
+.case-study-section .journey-highlights-title {
+  margin-top: 48px;
 }
 
 .screenshot-figure {

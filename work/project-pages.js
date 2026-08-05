@@ -208,3 +208,12 @@ function initDesignSystemDocs(root) {
 }
 
 document.querySelectorAll('[data-design-system-docs]').forEach(initDesignSystemDocs);
+const reducedMotionQuery = window.matchMedia("(prefers-reduced-motion: reduce)");
+
+document.querySelectorAll("[data-autoplay-preview]").forEach((video) => {
+  if (!reducedMotionQuery.matches) {
+    video.play().catch(() => {
+      // Browsers may still decline autoplay; the visible controls remain available.
+    });
+  }
+});

@@ -100,8 +100,20 @@
             <p class="project-subtitle">A working Figma plugin prototype that helps designers create and insert consistent, accessible charts through a guided workflow.</p>
             <p class="project-intro">I conceived the product, designed its interaction model and interface, defined the chart-system and accessibility rules, and directed its AI-assisted development from an identified workflow problem to a functioning plugin.</p>
           </div>
-          <figure class="hero-visual">
-            <img src="../chartstudio-cover-square.png" alt="ChartStudio plugin interface preview showing the plugin UI in a square cover composition." loading="eager" decoding="async">
+          <figure class="hero-visual hero-visual--video">
+            <video
+              data-autoplay-preview
+              muted
+              loop
+              playsinline
+              controls
+              preload="metadata"
+              poster="../assets/media/chartstudio-preview-poster.jpg"
+              aria-label="Short preview of ChartStudio configuring and inserting a chart into Figma"
+            >
+              <source src="../assets/media/chartstudio-preview.mp4" type="video/mp4">
+              Your browser does not support embedded video.
+            </video>
           </figure>
         </section>
 
@@ -272,35 +284,33 @@
 
         <section class="case-study-section" aria-labelledby="screenshots-title">
           <h2 id="screenshots-title">Prototype journey</h2>
-          <p>The screenshots below follow the intended ChartStudio journey from selecting a chart format through to reviewing and inserting a finished chart into Figma.</p>
+          <p>The demonstration follows the complete ChartStudio journey: adding source data, configuring labels and styling, reviewing the result and inserting the generated chart into Figma.</p>
+          <figure class="case-study-video">
+            <video
+              controls
+              playsinline
+              preload="metadata"
+              poster="../assets/media/chartstudio-demo-poster.jpg"
+              aria-label="Full ChartStudio line-chart creation and insertion demonstration"
+            >
+              <source src="../assets/media/chartstudio-demo.mp4" type="video/mp4">
+              Your browser does not support embedded video.
+            </video>
+            <figcaption>Creating and inserting an accessible line chart with ChartStudio</figcaption>
+          </figure>
+          <h3 class="journey-highlights-title">Key moments</h3>
           <div class="screenshot-grid">
             <figure class="screenshot-figure">
               <img src="../chartstudio-01-plugin-home.png" alt="ChartStudio plugin screen showing chart type cards for line, bar and doughnut charts, with a live preview area below." loading="lazy" decoding="async">
-              <figcaption>Choose the most appropriate chart format</figcaption>
-            </figure>
-            <figure class="screenshot-figure">
-              <img src="../chartstudio-02-chart-type-selection-data.png" alt="ChartStudio data input screen showing manual data entry fields for a chart series, with a live preview area below." loading="lazy" decoding="async">
-              <figcaption>Add or edit the source data</figcaption>
-            </figure>
-            <figure class="screenshot-figure">
-              <img src="../chartstudio-03-chart-type-selection-labels.png" alt="ChartStudio labels screen showing title, axis label and number format controls, with a line chart preview below." loading="lazy" decoding="async">
-              <figcaption>Configure titles, labels and number formatting</figcaption>
-            </figure>
-            <figure class="screenshot-figure">
-              <img src="../chartstudio-04-chart-type-selection-viewport.png" alt="ChartStudio style screen showing output size options including desktop, tablet, mobile and custom chart sizes." loading="lazy" decoding="async">
-              <figcaption>Select a responsive output size</figcaption>
+              <figcaption>Define: choose the appropriate chart format</figcaption>
             </figure>
             <figure class="screenshot-figure">
               <img src="../chartstudio-05-chart-type-selection-accessible.png" alt="ChartStudio style screen showing accessible colour palette options and a live chart preview." loading="lazy" decoding="async">
-              <figcaption>Apply accessible visual styling</figcaption>
-            </figure>
-            <figure class="screenshot-figure">
-              <img src="../chartstudio-06-chart-type-selection-insert.png" alt="ChartStudio insert screen showing a summary of selected chart settings and a live chart preview before creating the chart." loading="lazy" decoding="async">
-              <figcaption>Review the finished chart</figcaption>
+              <figcaption>Configure: apply accessible visual styling</figcaption>
             </figure>
             <figure class="screenshot-figure screenshot-figure--wide">
               <img src="../chartstudio-07-chart-type-selection-result.png" alt="ChartStudio result screen showing a generated line chart inserted onto the Figma canvas next to the plugin confirmation screen." loading="lazy" decoding="async">
-              <figcaption>Insert the chart into the Figma canvas</figcaption>
+              <figcaption>Create: insert the generated chart into the Figma canvas</figcaption>
             </figure>
           </div>
         </section>
