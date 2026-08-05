@@ -2810,6 +2810,10 @@ body.dude-page .approach-list li::before {
   margin-inline: auto;
 }
 
+.dude-page #origin-title {
+  margin-bottom: 32px;
+}
+
 .dude-page .bike-research-findings {
   max-width: none;
   margin-top: 28px;
