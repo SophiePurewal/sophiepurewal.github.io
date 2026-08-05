@@ -268,6 +268,18 @@ body:not(.dark-mode) .case-study .eyebrow {
   margin-bottom: 32px;
 }
 
+.chartstudio-page .combined-section-subheading {
+  margin-top: 32px;
+}
+
+.chartstudio-page .combined-system-layout {
+  margin-top: 32px;
+}
+
+.chartstudio-page .combined-system-layout .feature-list {
+  grid-template-columns: 1fr;
+}
+
 
 .case-study-actions {
   display: flex;
