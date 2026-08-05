@@ -97,8 +97,8 @@
           <div class="case-study-hero__copy">
             <p class="project-kicker">Product design and interactive prototype</p>
             <h1 id="project-title">ChartStudio</h1>
-            <p class="project-subtitle">Designing a Figma plugin prototype that helps product designers create consistent, accessible charts without rebuilding them manually.</p>
-            <p class="project-intro">ChartStudio explores how chart creation could become faster, more consistent and easier to govern within product-design teams. I designed the plugin experience, chart controls, responsive presets and accessibility rules, then used AI-assisted development to turn the concept into an interactive prototype.</p>
+            <p class="project-subtitle">A working Figma plugin prototype that helps designers create and insert consistent, accessible charts through a guided workflow.</p>
+            <p class="project-intro">I conceived the product, designed its interaction model and interface, defined the chart-system and accessibility rules, and directed its AI-assisted development from an identified workflow problem to a functioning plugin.</p>
           </div>
           <figure class="hero-visual">
             <img src="../chartstudio-cover-square.png" alt="ChartStudio plugin interface preview showing the plugin UI in a square cover composition." loading="eager" decoding="async">
@@ -115,20 +115,20 @@
                   <dd>Product design, UI design, design systems and prototype direction</dd>
                 </div>
                 <div class="summary-item">
-                  <dt>Tools</dt>
-                  <dd>Figma, GitHub, Codex and AI-assisted development</dd>
+                  <dt>Users</dt>
+                  <dd>Product and UI designers creating charts for digital products</dd>
                 </div>
                 <div class="summary-item">
                   <dt>Focus</dt>
-                  <dd>Data visualisation, accessibility, responsive components and designer workflows</dd>
+                  <dd>Accessible, consistent and efficient chart creation</dd>
                 </div>
                 <div class="summary-item">
                   <dt>Output</dt>
-                  <dd>Interactive Figma plugin prototype</dd>
+                  <dd>Working Figma plugin prototype</dd>
                 </div>
                 <div class="summary-item">
                   <dt>Status</dt>
-                  <dd>Prototype under continued development and validation</dd>
+                  <dd>Core workflow built; structured usability testing is the next stage</dd>
                 </div>
               </dl>
             </div>
@@ -155,7 +155,34 @@
 
         <section class="case-study-section" aria-labelledby="problem-title">
           <h2 id="problem-title">The problem</h2>
-          <p>Designers often need to create charts for product interfaces, dashboards and reports, but chart design becomes inconsistent when every chart is drawn manually. ChartStudio was designed as a Figma plugin prototype for making chart creation faster, more consistent and easier to align with shared product and accessibility standards.</p>
+          <p>While designing the data-visualisation experience for a financial proposition, I evaluated several chart plugins available through the Figma Community. Although they promised to accelerate chart creation, I found that some were unreliable, unnecessarily complicated or unable to produce the chart types and visual treatments the product required.</p>
+          <p>Accessibility was another significant limitation. Colour, labelling, readability and responsive behaviour still needed to be resolved manually. This revealed an opportunity for a more dependable, guided tool—one tailored to the organisation’s product requirements while embedding accessibility and consistency into the chart-creation workflow.</p>
+        </section>
+
+        <section class="case-study-section" aria-labelledby="opportunity-title">
+          <h2 id="opportunity-title">The product opportunity</h2>
+          <p>Rather than continuing to construct charts manually or adapting unreliable plugins, I explored how a bespoke Figma tool could help designers:</p>
+          <ul class="approach-list">
+            <li>Create charts through a clear, guided workflow</li>
+            <li>Generate the chart types required by the product</li>
+            <li>Apply consistent visual, accessibility and responsive rules</li>
+            <li>Insert completed charts directly into the Figma canvas</li>
+            <li>Reduce repetitive manual design work</li>
+          </ul>
+        </section>
+
+        <section class="case-study-section" aria-labelledby="measures-title">
+          <h2 id="measures-title">Users and proposed success measures</h2>
+          <p>ChartStudio was designed primarily for product and UI designers creating charts for digital products, dashboards and financial propositions. As a self-initiated prototype, it did not have live-product analytics, so I defined the measures that would guide structured validation:</p>
+          <ul class="feature-list">
+            <li>Successful chart creation and insertion</li>
+            <li>Time required to create a chart</li>
+            <li>Errors or hesitation during the workflow</li>
+            <li>Ability to select appropriate chart settings</li>
+            <li>Accessibility and readability of the generated output</li>
+            <li>Usability of the generated Figma layers</li>
+            <li>Designer confidence in the finished chart</li>
+          </ul>
         </section>
 
         <section class="case-study-section" aria-labelledby="decisions-title">
@@ -166,13 +193,15 @@
             </figure>
             <div class="case-study-section__body">
               <h3>Decision 1: Guided workflow instead of one complex screen</h3>
-              <p>Chart creation was divided into manageable stages so designers could choose a chart, enter data, configure labels, select an output size and review the result without being overwhelmed by every control at once.</p>
+              <p>I divided chart creation into focused stages: chart selection, data entry, labelling, sizing, styling and final review. Presenting every control simultaneously would have been faster for experienced users to scan, but considerably more complicated for occasional users.</p>
+              <p><strong>Trade-off:</strong> The staged journey introduces additional steps, so future testing should determine whether experienced users also need shortcuts or a condensed editing mode.</p>
             </div>
           </div>
           <div class="case-study-section__layout">
             <div class="case-study-section__body">
-              <h3>Decision 2: Preset responsive sizes instead of arbitrary resizing</h3>
-              <p>Preset desktop, tablet and mobile dimensions help charts remain consistent within product layouts while still offering a custom-size option where needed.</p>
+              <h3>Decision 2: Responsive presets with a custom option</h3>
+              <p>I introduced desktop, tablet and mobile output presets to help designers create charts that aligned with common product layouts. Completely arbitrary sizing would offer maximum freedom, but could also produce inconsistent output and readability problems at smaller dimensions.</p>
+              <p><strong>Trade-off:</strong> Presets cannot represent every product context, making the custom option and clear resizing behaviour essential.</p>
             </div>
             <figure class="section-figure">
               <img src="../chartstudio-04-chart-type-selection-viewport.png" alt="ChartStudio responsive size selection screen with desktop, tablet, mobile and custom output options." loading="lazy" decoding="async">
@@ -183,9 +212,20 @@
               <img src="../chartstudio-05-chart-type-selection-accessible.png" alt="ChartStudio accessibility styling screen with palette options and a live chart preview." loading="lazy" decoding="async">
             </figure>
             <div class="case-study-section__body">
-              <h3>Decision 3: Accessibility controls as part of creation</h3>
-              <p>Accessible palettes, clear labels, legends and readable value formatting were treated as core chart settings rather than an optional check at the end.</p>
+              <h3>Decision 3: Accessibility during creation</h3>
+              <p>Accessible palette choices, labelling, legends and value formatting were integrated into the main workflow rather than presented as a final compliance check. This encourages designers to consider readability and non-colour-dependent communication while constructing the chart.</p>
+              <p><strong>Trade-off:</strong> Automated guidance can improve consistency but cannot guarantee that every chart is appropriate or accessible; designers must still assess meaning, content and context.</p>
             </div>
+          </div>
+          <div class="case-study-section__layout">
+            <div class="case-study-section__body">
+              <h3>Decision 4: Review before insertion</h3>
+              <p>I added a final review stage showing the selected settings and chart preview before insertion. Immediate insertion would shorten the workflow, but correcting an unsuitable chart afterwards would create unnecessary canvas clutter and rework.</p>
+              <p><strong>Trade-off:</strong> The confirmation step adds friction, so it needs to remain concise and useful rather than merely repeating previous information.</p>
+            </div>
+            <figure class="section-figure">
+              <img src="../chartstudio-06-chart-type-selection-insert.png" alt="ChartStudio review screen showing selected chart settings before insertion into Figma." loading="lazy" decoding="async">
+            </figure>
           </div>
         </section>
 
@@ -210,8 +250,16 @@
           <p>This process involved identifying implementation issues, clarifying responsive behaviour, correcting chart layouts and iterating on controls until the prototype more closely matched the intended product experience.</p>
         </section>
 
+        <section class="case-study-section" aria-labelledby="validation-title">
+          <h2 id="validation-title">Feedback and early validation</h2>
+          <p>I discussed the concept with fellow UI designers, who supported the need for a more reliable, accessible and tailored approach to creating charts in Figma. Their feedback reinforced the relevance of the problem and encouraged the development of the plugin.</p>
+          <p>I then evaluated the working prototype by completing the intended end-to-end journey: selecting a chart type, entering data, configuring its presentation, reviewing the result and inserting the generated chart into Figma.</p>
+          <p>The prototype demonstrates that the core interaction is technically achievable. Structured usability testing with a wider group of product and UI designers would be the next stage of validation.</p>
+        </section>
+
         <section class="case-study-section" aria-labelledby="iterations-title">
-          <h2 id="iterations-title">Challenges and iterations</h2>
+          <h2 id="iterations-title">Designing the complete system</h2>
+          <p>Moving from static interface designs to a functioning plugin exposed behavioural and technical conditions that needed to be resolved:</p>
           <ul class="approach-list">
             <li>Keeping doughnut charts circular at different sizes.</li>
             <li>Preventing labels and legends from overlapping.</li>
@@ -258,16 +306,21 @@
         </section>
 
         <section class="case-study-section" aria-labelledby="outcome-title">
-          <h2 id="outcome-title">Outcome and next steps</h2>
-          <p>ChartStudio demonstrates how I use product thinking, UI systems and AI-assisted development to make a design concept tangible. The prototype brings the key chart-creation journey together in one guided experience and provides a foundation for further testing.</p>
+          <h2 id="outcome-title">Outcome</h2>
+          <p>ChartStudio progressed from a problem identified during genuine financial-product work into a functioning Figma plugin prototype capable of generating and inserting charts.</p>
+          <p>The project demonstrates how I combine product thinking, detailed interaction design, accessibility, system rules and AI-assisted development to turn an identified workflow problem into a tangible tool.</p>
+          <p>Peer feedback supported the relevance of the concept, while building the working prototype exposed practical considerations including responsive chart behaviour, label collisions, layer structure and the balance between flexibility and simplicity.</p>
+
+          <h3>Next steps</h3>
+          <p>The next stage would be structured testing with product and UI designers to:</p>
           <ul class="approach-list">
-            <li>Test the workflow with product designers</li>
-            <li>Measure task completion and chart-creation time</li>
-            <li>Refine the controls based on observed usability issues</li>
-            <li>Validate keyboard and screen-reader behaviour</li>
-            <li>Improve generated Figma layer structure</li>
-            <li>Explore importing data from CSV files</li>
-            <li>Prepare the plugin for wider distribution if validation is positive</li>
+            <li>Measure chart-creation and insertion success</li>
+            <li>Compare completion time with manual chart construction</li>
+            <li>Identify confusion or hesitation within the guided workflow</li>
+            <li>Validate keyboard and assistive-technology behaviour</li>
+            <li>Assess the usability of generated Figma layers</li>
+            <li>Determine whether experienced users need shortcuts</li>
+            <li>Explore CSV import if testing confirms a genuine need</li>
           </ul>
         </section>
 
