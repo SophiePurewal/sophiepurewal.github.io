@@ -92,4 +92,16 @@
   width: 8px;
   height: 8px;
 }
+.financial-services-page .financial-user-groups {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
 
+.financial-services-page .financial-uat-findings {
+  margin-top: 28px;
+}
+
+@media (max-width: 900px) {
+  .financial-services-page .financial-user-groups {
+    grid-template-columns: 1fr;
+  }
+}
