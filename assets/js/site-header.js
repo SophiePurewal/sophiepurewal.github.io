@@ -4,13 +4,13 @@
   const caseStudyIntroConfigs = {
     'chartstudio-page': {
       eyebrow: 'Product design and interactive prototype',
-      summary: 'A self-initiated Figma plugin concept that helps product designers create consistent, accessible charts without rebuilding them manually. I designed the workflow, interface, responsive presets and accessibility rules, then directed the AI-assisted prototype implementation.',
+      summary: 'A working Figma plugin prototype that helps designers create and insert consistent, accessible charts through a guided workflow. I conceived the product, designed its interaction model and interface, defined the chart-system and accessibility rules, and directed its AI-assisted development.',
       boxes: [
-        ['Role', 'Product design, UX and UI'],
-        ['Focus', 'Accessible data visualisation'],
-        ['Format', 'Interactive Figma plugin prototype'],
+        ['Role', 'Product design, UX/UI and prototype direction'],
+        ['Users', 'Product and UI designers'],
+        ['Product', 'Working Figma plugin prototype'],
       ],
-      hideHeroVisual: true,
+      hideHeroVisual: false,
     },
     'antelope-page': {
       eyebrow: 'Fintech product design case study',
