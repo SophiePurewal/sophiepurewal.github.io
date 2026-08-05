@@ -248,6 +248,18 @@ body:not(.dark-mode) .case-study .eyebrow {
   max-width: 40rem;
 }
 
+/* Keep raster UI screenshots crisp at their intended display size. */
+.chartstudio-page .section-figure img,
+.chartstudio-page .screenshot-figure img {
+  width: 70%;
+  margin-inline: auto;
+}
+
+.chartstudio-page .screenshot-figure figcaption {
+  width: 70%;
+  margin-inline: auto;
+}
+
 
 .case-study-actions {
   display: flex;
@@ -595,6 +607,12 @@ body.dark-mode .skip-link {
 
   .screenshot-grid {
     gap: 28px;
+  }
+
+  .chartstudio-page .section-figure img,
+  .chartstudio-page .screenshot-figure img,
+  .chartstudio-page .screenshot-figure figcaption {
+    width: 100%;
   }
 }
 
