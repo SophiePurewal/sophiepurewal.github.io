@@ -272,6 +272,10 @@ body:not(.dark-mode) .case-study .eyebrow {
   margin-top: 32px;
 }
 
+.chartstudio-page .combined-section-followup {
+  margin-top: 32px;
+}
+
 .chartstudio-page .combined-system-layout {
   margin-top: 32px;
 }
