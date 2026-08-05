@@ -264,6 +264,10 @@ body:not(.dark-mode) .case-study .eyebrow {
   grid-template-columns: repeat(2, minmax(0, 1fr));
 }
 
+.chartstudio-page #decisions-title {
+  margin-bottom: 32px;
+}
+
 
 .case-study-actions {
   display: flex;
