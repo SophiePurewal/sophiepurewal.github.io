@@ -23,10 +23,10 @@
     },
     'dude-page': {
       eyebrow: 'Mobile product design case study',
-      summary: 'A mobile-first bike-hire concept that helps people find nearby bikes, understand availability and move from reservation to ride with minimal friction, supported by a reusable visual language and documented design system.',
+      summary: 'Helping tourists discover, compare and book bikes from trusted local providers in unfamiliar cities.',
       boxes: [
         ['Role', 'Product design, UX and UI'],
-        ['Focus', 'Mobile bike hire and design systems'],
+        ['Audience', 'Tourists and occasional riders'],
         ['Format', 'Interactive prototype and design system'],
       ],
     },
