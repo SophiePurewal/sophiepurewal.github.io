@@ -12,6 +12,38 @@
   display: none;
 }
 
+/* ChartStudio uses a product-demo hero: stacked project facts beside the video. */
+body.chartstudio-page .portfolio-summary-hero {
+  grid-template-columns: minmax(0, 1fr) minmax(360px, 0.78fr);
+  align-items: center;
+  column-gap: clamp(48px, 7vw, 96px);
+}
+
+body.chartstudio-page .portfolio-summary-hero .case-study-hero__copy {
+  max-width: none;
+}
+
+body.chartstudio-page .portfolio-summary-hero .portfolio-hero-summary {
+  grid-template-columns: 1fr;
+  max-width: 100%;
+}
+
+body.chartstudio-page .portfolio-summary-hero .portfolio-hero-summary > div + div {
+  border-top: 1px solid var(--line);
+  border-left: 0;
+}
+
+body.chartstudio-page .portfolio-summary-hero .hero-visual {
+  width: 100%;
+  margin-top: 0;
+  justify-content: flex-end;
+}
+
+body.chartstudio-page .portfolio-summary-hero .hero-visual video {
+  width: 100%;
+  max-width: 100%;
+}
+
 .portfolio-hero-summary {
   display: grid;
   grid-template-columns: repeat(3, minmax(0, 1fr));
@@ -101,5 +133,20 @@ body.dark-mode:is(.antelope-page, .dude-page) .case-study li::marker {
   .portfolio-hero-summary > div + div {
     border-top: 1px solid var(--line);
     border-left: 0;
+  }
+}
+
+@media (max-width: 900px) {
+  body.chartstudio-page .portfolio-summary-hero {
+    grid-template-columns: 1fr;
+    row-gap: 40px;
+  }
+
+  body.chartstudio-page .portfolio-summary-hero .hero-visual {
+    justify-content: flex-start;
+  }
+
+  body.chartstudio-page .portfolio-summary-hero .hero-visual video {
+    max-width: 40rem;
   }
 }
