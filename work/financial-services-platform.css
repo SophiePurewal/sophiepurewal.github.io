@@ -50,7 +50,7 @@
 
 .rebrand-transition__bar {
   display: flex;
-  gap: 7px;
+  justify-content: space-between;
   align-items: center;
   height: 34px;
   padding: 0 14px;
@@ -58,7 +58,13 @@
   background: #F2F3F5;
 }
 
-.rebrand-transition__bar span {
+.rebrand-transition__dots {
+  display: flex;
+  gap: 7px;
+}
+
+.rebrand-transition__dots i {
+  display: block;
   width: 8px;
   height: 8px;
   border-radius: 50%;
@@ -80,18 +86,12 @@
 }
 
 .rebrand-transition__label {
-  position: absolute;
-  top: 16px;
-  left: 16px;
-  z-index: 1;
-  padding: 7px 12px;
-  border-radius: 999px;
-  color: #FFFFFF;
-  background: rgba(12, 13, 15, 0.84);
-  font-size: 0.82rem;
+  color: #4E535B;
+  font-size: 0.78rem;
   font-weight: 700;
   line-height: 1;
-  letter-spacing: 0.02em;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
 }
 
 .rebrand-transition figcaption {
