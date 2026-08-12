@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>PlacePath: End-to-End Product Design Case Study | Sophie Purewal</title>
+  <meta name="description" content="PlacePath product design case study: turning complex work-placement requirements into a responsive, role-based MVP and interactive prototype.">
+  <link rel="icon" type="image/svg+xml" href="../favicon.svg">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Playfair+Display:wght@700;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="project-pages.css">
+  <link rel="stylesheet" href="placepath-case-study.css?v=20260812">
+  <script src="../assets/js/site-header.js"></script>
+  <link rel="stylesheet" href="../assets/css/site-header.css">
+</head>
+<body id="top" class="placepath-page">
+  <a class="skip-link" href="#main">Skip to main content</a>
+  <header class="site-header">
+    <nav class="top-nav" aria-label="Main navigation">
+      <p class="site-title">
+        <a
+          class="site-title__home-link"
+          href="../index.html"
+          aria-label="Go to the top of the homepage"
+        >
+          Sophie Purewal
+        </a>
+      </p>
+
+      <div class="header-actions">
+        <button class="theme-toggle" type="button" aria-label="Activate dark mode" aria-pressed="false" title="Activate dark mode">
+          <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" aria-hidden="true" focusable="false">
+            <path d="M480-120q-133 0-226.5-92.5T160-436q0-66 25-122t69-100l226-222 226 222q44 44 69 100t25 122q0 131-93.5 223.5T480-120Zm0-80v-568L310-600q-35 33-52.5 74.5T240-436q0 97 70 166.5T480-200Z"/>
+          </svg>
+        </button>
+
+        <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="dropdown-menu" aria-label="Toggle navigation menu">
+          <svg class="menu-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960" aria-hidden="true" focusable="false">
+            <line class="line-top" x1="200" y1="-480" x2="760" y2="-480" />
+            <line class="line-bottom" x1="200" y1="-480" x2="760" y2="-480" />
+          </svg>
+        </button>
+      </div>
+
+      <div id="dropdown-menu" class="dropdown-menu" aria-label="Navigation links">
+        <a href="../index.html#projects" class="dropdown-link" aria-label="View selected case studies">
+          <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" aria-hidden="true" focusable="false">
+            <path d="M480-400 40-640l440-240 440 240-440 240Zm0 160L63-467l84-46 333 182 333-182 84 46-417 227Zm0 160L63-307l84-46 333 182 333-182 84 46L480-80Zm0-411 273-149-273-149-273 149 273 149Zm0-149Z"/>
+          </svg>
+          <span class="nav-link-label">Case studies</span>
+        </a>
+        <a href="../request-cv.html" class="dropdown-link" aria-label="Request Sophie Purewal’s Senior Product Designer, Design Systems CV">
+          <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" aria-hidden="true" focusable="false">
+            <path d="M480-320 280-520l56-58 104 104v-326h80v326l104-104 56 58-200 200ZM240-160q-33 0-56.5-23.5T160-240v-120h80v120h480v-120h80v120q0 33-23.5 56.5T720-160H240Z"/>
+          </svg>
+          <span class="nav-link-label">Request CV</span>
+        </a>
+        <a href="../index.html#endorsements" class="dropdown-link">
+          <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" aria-hidden="true" focusable="false">
+            <path d="M720-120H280v-520l280-280 50 50q7 7 11.5 19t4.5 23v14l-44 174h258q32 0 56 24t24 56v80q0 7-2 15t-4 15L794-168q-9 20-30 34t-44 14Zm-360-80h360l120-280v-80H480l54-220-174 174v406Zm0-406v406-406Zm-80-34v80H160v360h120v80H80v-520h200Z"/>
+          </svg>
+          <span class="nav-link-label">Endorsements</span>
+        </a>
+        <a href="mailto:sophiepurewaldesign@gmail.com" class="dropdown-link">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960" aria-hidden="true" focusable="false">
+            <path d="M160-160q-33 0-56.5-23.5T80-240v-480q0-33 23.5-56.5T160-800h640q33 0 56.5 23.5T880-720v480q0 33-23.5 56.5T800-160H160Zm320-280L160-640v400h640v-400L480-440Zm0-80 320-200H160l320 200ZM160-640v-80 480-400Z" />
+          </svg>
+          <span class="nav-link-label">Contact</span>
+        </a>
+        <div class="dropdown-social-links" aria-label="Social links">
+          <a href="https://www.behance.net/sophiepurewal" aria-label="Visit Sophie Purewal's Behance profile" title="Behance (opens in a new tab)" target="_blank" rel="noopener noreferrer">Bē<span class="visually-hidden">Behance</span></a>
+          <a href="https://www.instagram.com/sophiepurewaldesign/" aria-label="Visit Sophie Purewal's Instagram profile" title="Instagram (opens in a new tab)" target="_blank" rel="noopener noreferrer">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+              <path d="M7 2C4.24 2 2 4.24 2 7v10c0 2.76 2.24 5 5 5h10c2.76 0 5-2.24 5-5V7c0-2.76-2.24-5-5-5H7Zm10 2a3 3 0 0 1 3 3v10a3 3 0 0 1-3 3H7a3 3 0 0 1-3-3V7a3 3 0 0 1 3-3h10Zm.5 1.5a1 1 0 1 0 .001 2.001A1 1 0 0 0 17.5 5.5ZM12 7a5 5 0 1 0 0 10 5 5 0 0 0 0-10Zm0 2a3 3 0 1 1 0 6 3 3 0 0 1 0-6Z"/>
+            </svg>
+            <span class="visually-hidden">Instagram</span>
+          </a>
+          <a href="https://www.linkedin.com/in/sophiepurewal/" aria-label="Visit Sophie Purewal's LinkedIn profile" title="LinkedIn (opens in a new tab)" target="_blank" rel="noopener noreferrer">in<span class="visually-hidden">LinkedIn</span></a>
+        </div>
+      </div>
+    </nav>
+  </header>
+
+  <main id="main" class="project-main">
+    <div class="site-shell">
+      <article class="case-study">
+        <div class="project-context">
+          <a class="back-link" href="../index.html#projects">Back to portfolio</a>
+        </div>
+
+        <section class="case-study-hero placepath-hero" aria-labelledby="project-title">
+          <div class="case-study-hero__copy case-study-hero__copy--wide">
+            <p class="project-kicker">End-to-end product design case study · Education technology</p>
+            <h1 id="project-title">PlacePath: designing an end-to-end placement management product</h1>
+            <p class="project-subtitle">Turning complex requirements across learning providers, employers and students into a focused MVP and connected, role-based workflow.</p>
+            <p class="project-intro">As the independent Product Design Consultant, I owned the phase-one design lifecycle: refining requirements, prioritising the MVP, mapping the service, prototyping key journeys and delivering implementation-ready UI across all breakpoints.</p>
+            <aside class="placepath-confidentiality-note" aria-label="Confidentiality statement">
+              <strong>About this case study</strong>
+              <p>This work was completed for a learning-technology client. PlacePath is the anonymised product name, and identifying details, organisations and product data have been changed to respect commercial confidentiality. The interactive prototype shows how I would evolve the original product direction today.</p>
+            </aside>
+          </div>
+          <figure class="hero-visual placepath-hero-visual">
+            <img src="../assets/case-studies/placepath/hero-responsive-product.jpg" alt="Responsive placement-management product screens presented across multiple mobile devices" decoding="async">
+          </figure>
+        </section>
+
+        <dl class="summary-grid placepath-summary" aria-label="Project summary">
+          <div class="summary-item"><dt>Role</dt><dd>Lead Product Design Consultant</dd></div>
+          <div class="summary-item"><dt>Users</dt><dd>Placement teams, employers and students</dd></div>
+          <div class="summary-item"><dt>Product scope</dt><dd>Responsive placement management MVP</dd></div>
+          <div class="summary-item"><dt>Ownership</dt><dd>Definition, flows, prototypes, UI and handoff</dd></div>
+        </dl>
+
+        <section class="case-study-section placepath-prototype-feature" aria-labelledby="prototype-title">
+          <div class="placepath-prototype-intro">
+            <div>
+              <p class="section-label">Modern product evolution</p>
+              <h2 id="prototype-title">Explore the product across three connected roles</h2>
+              <p>Building on the original requirements and workflows, I evolved PlacePath into a mobile-first prototype with a modern component system, improved accessibility and connected role-based data.</p>
+            </div>
+            <a class="button button-primary placepath-prototype-link" href="https://sophiepurewal.github.io/placepath-demo/" target="_blank" rel="noopener noreferrer">Open full-screen prototype<span class="visually-hidden"> (opens in a new tab)</span></a>
+          </div>
+
+          <div class="placepath-tablet" aria-label="Tablet preview of the interactive PlacePath prototype">
+            <div class="placepath-tablet__bar" aria-hidden="true">
+              <span></span><span></span><span></span>
+              <strong>PlacePath · Interactive prototype</strong>
+            </div>
+            <iframe
+              src="https://sophiepurewal.github.io/placepath-demo/"
+              title="Interactive PlacePath role-based placement management prototype"
+              loading="eager"
+              allow="fullscreen"
+            >
+              <a href="https://sophiepurewal.github.io/placepath-demo/">Open the PlacePath prototype</a>
+            </iframe>
+          </div>
+          <p class="placepath-prototype-note">Try it: sign in with a sample profile, switch roles and explore the shared Tasks, Placements, Employers and Messages workflows.</p>
+        </section>
+
+        <section class="case-study-section" aria-labelledby="challenge-title">
+          <p class="section-label">Challenge and role</p>
+          <h2 id="challenge-title">Bringing a fragmented placement process into one product</h2>
+          <div class="case-study-section__layout">
+            <div class="case-study-section__body">
+              <p>A learning-technology company commissioned me through my independent design studio to shape phase one of a new placement-management product. The initial brief contained overlapping needs across learning providers, employers and students, but not yet a single coherent product experience.</p>
+              <p>My task was to move from requirements to an implementable product: clarify the core problem, define the MVP, map the service and key journeys, prototype the interaction model and deliver the final interface system.</p>
+            </div>
+            <aside class="placepath-question" aria-label="Central design question">
+              <span>Design question</span>
+              <p>How might we turn a multi-party placement process into one understandable, role-aware experience?</p>
+            </aside>
+          </div>
+        </section>
+
+        <section class="case-study-section" aria-labelledby="mvp-title">
+          <p class="section-label">Product definition</p>
+          <h2 id="mvp-title">Focusing phase one on the operational workflow</h2>
+          <p>I focused the first release on learning-provider staff responsible for planning, sourcing, coordinating and monitoring placements. Separating operational essentials from later opportunities kept the core workflow coherent.</p>
+          <div class="placepath-priority-grid">
+            <section>
+              <p class="placepath-card-label">Core MVP</p>
+              <h3>Operate the placement service</h3>
+              <ul>
+                <li>Plan placements and complete due diligence</li>
+                <li>Search and manage employer contacts</li>
+                <li>Confirm offers and record communication</li>
+                <li>Share files, schedule visits and notify stakeholders</li>
+              </ul>
+            </section>
+            <section>
+              <p class="placepath-card-label">Later opportunities</p>
+              <h3>Extend student development</h3>
+              <ul>
+                <li>Analytics and student results</li>
+                <li>Career planning and employability assessment</li>
+                <li>Additional-support reviews</li>
+              </ul>
+            </section>
+          </div>
+          <div class="placepath-system-flow" aria-label="Core placement lifecycle">
+            <div><strong>1</strong><span>Plan</span></div><i aria-hidden="true">→</i>
+            <div><strong>2</strong><span>Find employer</span></div><i aria-hidden="true">→</i>
+            <div><strong>3</strong><span>Confirm</span></div><i aria-hidden="true">→</i>
+            <div><strong>4</strong><span>Monitor</span></div>
+          </div>
+        </section>
+
+        <section class="case-study-section" aria-labelledby="evolution-title">
+          <p class="section-label">Product evolution</p>
+          <h2 id="evolution-title">From workflow sketch to resolved interface</h2>
+          <p>I used a clickable low-fidelity prototype to review the workflow before progressing the placement-planning journey through structure, hierarchy and final visual design.</p>
+          <div class="placepath-evolution" aria-label="Low, medium and final fidelity placement-planning screens">
+            <figure>
+              <img src="../assets/case-studies/placepath/low-fi-plan.png" alt="Annotated low-fidelity placement-planning wireframe" loading="lazy" decoding="async">
+              <figcaption><strong>Low:</strong> define information and actions.</figcaption>
+            </figure>
+            <figure>
+              <img src="../assets/case-studies/placepath/mid-fi-create.png" alt="Medium-fidelity placement-plan creation screen" loading="lazy" decoding="async">
+              <figcaption><strong>Medium:</strong> structure progressive creation.</figcaption>
+            </figure>
+            <figure>
+              <img src="../assets/case-studies/placepath/final-create-placement.png" alt="Final interface for creating an industry placement plan" loading="lazy" decoding="async">
+              <figcaption><strong>Final:</strong> resolve hierarchy and reusable patterns.</figcaption>
+            </figure>
+          </div>
+          <aside class="placepath-decision">
+            <p class="placepath-card-label">Key decision</p>
+            <p>I moved the experience from one dense form to a create–review–manage lifecycle, keeping complex placement data intact while making each action easier to understand.</p>
+          </aside>
+        </section>
+
+        <section class="case-study-section" aria-labelledby="workflow-title">
+          <p class="section-label">Final workflow</p>
+          <h2 id="workflow-title">Review before commitment</h2>
+          <p>Coordinators could build a plan progressively, preview the complete record and return later to edit it. This supported careful checking before submission, printing or sharing.</p>
+          <div class="placepath-comparison">
+            <figure>
+              <img src="../assets/case-studies/placepath/final-create-placement.png" alt="Final create placement interface" loading="lazy" decoding="async">
+              <figcaption>Create the plan progressively</figcaption>
+            </figure>
+            <figure>
+              <img src="../assets/case-studies/placepath/final-preview-placement.png" alt="Final placement-plan preview interface" loading="lazy" decoding="async">
+              <figcaption>Review before submitting or sharing</figcaption>
+            </figure>
+          </div>
+        </section>
+
+        <section class="case-study-section" aria-labelledby="records-title">
+          <p class="section-label">Connected records</p>
+          <h2 id="records-title">Keeping employer context and conversations together</h2>
+          <p>The employer journey connected site details, contacts, recorded conversations and placement activity. Reusable record patterns preserved context as coordinators moved from identifying an employer to managing an active relationship.</p>
+          <div class="placepath-comparison">
+            <figure>
+              <img src="../assets/case-studies/placepath/final-employer-details.png" alt="Final employer site details interface" loading="lazy" decoding="async">
+              <figcaption>Employer details, contacts and placement information</figcaption>
+            </figure>
+            <figure>
+              <img src="../assets/case-studies/placepath/final-contact-history.png" alt="Final contact record showing an expanded conversation history" loading="lazy" decoding="async">
+              <figcaption>Recorded dialogue and agreed actions</figcaption>
+            </figure>
+          </div>
+        </section>
+
+        <section class="case-study-section placepath-reflection" aria-labelledby="delivery-title">
+          <p class="section-label">Delivery and reflection</p>
+          <h2 id="delivery-title">A coherent foundation for implementation</h2>
+          <p>I delivered the responsive interface across desktop, tablet and mobile breakpoints, alongside the clickable prototype, style guidance and supporting PNG, JPG and SVG assets for developer handoff. The product connected placement plans, employers, conversations and ongoing support within one role-aware structure.</p>
+          <figure class="placepath-delivery-visual">
+            <img src="../assets/case-studies/placepath/final-dashboard-macbook.jpg" alt="Final desktop placement-management dashboard presented on a MacBook" loading="lazy" decoding="async">
+            <figcaption>The responsive system retained the same hierarchy and connected workflows on desktop.</figcaption>
+          </figure>
+          <p>If evolving the product today, I would validate the highest-risk workflows with learning-provider teams, establish task-level success measures and use a modern component system to make permissions, status and responsive behaviour explicit.</p>
+        </section>
+      </article>
+    </div>
+  </main>
+
+  <footer class="project-footer site-shell">
+    <a class="footer-link case-study-footer-link" href="../index.html#projects">Back to case studies</a>
+  </footer>
+  <script src="project-pages.js"></script>
+</body>
+</html>
