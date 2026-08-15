@@ -192,17 +192,23 @@
         body.home-page .impact-metrics li {
           border: 0;
           background: var(--page-surface-raised);
-          padding: 64px;
+          padding: 32px;
           display: flex;
           flex-direction: column;
           align-items: flex-start;
           justify-content: flex-start;
+          min-width: 0;
         }
 
         body.home-page .impact-card__value,
         body.home-page .impact-card__description {
           margin-left: 0;
           margin-right: 0;
+          max-width: 100%;
+        }
+
+        body.home-page .impact-card__value {
+          white-space: normal;
         }
 
         @media (min-width: 901px) {
@@ -226,7 +232,7 @@
 
           body.home-page .impact-metrics li {
             border-bottom: 1px solid var(--page-border);
-            padding: 40px 32px;
+            padding: 32px;
           }
 
           body.home-page .impact-metrics li:last-child {
