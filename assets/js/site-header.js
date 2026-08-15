@@ -33,19 +33,34 @@
   };
 
   const getStoredMode = () => {
-    try { return window.localStorage.getItem(darkModeStorageKey); } catch (error) { return null; }
+    try {
+      return window.localStorage.getItem(darkModeStorageKey);
+    } catch (error) {
+      return null;
+    }
   };
 
-  if (getStoredMode() === 'dark') document.documentElement.classList.add('dark-mode');
+  if (getStoredMode() === 'dark') {
+    document.documentElement.classList.add('dark-mode');
+  }
 
   const setStoredMode = (mode) => {
-    try { window.localStorage.setItem(darkModeStorageKey, mode); } catch (error) {}
+    try {
+      window.localStorage.setItem(darkModeStorageKey, mode);
+    } catch (error) {
+      // Keep the current in-page theme if storage is unavailable.
+    }
   };
 
-  const getCaseStudyIntroConfig = () => Object.entries(caseStudyIntroConfigs).find(([className]) => document.body.classList.contains(className))?.[1] || null;
+  const getCaseStudyIntroConfig = () => {
+    return Object.entries(caseStudyIntroConfigs).find(([className]) => {
+      return document.body.classList.contains(className);
+    })?.[1] || null;
+  };
 
   const loadCaseStudyIntroStyles = () => {
     if (document.querySelector('link[data-case-study-hero-summary]')) return;
+
     const stylesheet = document.createElement('link');
     stylesheet.rel = 'stylesheet';
     stylesheet.href = '../assets/css/case-study-hero-summary.css?v=20260805-chartstudio-layout-2';
@@ -56,13 +71,23 @@
   const loadCaseStudyDarkModeStyles = () => {
     if (!document.body.matches('.antelope-page, .dude-page')) return;
     if (document.querySelector('style[data-case-study-dark-mode-overrides]')) return;
+
     const style = document.createElement('style');
     style.dataset.caseStudyDarkModeOverrides = '';
     style.textContent = `
       body.dark-mode:is(.antelope-page, .dude-page) .project-context .back-link:hover,
-      body.dark-mode:is(.antelope-page, .dude-page) .project-context .back-link:focus-visible { color: #FFFFFF; text-decoration-color: #FFFFFF; }
-      body.dark-mode:is(.antelope-page, .dude-page) .approach-list li::before { background: #FFFFFF; }
-      body.dark-mode:is(.antelope-page, .dude-page) .case-study li::marker { color: #FFFFFF; }
+      body.dark-mode:is(.antelope-page, .dude-page) .project-context .back-link:focus-visible {
+        color: #FFFFFF;
+        text-decoration-color: #FFFFFF;
+      }
+
+      body.dark-mode:is(.antelope-page, .dude-page) .approach-list li::before {
+        background: #FFFFFF;
+      }
+
+      body.dark-mode:is(.antelope-page, .dude-page) .case-study li::marker {
+        color: #FFFFFF;
+      }
     `;
     document.head.append(style);
   };
@@ -70,31 +95,44 @@
   const initCaseStudyIntro = () => {
     const config = getCaseStudyIntroConfig();
     if (!config) return;
+
     const hero = document.querySelector('.case-study-hero');
     const copy = hero?.querySelector('.case-study-hero__copy');
     if (!hero || !copy || copy.querySelector('.portfolio-hero-summary')) return;
+
     loadCaseStudyIntroStyles();
+
     hero.classList.add('portfolio-summary-hero');
     copy.classList.add('case-study-hero__copy--wide');
+
     const kicker = copy.querySelector('.project-kicker');
     const subtitle = copy.querySelector('.project-subtitle');
     const heroVisual = hero.querySelector('.hero-visual');
+
     if (kicker) kicker.textContent = config.eyebrow;
     if (subtitle) subtitle.textContent = config.summary;
+
     copy.querySelectorAll('.project-intro').forEach((paragraph) => paragraph.remove());
-    if (config.hideHeroVisual && heroVisual) heroVisual.hidden = true;
+
+    if (config.hideHeroVisual && heroVisual) {
+      heroVisual.hidden = true;
+    }
+
     const summary = document.createElement('dl');
     summary.className = 'portfolio-hero-summary';
     summary.setAttribute('aria-label', 'Project summary');
+
     config.boxes.forEach(([label, value]) => {
       const item = document.createElement('div');
       const term = document.createElement('dt');
       const description = document.createElement('dd');
+
       term.textContent = label;
       description.textContent = value;
       item.append(term, description);
       summary.append(item);
     });
+
     copy.append(summary);
   };
 
@@ -102,20 +140,24 @@
     if (!document.body.classList.contains('home-page')) return;
 
     const heroTitle = document.querySelector('.hero h1');
-    if (heroTitle) heroTitle.innerHTML = 'Senior Product Designer.<br>Design Systems &amp; AI Prototyping';
+    if (heroTitle) {
+      heroTitle.innerHTML = 'Senior Product Designer.<br>Design Systems &amp; AI Prototyping';
+    }
 
     document.title = 'Sophie Purewal — Senior Product Designer, Design Systems & AI Prototyping';
     const openGraphTitle = document.querySelector('meta[property="og:title"]');
-    if (openGraphTitle) openGraphTitle.content = 'Sophie Purewal — Senior Product Designer, Design Systems & AI Prototyping';
+    if (openGraphTitle) {
+      openGraphTitle.content = 'Sophie Purewal — Senior Product Designer, Design Systems & AI Prototyping';
+    }
 
     const heroIntro = document.querySelector('.hero-intro');
     if (heroIntro) {
-      heroIntro.textContent = 'I design accessible digital products and scalable design systems for complex, regulated services. Most recently, I contributed to a core design system used by 17 teams, with the components I built and modernised recording 21,000+ Figma-tracked insertions over 12 months.';
+      heroIntro.textContent = 'I design accessible digital products and scalable design systems for complex, regulated services. My recent work includes reusable components supporting 21,000+ Figma-tracked insertions across header, status, feedback, layout and form patterns over 12 months.';
     }
 
     const impactIntro = document.querySelector('.impact-copy > p:last-child');
     if (impactIntro) {
-      impactIntro.textContent = 'Measurable personal contribution within a large, actively adopted design-system ecosystem.';
+      impactIntro.textContent = 'Recent design-system work includes measurable adoption across reusable components and governed releases.';
     }
 
     const metrics = document.querySelector('.impact-metrics');
@@ -136,23 +178,60 @@
       `;
     }
 
-    const designSystemHint = document.querySelector('.project-card--design-system .project-card__hint');
-    if (designSystemHint) {
-      designSystemHint.textContent = '21,000+ tracked insertions within a core design system supporting 17 teams';
-    }
-
     if (!document.querySelector('style[data-homepage-impact-update]')) {
       const style = document.createElement('style');
       style.dataset.homepageImpactUpdate = '';
       style.textContent = `
-        body.home-page .impact-metrics { grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 1px; background: var(--page-border); }
-        body.home-page .impact-metrics li { border: 0; background: var(--page-surface-raised); }
-        @media (min-width: 901px) { body.home-page .hero h1 { font-size: clamp(3rem, 4.25vw, 3.5rem); } }
-        @media (min-width: 1100px) { body.home-page .hero h1 { font-size: clamp(2.5rem, 3.25vw, 2.75rem); white-space: nowrap; } }
-        @media (max-width: 760px) {
-          body.home-page .impact-metrics { grid-template-columns: 1fr; gap: 0; }
-          body.home-page .impact-metrics li { border-bottom: 1px solid var(--page-border); }
-          body.home-page .impact-metrics li:last-child { border-bottom: 0; }
+        body.home-page .impact-metrics {
+          grid-template-columns: repeat(3, minmax(0, 1fr));
+          gap: 1px;
+          background: var(--page-border);
+          align-items: stretch;
+        }
+
+        body.home-page .impact-metrics li {
+          border: 0;
+          background: var(--page-surface-raised);
+          padding: 64px;
+          display: flex;
+          flex-direction: column;
+          align-items: flex-start;
+          justify-content: flex-start;
+        }
+
+        body.home-page .impact-card__value,
+        body.home-page .impact-card__description {
+          margin-left: 0;
+          margin-right: 0;
+        }
+
+        @media (min-width: 901px) {
+          body.home-page .hero h1 {
+            font-size: clamp(3rem, 4.25vw, 3.5rem);
+          }
+        }
+
+        @media (min-width: 1100px) {
+          body.home-page .hero h1 {
+            font-size: clamp(2.5rem, 3.25vw, 2.75rem);
+            white-space: nowrap;
+          }
+        }
+
+        @media (max-width: 900px) {
+          body.home-page .impact-metrics {
+            grid-template-columns: 1fr;
+            gap: 0;
+          }
+
+          body.home-page .impact-metrics li {
+            border-bottom: 1px solid var(--page-border);
+            padding: 40px 32px;
+          }
+
+          body.home-page .impact-metrics li:last-child {
+            border-bottom: 0;
+          }
         }
       `;
       document.head.append(style);
@@ -188,7 +267,10 @@
       dropdownMenu.classList.remove('open');
       menuToggle.setAttribute('aria-expanded', 'false');
       syncHeaderMenuState();
-      if (dropdownInactivityTimer) { clearTimeout(dropdownInactivityTimer); dropdownInactivityTimer = null; }
+      if (dropdownInactivityTimer) {
+        clearTimeout(dropdownInactivityTimer);
+        dropdownInactivityTimer = null;
+      }
     };
 
     const resetDropdownInactivityTimer = () => {
@@ -216,14 +298,27 @@
     if (siteTitleHomeLink) {
       siteTitleHomeLink.addEventListener('click', (event) => {
         const targetUrl = new URL(siteTitleHomeLink.href, window.location.href);
+
         const currentPath = window.location.pathname.replace(/\/index\.html$/, '/');
         const targetPath = targetUrl.pathname.replace(/\/index\.html$/, '/');
+
         const isCurrentHomepage = currentPath === targetPath && document.body.classList.contains('home-page');
-        if (!isCurrentHomepage) return;
+
+        if (!isCurrentHomepage) {
+          return;
+        }
+
         event.preventDefault();
+
         const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
         window.history.replaceState(null, '', targetUrl.pathname);
-        window.scrollTo({ top: 0, left: 0, behavior: reducedMotion ? 'auto' : 'smooth' });
+
+        window.scrollTo({
+          top: 0,
+          left: 0,
+          behavior: reducedMotion ? 'auto' : 'smooth',
+        });
       });
     }
 
@@ -241,27 +336,48 @@
         menuToggle.setAttribute('aria-expanded', String(isOpen));
         syncHeaderMenuState();
         if (isOpen) resetDropdownInactivityTimer();
-        else if (dropdownInactivityTimer) { clearTimeout(dropdownInactivityTimer); dropdownInactivityTimer = null; }
+        else if (dropdownInactivityTimer) {
+          clearTimeout(dropdownInactivityTimer);
+          dropdownInactivityTimer = null;
+        }
       });
-      dropdownMenu.querySelectorAll('a').forEach((link) => link.addEventListener('click', closeDropdownMenu));
+
+      dropdownMenu.querySelectorAll('a').forEach((link) => {
+        link.addEventListener('click', closeDropdownMenu);
+      });
+
       ['pointermove', 'click', 'keydown', 'focusin', 'touchstart'].forEach((eventName) => {
         dropdownMenu.addEventListener(eventName, resetDropdownInactivityTimer, { passive: eventName !== 'keydown' });
       });
-      window.addEventListener('resize', () => { if (window.innerWidth > 900) closeDropdownMenu(); });
-      document.addEventListener('keydown', (event) => {
-        if (event.key === 'Escape' && dropdownMenu.classList.contains('open')) { closeDropdownMenu(); menuToggle.focus(); }
+
+      window.addEventListener('resize', () => {
+        if (window.innerWidth > 900) closeDropdownMenu();
       });
+
+      document.addEventListener('keydown', (event) => {
+        if (event.key === 'Escape' && dropdownMenu.classList.contains('open')) {
+          closeDropdownMenu();
+          menuToggle.focus();
+        }
+      });
+
       document.addEventListener('pointerdown', (event) => {
         if (!dropdownMenu.classList.contains('open')) return;
         if (!dropdownMenu.contains(event.target) && !menuToggle.contains(event.target)) closeDropdownMenu();
       });
-      window.addEventListener('scroll', () => { if (dropdownMenu.classList.contains('open')) closeDropdownMenu(); }, { passive: true });
+
+      window.addEventListener('scroll', () => {
+        if (dropdownMenu.classList.contains('open')) closeDropdownMenu();
+      }, { passive: true });
     }
 
     window.addEventListener('scroll', toggleHeaderState, { passive: true });
     toggleHeaderState();
   };
 
-  if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', initSiteHeader);
-  else initSiteHeader();
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', initSiteHeader);
+  } else {
+    initSiteHeader();
+  }
 })();
