@@ -353,7 +353,6 @@ body.dark-mode.home-page .project-card--split .project-card__eyebrow {
   }
 }
 
-
 @media (max-width: 640px) {
   .home-page .project-card--split::before {
     width: calc(100% - var(--section-shell-gutter-mobile));
@@ -363,5 +362,32 @@ body.dark-mode.home-page .project-card--split .project-card__eyebrow {
     .projects-grid
     .project-card--split:last-child::after {
     width: calc(100% - var(--section-shell-gutter-mobile));
+  }
+}
+
+/* Homepage impact layout: stack copy above metrics from 1180px down, then stack metric cards on tablet/mobile. */
+@media (max-width: 1180px) {
+  body.home-page .impact-strip {
+    grid-template-columns: 1fr;
+    gap: 48px;
+  }
+
+  body.home-page .impact-copy {
+    max-width: 760px;
+  }
+
+  body.home-page .impact-metrics {
+    grid-template-columns: repeat(3, minmax(0, 1fr)) !important;
+    width: 100%;
+  }
+}
+
+@media (max-width: 760px) {
+  body.home-page .impact-strip {
+    gap: 32px;
+  }
+
+  body.home-page .impact-metrics {
+    grid-template-columns: 1fr !important;
   }
 }
