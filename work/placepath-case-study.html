@@ -27,6 +27,14 @@
       background: transparent;
       box-shadow: none;
       isolation: isolate;
+      padding-inline: 0 !important;
+      background: transparent !important;
+    }
+
+    .placepath-hero-visual.placepath-responsive-showcase {
+      background: transparent !important;
+      border: 0 !important;
+      box-shadow: none !important;
     }
 
     .placepath-responsive-showcase::before {
@@ -75,9 +83,16 @@
       left: 7%;
       bottom: 5%;
       width: 35%;
-      aspect-ratio: 1670 / 1900;
+      aspect-ratio: 1670 / 1882;
       border-radius: clamp(15px, 2vw, 27px);
       z-index: 2;
+    }
+
+    .placepath-device--tablet img {
+      height: auto;
+      min-height: 100%;
+      object-fit: cover;
+      object-position: top center;
     }
 
     .placepath-device--mobile {
@@ -116,7 +131,8 @@
     @media (max-width: 700px) {
       .placepath-responsive-showcase {
         min-height: 360px;
-        padding: 14px 12px 34px;
+        padding: 14px 0 34px;
+        background: transparent !important;
       }
 
       .placepath-device--desktop {
