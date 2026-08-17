@@ -46,7 +46,7 @@
       overflow: hidden;
       background: #fff;
       border: clamp(2px, .28vw, 4px) solid #cbd5e1;
-      box-shadow: 0 18px 42px rgba(15, 23, 42, .16);
+      box-shadow: none;
     }
 
     .placepath-device img {
@@ -125,30 +125,44 @@
 
     body.dark-mode .placepath-device {
       border-color: #64748b;
-      box-shadow: 0 18px 42px rgba(0, 0, 0, .24);
+      box-shadow: none;
     }
 
     @media (max-width: 700px) {
       .placepath-responsive-showcase {
-        min-height: 360px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 28px;
+        min-height: 0;
         padding: 14px 0 34px;
+        overflow: visible;
         background: transparent !important;
       }
 
+      .placepath-device,
+      .placepath-device--desktop,
+      .placepath-device--tablet,
+      .placepath-device--mobile {
+        position: relative;
+        inset: auto;
+        margin: 0 auto;
+        box-shadow: none;
+      }
+
       .placepath-device--desktop {
-        width: 94%;
+        order: 1;
+        width: 100%;
       }
 
       .placepath-device--tablet {
-        left: 4%;
-        bottom: 4%;
-        width: 44%;
+        order: 2;
+        width: min(78%, 420px);
       }
 
       .placepath-device--mobile {
-        right: 3%;
-        bottom: 2.5%;
-        width: 24%;
+        order: 3;
+        width: min(46%, 230px);
       }
     }
   </style>
