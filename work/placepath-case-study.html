@@ -16,21 +16,24 @@
 
   <style>
     .placepath-hero .placepath-title-container {
-      width: min(100%, 936px);
-      max-width: 936px;
+      display: block !important;
+      width: 100% !important;
+      max-width: 936px !important;
+      min-width: 0 !important;
       overflow: visible;
     }
 
-    .placepath-title-container .placepath-project-title {
-      display: block;
+    .placepath-hero .placepath-title-container .placepath-project-title {
+      display: block !important;
       width: 100% !important;
-      max-width: 100% !important;
+      max-width: 936px !important;
+      min-width: 0 !important;
       margin: 0;
       font-size: clamp(2.5rem, 5vw, 4rem) !important;
       line-height: 1.02;
       white-space: normal !important;
-      overflow-wrap: break-word;
-      word-break: normal;
+      overflow-wrap: normal !important;
+      word-break: normal !important;
       text-wrap: wrap !important;
     }
 
@@ -272,8 +275,8 @@
         <section class="case-study-hero placepath-hero" aria-labelledby="project-title">
           <div class="case-study-hero__copy case-study-hero__copy--wide">
             <p class="project-kicker">End-to-end product design case study · Education technology</p>
-            <div class="placepath-title-container">
-              <h1 id="project-title" class="placepath-project-title">PlacePath: designing an end-to-end placement management product</h1>
+            <div class="placepath-title-container" style="display:block; width:100%; max-width:936px;">
+              <h1 id="project-title" class="placepath-project-title" style="display:block; width:100%; max-width:936px; white-space:normal; overflow-wrap:normal; word-break:normal; text-wrap:wrap;">PlacePath: designing an end-to-end placement management product</h1>
             </div>
             <figure class="hero-visual placepath-hero-visual placepath-responsive-showcase" aria-label="PlacePath coordinator dashboard shown across desktop, tablet and mobile breakpoints">
               <div class="placepath-device placepath-device--desktop">
