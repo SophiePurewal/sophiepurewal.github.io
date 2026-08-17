@@ -42,6 +42,41 @@
       max-width: 46.75rem;
     }
 
+    .placepath-prototype-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      width: fit-content;
+      margin-top: 22px;
+      color: #a30d3d;
+      font-weight: 700;
+      line-height: 1.4;
+      text-decoration: underline;
+      text-decoration-thickness: 1.5px;
+      text-underline-offset: 4px;
+    }
+
+    .placepath-prototype-link svg {
+      width: 22px;
+      height: 22px;
+      flex: 0 0 22px;
+      fill: none;
+      stroke: currentColor;
+      stroke-width: 2;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+      transition: transform 160ms ease;
+    }
+
+    .placepath-prototype-link:hover svg,
+    .placepath-prototype-link:focus-visible svg {
+      transform: translateX(4px);
+    }
+
+    body.dark-mode .placepath-prototype-link {
+      color: #fff;
+    }
+
     .placepath-responsive-showcase {
       position: relative;
       width: min(100%, 1180px);
@@ -322,7 +357,6 @@
               <h2 id="prototype-title">Explore the product across three connected roles</h2>
               <p>Building on the original requirements and workflows, I evolved PlacePath into a mobile-first prototype with a modern component system, improved accessibility and connected role-based data.</p>
             </div>
-            <a class="button button-primary placepath-prototype-link" href="https://sophiepurewal.github.io/placepath-demo/" target="_blank" rel="noopener noreferrer">Open full-screen prototype<span class="visually-hidden"> (opens in a new tab)</span></a>
           </div>
 
           <div class="placepath-tablet" aria-label="Tablet preview of the interactive PlacePath prototype">
@@ -339,7 +373,12 @@
               <a href="https://sophiepurewal.github.io/placepath-demo/">Open the PlacePath prototype</a>
             </iframe>
           </div>
-          <p class="placepath-prototype-note">Try it: sign in with a sample profile, switch roles and explore the shared Tasks, Placements, Employers and Messages workflows.</p>
+          <a class="placepath-prototype-link" href="https://sophiepurewal.github.io/placepath-demo/" target="_blank" rel="noopener noreferrer">
+            <span>Open full-screen prototype<span class="visually-hidden"> (opens in a new tab)</span></span>
+            <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+              <path d="M5 12h14M13 6l6 6-6 6"></path>
+            </svg>
+          </a>
         </section>
 
         <section class="case-study-section" aria-labelledby="challenge-title">
