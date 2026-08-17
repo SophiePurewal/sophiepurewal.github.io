@@ -79,8 +79,8 @@
 
     .placepath-responsive-showcase {
       position: relative;
-      width: min(100%, 1320px);
-      min-height: clamp(340px, 56vw, 740px);
+      width: min(100%, 1440px);
+      min-height: clamp(380px, 59vw, 800px);
       margin: 0 auto;
       padding: clamp(18px, 3vw, 36px) clamp(14px, 2.5vw, 30px) clamp(30px, 5vw, 64px);
       overflow: visible;
@@ -107,7 +107,7 @@
       position: absolute;
       overflow: hidden;
       background: #fff;
-      border: clamp(1px, .12vw, 2px) solid #cbd5e1;
+      border: 1px solid #e2e8f0;
       box-shadow: none;
     }
 
@@ -122,10 +122,10 @@
 
     .placepath-device--desktop {
       position: relative;
-      width: 94%;
+      width: 100%;
       aspect-ratio: 2047 / 1151;
       margin: 0 auto;
-      border-radius: clamp(4px, .55vw, 8px);
+      border-radius: 2px;
     }
 
     .placepath-device--desktop::before {
@@ -142,11 +142,12 @@
     }
 
     .placepath-device--tablet {
-      left: 2%;
-      bottom: 4%;
-      width: 41%;
+      left: auto;
+      right: 23%;
+      bottom: 3%;
+      width: 42%;
       aspect-ratio: 1670 / 1882;
-      border-radius: clamp(6px, .8vw, 12px);
+      border-radius: 2px;
       z-index: 2;
     }
 
@@ -158,11 +159,11 @@
     }
 
     .placepath-device--mobile {
-      right: 1%;
-      bottom: 2%;
-      width: 21%;
+      right: 0;
+      bottom: 1.5%;
+      width: 22%;
       aspect-ratio: 986 / 1880;
-      border-radius: clamp(8px, 1vw, 14px);
+      border-radius: 2px;
       z-index: 3;
     }
 
@@ -231,12 +232,12 @@
 
       .placepath-device--tablet {
         order: 2;
-        width: min(86%, 480px);
+        width: min(92%, 520px);
       }
 
       .placepath-device--mobile {
         order: 3;
-        width: min(52%, 260px);
+        width: min(58%, 290px);
       }
     }
   </style>
