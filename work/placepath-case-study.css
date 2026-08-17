@@ -178,6 +178,10 @@ body.placepath-page .site-shell {
   border-left: 4px solid var(--brand);
 }
 
+.case-study-section__layout {
+  align-items: center;
+}
+
 .case-study-section__layout > .placepath-question {
   margin-top: 0;
 }
@@ -242,7 +246,7 @@ body.placepath-page .site-shell {
   margin-top: 32px;
   padding: 24px 0;
   border-top: 1px solid var(--line);
-  border-bottom: 1px solid var(--line);
+  border-bottom: 0;
 }
 
 .placepath-system-flow div {
