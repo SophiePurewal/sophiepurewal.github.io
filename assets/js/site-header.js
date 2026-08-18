@@ -139,6 +139,11 @@
   const initHomepageImpact = () => {
     if (!document.body.classList.contains('home-page')) return;
 
+    const recommendationsLink = document.querySelector('.recommendations-link .text-link');
+    if (recommendationsLink) {
+      recommendationsLink.href = 'https://www.linkedin.com/in/sophiepurewal/details/recommendations/?detailScreenTabIndex=0';
+    }
+
     const heroTitle = document.querySelector('.hero h1');
     if (heroTitle) {
       heroTitle.innerHTML = 'Senior Product Designer.<br>Design Systems &amp; AI Prototyping';
