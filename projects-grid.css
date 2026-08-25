@@ -31,6 +31,34 @@ body.home-page .projects-grid > .project-card {
   min-width: 0;
 }
 
+body.home-page .projects-grid > .project-card--placepath {
+  order: 1;
+}
+
+body.home-page .projects-grid > .project-card--financial {
+  order: 2;
+}
+
+body.home-page .projects-grid > .project-card--chartstudio {
+  order: 3;
+}
+
+body.home-page .projects-grid > .project-card--design-system {
+  order: 4;
+}
+
+body.home-page .projects-grid > .project-card--antelope {
+  order: 5;
+}
+
+body.home-page .projects-grid > .project-card--bike {
+  order: 6;
+}
+
+body.home-page .projects-grid > .project-card--skatepark {
+  order: 7;
+}
+
 .home-page .project-card--split {
   color: var(--page-heading);
   background: var(--page-surface);
