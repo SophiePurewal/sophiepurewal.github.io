@@ -492,3 +492,46 @@ body.placepath-page.dark-mode .placepath-decision {
     line-height: 1.65;
   }
 }
+
+/* Keep the case-study sequence simple and human-readable. */
+.placepath-page section[aria-labelledby="challenge-title"] > .section-label,
+.placepath-page section[aria-labelledby="mvp-title"] > .section-label,
+.placepath-page section[aria-labelledby="evolution-title"] > .section-label,
+.placepath-page section[aria-labelledby="workflow-title"] > .section-label,
+.placepath-page section[aria-labelledby="records-title"] > .section-label,
+.placepath-page section[aria-labelledby="delivery-title"] > .section-label {
+  font-size: 0;
+}
+
+.placepath-page section[aria-labelledby="challenge-title"] > .section-label::before,
+.placepath-page section[aria-labelledby="mvp-title"] > .section-label::before,
+.placepath-page section[aria-labelledby="evolution-title"] > .section-label::before,
+.placepath-page section[aria-labelledby="workflow-title"] > .section-label::before,
+.placepath-page section[aria-labelledby="records-title"] > .section-label::before,
+.placepath-page section[aria-labelledby="delivery-title"] > .section-label::before {
+  font-size: 12.48px;
+}
+
+.placepath-page section[aria-labelledby="challenge-title"] > .section-label::before {
+  content: "Starting point";
+}
+
+.placepath-page section[aria-labelledby="mvp-title"] > .section-label::before {
+  content: "First decision: Scope";
+}
+
+.placepath-page section[aria-labelledby="evolution-title"] > .section-label::before {
+  content: "Second decision: Structure";
+}
+
+.placepath-page section[aria-labelledby="workflow-title"] > .section-label::before {
+  content: "Third decision: Review";
+}
+
+.placepath-page section[aria-labelledby="records-title"] > .section-label::before {
+  content: "Fourth decision: Context";
+}
+
+.placepath-page section[aria-labelledby="delivery-title"] > .section-label::before {
+  content: "Outcome";
+}
