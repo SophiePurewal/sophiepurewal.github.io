@@ -136,6 +136,61 @@
     copy.append(summary);
   };
 
+  const initPlacePathCaseStudy = () => {
+    if (!document.body.classList.contains('placepath-page')) return;
+
+    const setText = (selector, text) => {
+      const element = document.querySelector(selector);
+      if (element) element.textContent = text;
+    };
+
+    document.title = 'PlacePath: From User Stories to a Responsive Product | Sophie Purewal';
+    const description = document.querySelector('meta[name="description"]');
+    if (description) {
+      description.content = 'PlacePath product design case study: turning user stories into connected product journeys and responsive UI across mobile, tablet and desktop.';
+    }
+
+    setText('.placepath-hero .project-kicker', 'End-to-end product design case study · Education technology');
+    setText('.placepath-hero .project-subtitle', 'Turning a set of user stories into a complete, role-based product experience across placement teams, employers and students.');
+    setText('.placepath-hero .project-intro', 'There was no existing interface or established product journey. As Lead Product Design Consultant, I defined how the requirements connected, mapped the core journeys and designed the experience from low to high fidelity across mobile, tablet and desktop.');
+
+    setText('.placepath-summary .summary-item:nth-child(3) dd', 'New responsive placement management product');
+    setText('.placepath-summary .summary-item:nth-child(4) dd', 'Product definition, journeys, wireframes, UI and handoff');
+
+    setText('.placepath-prototype-feature .section-label', 'Product outcome');
+    setText('#prototype-title', 'Explore the product I defined');
+    setText('#prototype-title + p', 'I translated disconnected user stories into a connected, role-based product, defining how placement coordinators, employers and students moved through the service rather than inheriting an established workflow.');
+
+    setText('section[aria-labelledby="challenge-title"] > .section-label', '01 · Starting point');
+    setText('#challenge-title', 'Start with requirements, not an existing product');
+    setText('section[aria-labelledby="challenge-title"] .case-study-section__body > p', 'PlacePath began with user stories but no existing interface, information architecture or established journeys. The stories described individual needs across learning providers, employers and students; they did not define how those needs should connect into one coherent product.');
+    setText('section[aria-labelledby="challenge-title"] .placepath-question span', 'Product challenge');
+    setText('section[aria-labelledby="challenge-title"] .placepath-question p', 'How do I turn separate requirements across multiple roles into one understandable, connected placement experience?');
+
+    setText('section[aria-labelledby="mvp-title"] > .section-label', '02 · Decision 01 · Scope');
+    setText('#mvp-title', 'Turn the user stories into an operational MVP');
+    setText('#mvp-title + p', 'The requirements described more capability than the first product needed. I separated the actions required to operate a placement from valuable but non-essential future features, giving the MVP a clear operational backbone.');
+
+    setText('section[aria-labelledby="evolution-title"] > .section-label', '03 · Decision 02 · Structure');
+    setText('#evolution-title', 'Create a product model from the requirements');
+    setText('#evolution-title + p', 'I mapped how individual user stories connected across roles, then worked the placement-planning journey through low and medium fidelity before committing to the final interface.');
+    setText('section[aria-labelledby="evolution-title"] .placepath-decision .placepath-card-label', 'Product decision');
+    setText('section[aria-labelledby="evolution-title"] .placepath-decision p:last-child', 'The requirements did not prescribe the interaction model. I moved away from one dense form and organised the journey around a create–review–manage lifecycle. That introduced clearer stages while keeping the full complexity of the placement record intact.');
+
+    setText('section[aria-labelledby="workflow-title"] > .section-label', '04 · Decision 03 · Review');
+    setText('#workflow-title', 'Make review a deliberate part of the journey');
+    setText('#workflow-title + p', 'I chose not to make submission the immediate next step after editing. Coordinators could build a plan progressively, review the complete record, return to amend it and only then submit or share it.');
+
+    setText('section[aria-labelledby="records-title"] > .section-label', '05 · Decision 04 · Context');
+    setText('#records-title', 'Keep employer activity attached to the placement');
+    setText('#records-title + p', 'Employer details, contacts, conversations and placement activity could easily become separate mini-flows. I used reusable record patterns to keep that context connected, so users could move through the work without losing the relationship between an employer and a placement.');
+
+    setText('section[aria-labelledby="delivery-title"] > .section-label', '06 · Outcome · Deliver');
+    setText('#delivery-title', 'Take the journeys from user stories to developer handoff');
+    setText('#delivery-title + p', 'I carried the product from requirements through low- and mid-fidelity exploration to responsive high-fidelity UI for mobile, tablet and desktop, then delivered the clickable prototype, style guidance and production assets for developer handoff.');
+    setText('section[aria-labelledby="delivery-title"] > p:last-child', 'The phase established the interaction model, responsive patterns and core coordinator journeys required for implementation. Further validation would focus on the highest-risk workflows and measure task completion, clarity and status comprehension.');
+  };
+
   const initHomepageImpact = () => {
     if (!document.body.classList.contains('home-page')) return;
 
@@ -251,6 +306,7 @@
 
   const initSiteHeader = () => {
     loadCaseStudyDarkModeStyles();
+    initPlacePathCaseStudy();
     initCaseStudyIntro();
     initHomepageImpact();
 
