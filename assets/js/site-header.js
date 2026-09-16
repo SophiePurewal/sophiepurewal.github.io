@@ -144,6 +144,165 @@
       if (element) element.textContent = text;
     };
 
+    const addPlacePathEvidence = () => {
+      const assetBase = '../assets/case-studies/placepath/';
+
+      if (!document.querySelector('style[data-placepath-evidence-styles]')) {
+        const style = document.createElement('style');
+        style.dataset.placepathEvidenceStyles = '';
+        style.textContent = `
+          .placepath-evidence {
+            display: grid;
+            grid-template-columns: minmax(280px, .7fr) minmax(0, 1.3fr);
+            gap: clamp(24px, 4vw, 44px);
+            align-items: start;
+            margin: 36px 0;
+            padding: 28px 0;
+            border-top: 1px solid var(--line);
+            border-bottom: 1px solid var(--line);
+          }
+
+          .placepath-evidence__copy {
+            max-width: 34rem;
+          }
+
+          .placepath-evidence__eyebrow {
+            margin: 0 0 10px !important;
+            color: var(--brand) !important;
+            font-size: 12.48px;
+            line-height: 19.968px;
+            font-weight: 700;
+            letter-spacing: 1.6224px;
+            text-transform: uppercase;
+          }
+
+          .placepath-evidence h3 {
+            margin: 0 0 14px;
+            color: var(--text);
+            font-size: clamp(1.45rem, 2.4vw, 2rem);
+            line-height: 1.15;
+            letter-spacing: -0.035em;
+          }
+
+          .placepath-evidence__copy > p:not(.placepath-evidence__eyebrow) {
+            margin: 0;
+            color: var(--muted);
+            line-height: 1.7;
+          }
+
+          .placepath-evidence figure {
+            margin: 0;
+            min-width: 0;
+          }
+
+          .placepath-evidence img {
+            display: block;
+            width: 100%;
+            height: auto;
+            border: 1px solid var(--line);
+            background: #fff;
+          }
+
+          .placepath-evidence figcaption {
+            margin-top: 12px;
+            color: var(--text);
+            font-size: .94rem;
+            line-height: 1.55;
+            font-weight: 600;
+          }
+
+          .placepath-evidence__flow {
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            gap: 9px;
+            margin-top: 22px;
+            color: var(--text);
+            font-size: .9rem;
+            font-weight: 700;
+          }
+
+          .placepath-evidence__flow i {
+            color: var(--muted);
+            font-style: normal;
+            font-weight: 500;
+          }
+
+          body.dark-mode .placepath-evidence__eyebrow {
+            color: #fff !important;
+          }
+
+          @media (max-width: 820px) {
+            .placepath-evidence {
+              grid-template-columns: 1fr;
+            }
+
+            .placepath-evidence__copy {
+              max-width: none;
+            }
+          }
+        `;
+        document.head.append(style);
+      }
+
+      const mvpSection = document.querySelector('section[aria-labelledby="mvp-title"]');
+      if (mvpSection && !mvpSection.querySelector('[data-placepath-evidence="scope"]')) {
+        const evidence = document.createElement('div');
+        evidence.className = 'placepath-evidence';
+        evidence.dataset.placepathEvidence = 'scope';
+        evidence.innerHTML = `
+          <div class="placepath-evidence__copy">
+            <p class="placepath-evidence__eyebrow">Evidence from the brief</p>
+            <h3>Detailed requirements still needed product definition</h3>
+            <p>User stories described activities such as collating student information and collecting employer details. They specified what coordinators needed to achieve, but not which workflows belonged in the first release or how those activities should be organised into a usable product.</p>
+            <div class="placepath-evidence__flow" aria-label="From user stories to MVP">
+              <span>Detailed user stories</span><i aria-hidden="true">→</i><span>Essential operational tasks</span><i aria-hidden="true">→</i><span>MVP</span>
+            </div>
+          </div>
+          <figure>
+            <img src="${assetBase}placepath-user-stories-collate-collect.webp" alt="Excerpt from the PlacePath requirements showing user stories for collating student information and collecting employer information" loading="lazy" decoding="async">
+            <figcaption><strong>Raw requirements:</strong> the brief described capabilities and information needs; I still had to decide how they became a coherent first product.</figcaption>
+          </figure>
+        `;
+
+        const priorityGrid = mvpSection.querySelector('.placepath-priority-grid');
+        if (priorityGrid) priorityGrid.before(evidence);
+        else mvpSection.append(evidence);
+      }
+
+      const evolutionSection = document.querySelector('section[aria-labelledby="evolution-title"]');
+      if (evolutionSection) {
+        const lowFiImage = evolutionSection.querySelector('.placepath-lowfi-image');
+        if (lowFiImage) {
+          lowFiImage.src = `${assetBase}placepath-low-fidelity-plan-placement.webp`;
+          lowFiImage.alt = 'Annotated low-fidelity PlacePath planning wireframe translating the Plan a placement requirement into navigation, fields, objectives, preview and save actions';
+          const lowFiCaption = lowFiImage.closest('figure')?.querySelector('figcaption');
+          if (lowFiCaption) lowFiCaption.innerHTML = '<strong>Low fidelity:</strong> translate the requirement into information hierarchy, navigation and actions.';
+        }
+
+        if (!evolutionSection.querySelector('[data-placepath-evidence="structure"]')) {
+          const evidence = document.createElement('div');
+          evidence.className = 'placepath-evidence';
+          evidence.dataset.placepathEvidence = 'structure';
+          evidence.innerHTML = `
+            <div class="placepath-evidence__copy">
+              <p class="placepath-evidence__eyebrow">Requirement → interaction model</p>
+              <h3>Translate “Plan a placement” into a usable workflow</h3>
+              <p>The user story specified what a Curriculum Manager needed to communicate — purpose, outcomes, mode, length and timescales — but it did not prescribe the information architecture, navigation or screen behaviour. I used it as an input, then worked out how the planning experience should operate.</p>
+            </div>
+            <figure>
+              <img src="${assetBase}placepath-user-story-plan-placement.webp" alt="PlacePath user story for planning a work placement, including purpose, intended outcomes, mode, length and timescales" loading="lazy" decoding="async">
+              <figcaption><strong>Requirement:</strong> define what the user needs to achieve. The design work below shows how I translated that need into a product journey.</figcaption>
+            </figure>
+          `;
+
+          const evolutionGrid = evolutionSection.querySelector('.placepath-evolution');
+          if (evolutionGrid) evolutionGrid.before(evidence);
+          else evolutionSection.append(evidence);
+        }
+      }
+    };
+
     document.title = 'PlacePath: From User Stories to a Responsive Product | Sophie Purewal';
     const description = document.querySelector('meta[name="description"]');
     if (description) {
@@ -189,6 +348,8 @@
     setText('#delivery-title', 'Take the journeys from user stories to developer handoff');
     setText('#delivery-title + p', 'I carried the product from requirements through low- and mid-fidelity exploration to responsive high-fidelity UI for mobile, tablet and desktop, then delivered the clickable prototype, style guidance and production assets for developer handoff.');
     setText('section[aria-labelledby="delivery-title"] > p:last-child', 'The phase established the interaction model, responsive patterns and core coordinator journeys required for implementation. Further validation would focus on the highest-risk workflows and measure task completion, clarity and status comprehension.');
+
+    addPlacePathEvidence();
   };
 
   const initHomepageImpact = () => {
