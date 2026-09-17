@@ -1,0 +1,38 @@
+name: Frame PlacePath viewport images once
+on:
+  workflow_dispatch:
+  push:
+    paths:
+      - '.github/workflows/frame-placepath-viewports-once.yml'
+permissions:
+  contents: write
+jobs:
+  update:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Frame only the three responsive showcase images
+        run: |
+          python - <<'PY'
+          from pathlib import Path
+          p=Path('work/placepath-case-study.html')
+          s=p.read_text()
+          old='''    .placepath-desktop-hero-frame {\n      padding: clamp(12px, 1.5vw, 18px);\n      border: 1px solid #e2e8f0;\n      border-radius: 14px;\n      background: #f8fafc;\n      box-shadow: 0 18px 48px rgba(15, 23, 42, .10);\n    }'''
+          new='''    .placepath-desktop-hero-frame {\n      padding: clamp(12px, 1.5vw, 18px);\n      border: 1px solid #cbd5e1;\n      border-radius: 16px;\n      background: #f8fafc;\n      box-shadow: 0 18px 48px rgba(15, 23, 42, .10);\n    }'''
+          s=s.replace(old,new)
+          old2='''    .placepath-outcome-device-pair__item {\n      min-width: 0;\n    }\n\n    .placepath-outcome-device-pair__item img {\n      display: block;\n      width: 100%;\n      height: auto;\n      border: 0;\n      background: transparent;\n    }'''
+          new2='''    .placepath-outcome-device-pair__item {\n      min-width: 0;\n      padding: clamp(10px, 1.4vw, 16px);\n      border: 1px solid #cbd5e1;\n      border-radius: 16px;\n      background: #f8fafc;\n      box-shadow: 0 16px 38px rgba(15, 23, 42, .10);\n    }\n\n    .placepath-outcome-device-pair__item img {\n      display: block;\n      width: 100%;\n      height: auto;\n      border: 1px solid #e2e8f0;\n      border-radius: 8px;\n      background: #fff;\n    }\n\n    body.dark-mode .placepath-outcome-device-pair__item {\n      border-color: #475569;\n      background: #1e293b;\n      box-shadow: none;\n    }'''
+          if old2 not in s:
+              raise SystemExit('Outcome CSS target not found')
+          s=s.replace(old2,new2)
+          p.write_text(s)
+          PY
+      - name: Remove one-off workflow
+        run: rm .github/workflows/frame-placepath-viewports-once.yml
+      - name: Commit
+        run: |
+          git config user.name github-actions[bot]
+          git config user.email 41898282+github-actions[bot]@users.noreply.github.com
+          git add work/placepath-case-study.html .github/workflows/frame-placepath-viewports-once.yml
+          git commit -m 'Frame PlacePath responsive viewport images'
+          git push
