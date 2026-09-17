@@ -1,0 +1,28 @@
+name: Use user flow in PlacePath step 1
+on: push
+permissions:
+  contents: write
+jobs:
+  update:
+    if: github.event.head_commit.message == 'Use user flow in PlacePath step 1'
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Change only Step 1 image
+        run: |
+          python3 - <<'PY'
+          from pathlib import Path
+          p=Path('assets/js/site-header-base.js')
+          s=p.read_text()
+          old='<img src="${assetBase}placepath-user-story-plan-placement.webp" alt="PlacePath planning user flow" loading="lazy" decoding="async">'
+          new='<img src="../assets/case-studies/placepath/user-flow.png" alt="User flow mapping the PlacePath service, navigation and key product journeys" loading="lazy" decoding="async">'
+          if old not in s: raise SystemExit('Step 1 image not found')
+          s=s.replace(old,new,1)
+          p.write_text(s)
+          PY
+          rm .github/workflows/placepath-step1-userflow-once.yml
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add assets/js/site-header-base.js .github/workflows/placepath-step1-userflow-once.yml
+          git commit -m "Show user flow in PlacePath step 1"
+          git push
