@@ -355,11 +355,10 @@
             <div class="placepath-process-step">
               <div class="placepath-process-step__copy">
                 <p class="placepath-evidence__eyebrow">Step 3</p>
-                <h3>High fidelity: refine the experience</h3>
-                <p>I developed the journey into a polished interface ready for responsive delivery.</p>
+                <h3>High fidelity: Plan a placement</h3>
               </div>
               <figure>
-                <img src="${assetBase}placepath-high-fidelity-preview-plan.webp" alt="PlacePath high-fidelity placement planning interface" loading="lazy" decoding="async">
+                <img src="../assets/case-studies/placepath/high-fi-create.png" alt="High-fidelity PlacePath Plan a placement screen" loading="lazy" decoding="async">
               </figure>
             </div>
           `;
