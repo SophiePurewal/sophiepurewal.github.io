@@ -18,8 +18,14 @@
   width: auto;
 }
 
-/* Keep the PlacePath showcase images flush to their frames. */
+/* Keep showcase images flush inside their frames, while preserving consistent space around the showcase. */
 .placepath-page .placepath-outcome-device-pair__item {
   padding: 0 !important;
   overflow: hidden;
+}
+
+.placepath-page .placepath-outcome-showcase {
+  padding: 0 !important;
+  margin-top: clamp(32px, 4vw, 52px) !important;
+  margin-bottom: clamp(32px, 4vw, 52px) !important;
 }
