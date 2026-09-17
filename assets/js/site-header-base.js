@@ -364,8 +364,12 @@
           `;
 
           const evolutionGrid = evolutionSection.querySelector('.placepath-evolution');
-          if (evolutionGrid) evolutionGrid.before(evidence);
-          else evolutionSection.append(evidence);
+          if (evolutionGrid) {
+            evolutionGrid.before(evidence);
+            evolutionGrid.remove();
+          } else {
+            evolutionSection.append(evidence);
+          }
         }
       }
     };
