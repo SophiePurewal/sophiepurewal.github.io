@@ -1,0 +1,29 @@
+name: Remove PlacePath scope extras once
+on: push
+permissions:
+  contents: write
+jobs:
+  remove:
+    if: github.event.head_commit.message == 'Run PlacePath scope extras removal'
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Remove only scope priority grid and lifecycle
+        run: |
+          python3 - <<'PY'
+          from pathlib import Path
+          p=Path('work/placepath-case-study.html')
+          s=p.read_text()
+          start=s.index('          <div class="placepath-priority-grid">', s.index('aria-labelledby="mvp-title"'))
+          end=s.index('        </section>', start)
+          block=s[start:end]
+          if 'placepath-system-flow' not in block: raise SystemExit('expected scope block not found')
+          s=s[:start]+s[end:]
+          p.write_text(s)
+          PY
+          rm .github/workflows/remove-placepath-scope-extras-once.yml
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add work/placepath-case-study.html .github/workflows/remove-placepath-scope-extras-once.yml
+          git commit -m "Remove redundant PlacePath scope lists"
+          git push
