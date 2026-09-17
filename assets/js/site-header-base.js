@@ -153,17 +153,18 @@
         style.textContent = `
           .placepath-evidence {
             display: grid;
-            grid-template-columns: minmax(280px, .7fr) minmax(0, 1.3fr);
-            gap: clamp(24px, 4vw, 44px);
-            align-items: start;
-            margin: 36px 0;
-            padding: 28px 0;
-            border-top: 1px solid var(--line);
-            border-bottom: 1px solid var(--line);
+            grid-template-columns: minmax(0, 1fr) minmax(320px, .9fr);
+            gap: clamp(28px, 4vw, 52px);
+            align-items: center;
+            margin: 32px 0 28px;
+            padding: clamp(24px, 3vw, 36px);
+            border: 1px solid var(--line);
+            border-radius: 14px;
+            background: #f8fafc;
           }
 
           .placepath-evidence__copy {
-            max-width: 34rem;
+            max-width: 38rem;
           }
 
           .placepath-evidence__eyebrow {
@@ -200,6 +201,7 @@
             width: 100%;
             height: auto;
             border: 1px solid var(--line);
+            border-radius: 8px;
             background: #fff;
           }
 
@@ -232,6 +234,10 @@
             color: #fff !important;
           }
 
+          body.dark-mode .placepath-evidence {
+            background: #1e293b;
+          }
+
           @media (max-width: 820px) {
             .placepath-evidence {
               grid-template-columns: 1fr;
@@ -252,16 +258,13 @@
         evidence.dataset.placepathEvidence = 'scope';
         evidence.innerHTML = `
           <div class="placepath-evidence__copy">
-            <p class="placepath-evidence__eyebrow">Evidence from the brief</p>
-            <h3>Detailed requirements still needed product definition</h3>
-            <p>User stories described activities such as collating student information and collecting employer details. They specified what coordinators needed to achieve, but not which workflows belonged in the first release or how those activities should be organised into a usable product.</p>
-            <div class="placepath-evidence__flow" aria-label="From user stories to MVP">
-              <span>Detailed user stories</span><i aria-hidden="true">→</i><span>Essential operational tasks</span><i aria-hidden="true">→</i><span>MVP</span>
-            </div>
+            <p class="placepath-evidence__eyebrow">The decision</p>
+            <h3>Focus the first release on running a placement</h3>
+            <p>The brief contained more capability than the first product needed. I prioritised the workflows placement teams needed day to day, and moved valuable but non-essential capabilities into later phases.</p>
           </div>
           <figure>
             <img src="${assetBase}placepath-user-stories-collate-collect.webp" alt="Excerpt from the PlacePath requirements showing user stories for collating student information and collecting employer information" loading="lazy" decoding="async">
-            <figcaption><strong>Raw requirements:</strong> the brief described capabilities and information needs; I still had to decide how they became a coherent first product.</figcaption>
+            <figcaption><strong>Starting point:</strong> user stories described the required capabilities; my role was to decide what belonged in the first release.</figcaption>
           </figure>
         `;
 
@@ -327,8 +330,8 @@
     setText('section[aria-labelledby="challenge-title"] .placepath-question p', 'How do I turn separate requirements across multiple roles into one understandable, connected placement experience?');
 
     setText('section[aria-labelledby="mvp-title"] > .section-label', '02 · Decision 01 · Scope');
-    setText('#mvp-title', 'Turn the user stories into an operational MVP');
-    setText('#mvp-title + p', 'The requirements described more capability than the first product needed. I separated the actions required to operate a placement from valuable but non-essential future features, giving the MVP a clear operational backbone.');
+    setText('#mvp-title', 'Turn a broad brief into a focused MVP');
+    setText('#mvp-title + p', 'I prioritised the workflows placement teams needed to run the service day to day, then separated valuable but non-essential capabilities into later phases.');
 
     setText('section[aria-labelledby="evolution-title"] > .section-label', '03 · Decision 02 · Structure');
     setText('#evolution-title', 'Create a product model from the requirements');
