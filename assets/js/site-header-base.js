@@ -157,10 +157,10 @@
             gap: clamp(28px, 4vw, 52px);
             align-items: center;
             margin: 32px 0 28px;
-            padding: clamp(24px, 3vw, 36px);
-            border: 1px solid var(--line);
-            border-radius: 14px;
-            background: #f8fafc;
+            padding: 0;
+            border: 0;
+            border-radius: 0;
+            background: transparent;
           }
 
           .placepath-evidence__copy {
@@ -235,7 +235,7 @@
           }
 
           body.dark-mode .placepath-evidence {
-            background: #1e293b;
+            background: transparent;
           }
 
           @media (max-width: 820px) {
@@ -263,7 +263,7 @@
             <p>The brief contained more capability than the first product needed. I prioritised the workflows placement teams needed day to day, and moved valuable but non-essential capabilities into later phases.</p>
           </div>
           <figure>
-            <img src="${assetBase}placepath-user-stories-collate-collect.webp" alt="Excerpt from the PlacePath requirements showing user stories for collating student information and collecting employer information" loading="lazy" decoding="async">
+            <img src="../Placepath_UserStories.png" alt="PlacePath user stories showing the requirements used to define the first release" loading="lazy" decoding="async">
             <figcaption><strong>Starting point:</strong> user stories described the required capabilities; my role was to decide what belonged in the first release.</figcaption>
           </figure>
         `;
