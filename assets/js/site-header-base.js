@@ -230,6 +230,49 @@
             font-weight: 500;
           }
 
+          .placepath-evidence--steps {
+            display: block;
+            padding: 0;
+            border: 0;
+            border-radius: 0;
+            background: transparent;
+          }
+
+          .placepath-process-step {
+            display: grid;
+            grid-template-columns: minmax(220px, .55fr) minmax(0, 1.45fr);
+            gap: clamp(28px, 5vw, 64px);
+            align-items: start;
+            padding: clamp(28px, 4vw, 48px) 0;
+            border-top: 1px solid var(--line);
+          }
+
+          .placepath-process-step:first-child {
+            border-top: 0;
+            padding-top: 0;
+          }
+
+          .placepath-process-step__copy {
+            max-width: 30rem;
+            padding-top: 6px;
+          }
+
+          .placepath-process-step figure {
+            margin: 0;
+          }
+
+          .placepath-process-step img {
+            width: 100%;
+            height: auto;
+          }
+
+          @media (max-width: 820px) {
+            .placepath-process-step {
+              grid-template-columns: 1fr;
+              gap: 20px;
+            }
+          }
+
           body.dark-mode .placepath-evidence__eyebrow {
             color: #fff !important;
           }
@@ -287,16 +330,38 @@
           const evidence = document.createElement('div');
           evidence.className = 'placepath-evidence';
           evidence.dataset.placepathEvidence = 'structure';
+          evidence.classList.add('placepath-evidence--steps');
           evidence.innerHTML = `
-            <div class="placepath-evidence__copy">
-              <p class="placepath-evidence__eyebrow">Requirement → interaction model</p>
-              <h3>Translate “Plan a placement” into a usable workflow</h3>
-              <p>The user story specified what a Curriculum Manager needed to communicate — purpose, outcomes, mode, length and timescales — but it did not prescribe the information architecture, navigation or screen behaviour. I used it as an input, then worked out how the planning experience should operate.</p>
+            <div class="placepath-process-step">
+              <div class="placepath-process-step__copy">
+                <p class="placepath-evidence__eyebrow">Step 1</p>
+                <h3>Planning the user flow</h3>
+                <p>I mapped the placement journey and how the key roles connected across it.</p>
+              </div>
+              <figure>
+                <img src="${assetBase}placepath-user-story-plan-placement.webp" alt="PlacePath planning user flow" loading="lazy" decoding="async">
+              </figure>
             </div>
-            <figure>
-              <img src="${assetBase}placepath-user-story-plan-placement.webp" alt="PlacePath user story for planning a work placement, including purpose, intended outcomes, mode, length and timescales" loading="lazy" decoding="async">
-              <figcaption><strong>Requirement:</strong> define what the user needs to achieve. The design work below shows how I translated that need into a product journey.</figcaption>
-            </figure>
+            <div class="placepath-process-step">
+              <div class="placepath-process-step__copy">
+                <p class="placepath-evidence__eyebrow">Step 2</p>
+                <h3>Low fidelity: navigation and screen behaviour</h3>
+                <p>I explored the information architecture, navigation and core interactions before adding visual detail.</p>
+              </div>
+              <figure>
+                <img src="${assetBase}placepath-low-fidelity-plan-placement.webp" alt="PlacePath low-fidelity placement planning wireframe" loading="lazy" decoding="async">
+              </figure>
+            </div>
+            <div class="placepath-process-step">
+              <div class="placepath-process-step__copy">
+                <p class="placepath-evidence__eyebrow">Step 3</p>
+                <h3>High fidelity: refine the experience</h3>
+                <p>I developed the journey into a polished interface ready for responsive delivery.</p>
+              </div>
+              <figure>
+                <img src="${assetBase}placepath-high-fidelity-preview-plan.webp" alt="PlacePath high-fidelity placement planning interface" loading="lazy" decoding="async">
+              </figure>
+            </div>
           `;
 
           const evolutionGrid = evolutionSection.querySelector('.placepath-evolution');
