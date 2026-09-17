@@ -29,3 +29,30 @@
   margin-top: clamp(32px, 4vw, 52px) !important;
   margin-bottom: clamp(32px, 4vw, 52px) !important;
 }
+
+/* Subtle desktop frame so the hero screenshot does not dominate the page. */
+.placepath-page .placepath-desktop-only-hero {
+  width: min(88%, 980px) !important;
+  max-width: 980px !important;
+  padding: 12px !important;
+  margin: clamp(32px, 4vw, 52px) auto !important;
+  border: 1px solid #e2e8f0 !important;
+  border-radius: 12px !important;
+  background: #f8fafc !important;
+  box-shadow: 0 8px 24px rgba(15, 23, 42, .06) !important;
+}
+
+.placepath-page .placepath-desktop-hero-frame {
+  padding: 0 !important;
+  border: 0 !important;
+  background: transparent !important;
+  box-shadow: none !important;
+}
+
+.placepath-page .placepath-desktop-hero-image {
+  display: block;
+  width: 100% !important;
+  height: auto !important;
+  border: 1px solid #e2e8f0 !important;
+  border-radius: 7px !important;
+}
