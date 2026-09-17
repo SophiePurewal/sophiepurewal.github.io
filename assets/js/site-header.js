@@ -27,19 +27,22 @@
         }
 
         .placepath-page [data-placepath-evidence="scope"] {
-          grid-template-columns: 1fr;
-        }
-
-        .placepath-page [data-placepath-evidence="scope"] figure {
-          display: none;
+          grid-template-columns: minmax(0, 1fr) minmax(320px, .9fr);
+          align-items: start;
         }
 
         .placepath-page [data-placepath-evidence="scope"] .placepath-evidence__copy {
-          max-width: 46rem;
+          max-width: 38rem;
+        }
+
+        .placepath-page [data-placepath-evidence="scope"] figure {
+          display: block;
+          margin: 0;
         }
 
         @media (max-width: 900px) {
-          .placepath-page .placepath-evolution {
+          .placepath-page .placepath-evolution,
+          .placepath-page [data-placepath-evidence="scope"] {
             grid-template-columns: 1fr;
           }
         }
@@ -47,10 +50,15 @@
       document.head.append(style);
     }
 
-    // Remove the detailed client user-stories image from the scope section.
+    // Use a scoped flow artefact beside the decision copy instead of detailed client user stories.
     const scopeEvidence = document.querySelector('[data-placepath-evidence="scope"]');
     if (scopeEvidence) {
-      scopeEvidence.querySelector('figure')?.remove();
+      let scopeFigure = scopeEvidence.querySelector('figure');
+      if (!scopeFigure) {
+        scopeFigure = document.createElement('figure');
+        scopeEvidence.append(scopeFigure);
+      }
+      scopeFigure.innerHTML = '<img src="../Placepath_Scope_Flow.png" alt="PlacePath scope flow showing part of the product flow thinking used to define the first release" loading="lazy" decoding="async">';
     }
 
     // Make the later interactive prototype explicitly separate from the commissioned client work.
