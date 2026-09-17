@@ -29,8 +29,8 @@ jobs:
     }
     .placepath-desktop-hero-frame {
       padding: 0 !important;
-      overflow: hidden;
-      border: 1px solid #cbd5e1 !important;
+      overflow: hidden !important;
+      border: 2px solid #cbd5e1 !important;
       border-radius: 12px !important;
       background: #fff !important;
       box-shadow: 0 14px 38px rgba(15,23,42,.08) !important;
@@ -42,6 +42,7 @@ jobs:
       border: 0 !important;
       border-radius: 0 !important;
       margin: 0 !important;
+      padding: 0 !important;
     }
     .placepath-outcome-showcase {
       padding: 0 !important;
@@ -51,8 +52,8 @@ jobs:
     }
     .placepath-outcome-showcase .placepath-outcome-device-pair__item {
       padding: 0 !important;
-      overflow: hidden;
-      border: 1px solid #cbd5e1 !important;
+      overflow: hidden !important;
+      border: 2px solid #cbd5e1 !important;
       border-radius: 12px !important;
       background: #fff !important;
       box-shadow: 0 14px 38px rgba(15,23,42,.08) !important;
