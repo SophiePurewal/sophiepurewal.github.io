@@ -387,6 +387,33 @@
       }
     }
 
+
+    /* Restrained showcase treatment: hero desktop and final outcome devices only */
+    .placepath-desktop-only-hero,
+    .placepath-outcome-showcase {
+      width: 100%;
+      max-width: 1100px;
+      margin: clamp(32px, 4vw, 52px) auto;
+      padding: clamp(14px, 2vw, 24px);
+      border: 1px solid #e2e8f0;
+      border-radius: 14px;
+      background: #f8fafc;
+      box-shadow: 0 14px 38px rgba(15, 23, 42, .07);
+    }
+    .placepath-desktop-hero-frame { padding: 0; border: 0; background: transparent; box-shadow: none; }
+    .placepath-desktop-hero-image { display:block; width:100%; height:auto; border:0; border-radius:7px; background:#fff; }
+    .placepath-outcome-showcase {
+      display:grid;
+      grid-template-columns:minmax(0, 1.55fr) minmax(180px, .55fr);
+      gap:clamp(20px, 3vw, 38px);
+      align-items:start;
+      justify-items:center;
+    }
+    .placepath-outcome-showcase .placepath-outcome-device-pair__item img { display:block; width:100%; height:auto; border:0; background:#fff; }
+    .placepath-outcome-showcase .placepath-outcome-device-pair__item--mobile { width:100%; max-width:330px; }
+    body.dark-mode .placepath-desktop-only-hero, body.dark-mode .placepath-outcome-showcase { background:#1e293b; border-color:#475569; box-shadow:none; }
+    @media (max-width:700px) { .placepath-outcome-showcase { grid-template-columns:1fr; } .placepath-outcome-showcase .placepath-outcome-device-pair__item--mobile { max-width:280px; } }
+
 </style>
 </head>
 <body id="top" class="placepath-page">
@@ -472,12 +499,9 @@
             </div>
             <p class="project-subtitle">Turning complex requirements across learning providers, employers and students into a focused MVP and connected, role-based workflow.</p>
             <p class="project-intro">As the independent Product Design Consultant, I led phase one from product definition and service mapping through prototyping, responsive UI and developer handoff.</p>
-            <figure class="hero-visual placepath-hero-visual placepath-responsive-showcase placepath-outcome-device-pair" aria-label="PlacePath tablet and mobile product views">
-              <div class="placepath-outcome-device-pair__item">
-                <img src="../Placepath_Tablet.png" alt="PlacePath tablet interface" decoding="async">
-              </div>
-              <div class="placepath-outcome-device-pair__item placepath-outcome-device-pair__item--mobile">
-                <img src="../Placepath_Mobile.png" alt="PlacePath mobile interface" decoding="async">
+            <figure class="hero-visual placepath-hero-visual placepath-desktop-only-hero" aria-label="PlacePath desktop product view">
+              <div class="placepath-desktop-hero-frame">
+                <img class="placepath-desktop-hero-image" src="../Placepath_Desktop.png" alt="PlacePath desktop interface" decoding="async">
               </div>
             </figure>
           </div>
@@ -570,9 +594,13 @@
           <p class="section-label">06 · Deliver</p>
           <h2 id="delivery-title">Deliver a foundation ready to build</h2>
           <p>I delivered responsive UI, a clickable prototype, style guidance and production assets for developer handoff.</p>
-          <figure class="placepath-delivery-visual">
-            <img src="../assets/case-studies/placepath/current-dashboard.webp" alt="Current PlacePath placement-coordinator dashboard" loading="lazy" decoding="async">
-            <figcaption>The current PlacePath dashboard brings placements, upcoming events, messages and task status into one connected coordinator view.</figcaption>
+          <figure class="placepath-outcome-device-pair placepath-outcome-showcase" aria-label="PlacePath responsive tablet and mobile product views">
+            <div class="placepath-outcome-device-pair__item">
+              <img src="../Placepath_Tablet.png" alt="PlacePath tablet interface" loading="lazy" decoding="async">
+            </div>
+            <div class="placepath-outcome-device-pair__item placepath-outcome-device-pair__item--mobile">
+              <img src="../Placepath_Mobile.png" alt="PlacePath mobile interface" loading="lazy" decoding="async">
+            </div>
           </figure>
           <p>Next, I would validate the highest-risk workflows with placement teams and measure task completion, clarity and status comprehension.</p>
         </section>
