@@ -1,0 +1,87 @@
+name: PlacePath flush viewport frames once
+on:
+  push:
+    paths:
+      - '.github/workflows/placepath-flush-viewport-frames-once.yml'
+permissions:
+  contents: write
+jobs:
+  update:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Apply exact viewport frame treatment
+        run: |
+          python - <<'PY'
+          from pathlib import Path
+          p=Path('work/placepath-case-study.html')
+          s=p.read_text()
+          marker='\n</style>'
+          css='''
+
+    /* Exact flush viewport frames: only PlacePath desktop/tablet/mobile showcase images */
+    .placepath-desktop-only-hero {
+      max-width: 1100px !important;
+      padding: 0 !important;
+      border: 0 !important;
+      background: transparent !important;
+      box-shadow: none !important;
+    }
+    .placepath-desktop-hero-frame {
+      padding: 0 !important;
+      overflow: hidden;
+      border: 1px solid #cbd5e1 !important;
+      border-radius: 12px !important;
+      background: #fff !important;
+      box-shadow: 0 14px 38px rgba(15,23,42,.08) !important;
+    }
+    .placepath-desktop-hero-image {
+      display: block !important;
+      width: 100% !important;
+      height: auto !important;
+      border: 0 !important;
+      border-radius: 0 !important;
+      margin: 0 !important;
+    }
+    .placepath-outcome-showcase {
+      padding: 0 !important;
+      border: 0 !important;
+      background: transparent !important;
+      box-shadow: none !important;
+    }
+    .placepath-outcome-showcase .placepath-outcome-device-pair__item {
+      padding: 0 !important;
+      overflow: hidden;
+      border: 1px solid #cbd5e1 !important;
+      border-radius: 12px !important;
+      background: #fff !important;
+      box-shadow: 0 14px 38px rgba(15,23,42,.08) !important;
+    }
+    .placepath-outcome-showcase .placepath-outcome-device-pair__item img {
+      display: block !important;
+      width: 100% !important;
+      height: auto !important;
+      margin: 0 !important;
+      padding: 0 !important;
+      border: 0 !important;
+      border-radius: 0 !important;
+    }
+    body.dark-mode .placepath-desktop-hero-frame,
+    body.dark-mode .placepath-outcome-showcase .placepath-outcome-device-pair__item {
+      border-color: #64748b !important;
+      background: #fff !important;
+      box-shadow: none !important;
+    }
+'''
+          assert marker in s
+          s=s.replace(marker, css+marker, 1)
+          p.write_text(s)
+          PY
+      - name: Remove one-off workflow and commit
+        run: |
+          rm .github/workflows/placepath-flush-viewport-frames-once.yml
+          git config user.name github-actions
+          git config user.email github-actions@github.com
+          git add work/placepath-case-study.html .github/workflows/placepath-flush-viewport-frames-once.yml
+          git commit -m "Frame PlacePath viewport images flush"
+          git push
