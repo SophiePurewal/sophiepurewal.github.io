@@ -26,6 +26,18 @@
           min-width: 0;
         }
 
+        .placepath-page [data-placepath-evidence="scope"] {
+          grid-template-columns: 1fr;
+        }
+
+        .placepath-page [data-placepath-evidence="scope"] figure {
+          display: none;
+        }
+
+        .placepath-page [data-placepath-evidence="scope"] .placepath-evidence__copy {
+          max-width: 46rem;
+        }
+
         @media (max-width: 900px) {
           .placepath-page .placepath-evolution {
             grid-template-columns: 1fr;
@@ -33,6 +45,12 @@
         }
       `;
       document.head.append(style);
+    }
+
+    // Remove the detailed client user-stories image from the scope section.
+    const scopeEvidence = document.querySelector('[data-placepath-evidence="scope"]');
+    if (scopeEvidence) {
+      scopeEvidence.querySelector('figure')?.remove();
     }
 
     // Make the later interactive prototype explicitly separate from the commissioned client work.
