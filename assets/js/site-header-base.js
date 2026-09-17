@@ -339,7 +339,7 @@
                 <p>I mapped the placement journey and how the key roles connected across it.</p>
               </div>
               <figure>
-                <img src="${assetBase}placepath-user-story-plan-placement.webp" alt="PlacePath planning user flow" loading="lazy" decoding="async">
+                <img src="../assets/case-studies/placepath/user-flow.png" alt="User flow mapping the PlacePath service, navigation and key product journeys" loading="lazy" decoding="async">
               </figure>
             </div>
             <div class="placepath-process-step">
