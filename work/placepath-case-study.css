@@ -17,3 +17,9 @@
   max-width: none;
   width: auto;
 }
+
+/* Keep the PlacePath showcase images flush to their frames. */
+.placepath-page .placepath-outcome-device-pair__item {
+  padding: 0 !important;
+  overflow: hidden;
+}
