@@ -303,28 +303,22 @@
     .placepath-desktop-only-hero {
       display: block !important;
       width: 100% !important;
-      max-width: var(--section-shell-max, 1180px) !important;
+      max-width: 1100px !important;
       min-height: 0 !important;
-      margin: 0 auto !important;
-      padding: clamp(18px, 3vw, 36px) 0 clamp(30px, 5vw, 64px) !important;
+      margin: clamp(32px, 4vw, 52px) auto 0 !important;
+      padding: 0 !important;
       overflow: visible !important;
       background: transparent !important;
       border: 0 !important;
       box-shadow: none !important;
     }
 
-    .placepath-desktop-only-hero {
-      max-width: 1100px !important;
-      margin: clamp(28px, 4vw, 48px) auto 0 !important;
-      padding: 0 !important;
-    }
-
     .placepath-desktop-hero-frame {
-      padding: clamp(12px, 1.5vw, 18px);
+      padding: clamp(14px, 1.6vw, 20px);
       border: 1px solid #e2e8f0;
-      border-radius: 14px;
+      border-radius: 16px;
       background: #f8fafc;
-      box-shadow: 0 18px 48px rgba(15, 23, 42, .10);
+      box-shadow: 0 18px 48px rgba(15, 23, 42, .08);
     }
 
     .placepath-desktop-hero-image {
@@ -333,7 +327,7 @@
       height: auto;
       margin: 0 auto;
       border: 1px solid #e2e8f0;
-      border-radius: 8px;
+      border-radius: 10px;
       background: #fff;
     }
 
@@ -403,7 +397,7 @@
           <a href="https://www.behance.net/sophiepurewal" aria-label="Visit Sophie Purewal's Behance profile" title="Behance (opens in a new tab)" target="_blank" rel="noopener noreferrer">Bē<span class="visually-hidden">Behance</span></a>
           <a href="https://www.instagram.com/sophiepurewaldesign/" aria-label="Visit Sophie Purewal's Instagram profile" title="Instagram (opens in a new tab)" target="_blank" rel="noopener noreferrer">
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
-              <path d="M7 2C4.24 2 2 4.24 2 7v10c0 2.76 2.24 5 5 5h10c2.76 0 5-2.24 5-5V7c0-2.76-2.24-5-5-5H7Zm10 2a3 3 0 0 1 3 3v10a3 3 0 0 1-3 3H7a3 3 0 0 1-3-3V7a3 3 0 0 1 3-3h10Zm.5 1.5a1 1 0 1 0 .001 2.001A1 1 0 0 0 17.5 5.5ZM12 7a5 5 0 1 0 0 10 5 5 0 0 0 0-10Zm0 2a3 3 0 1 1 0 6 3 3 0 0 1 0-6Z"/>
+              <path d="M7 2C4.24 2 2 4.24 2 7v10c0 2.76 2.24 5 5 5h10c2.76 0 5-2.24 5-5V7c0-2.76-2.24-5-5-5H7Zm10 2a3 3 0 0 1 3 3v10a3 3 0 0 1-3 3H7a3 3 0 0 1-3-3V7a3 3 0 0 1 3-3h10Zm.5 1.5a1 1 0 1 0 .001 2.001A1 1 0 0 0 17.5 5.5ZM12 7a5 5 0 1 0 0 10 5 5h10Zm0 2a3 3 0 1 1 0 6 3 3 0 0 1 0-6Z"/>
             </svg>
             <span class="visually-hidden">Instagram</span>
           </a>
@@ -430,7 +424,7 @@
             <p class="project-intro">As the independent Product Design Consultant, I led phase one from product definition and service mapping through prototyping, responsive UI and developer handoff.</p>
             <figure class="hero-visual placepath-hero-visual placepath-responsive-showcase placepath-desktop-only-hero" aria-label="PlacePath coordinator dashboard desktop view">
               <div class="placepath-desktop-hero-frame">
-                <img class="placepath-desktop-hero-image" src="../assets/case-studies/placepath/final-dashboard.png" alt="Desktop PlacePath coordinator dashboard" decoding="async">
+                <img class="placepath-desktop-hero-image" src="../Placepath_Desktop.png" alt="Desktop PlacePath coordinator dashboard" decoding="async">
               </div>
             </figure>
           </div>
@@ -467,134 +461,10 @@
               <a href="https://sophiepurewal.github.io/placepath-demo/">Open the PlacePath prototype</a>
             </iframe>
           </div>
-          <a class="placepath-prototype-link" href="https://sophiepurewal.github.io/placepath-demo/" target="_blank" rel="noopener noreferrer">
-            <span>Open full-screen prototype<span class="visually-hidden"> (opens in a new tab)</span></span>
-            <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">
-              <path d="M5 12h14M13 6l6 6-6 6"></path>
-            </svg>
-          </a>
-        </section>
-
-        <section class="case-study-section" aria-labelledby="challenge-title">
-          <p class="section-label">01 · Understand</p>
-          <h2 id="challenge-title">Unify a fragmented placement service</h2>
-          <div class="case-study-section__layout">
-            <div class="case-study-section__body">
-              <p>The brief combined overlapping needs across learning providers, employers and students without a single coherent experience. I turned those requirements into a defined MVP, connected service journey and implementation-ready interface.</p>
-            </div>
-            <aside class="placepath-question" aria-label="Central design question">
-              <span>Design question</span>
-              <p>How might we turn a multi-party placement process into one understandable, role-aware experience?</p>
-            </aside>
-          </div>
-        </section>
-
-        <section class="case-study-section" aria-labelledby="mvp-title">
-          <p class="section-label">02 · Define</p>
-          <h2 id="mvp-title">Focus the operational MVP</h2>
-          <p>I prioritised the tasks placement teams needed to operate the service, separating them from valuable but non-essential future features.</p>
-          <div class="placepath-priority-grid">
-            <section>
-              <p class="placepath-card-label">Core MVP</p>
-              <h3>Operate the placement service</h3>
-              <ul>
-                <li>Plan placements and complete due diligence</li>
-                <li>Search and manage employer contacts</li>
-                <li>Confirm offers and record communication</li>
-                <li>Share files, schedule visits and notify stakeholders</li>
-              </ul>
-            </section>
-            <section>
-              <p class="placepath-card-label">Later opportunities</p>
-              <h3>Extend student development</h3>
-              <ul>
-                <li>Analytics and student results</li>
-                <li>Career planning and employability assessment</li>
-                <li>Additional-support reviews</li>
-              </ul>
-            </section>
-          </div>
-          <div class="placepath-system-flow" aria-label="Core placement lifecycle">
-            <div><strong>1</strong><span>Plan</span></div><i aria-hidden="true">→</i>
-            <div><strong>2</strong><span>Find employer</span></div><i aria-hidden="true">→</i>
-            <div><strong>3</strong><span>Confirm</span></div><i aria-hidden="true">→</i>
-            <div><strong>4</strong><span>Monitor</span></div>
-          </div>
-        </section>
-
-        <section class="case-study-section" aria-labelledby="evolution-title">
-          <p class="section-label">03 · Design</p>
-          <h2 id="evolution-title">Map the journey, then increase fidelity</h2>
-          <p>I mapped the wider service before testing the planning journey through low- and medium-fidelity wireframes.</p>
-          <div class="placepath-evolution" aria-label="User flow, low-fidelity and medium-fidelity placement-planning artefacts">
-            <figure>
-              <img src="../assets/case-studies/placepath/user-flow.png" alt="User flow mapping the service, navigation and key product journeys" loading="lazy" decoding="async">
-              <figcaption><strong>Flow:</strong> map the service and connected journeys.</figcaption>
-            </figure>
-            <figure>
-              <img class="placepath-lowfi-image" src="../assets/case-studies/placepath/low-fi-01-verified-3fb9263f.png" alt="Annotated low-fidelity placement-planning wireframe showing the complete planning screen and design notes" loading="eager" decoding="async">
-              <figcaption><strong>Low:</strong> define information and actions.</figcaption>
-            </figure>
-            <figure>
-              <img src="../assets/case-studies/placepath/mid-fi-wireframe.png" alt="Medium-fidelity placement-plan creation screen" loading="lazy" decoding="async">
-              <figcaption><strong>Medium:</strong> structure progressive creation.</figcaption>
-            </figure>
-          </div>
-          <aside class="placepath-decision">
-            <p class="placepath-card-label">Key decision</p>
-            <p>I moved the experience from one dense form to a create–review–manage lifecycle, keeping complex placement data intact while making each action easier to understand.</p>
-          </aside>
-        </section>
-
-        <section class="case-study-section" aria-labelledby="workflow-title">
-          <p class="section-label">04 · Refine</p>
-          <h2 id="workflow-title">Make review part of the workflow</h2>
-          <p>Coordinators could build a plan progressively, preview the full record and return to edit it before submitting or sharing.</p>
-          <div class="placepath-comparison">
-            <figure>
-              <img src="../assets/case-studies/placepath/final-create-placement.png" alt="Final create placement interface" loading="lazy" decoding="async">
-              <figcaption>Create the plan progressively</figcaption>
-            </figure>
-            <figure>
-              <img src="../assets/case-studies/placepath/final-preview-placement.png" alt="Final placement-plan preview interface" loading="lazy" decoding="async">
-              <figcaption>Review before submitting or sharing</figcaption>
-            </figure>
-          </div>
-        </section>
-
-        <section class="case-study-section" aria-labelledby="records-title">
-          <p class="section-label">05 · Connect</p>
-          <h2 id="records-title">Keep employer context connected</h2>
-          <p>Reusable record patterns linked employer details, contacts, conversations and placement activity without losing context.</p>
-          <div class="placepath-comparison">
-            <figure>
-              <img src="../assets/case-studies/placepath/final-employer-details.png" alt="Final employer site details interface" loading="lazy" decoding="async">
-              <figcaption>Employer details, contacts and placement information</figcaption>
-            </figure>
-            <figure>
-              <img src="../assets/case-studies/placepath/final-contact-history.png" alt="Final contact record showing an expanded conversation history" loading="lazy" decoding="async">
-              <figcaption>Recorded dialogue and agreed actions</figcaption>
-            </figure>
-          </div>
-        </section>
-
-        <section class="case-study-section placepath-reflection" aria-labelledby="delivery-title">
-          <p class="section-label">06 · Deliver</p>
-          <h2 id="delivery-title">Deliver a foundation ready to build</h2>
-          <p>I delivered responsive UI, a clickable prototype, style guidance and production assets for developer handoff.</p>
-          <figure class="placepath-delivery-visual">
-            <img src="../assets/case-studies/placepath/current-dashboard.webp" alt="Current PlacePath placement-coordinator dashboard" loading="lazy" decoding="async">
-            <figcaption>The current PlacePath dashboard brings placements, upcoming events, messages and task status into one connected coordinator view.</figcaption>
-          </figure>
-          <p>Next, I would validate the highest-risk workflows with placement teams and measure task completion, clarity and status comprehension.</p>
+          <a class="placepath-prototype-link" href="https://sophiepurewal.github.io/placepath-demo/" target="_blank" rel="noopener noreferrer">View the interactive PlacePath prototype</a>
         </section>
       </article>
     </div>
   </main>
-
-  <footer class="project-footer site-shell">
-    <a class="footer-link case-study-footer-link" href="../index.html#projects">Back to case studies</a>
-  </footer>
-  <script src="project-pages.js"></script>
 </body>
 </html>
