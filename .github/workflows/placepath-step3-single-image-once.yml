@@ -1,0 +1,28 @@
+name: Simplify PlacePath step 3 image
+on: push
+permissions:
+  contents: write
+jobs:
+  update:
+    if: github.event.head_commit.message == 'Simplify PlacePath step 3 image'
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Make Step 3 a single Plan a placement image
+        run: |
+          python3 - <<'PY'
+          from pathlib import Path
+          p=Path('assets/js/site-header-base.js')
+          s=p.read_text()
+          old='''            <div class="placepath-process-step">\n              <div class="placepath-process-step__copy">\n                <p class="placepath-evidence__eyebrow">Step 3</p>\n                <h3>High fidelity: refine the experience</h3>\n                <p>I developed the journey into a polished interface ready for responsive delivery.</p>\n              </div>\n              <figure>\n                <img src="${assetBase}placepath-high-fidelity-preview-plan.webp" alt="PlacePath high-fidelity placement planning interface" loading="lazy" decoding="async">\n              </figure>\n            </div>'''
+          new='''            <div class="placepath-process-step">\n              <div class="placepath-process-step__copy">\n                <p class="placepath-evidence__eyebrow">Step 3</p>\n                <h3>High fidelity: Plan a placement</h3>\n              </div>\n              <figure>\n                <img src="../assets/case-studies/placepath/high-fi-create.png" alt="High-fidelity PlacePath Plan a placement screen" loading="lazy" decoding="async">\n              </figure>\n            </div>'''
+          if old not in s: raise SystemExit('Step 3 block not found')
+          s=s.replace(old,new,1)
+          p.write_text(s)
+          PY
+          rm .github/workflows/placepath-step3-single-image-once.yml
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add assets/js/site-header-base.js .github/workflows/placepath-step3-single-image-once.yml
+          git commit -m "Use single Plan a placement image in PlacePath step 3"
+          git push
