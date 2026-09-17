@@ -1,0 +1,35 @@
+name: Tidy PlacePath scope once
+on: push
+permissions:
+  contents: write
+jobs:
+  tidy:
+    if: github.event.head_commit.message == 'Run PlacePath scope tidy'
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Tidy only scope section
+        run: |
+          python3 - <<'PY'
+          from pathlib import Path
+          p=Path('assets/js/site-header-base.js')
+          s=p.read_text()
+          s=s.replace('''          .placepath-evidence {\n            display: grid;\n            grid-template-columns: minmax(280px, .7fr) minmax(0, 1.3fr);\n            gap: clamp(24px, 4vw, 44px);\n            align-items: start;\n            margin: 36px 0;\n            padding: 28px 0;\n            border-top: 1px solid var(--line);\n            border-bottom: 1px solid var(--line);\n          }''','''          .placepath-evidence {\n            display: grid;\n            grid-template-columns: minmax(0, 1fr) minmax(320px, .9fr);\n            gap: clamp(28px, 4vw, 52px);\n            align-items: center;\n            margin: 32px 0 28px;\n            padding: clamp(24px, 3vw, 36px);\n            border: 1px solid var(--line);\n            border-radius: 14px;\n            background: #f8fafc;\n          }''',1)
+          s=s.replace('''          .placepath-evidence__copy {\n            max-width: 34rem;\n          }''','''          .placepath-evidence__copy {\n            max-width: 38rem;\n          }''',1)
+          s=s.replace('''          .placepath-evidence img {\n            display: block;\n            width: 100%;\n            height: auto;\n            border: 1px solid var(--line);\n            background: #fff;\n          }''','''          .placepath-evidence img {\n            display: block;\n            width: 100%;\n            height: auto;\n            border: 1px solid var(--line);\n            border-radius: 8px;\n            background: #fff;\n          }''',1)
+          s=s.replace('''          body.dark-mode .placepath-evidence__eyebrow {\n            color: #fff !important;\n          }''','''          body.dark-mode .placepath-evidence__eyebrow {\n            color: #fff !important;\n          }\n\n          body.dark-mode .placepath-evidence {\n            background: #1e293b;\n          }''',1)
+          old='''            <p class="placepath-evidence__eyebrow">Evidence from the brief</p>\n            <h3>Detailed requirements still needed product definition</h3>\n            <p>User stories described activities such as collating student information and collecting employer details. They specified what coordinators needed to achieve, but not which workflows belonged in the first release or how those activities should be organised into a usable product.</p>\n            <div class="placepath-evidence__flow" aria-label="From user stories to MVP">\n              <span>Detailed user stories</span><i aria-hidden="true">→</i><span>Essential operational tasks</span><i aria-hidden="true">→</i><span>MVP</span>\n            </div>'''
+          new='''            <p class="placepath-evidence__eyebrow">The decision</p>\n            <h3>Focus the first release on running a placement</h3>\n            <p>The brief contained more capability than the first product needed. I prioritised the workflows placement teams needed day to day, and moved valuable but non-essential capabilities into later phases.</p>'''
+          if old not in s: raise SystemExit('scope evidence copy not found')
+          s=s.replace(old,new,1)
+          s=s.replace('''<figcaption><strong>Raw requirements:</strong> the brief described capabilities and information needs; I still had to decide how they became a coherent first product.</figcaption>''','''<figcaption><strong>Starting point:</strong> user stories described the required capabilities; my role was to decide what belonged in the first release.</figcaption>''',1)
+          s=s.replace("setText('#mvp-title', 'Turn the user stories into an operational MVP');","setText('#mvp-title', 'Turn a broad brief into a focused MVP');",1)
+          s=s.replace("setText('#mvp-title + p', 'The requirements described more capability than the first product needed. I separated the actions required to operate a placement from valuable but non-essential future features, giving the MVP a clear operational backbone.');","setText('#mvp-title + p', 'I prioritised the workflows placement teams needed to run the service day to day, then separated valuable but non-essential capabilities into later phases.');",1)
+          p.write_text(s)
+          PY
+          rm .github/workflows/tidy-placepath-scope-once.yml
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add assets/js/site-header-base.js .github/workflows/tidy-placepath-scope-once.yml
+          git commit -m "Simplify PlacePath scope section"
+          git push
