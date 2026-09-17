@@ -155,7 +155,7 @@
             display: grid;
             grid-template-columns: minmax(0, 1fr) minmax(320px, .9fr);
             gap: clamp(28px, 4vw, 52px);
-            align-items: center;
+            align-items: start;
             margin: 32px 0 28px;
             padding: 0;
             border: 0;
@@ -302,12 +302,10 @@
         evidence.innerHTML = `
           <div class="placepath-evidence__copy">
             <p class="placepath-evidence__eyebrow">The decision</p>
-            <h3>Focus the first release on running a placement</h3>
-            <p>The brief contained more capability than the first product needed. I prioritised the workflows placement teams needed day to day, and moved valuable but non-essential capabilities into later phases.</p>
+            <p>The brief contained more capability than the first product needed. User stories described the required capabilities; my role was to decide what belonged in the first release. I prioritised the workflows placement teams needed to run the service day to day, then separated valuable but non-essential capabilities into later phases.</p>
           </div>
           <figure>
             <img src="../Placepath_UserStories.png" alt="PlacePath user stories showing the requirements used to define the first release" loading="lazy" decoding="async">
-            <figcaption><strong>Starting point:</strong> user stories described the required capabilities; my role was to decide what belonged in the first release.</figcaption>
           </figure>
         `;
 
@@ -399,7 +397,7 @@
 
     setText('section[aria-labelledby="mvp-title"] > .section-label', '02 · Decision 01 · Scope');
     setText('#mvp-title', 'Turn a broad brief into a focused MVP');
-    setText('#mvp-title + p', 'I prioritised the workflows placement teams needed to run the service day to day, then separated valuable but non-essential capabilities into later phases.');
+    document.querySelector('#mvp-title + p')?.remove();
 
     setText('section[aria-labelledby="evolution-title"] > .section-label', '03 · Decision 02 · Structure');
     setText('#evolution-title', 'Create a product model from the requirements');
