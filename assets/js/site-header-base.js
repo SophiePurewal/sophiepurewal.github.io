@@ -349,7 +349,7 @@
                 <p>I explored the information architecture, navigation and core interactions before adding visual detail.</p>
               </div>
               <figure>
-                <img src="${assetBase}placepath-low-fidelity-plan-placement.webp" alt="PlacePath low-fidelity placement planning wireframe" loading="lazy" decoding="async">
+                <img src="../assets/case-studies/placepath/low-fi-01-verified-3fb9263f.png" alt="Annotated low-fidelity placement-planning wireframe showing navigation, information hierarchy and screen behaviour" loading="lazy" decoding="async">
               </figure>
             </div>
             <div class="placepath-process-step">
