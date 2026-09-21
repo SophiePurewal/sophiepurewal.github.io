@@ -826,8 +826,9 @@
     .global-pin__ring { fill:none; stroke:#8D8D8D; stroke-width:1.5; opacity:.35; transform-box:fill-box; transform-origin:center; animation:globalPulse 2.8s ease-out infinite; }
     .global-pin text { font:600 12px Inter,sans-serif; fill:#555; letter-spacing:.04em; }
     @keyframes globalPulse { 0%{transform:scale(.65);opacity:.55} 70%,100%{transform:scale(2.2);opacity:0} }
-    .global-card { position:absolute; width:min(360px,calc(100% - 32px)); background:var(--page-surface-raised); border:1px solid var(--page-border); box-shadow:0 18px 45px rgba(23,32,42,.14); padding:22px; display:none; z-index:4; }
-    .global-card.open { display:block; }
+    .global-card { position:absolute; width:min(360px,calc(100% - 32px)); background:var(--page-surface-raised); border:1px solid var(--page-border); box-shadow:0 18px 45px rgba(23,32,42,.14); padding:22px; display:block; z-index:4; opacity:0; visibility:hidden; pointer-events:none; transform:translateY(4px); transition:opacity 140ms ease, transform 140ms ease, visibility 0s linear 140ms; }
+    .global-card.open { opacity:1; visibility:visible; pointer-events:auto; transform:translateY(0); transition:opacity 140ms ease, transform 140ms ease, visibility 0s; }
+    .global-card.switching { opacity:0; transform:translateY(2px); }
     .global-card__head { display:flex; gap:14px; align-items:center; margin-bottom:13px; }
     .global-card__avatar { width:58px; height:58px; border-radius:50%; object-fit:cover; border:3px solid #f0eded; }
     .global-card h3 { font-size:18px; color:var(--page-heading); margin:0 0 4px; }
@@ -1213,22 +1214,31 @@
       const card=document.getElementById("globalCard"), shell=document.getElementById("globalMapShell");
       if(!card || !shell) return;
       const title=document.getElementById("globalCardTitle"), meta=document.getElementById("globalCardMeta"), body=document.getElementById("globalCardBody");
-      function show(key,anchor){
+      let activeKey=null, switchTimer=null;
+      function render(key,anchor){
         const d=data[key]; if(!d) return;
-        title.textContent=d.title; meta.textContent=d.meta; body.textContent=d.body; card.classList.add("open");
+        title.textContent=d.title; meta.textContent=d.meta; body.textContent=d.body;
         if(innerWidth>720){
           const r=anchor.getBoundingClientRect(),s=shell.getBoundingClientRect();
           const left=Math.min(Math.max(r.left-s.left+25,18),Math.max(18,s.width-378));
           const top=Math.min(Math.max(r.top-s.top-40,18),Math.max(18,s.height-220));
           card.style.left=left+"px"; card.style.top=top+"px";
         }
+        activeKey=key; card.classList.remove("switching"); card.classList.add("open");
+      }
+      function show(key,anchor){
+        clearTimeout(switchTimer);
+        if(card.classList.contains("open") && activeKey!==key){
+          card.classList.add("switching");
+          switchTimer=setTimeout(()=>render(key,anchor),90);
+        } else render(key,anchor);
       }
       document.querySelectorAll("[data-global-key]").forEach(el=>{
         el.addEventListener("click",()=>show(el.dataset.globalKey,el));
         el.addEventListener("keydown",e=>{if(e.key==="Enter"||e.key===" "){e.preventDefault();show(el.dataset.globalKey,el)}});
         if(el.classList.contains("global-pin")) el.addEventListener("mouseenter",()=>show(el.dataset.globalKey,el));
       });
-      card.querySelector(".global-card__close").addEventListener("click",()=>card.classList.remove("open"));
+      card.querySelector(".global-card__close").addEventListener("click",()=>{ clearTimeout(switchTimer); card.classList.remove("open","switching"); activeKey=null; });
     })();
   </script>
 
