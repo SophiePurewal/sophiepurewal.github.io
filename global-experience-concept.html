@@ -14,16 +14,16 @@ main{width:min(1440px,calc(100% - 48px));margin:auto;padding:72px 0 96px}
 .eyebrow{font-size:12px;font-weight:700;letter-spacing:.13em;text-transform:uppercase;color:#143D59;margin:0 0 14px}
 h1{font-size:clamp(42px,4.4vw,58px);line-height:1.05;letter-spacing:-.055em;color:var(--ink);margin:0 0 18px;white-space:nowrap}
 .intro{font-size:18px;line-height:1.65;max-width:760px;margin:0}.copy-rule{display:none}.tagline{display:none}
-.map-shell{position:relative;background:transparent;border:0;overflow:hidden;min-height:560px}
-.world-base{position:absolute;inset:0;width:100%;height:540px;object-fit:contain;opacity:.30;filter:grayscale(1) contrast(.75);z-index:0}
+.map-shell{position:relative;background:transparent;border:0;overflow:hidden;min-height:0}
+
 .map{position:relative;z-index:1;width:100%;height:auto;display:block;overflow:visible}.map .land,.route{display:none}
 .pin{cursor:pointer;outline:none}.pin:focus{outline:none}.pin:focus-visible circle.core{stroke:#777;stroke-width:3}.pin circle.core{fill:var(--claret);stroke:#F2F2F2;stroke-width:2}.pin circle.ring{fill:none;stroke:#8D8D8D;stroke-width:1.5;opacity:.35;transform-box:fill-box;transform-origin:center;animation:pulse 2.8s ease-out infinite}.pin text{font:600 12px Inter,sans-serif;fill:#555;letter-spacing:.04em}
 @keyframes pulse{0%{transform:scale(.65);opacity:.55}70%,100%{transform:scale(2.2);opacity:0}}
 .card{position:absolute;width:min(360px,calc(100% - 32px));background:white;border:1px solid var(--line);box-shadow:0 18px 45px rgba(23,32,42,.14);padding:22px;display:none;z-index:4}
 .card.open{display:block}.card-head{display:flex;gap:14px;align-items:center;margin-bottom:13px}.avatar{width:58px;height:58px;border-radius:50%;object-fit:cover;border:3px solid #f0eded}.card h2{font-size:18px;color:var(--ink);margin:0 0 4px}.card .meta{font-size:13px;margin:0}.card .body{font-size:14px;line-height:1.55;margin:0;color:var(--copy)}.close{position:absolute;right:12px;top:10px;border:0;background:none;font-size:20px;color:var(--copy);cursor:pointer}
-.legend{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:0;margin:48px 0 0;padding:0;border:1px solid var(--line);background:#fff}.legend button{min-width:0;padding:36px 40px;text-align:left;border:0;border-right:1px solid var(--line);background:#fff;cursor:pointer;font:inherit}.legend button+button{padding-left:40px}.legend button:last-child{border-right:0}.legend strong{display:block;margin:0 0 12px;font-size:40px;line-height:1;font-weight:700;letter-spacing:-.04em;color:var(--claret);white-space:nowrap}.legend span{display:block;max-width:24ch;font-size:18px;line-height:1.45;font-weight:700;color:var(--copy)}
+.legend{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:0;margin:12px 0 0;padding:0;border:1px solid var(--line);background:#fff}.legend button{min-width:0;padding:36px 40px;text-align:left;border:0;border-right:1px solid var(--line);background:#fff;cursor:pointer;font:inherit}.legend button+button{padding-left:40px}.legend button:last-child{border-right:0}.legend strong{display:block;margin:0 0 12px;font-size:40px;line-height:1;font-weight:700;letter-spacing:-.04em;color:var(--claret);white-space:nowrap}.legend span{display:block;max-width:24ch;font-size:18px;line-height:1.45;font-weight:700;color:var(--copy)}
 .note{font-size:13px;margin:18px 0 0;color:#7b8490}
-@media(max-width:980px){.hero-row{grid-template-columns:1fr}.copy-block{padding-bottom:0}h1{white-space:normal}.map-shell{min-height:460px}}@media(max-width:720px){main{width:calc(100% - 32px);padding:52px 0 80px}.nav{width:calc(100% - 32px)}h1{font-size:42px}.copy-block{padding-bottom:28px}.map-wrap{overflow:hidden}.map-shell{min-height:390px;width:760px;transform:translateX(-120px)}.world-base{height:380px}.map{width:760px}.legend{grid-template-columns:1fr;margin-top:32px}.legend button,.legend button+button{padding:28px 30px;border-right:0;border-bottom:1px solid var(--line);margin:0}.legend button:last-child{border-bottom:0}.legend strong{font-size:36px}.card{left:136px!important;top:auto!important;bottom:16px}.intro{font-size:17px}}
+@media(max-width:980px){.hero-row{grid-template-columns:1fr}.copy-block{padding-bottom:0}h1{white-space:normal}.map-shell{min-height:460px}}@media(max-width:720px){main{width:calc(100% - 32px);padding:52px 0 80px}.nav{width:calc(100% - 32px)}h1{font-size:42px}.copy-block{padding-bottom:28px}.map-wrap{overflow:hidden}.map-shell{min-height:390px;width:760px;transform:translateX(-120px)}.map{width:760px}.legend{grid-template-columns:1fr;margin-top:12px}.legend button,.legend button+button{padding:28px 30px;border-right:0;border-bottom:1px solid var(--line);margin:0}.legend button:last-child{border-bottom:0}.legend strong{font-size:36px}.card{left:136px!important;top:auto!important;bottom:16px}.intro{font-size:17px}}
 @media(prefers-reduced-motion:reduce){.pin circle.ring{animation:none}}
 </style></head>
 <body><header><div class="nav"><a class="brand" href="index.html">Sophie Purewal</a><a class="back" href="index.html">← Back to portfolio</a></div></header>
@@ -32,8 +32,12 @@ h1{font-size:clamp(42px,4.4vw,58px);line-height:1.05;letter-spacing:-.055em;colo
 <div class="hero-row"><div class="copy-block"><p class="eyebrow">Global experience</p><h1>Designing across borders.</h1>
 <p class="intro">Living and working internationally has shaped how I approach design — with curiosity about culture, context and the people behind the interface.</p></div>
 <div class="map-wrap"><div class="map-shell" id="mapShell">
-<img class="world-base" src="https://upload.wikimedia.org/wikipedia/commons/8/80/Blank_world_map_Robinson_projection.svg" alt="" aria-hidden="true">
 <svg class="map" viewBox="0 0 1180 570" role="img" aria-label="World map showing Sophie's international experience">
+<defs>
+  <pattern id="worldDots" width="7" height="7" patternUnits="userSpaceOnUse"><circle cx="2.3" cy="2.3" r="1.55" fill="#A9ADB2"/></pattern>
+</defs>
+<!-- recognisable Robinson-style continent silhouettes, rendered as a dotted field -->
+<path fill="url(#worldDots)" opacity=".78" d="M79 170l31-35 47-20 54-7 36-24 70-6 46 18 22 28-10 29-34 14-18 28-38 7-26 28-42-5-29-22-42-1-32-18-36-14zm195 84 34 12 26 38 14 57-9 56-26 66-21 30-13-42 5-52-17-42-14-53 5-44 16-26zM475 123l31-24 49-8 40 14 22 25-14 22-37 2-26 18-29-5-23-19-13-25zm70 72 46 7 35 29 20 48-5 63-24 61-35 48-30-24-16-57 2-52-21-47 7-47 21-29zM605 132l54-35 71-16 75 9 53-9 78 18 70 30 48 39 12 35-30 22-51-5-39 18-52-8-35 23-50-6-38 21-44-10-33-35-45-7-32-35 18-49zm276 178 28 4 20 22-9 23-26-2-18-18 5-29zm83 104 51 2 43 25 14 37-27 24-53-5-34-31 6-52z"/>
 <g class="pin" tabindex="0" role="button" data-key="yahoo" transform="translate(574 166)"><circle class="ring" r="10"/><circle class="core" r="6"/><text x="12" y="-10">LONDON</text></g>
 <g class="pin" tabindex="0" role="button" data-key="evolve" transform="translate(190 218)"><circle class="ring" r="10"/><circle class="core" r="6"/><text x="12" y="-10">LOS ANGELES</text></g>
 <g class="pin" tabindex="0" role="button" data-key="evolve" transform="translate(270 275)"><circle class="ring" r="10"/><circle class="core" r="6"/><text x="12" y="22">MEXICO</text></g>
@@ -62,6 +66,12 @@ function show(key,anchor){
  card.classList.add("open");
  if(innerWidth>720){const r=anchor.getBoundingClientRect(),s=shell.getBoundingClientRect();let left=Math.min(Math.max(r.left-s.left+25,18),s.width-378);let top=Math.min(Math.max(r.top-s.top-40,18),s.height-220);card.style.left=left+"px";card.style.top=top+"px";}
 }
-document.querySelectorAll("[data-key]").forEach(el=>{el.addEventListener("click",()=>show(el.dataset.key,el));el.addEventListener("keydown",e=>{if(e.key==="Enter"||e.key===" "){e.preventDefault();show(el.dataset.key,el)}})});
+document.querySelectorAll("[data-key]").forEach(el=>{
+ el.addEventListener("click",()=>show(el.dataset.key,el));
+ el.addEventListener("keydown",e=>{if(e.key==="Enter"||e.key===" "){e.preventDefault();show(el.dataset.key,el)}});
+ if(el.classList.contains("pin")){
+   el.addEventListener("mouseenter",()=>show(el.dataset.key,el));
+ }
+});
 document.querySelector(".close").addEventListener("click",()=>card.classList.remove("open"));
 </script></body></html>
