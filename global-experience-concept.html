@@ -1,0 +1,69 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Global Experience Concept — Sophie Purewal</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{--claret:#920E38;--ink:#17202A;--copy:#5D6875;--line:#D8DEE5;--paper:#FEFEFE;--soft:#F7F5F3}
+*{box-sizing:border-box} body{margin:0;font-family:Inter,system-ui,sans-serif;color:var(--copy);background:var(--paper)}
+header{height:76px;border-bottom:1px solid var(--line);display:flex;align-items:center}.nav{width:min(1180px,calc(100% - 48px));margin:auto;display:flex;justify-content:space-between;align-items:center}.brand{font-weight:700;color:var(--claret);text-decoration:none}.back{color:var(--ink);text-decoration:none;font-size:14px;font-weight:600}
+main{width:min(1180px,calc(100% - 48px));margin:auto;padding:88px 0 110px}
+.eyebrow{font-size:12px;font-weight:700;letter-spacing:.13em;text-transform:uppercase;color:#143D59;margin:0 0 14px}
+h1{font-size:clamp(42px,6vw,70px);line-height:1.02;letter-spacing:-.055em;color:var(--ink);margin:0 0 22px;max-width:760px}
+.intro{font-size:18px;line-height:1.65;max-width:720px;margin:0 0 54px}
+.map-shell{position:relative;background:var(--soft);border:1px solid var(--line);overflow:hidden;min-height:570px}
+.map{width:100%;height:auto;display:block}.land{fill:#E9E5E1;stroke:#D5D0CB;stroke-width:1.2}
+.route{fill:none;stroke:#C9C1BC;stroke-width:1.1;stroke-dasharray:4 6}
+.pin{cursor:pointer}.pin circle.core{fill:var(--claret)}.pin circle.ring{fill:none;stroke:var(--claret);stroke-width:2;opacity:.35;transform-box:fill-box;transform-origin:center;animation:pulse 2.8s ease-out infinite}.pin text{font:600 12px Inter,sans-serif;fill:var(--ink);letter-spacing:.04em}
+@keyframes pulse{0%{transform:scale(.65);opacity:.55}70%,100%{transform:scale(2.2);opacity:0}}
+.card{position:absolute;width:min(360px,calc(100% - 32px));background:white;border:1px solid var(--line);box-shadow:0 18px 45px rgba(23,32,42,.14);padding:22px;display:none;z-index:4}
+.card.open{display:block}.card-head{display:flex;gap:14px;align-items:center;margin-bottom:13px}.avatar{width:58px;height:58px;border-radius:50%;object-fit:cover;border:3px solid #f0eded}.card h2{font-size:18px;color:var(--ink);margin:0 0 4px}.card .meta{font-size:13px;margin:0}.card .body{font-size:14px;line-height:1.55;margin:0;color:var(--copy)}.close{position:absolute;right:12px;top:10px;border:0;background:none;font-size:20px;color:var(--copy);cursor:pointer}
+.legend{display:grid;grid-template-columns:repeat(3,1fr);border:1px solid var(--line);border-top:0}.legend button{padding:22px;text-align:left;border:0;border-right:1px solid var(--line);background:white;cursor:pointer;font:inherit}.legend button:last-child{border-right:0}.legend strong{display:block;color:var(--ink);font-size:15px;margin-bottom:5px}.legend span{font-size:13px;color:var(--copy)}
+.note{font-size:13px;margin:18px 0 0;color:#7b8490}
+@media(max-width:720px){main{width:calc(100% - 32px);padding:60px 0 80px}.nav{width:calc(100% - 32px)}.map-shell{min-height:420px}.map{min-width:780px;transform:translateX(-145px)}.legend{grid-template-columns:1fr}.legend button{border-right:0;border-bottom:1px solid var(--line)}.legend button:last-child{border-bottom:0}.card{left:16px!important;top:auto!important;bottom:16px}.intro{font-size:17px}}
+@media(prefers-reduced-motion:reduce){.pin circle.ring{animation:none}}
+</style></head>
+<body><header><div class="nav"><a class="brand" href="index.html">Sophie Purewal</a><a class="back" href="index.html">← Back to portfolio</a></div></header>
+<main>
+<p class="eyebrow">Global experience</p><h1>Designing across borders.</h1>
+<p class="intro">Living and working internationally has shaped how I approach design — with curiosity about culture, context and the people behind the interface.</p>
+<section aria-label="Interactive map of international experience">
+<div class="map-shell" id="mapShell">
+<svg class="map" viewBox="0 0 1180 570" role="img" aria-label="Stylised world map showing Sophie's international experience">
+<path class="land" d="M80 130 L150 80 270 88 330 130 300 175 235 190 205 245 150 225 115 180Z M245 250 L300 270 325 355 300 455 255 420 235 335Z"/>
+<path class="land" d="M500 105 L560 82 635 100 650 135 610 155 590 205 550 215 520 175Z M555 220 L640 215 685 285 655 410 610 470 565 410 540 315Z"/>
+<path class="land" d="M650 115 L760 75 900 95 1035 145 1065 210 1000 245 920 220 850 250 770 215 700 225 640 180Z M900 380 L1010 390 1050 450 985 485 915 455Z"/>
+<path class="route" d="M560 142 Q350 80 170 180"/><path class="route" d="M560 142 Q440 150 280 245"/><path class="route" d="M560 142 Q620 120 705 145"/><path class="route" d="M560 142 Q780 90 960 185"/><path class="route" d="M560 142 Q760 180 850 300"/>
+<g class="pin" tabindex="0" role="button" data-key="yahoo" transform="translate(560 142)"><circle class="ring" r="10"/><circle class="core" r="6"/><text x="12" y="-10">LONDON</text></g>
+<g class="pin" tabindex="0" role="button" data-key="evolve" transform="translate(170 180)"><circle class="ring" r="10"/><circle class="core" r="6"/><text x="12" y="-10">LOS ANGELES</text></g>
+<g class="pin" tabindex="0" role="button" data-key="evolve" transform="translate(280 245)"><circle class="ring" r="10"/><circle class="core" r="6"/><text x="12" y="22">MEXICO</text></g>
+<g class="pin" tabindex="0" role="button" data-key="evolve" transform="translate(705 145)"><circle class="ring" r="10"/><circle class="core" r="6"/><text x="12" y="22">SERBIA</text></g>
+<g class="pin" tabindex="0" role="button" data-key="japan" transform="translate(960 185)"><circle class="ring" r="10"/><circle class="core" r="6"/><text x="12" y="-10">JAPAN</text></g>
+<g class="pin" tabindex="0" role="button" data-key="evolve" transform="translate(850 300)"><circle class="ring" r="10"/><circle class="core" r="6"/><text x="12" y="22">PHILIPPINES</text></g>
+</svg>
+<article class="card" id="card" aria-live="polite"><button class="close" aria-label="Close">×</button><div class="card-head"><img class="avatar" src="portfolio_image.png" alt=""><div><h2 id="cardTitle"></h2><p class="meta" id="cardMeta"></p></div></div><p class="body" id="cardBody"></p></article>
+</div>
+<div class="legend" aria-label="Experience groups">
+<button data-key="japan"><strong>Japan</strong><span>Lived and worked in Japan for two years</span></button>
+<button data-key="yahoo"><strong>Yahoo!</strong><span>P&amp;G Team Mum Olympic sponsorship across multiple markets</span></button>
+<button data-key="evolve"><strong>Evolve Media</strong><span>Collaborated across London, Los Angeles, Mexico, Serbia and the Philippines</span></button>
+</div>
+<p class="note">Prototype only — this page is not linked from the live portfolio navigation.</p>
+</section></main>
+<script>
+const data={
+ japan:{title:"Japan",meta:"Lived and worked internationally",body:"I spent two years living and working in Japan. Being immersed in a different culture and language strengthened my adaptability, curiosity and awareness of how context changes the way people understand and experience things."},
+ yahoo:{title:"Yahoo!",meta:"Multi-market campaign work",body:"At Yahoo! I worked prominently on the P&G Team Mum Olympic sponsorship across multiple markets — experience that helped build my understanding of designing and delivering work for audiences beyond a single market."},
+ evolve:{title:"Evolve Media",meta:"Distributed international collaboration",body:"At Evolve Media I coordinated campaigns with design and engineering teams in London, Los Angeles, Mexico, Serbia and the Philippines, working across locations, disciplines and ways of working."}
+};
+const card=document.getElementById("card"),shell=document.getElementById("mapShell");
+function show(key,anchor){
+ const d=data[key]; document.getElementById("cardTitle").textContent=d.title;document.getElementById("cardMeta").textContent=d.meta;document.getElementById("cardBody").textContent=d.body;
+ card.classList.add("open");
+ if(innerWidth>720){const r=anchor.getBoundingClientRect(),s=shell.getBoundingClientRect();let left=Math.min(Math.max(r.left-s.left+25,18),s.width-378);let top=Math.min(Math.max(r.top-s.top-40,18),s.height-220);card.style.left=left+"px";card.style.top=top+"px";}
+}
+document.querySelectorAll("[data-key]").forEach(el=>{el.addEventListener("click",()=>show(el.dataset.key,el));el.addEventListener("keydown",e=>{if(e.key==="Enter"||e.key===" "){e.preventDefault();show(el.dataset.key,el)}})});
+document.querySelector(".close").addEventListener("click",()=>card.classList.remove("open"));
+</script></body></html>
