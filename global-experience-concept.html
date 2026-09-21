@@ -16,7 +16,7 @@ h1{font-size:clamp(42px,4.4vw,58px);line-height:1.05;letter-spacing:-.055em;colo
 .intro{font-size:18px;line-height:1.65;max-width:760px;margin:0}.copy-rule{display:none}.tagline{display:none}
 .map-shell{position:relative;background:transparent;border:0;overflow:hidden;min-height:0}
 
-.map{position:relative;z-index:1;width:100%;height:auto;display:block;overflow:visible}.map .land,.route{display:none}
+.map{position:relative;z-index:1;width:100%;height:auto;display:block;overflow:visible}.supplied-world-map{opacity:.72}.map .land,.route{display:none}
 .pin{cursor:pointer;outline:none}.pin:focus{outline:none}.pin:focus-visible circle.core{stroke:#777;stroke-width:3}.pin circle.core{fill:var(--claret);stroke:#F2F2F2;stroke-width:2}.pin circle.ring{fill:none;stroke:#8D8D8D;stroke-width:1.5;opacity:.35;transform-box:fill-box;transform-origin:center;animation:pulse 2.8s ease-out infinite}.pin text{font:600 12px Inter,sans-serif;fill:#555;letter-spacing:.04em}
 @keyframes pulse{0%{transform:scale(.65);opacity:.55}70%,100%{transform:scale(2.2);opacity:0}}
 .card{position:absolute;width:min(360px,calc(100% - 32px));background:white;border:1px solid var(--line);box-shadow:0 18px 45px rgba(23,32,42,.14);padding:22px;display:none;z-index:4}
@@ -33,7 +33,7 @@ h1{font-size:clamp(42px,4.4vw,58px);line-height:1.05;letter-spacing:-.055em;colo
 <p class="intro">Living and working internationally has shaped how I approach design — with curiosity about culture, context and the people behind the interface.</p></div>
 <div class="map-wrap"><div class="map-shell" id="mapShell">
 <svg class="map" viewBox="0 0 1774 887" role="img" aria-label="World map showing Sophie's international experience">
-<g id="worldDots" fill="#94A0AE" opacity=".72"></g>
+<image class="supplied-world-map" href="assets/world-map-dotted.svg" x="0" y="0" width="1774" height="887" preserveAspectRatio="xMidYMid meet"/>
 <g class="pin" tabindex="0" role="button" data-key="yahoo" transform="translate(842 205)"><circle class="ring" r="10"/><circle class="core" r="6"/><text x="12" y="-10">LONDON</text></g>
 <g class="pin" tabindex="0" role="button" data-key="evolve" transform="translate(300 315)"><circle class="ring" r="10"/><circle class="core" r="6"/><text x="12" y="-10">LOS ANGELES</text></g>
 <g class="pin" tabindex="0" role="button" data-key="evolve" transform="translate(420 405)"><circle class="ring" r="10"/><circle class="core" r="6"/><text x="12" y="22">MEXICO</text></g>
@@ -51,19 +51,6 @@ h1{font-size:clamp(42px,4.4vw,58px);line-height:1.05;letter-spacing:-.055em;colo
 <p class="note">Prototype only — this page is not linked from the live portfolio navigation.</p>
 </section></main>
 <script>
-const worldRows="5:57-65;6:52-67,69,94-95;7:52-57,59-60,62,64,91-92;8:51-66,78-81;9:38-39,42,46,49,51-65,79-80,82,111,127;10:40,43,45,51-66,79-80,97,107,110-112,126-128;11:30-32,45,51-66,94-95,112-113,125-130;12:32,42-45,53-66,93-94,113,126-127;13:29-31,38,40,54-64,93,103-105,111-116,127,129,144;14:29-32,38,42-43,54-63,98,103-107,110-117,120,127-131,142-143;15:16-18,29,31-34,55-63,81-84,93,97-98,103-107,110-117,127-132,139-146;16:15-22,26-27,32-34,37,40,54,56-62,79-86,91,95-96,98,102-106,109-117,127-133,139-147;17:14-33,39,41,43,49-50,55-61,79-88,90,92-98,102-117,121,126-134,139-147;18:14-33,35-43,48-51,54-59,64,66-67,78-85,88,90-98,102-118,126-133,138-144;19:13-33,35-39,41-42,49-50,55-58,66-67,77-81,83-86,89-99,103-117,119,126-133,137-144;20:14-40,43,48-50,55-58,76-80,82-87,90-99,102-122,126-133,137-145;21:14-39,49,56-57,75-79,82-86,89-98,102-120,125-133,135,137,139-142;22:14-16,18,22-23,26-31,36-39,75-80,82-86,89-98,102-118,122,126-133,138-139;23:16-17,26-31,39,72,76,78-79,82-86,90-98,103-106,108-117,127-129;24:14,27-30,72,78-79,82-85,91-97,109-115,127-128,137;25:27-31,51,78,80-85,91-97,104,109-115,127,137-138;26:26-31,51-52,72-73,76-86,92-97,104-105,109-115,127-130,137;27:51-52,71,75,137;28:28-31,52-53,72-73,75-85,91-97,104-105,109-115,127-130;29:29-31,50,76-85,91-92,94-98,103-105,109-116,126-128,130,134;30:28-31,38-40,42,49,73-76,78,80-84,90-91,93-98,103-117,125-127,130,133;31:28-31,36-40,42,70-74,78,81-84,90-91,93-98,103-117,122-125,130-131;32:28-45,70-73,79,81-82,84-87,90-92,94-99,102-125,129-130;33:29-31,36-42,70-72,79,81-82,84-86,89-92,94-99,102-119,123-124,130;34:29-31,37-39,41,43,71,74-77,82-83,86,90-98,102-118,120,124-125,129-130;35:30-31,36-42,71-77,87,89-98,102-120,124,127-130;36:30-32,70-78,81,87,89-99,102-118,120-121,126-127;37:36,42,70-86,90-91,94-98,102-117;38:12,31-32,35-36,69-85,89-92,94,97-99,102-120;39:33-36,41-42,68-86,90-95,102-119;40:14,33-34,36,40,67-86,90-95,102-107,109-116;41:36-37,39,49,70-86,90-94,102-106,110-114;42:39-41,69-86,91-93,102-105,110-115;43:40,70-86,90-91,103-104,112-116;44:41,47-49,68-86,93,103-104,112,114-116,123;45:50-52,69-86,90-92,104,112,115-116;46:50-53,70-72,75-86,90-91,105,123-124,140;47:50-54,76-86,90-91,105,110-111,113,119-120;48:43,49-54,77-86,90,111-114,118-119,125;49:42-43,45,49-56,77-86,89,112-113,117-119,123,126-127,142;50:17,42-43,50-58,78-86,112-113,117-119,124-127,129-130,135;51:43,50-59,78-86,113-114,118-119,122,128-131,134;52:43,50-59,79-86,114,126-127,129-132,143;53:48,50-58,79-86,115-117,130-131;54:50-57,79-86,92,145;55:49-57,78-86,91-92,124-127,130;56:20,49-57,78-86,90-92,123-127,130-131;57:20-22,48-55,78-85,90-91,95,126-131;58:23,50-54,79-85,90-91,94,126-132,141;59:25,50-54,79-85,90-91,123,126-133;60:25,50-53,79-84,91,119,122,126-133;61:50-53,80-84,126-131;62:51-52,80-83,126-127,129-132;63:45,49-51,80-83,119,125-132,143;64:49-50,81-82,118-119,126-132,143;65:49,128-132,143-145;66:49,128-132,143-144;67:45,47-48,129,142-143;68:130-131,141-142;69:130-131,140-142;70:140-141;71:139-140;72:60;73:61;74:48";
-const worldGroup=document.getElementById("worldDots");
-worldRows.split(";").forEach(row=>{
- const [yi,parts]=row.split(":"); const y=5+(+yi*11);
- parts.split(",").forEach(part=>{
-   const [a,b]=part.split("-").map(Number); const end=Number.isFinite(b)?b:a;
-   for(let xi=a;xi<=end;xi++){
-     const dot=document.createElementNS("http://www.w3.org/2000/svg","circle");
-     dot.setAttribute("cx",5+xi*11); dot.setAttribute("cy",y); dot.setAttribute("r","2.35");
-     worldGroup.appendChild(dot);
-   }
- });
-});
 const data={
  japan:{title:"Japan",meta:"Lived and worked internationally",body:"I spent two years living and working in Japan. Being immersed in a different culture and language strengthened my adaptability, curiosity and awareness of how context changes the way people understand and experience things."},
  yahoo:{title:"Yahoo!",meta:"Multi-market campaign work",body:"At Yahoo! I worked prominently on the P&G Team Mum Olympic sponsorship across multiple markets — experience that helped build my understanding of designing and delivering work for audiences beyond a single market."},
