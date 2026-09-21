@@ -9,43 +9,40 @@
 :root{--claret:#920E38;--ink:#17202A;--copy:#5D6875;--line:#D8DEE5;--paper:#FEFEFE;--soft:#F7F5F3}
 *{box-sizing:border-box} body{margin:0;font-family:Inter,system-ui,sans-serif;color:var(--copy);background:var(--paper)}
 header{height:76px;border-bottom:1px solid var(--line);display:flex;align-items:center}.nav{width:min(1180px,calc(100% - 48px));margin:auto;display:flex;justify-content:space-between;align-items:center}.brand{font-weight:700;color:var(--claret);text-decoration:none}.back{color:var(--ink);text-decoration:none;font-size:14px;font-weight:600}
-main{width:min(1180px,calc(100% - 48px));margin:auto;padding:88px 0 110px}
+main{width:min(1440px,calc(100% - 48px));margin:auto;padding:72px 0 96px}
+.hero-row{display:grid;grid-template-columns:minmax(420px,.72fr) minmax(650px,1.28fr);gap:28px;align-items:center}.copy-block{padding:26px 0}.map-wrap{position:relative;min-width:0}
 .eyebrow{font-size:12px;font-weight:700;letter-spacing:.13em;text-transform:uppercase;color:#143D59;margin:0 0 14px}
-h1{font-size:clamp(42px,6vw,70px);line-height:1.02;letter-spacing:-.055em;color:var(--ink);margin:0 0 22px;max-width:760px}
-.intro{font-size:18px;line-height:1.65;max-width:720px;margin:0 0 54px}
-.map-shell{position:relative;background:#F2F2F2;border:1px solid #D7D7D7;overflow:hidden;min-height:570px}
-.map{width:100%;height:auto;display:block}.land{fill:url(#dotPattern);stroke:none}
-.route{fill:none;stroke:#BFC1C3;stroke-width:1;stroke-dasharray:3 7;opacity:.7}
+h1{font-size:clamp(42px,4.2vw,66px);line-height:1.02;letter-spacing:-.055em;color:var(--ink);margin:0 0 22px;white-space:nowrap}
+.intro{font-size:18px;line-height:1.65;max-width:470px;margin:0}.copy-rule{width:48px;height:3px;background:var(--claret);margin:32px 0}.tagline{font-size:18px;line-height:1.5;margin:0;color:#77818c}
+.map-shell{position:relative;background:transparent;border:0;overflow:visible;min-height:500px}
+.world-base{position:absolute;inset:10px 0 0;width:100%;height:470px;object-fit:contain;opacity:.27;filter:grayscale(1) contrast(.72);z-index:0}
+.map{position:relative;z-index:1;width:100%;height:auto;display:block;overflow:visible}.map .land,.route{display:none}
 .pin{cursor:pointer;outline:none}.pin:focus{outline:none}.pin:focus-visible circle.core{stroke:#777;stroke-width:3}.pin circle.core{fill:var(--claret);stroke:#F2F2F2;stroke-width:2}.pin circle.ring{fill:none;stroke:#8D8D8D;stroke-width:1.5;opacity:.35;transform-box:fill-box;transform-origin:center;animation:pulse 2.8s ease-out infinite}.pin text{font:600 12px Inter,sans-serif;fill:#555;letter-spacing:.04em}
 @keyframes pulse{0%{transform:scale(.65);opacity:.55}70%,100%{transform:scale(2.2);opacity:0}}
 .card{position:absolute;width:min(360px,calc(100% - 32px));background:white;border:1px solid var(--line);box-shadow:0 18px 45px rgba(23,32,42,.14);padding:22px;display:none;z-index:4}
 .card.open{display:block}.card-head{display:flex;gap:14px;align-items:center;margin-bottom:13px}.avatar{width:58px;height:58px;border-radius:50%;object-fit:cover;border:3px solid #f0eded}.card h2{font-size:18px;color:var(--ink);margin:0 0 4px}.card .meta{font-size:13px;margin:0}.card .body{font-size:14px;line-height:1.55;margin:0;color:var(--copy)}.close{position:absolute;right:12px;top:10px;border:0;background:none;font-size:20px;color:var(--copy);cursor:pointer}
-.legend{display:grid;grid-template-columns:repeat(3,1fr);border:1px solid var(--line);border-top:0}.legend button{padding:22px;text-align:left;border:0;border-right:1px solid var(--line);background:white;cursor:pointer;font:inherit}.legend button:last-child{border-right:0}.legend strong{display:block;color:var(--ink);font-size:15px;margin-bottom:5px}.legend span{font-size:13px;color:var(--copy)}
+.legend{display:grid;grid-template-columns:repeat(3,1fr);margin-top:34px;border-top:1px solid var(--line)}.legend button{padding:22px 24px 0 0;text-align:left;border:0;border-right:1px solid var(--line);background:white;cursor:pointer;font:inherit;margin-top:20px}.legend button+button{padding-left:24px}.legend button:last-child{border-right:0}.legend strong{display:block;color:var(--ink);font-size:15px;margin-bottom:5px}.legend span{font-size:13px;color:var(--copy)}
 .note{font-size:13px;margin:18px 0 0;color:#7b8490}
-@media(max-width:720px){main{width:calc(100% - 32px);padding:60px 0 80px}.nav{width:calc(100% - 32px)}.map-shell{min-height:420px}.map{min-width:780px;transform:translateX(-145px)}.legend{grid-template-columns:1fr}.legend button{border-right:0;border-bottom:1px solid var(--line)}.legend button:last-child{border-bottom:0}.card{left:16px!important;top:auto!important;bottom:16px}.intro{font-size:17px}}
+@media(max-width:980px){.hero-row{grid-template-columns:1fr}.copy-block{padding-bottom:0}h1{white-space:normal}.map-shell{min-height:460px}}@media(max-width:720px){main{width:calc(100% - 32px);padding:52px 0 80px}.nav{width:calc(100% - 32px)}h1{font-size:42px}.map-wrap{overflow:hidden}.map-shell{min-height:390px;width:760px;transform:translateX(-120px)}.world-base{height:380px}.map{width:760px}.legend{grid-template-columns:1fr}.legend button,.legend button+button{padding:18px 0;border-right:0;border-bottom:1px solid var(--line);margin:0}.legend button:last-child{border-bottom:0}.card{left:136px!important;top:auto!important;bottom:16px}.intro{font-size:17px}}
 @media(prefers-reduced-motion:reduce){.pin circle.ring{animation:none}}
 </style></head>
 <body><header><div class="nav"><a class="brand" href="index.html">Sophie Purewal</a><a class="back" href="index.html">← Back to portfolio</a></div></header>
 <main>
-<p class="eyebrow">Global experience</p><h1>Designing across borders.</h1>
-<p class="intro">Living and working internationally has shaped how I approach design — with curiosity about culture, context and the people behind the interface.</p>
 <section aria-label="Interactive map of international experience">
-<div class="map-shell" id="mapShell">
-<svg class="map" viewBox="0 0 1180 570" role="img" aria-label="Stylised world map showing Sophie's international experience">
-<defs><pattern id="dotPattern" width="8" height="8" patternUnits="userSpaceOnUse"><circle cx="3" cy="3" r="2.15" fill="#A9AAAC"/></pattern></defs>
-<path class="land" d="M80 130 L150 80 270 88 330 130 300 175 235 190 205 245 150 225 115 180Z M245 250 L300 270 325 355 300 455 255 420 235 335Z"/>
-<path class="land" d="M500 105 L560 82 635 100 650 135 610 155 590 205 550 215 520 175Z M555 220 L640 215 685 285 655 410 610 470 565 410 540 315Z"/>
-<path class="land" d="M650 115 L760 75 900 95 1035 145 1065 210 1000 245 920 220 850 250 770 215 700 225 640 180Z M900 380 L1010 390 1050 450 985 485 915 455Z"/>
-<path class="route" d="M560 142 Q350 80 170 180"/><path class="route" d="M560 142 Q440 150 280 245"/><path class="route" d="M560 142 Q620 120 705 145"/><path class="route" d="M560 142 Q780 90 960 185"/><path class="route" d="M560 142 Q760 180 850 300"/>
-<g class="pin" tabindex="0" role="button" data-key="yahoo" transform="translate(560 142)"><circle class="ring" r="10"/><circle class="core" r="6"/><text x="12" y="-10">LONDON</text></g>
-<g class="pin" tabindex="0" role="button" data-key="evolve" transform="translate(170 180)"><circle class="ring" r="10"/><circle class="core" r="6"/><text x="12" y="-10">LOS ANGELES</text></g>
-<g class="pin" tabindex="0" role="button" data-key="evolve" transform="translate(280 245)"><circle class="ring" r="10"/><circle class="core" r="6"/><text x="12" y="22">MEXICO</text></g>
-<g class="pin" tabindex="0" role="button" data-key="evolve" transform="translate(705 145)"><circle class="ring" r="10"/><circle class="core" r="6"/><text x="12" y="22">SERBIA</text></g>
-<g class="pin" tabindex="0" role="button" data-key="japan" transform="translate(960 185)"><circle class="ring" r="10"/><circle class="core" r="6"/><text x="12" y="-10">JAPAN</text></g>
-<g class="pin" tabindex="0" role="button" data-key="evolve" transform="translate(850 300)"><circle class="ring" r="10"/><circle class="core" r="6"/><text x="12" y="22">PHILIPPINES</text></g>
+<div class="hero-row"><div class="copy-block"><p class="eyebrow">Global experience</p><h1>Designing across borders.</h1>
+<p class="intro">Living and working internationally has shaped how I approach design — with curiosity about culture, context and the people behind the interface.</p><div class="copy-rule"></div><p class="tagline">Different places.<br>Same curiosity.</p></div>
+<div class="map-wrap"><div class="map-shell" id="mapShell">
+<img class="world-base" src="https://upload.wikimedia.org/wikipedia/commons/8/80/Blank_world_map_Robinson_projection.svg" alt="" aria-hidden="true">
+<svg class="map" viewBox="0 0 1180 570" role="img" aria-label="World map showing Sophie's international experience">
+<g class="pin" tabindex="0" role="button" data-key="yahoo" transform="translate(574 166)"><circle class="ring" r="10"/><circle class="core" r="6"/><text x="12" y="-10">LONDON</text></g>
+<g class="pin" tabindex="0" role="button" data-key="evolve" transform="translate(190 218)"><circle class="ring" r="10"/><circle class="core" r="6"/><text x="12" y="-10">LOS ANGELES</text></g>
+<g class="pin" tabindex="0" role="button" data-key="evolve" transform="translate(270 275)"><circle class="ring" r="10"/><circle class="core" r="6"/><text x="12" y="22">MEXICO</text></g>
+<g class="pin" tabindex="0" role="button" data-key="evolve" transform="translate(655 196)"><circle class="ring" r="10"/><circle class="core" r="6"/><text x="12" y="22">SERBIA</text></g>
+<g class="pin" tabindex="0" role="button" data-key="japan" transform="translate(947 215)"><circle class="ring" r="10"/><circle class="core" r="6"/><text x="12" y="-10">JAPAN</text></g>
+<g class="pin" tabindex="0" role="button" data-key="evolve" transform="translate(875 325)"><circle class="ring" r="10"/><circle class="core" r="6"/><text x="12" y="22">PHILIPPINES</text></g>
 </svg>
 <article class="card" id="card" aria-live="polite"><button class="close" aria-label="Close">×</button><div class="card-head"><img class="avatar" src="portfolio_image.png" alt=""><div><h2 id="cardTitle"></h2><p class="meta" id="cardMeta"></p></div></div><p class="body" id="cardBody"></p></article>
-</div>
+</div></div></div>
 <div class="legend" aria-label="Experience groups">
 <button data-key="japan"><strong>Japan</strong><span>Lived and worked in Japan for two years</span></button>
 <button data-key="yahoo"><strong>Yahoo!</strong><span>P&amp;G Team Mum Olympic sponsorship across multiple markets</span></button>
