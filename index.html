@@ -810,6 +810,42 @@
       }
 
     }
+
+    /* Global experience */
+    .global-experience { width:100%; padding:96px 0; background:var(--page-surface); }
+    .global-experience__copy { width:min(var(--section-shell-max),calc(100% - var(--section-shell-gutter))); margin:0 auto; padding-bottom:42px; }
+    .global-experience__copy h2 { margin:0 0 18px; }
+    .global-experience__intro { max-width:760px; margin:0; font-size:18px; line-height:1.65; }
+    .global-experience__map-wrap { position:relative; width:min(1200px,calc(100% - var(--section-shell-gutter))); margin:0 auto; }
+    .global-experience__map-shell { position:relative; overflow:hidden; }
+    .global-experience__map { width:100%; height:auto; display:block; overflow:visible; }
+    .global-experience__map-image { opacity:1; }
+    .global-pin { cursor:pointer; outline:none; }
+    .global-pin:focus-visible .global-pin__core { stroke:#777; stroke-width:3; }
+    .global-pin__core { fill:var(--brand-claret); stroke:#F2F2F2; stroke-width:2; }
+    .global-pin__ring { fill:none; stroke:#8D8D8D; stroke-width:1.5; opacity:.35; transform-box:fill-box; transform-origin:center; animation:globalPulse 2.8s ease-out infinite; }
+    .global-pin text { font:600 12px Inter,sans-serif; fill:#555; letter-spacing:.04em; }
+    @keyframes globalPulse { 0%{transform:scale(.65);opacity:.55} 70%,100%{transform:scale(2.2);opacity:0} }
+    .global-card { position:absolute; width:min(360px,calc(100% - 32px)); background:var(--page-surface-raised); border:1px solid var(--page-border); box-shadow:0 18px 45px rgba(23,32,42,.14); padding:22px; display:none; z-index:4; }
+    .global-card.open { display:block; }
+    .global-card__head { display:flex; gap:14px; align-items:center; margin-bottom:13px; }
+    .global-card__avatar { width:58px; height:58px; border-radius:50%; object-fit:cover; border:3px solid #f0eded; }
+    .global-card h3 { font-size:18px; color:var(--page-heading); margin:0 0 4px; }
+    .global-card__meta { font-size:13px; margin:0; }
+    .global-card__body { font-size:14px; line-height:1.55; margin:0; color:var(--page-copy); }
+    .global-card__close { position:absolute; right:12px; top:10px; border:0; background:none; font-size:20px; color:var(--page-copy); cursor:pointer; }
+    .global-experience__metrics { display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); width:min(var(--section-shell-max),calc(100% - var(--section-shell-gutter))); margin:12px auto 0; padding:0; border:1px solid var(--page-border); background:var(--page-surface-raised); }
+    .global-experience__metric { min-width:0; padding:36px 40px; text-align:left; border:0; border-right:1px solid var(--page-border); background:var(--page-surface-raised); cursor:pointer; font:inherit; color:var(--page-copy); }
+    .global-experience__metric:last-child { border-right:0; }
+    .global-experience__metric strong { display:block; margin:0 0 12px; font-size:40px; line-height:1; font-weight:700; letter-spacing:-.04em; color:var(--brand-claret); white-space:nowrap; }
+    .global-experience__metric span { display:block; max-width:24ch; font-size:18px; line-height:1.45; font-weight:700; }
+    body.dark-mode .global-pin text { fill:#B7C0CE; }
+    body.dark-mode .global-pin__core { stroke:#111827; }
+    body.dark-mode .global-card__avatar { border-color:#334155; }
+    body.dark-mode .global-experience__metric strong { color:#fff; }
+    @media(max-width:980px){ .global-experience__copy{padding-bottom:28px}.global-experience__map-wrap{width:calc(100% - var(--section-shell-gutter-mobile));} }
+    @media(max-width:720px){ .global-experience{padding:80px 0}.global-experience__copy,.global-experience__map-wrap,.global-experience__metrics{width:calc(100% - var(--section-shell-gutter-mobile));}.global-experience__metrics{grid-template-columns:1fr}.global-experience__metric{padding:28px 30px;border-right:0;border-bottom:1px solid var(--page-border)}.global-experience__metric:last-child{border-bottom:0}.global-experience__metric strong{font-size:36px}.global-card{left:16px!important;right:16px!important;top:auto!important;bottom:16px;width:auto}.global-experience__intro{font-size:17px} }
+    @media(prefers-reduced-motion:reduce){ .global-pin__ring{animation:none} }
   </style>
   <link rel="stylesheet" href="projects-grid.css?v=20260805-endorsements-divider-fix">
   <script src="assets/js/site-header.js?v=20260729-2"></script>
@@ -1090,6 +1126,38 @@
       </ul>
     </section>
 
+
+    <section class="global-experience" aria-labelledby="global-experience-title">
+      <div class="global-experience__copy">
+        <p class="section-eyebrow">Global experience</p>
+        <h2 id="global-experience-title">Designing across borders.</h2>
+        <p class="global-experience__intro">Living and working internationally has shaped how I approach design — with curiosity about culture, context and the people behind the interface.</p>
+      </div>
+      <div class="global-experience__map-wrap">
+        <div class="global-experience__map-shell" id="globalMapShell">
+          <svg class="global-experience__map" viewBox="0 0 1774 887" role="img" aria-label="World map showing Sophie's international experience">
+            <image class="global-experience__map-image" href="world-map-true-vector-delicate-grey.svg" x="0" y="0" width="1774" height="887" preserveAspectRatio="xMidYMid meet"/>
+            <g class="global-pin" tabindex="0" role="button" data-global-key="yahoo" transform="translate(781 307)"><circle class="global-pin__ring" r="10"/><circle class="global-pin__core" r="6"/><text x="12" y="-10">LONDON</text></g>
+            <g class="global-pin" tabindex="0" role="button" data-global-key="evolve" transform="translate(241 380)"><circle class="global-pin__ring" r="10"/><circle class="global-pin__core" r="6"/><text x="12" y="-10">LOS ANGELES</text></g>
+            <g class="global-pin" tabindex="0" role="button" data-global-key="evolve" transform="translate(313 458)"><circle class="global-pin__ring" r="10"/><circle class="global-pin__core" r="6"/><text x="12" y="22">MEXICO</text></g>
+            <g class="global-pin" tabindex="0" role="button" data-global-key="evolve" transform="translate(873 353)"><circle class="global-pin__ring" r="10"/><circle class="global-pin__core" r="6"/><text x="12" y="22">SERBIA</text></g>
+            <g class="global-pin" tabindex="0" role="button" data-global-key="japan" transform="translate(1487 376)"><circle class="global-pin__ring" r="10"/><circle class="global-pin__core" r="6"/><text x="12" y="-10">JAPAN</text></g>
+            <g class="global-pin" tabindex="0" role="button" data-global-key="evolve" transform="translate(1384 482)"><circle class="global-pin__ring" r="10"/><circle class="global-pin__core" r="6"/><text x="12" y="22">PHILIPPINES</text></g>
+          </svg>
+          <article class="global-card" id="globalCard" aria-live="polite">
+            <button class="global-card__close" type="button" aria-label="Close">×</button>
+            <div class="global-card__head"><img class="global-card__avatar" src="portfolio_image.png" alt=""><div><h3 id="globalCardTitle"></h3><p class="global-card__meta" id="globalCardMeta"></p></div></div>
+            <p class="global-card__body" id="globalCardBody"></p>
+          </article>
+        </div>
+      </div>
+      <div class="global-experience__metrics" aria-label="International experience highlights">
+        <button class="global-experience__metric" type="button" data-global-key="japan"><strong>2 years</strong><span>Lived and worked in Japan</span></button>
+        <button class="global-experience__metric" type="button" data-global-key="yahoo"><strong>Yahoo!</strong><span>P&amp;G Team Mum Olympic sponsorship across multiple markets</span></button>
+        <button class="global-experience__metric" type="button" data-global-key="evolve"><strong>5 locations</strong><span>Collaborated across London, Los Angeles, Mexico, Serbia and the Philippines</span></button>
+      </div>
+    </section>
+
     <div class="content endorsements-content">
       <section
         id="endorsements"
@@ -1134,6 +1202,35 @@
 
   <footer>© 2026 Sophie Purewal</footer>
 
+
+  <script>
+    (() => {
+      const data = {
+        japan:{title:"Japan",meta:"Lived and worked internationally",body:"I spent two years living and working in Japan. Being immersed in a different culture and language strengthened my adaptability, curiosity and awareness of how context changes the way people understand and experience things."},
+        yahoo:{title:"Yahoo!",meta:"Multi-market campaign work",body:"At Yahoo! I worked prominently on the P&G Team Mum Olympic sponsorship across multiple markets — experience that helped build my understanding of designing and delivering work for audiences beyond a single market."},
+        evolve:{title:"Evolve Media",meta:"Distributed international collaboration",body:"At Evolve Media I coordinated campaigns with design and engineering teams in London, Los Angeles, Mexico, Serbia and the Philippines, working across locations, disciplines and ways of working."}
+      };
+      const card=document.getElementById("globalCard"), shell=document.getElementById("globalMapShell");
+      if(!card || !shell) return;
+      const title=document.getElementById("globalCardTitle"), meta=document.getElementById("globalCardMeta"), body=document.getElementById("globalCardBody");
+      function show(key,anchor){
+        const d=data[key]; if(!d) return;
+        title.textContent=d.title; meta.textContent=d.meta; body.textContent=d.body; card.classList.add("open");
+        if(innerWidth>720){
+          const r=anchor.getBoundingClientRect(),s=shell.getBoundingClientRect();
+          const left=Math.min(Math.max(r.left-s.left+25,18),Math.max(18,s.width-378));
+          const top=Math.min(Math.max(r.top-s.top-40,18),Math.max(18,s.height-220));
+          card.style.left=left+"px"; card.style.top=top+"px";
+        }
+      }
+      document.querySelectorAll("[data-global-key]").forEach(el=>{
+        el.addEventListener("click",()=>show(el.dataset.globalKey,el));
+        el.addEventListener("keydown",e=>{if(e.key==="Enter"||e.key===" "){e.preventDefault();show(el.dataset.globalKey,el)}});
+        if(el.classList.contains("global-pin")) el.addEventListener("mouseenter",()=>show(el.dataset.globalKey,el));
+      });
+      card.querySelector(".global-card__close").addEventListener("click",()=>card.classList.remove("open"));
+    })();
+  </script>
 
 </body>
 </html>
