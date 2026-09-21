@@ -13,10 +13,10 @@ main{width:min(1180px,calc(100% - 48px));margin:auto;padding:88px 0 110px}
 .eyebrow{font-size:12px;font-weight:700;letter-spacing:.13em;text-transform:uppercase;color:#143D59;margin:0 0 14px}
 h1{font-size:clamp(42px,6vw,70px);line-height:1.02;letter-spacing:-.055em;color:var(--ink);margin:0 0 22px;max-width:760px}
 .intro{font-size:18px;line-height:1.65;max-width:720px;margin:0 0 54px}
-.map-shell{position:relative;background:var(--soft);border:1px solid var(--line);overflow:hidden;min-height:570px}
-.map{width:100%;height:auto;display:block}.land{fill:#E9E5E1;stroke:#D5D0CB;stroke-width:1.2}
-.route{fill:none;stroke:#C9C1BC;stroke-width:1.1;stroke-dasharray:4 6}
-.pin{cursor:pointer}.pin circle.core{fill:var(--claret)}.pin circle.ring{fill:none;stroke:var(--claret);stroke-width:2;opacity:.35;transform-box:fill-box;transform-origin:center;animation:pulse 2.8s ease-out infinite}.pin text{font:600 12px Inter,sans-serif;fill:var(--ink);letter-spacing:.04em}
+.map-shell{position:relative;background:#F2F2F2;border:1px solid #D7D7D7;overflow:hidden;min-height:570px}
+.map{width:100%;height:auto;display:block}.land{fill:url(#dotPattern);stroke:none}
+.route{fill:none;stroke:#BFC1C3;stroke-width:1;stroke-dasharray:3 7;opacity:.7}
+.pin{cursor:pointer;outline:none}.pin:focus{outline:none}.pin:focus-visible circle.core{stroke:#777;stroke-width:3}.pin circle.core{fill:var(--claret);stroke:#F2F2F2;stroke-width:2}.pin circle.ring{fill:none;stroke:#8D8D8D;stroke-width:1.5;opacity:.35;transform-box:fill-box;transform-origin:center;animation:pulse 2.8s ease-out infinite}.pin text{font:600 12px Inter,sans-serif;fill:#555;letter-spacing:.04em}
 @keyframes pulse{0%{transform:scale(.65);opacity:.55}70%,100%{transform:scale(2.2);opacity:0}}
 .card{position:absolute;width:min(360px,calc(100% - 32px));background:white;border:1px solid var(--line);box-shadow:0 18px 45px rgba(23,32,42,.14);padding:22px;display:none;z-index:4}
 .card.open{display:block}.card-head{display:flex;gap:14px;align-items:center;margin-bottom:13px}.avatar{width:58px;height:58px;border-radius:50%;object-fit:cover;border:3px solid #f0eded}.card h2{font-size:18px;color:var(--ink);margin:0 0 4px}.card .meta{font-size:13px;margin:0}.card .body{font-size:14px;line-height:1.55;margin:0;color:var(--copy)}.close{position:absolute;right:12px;top:10px;border:0;background:none;font-size:20px;color:var(--copy);cursor:pointer}
@@ -32,6 +32,7 @@ h1{font-size:clamp(42px,6vw,70px);line-height:1.02;letter-spacing:-.055em;color:
 <section aria-label="Interactive map of international experience">
 <div class="map-shell" id="mapShell">
 <svg class="map" viewBox="0 0 1180 570" role="img" aria-label="Stylised world map showing Sophie's international experience">
+<defs><pattern id="dotPattern" width="8" height="8" patternUnits="userSpaceOnUse"><circle cx="3" cy="3" r="2.15" fill="#A9AAAC"/></pattern></defs>
 <path class="land" d="M80 130 L150 80 270 88 330 130 300 175 235 190 205 245 150 225 115 180Z M245 250 L300 270 325 355 300 455 255 420 235 335Z"/>
 <path class="land" d="M500 105 L560 82 635 100 650 135 610 155 590 205 550 215 520 175Z M555 220 L640 215 685 285 655 410 610 470 565 410 540 315Z"/>
 <path class="land" d="M650 115 L760 75 900 95 1035 145 1065 210 1000 245 920 220 850 250 770 215 700 225 640 180Z M900 380 L1010 390 1050 450 985 485 915 455Z"/>
