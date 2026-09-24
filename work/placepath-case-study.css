@@ -91,3 +91,49 @@
     gap: 24px !important;
   }
 }
+
+
+/* MVP rationale: concise full-width context, then decision beside evidence. */
+.placepath-page .placepath-mvp-section > .placepath-mvp-summary {
+  width: 100%;
+  max-width: none;
+  margin-top: 24px;
+}
+
+.placepath-page .placepath-mvp-summary p {
+  width: 100%;
+  max-width: none;
+  margin: 0 0 14px;
+}
+
+.placepath-page .placepath-mvp-evidence {
+  display: grid;
+  grid-template-columns: minmax(280px, .8fr) minmax(0, 1.2fr) !important;
+  gap: clamp(36px, 5vw, 72px) !important;
+  align-items: center !important;
+  margin-top: clamp(34px, 4vw, 52px) !important;
+}
+
+.placepath-page .placepath-mvp-evidence .placepath-decision {
+  margin: 0;
+}
+
+.placepath-page .placepath-mvp-evidence figure {
+  width: 100%;
+  margin: 0;
+}
+
+.placepath-page .placepath-mvp-evidence figure img {
+  display: block;
+  width: 100%;
+  height: auto;
+  border: 1px solid var(--line);
+  background: #fff;
+}
+
+@media (max-width: 820px) {
+  .placepath-page .placepath-mvp-evidence {
+    grid-template-columns: 1fr !important;
+    gap: 24px !important;
+  }
+}
