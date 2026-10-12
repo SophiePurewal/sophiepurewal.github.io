@@ -504,3 +504,23 @@ body.home-page .projects-grid .project-card__media {
 body.dark-mode.home-page .projects-grid .project-card__media {
   border-bottom-color: #555b63;
 }
+
+/* Outline the image only; align all card copy with the image's left edge. */
+body.home-page .projects-grid .project-card__media {
+  box-sizing: border-box;
+  border: 1px solid #d9dde2;
+  border-radius: 0;
+}
+body.dark-mode.home-page .projects-grid .project-card__media {
+  border-color: #555b63;
+}
+body.home-page .projects-grid .project-card--split .project-card__content {
+  padding-left: 0;
+  padding-right: 0;
+}
+@media (max-width: 767px) {
+  body.home-page .projects-grid .project-card--split .project-card__content {
+    padding-left: 0;
+    padding-right: 0;
+  }
+}
