@@ -419,3 +419,76 @@ body.dark-mode.home-page .project-card--split .project-card__eyebrow {
     grid-template-columns: 1fr !important;
   }
 }
+
+/* Responsive four-case-study tile grid */
+body.home-page .projects-grid {
+  width: min(var(--section-shell-max), calc(100% - var(--section-shell-gutter)));
+  margin-inline: auto;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 24px;
+  background: transparent;
+}
+body.home-page .projects-grid > .project-card {
+  grid-column: auto;
+  border: 1px solid var(--page-border);
+  border-radius: 10px;
+  height: auto;
+  min-height: 0;
+  max-height: none;
+}
+body.home-page .projects-grid .project-card--split::before,
+body.home-page .projects-grid .project-card--split:last-child::after { display: none; }
+body.home-page .projects-grid .project-card__inner {
+  width: 100%;
+  height: 100%;
+  min-height: 0;
+  max-height: none;
+  display: flex;
+  flex-direction: column;
+}
+body.home-page .projects-grid .project-card__media {
+  order: 0;
+  width: 100%;
+  height: auto;
+  min-height: 0;
+  max-height: none;
+  aspect-ratio: 16 / 9;
+}
+body.home-page .projects-grid .project-card__media img {
+  width: 100%;
+  height: 100%;
+  min-height: 0;
+  max-height: none;
+  object-fit: cover;
+}
+body.home-page .projects-grid .project-card--split .project-card__content {
+  order: 1;
+  flex: 1;
+  height: auto;
+  min-height: 0;
+  max-height: none;
+  padding: 26px 28px 30px;
+  align-items: flex-start;
+}
+body.home-page .projects-grid .project-card--split .project-card__title {
+  font-size: clamp(1.6rem, 2.6vw, 2.15rem);
+  max-width: none;
+}
+body.home-page .projects-grid .project-card--split .project-card__hint {
+  font-size: 15px;
+  margin-top: 12px;
+}
+body.home-page .projects-grid .project-card__cta { margin-top: 20px; }
+@media (max-width: 767px) {
+  body.home-page .projects-grid {
+    width: calc(100% - var(--section-shell-gutter-mobile));
+    grid-template-columns: minmax(0, 1fr);
+    gap: 20px;
+  }
+  body.home-page .projects-grid .project-card--split .project-card__content {
+    padding: 24px;
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  body.home-page .projects-grid .project-card__media img { transition: none; }
+}
