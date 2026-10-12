@@ -430,8 +430,8 @@ body.home-page .projects-grid {
 }
 body.home-page .projects-grid > .project-card {
   grid-column: auto;
-  border: 1px solid var(--page-border);
-  border-radius: 10px;
+  border: 0;
+  border-radius: 0;
   height: auto;
   min-height: 0;
   max-height: none;
@@ -491,4 +491,16 @@ body.home-page .projects-grid .project-card__cta { margin-top: 20px; }
 }
 @media (prefers-reduced-motion: reduce) {
   body.home-page .projects-grid .project-card__media img { transition: none; }
+}
+
+/* Borderless square tiles with a subtle image/content divider */
+body.home-page .projects-grid > .project-card {
+  border: none;
+  border-radius: 0;
+}
+body.home-page .projects-grid .project-card__media {
+  border-bottom: 1px solid #d9dde2;
+}
+body.dark-mode.home-page .projects-grid .project-card__media {
+  border-bottom-color: #555b63;
 }
