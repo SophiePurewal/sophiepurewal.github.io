@@ -744,7 +744,11 @@ body.dark-mode .site-header .dropdown-menu {
 .site-header.scrolled .dropdown-menu {
   left: 0;
   right: auto;
-  padding: 24px 0;
+  top: calc(100% - 14px);
+  box-sizing: border-box;
+  width: max-content;
+  max-width: calc(100vw - 32px);
+  padding: 12px 32px 24px 0;
   background: var(--page-surface, var(--site-background-light)) !important;
   border: 0 !important;
   box-shadow: none !important;
@@ -765,7 +769,7 @@ body.dark-mode .site-header.scrolled .dropdown-menu {
     max-width: 100vw;
     box-sizing: border-box;
     transform-origin: top center;
-    padding: 24px 16px;
+    padding: 12px 24px 28px;
     margin-left: -50vw;
   }
   .site-header .dropdown-menu.open {
