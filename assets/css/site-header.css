@@ -477,3 +477,9 @@ body.dark-mode .site-header.scrolled {
   border-bottom: 0;
   box-shadow: none;
 }
+
+/* Consistent heading weight across homepage and case studies. */
+h2,
+h3 {
+  font-weight: 400 !important;
+}
