@@ -1,0 +1,25 @@
+/* Portfolio motion: progressively enhanced; content stays visible without JS. */
+.motion-ready .motion-reveal {
+  opacity: 0;
+  transform: translate3d(0, 16px, 0);
+  transition: opacity 650ms cubic-bezier(.22,1,.36,1), transform 650ms cubic-bezier(.22,1,.36,1);
+  transition-delay: var(--motion-delay, 0ms);
+}
+.motion-ready .motion-reveal.motion-visible {
+  opacity: 1;
+  transform: translate3d(0, 0, 0);
+}
+.motion-ready .motion-image {
+  transform: translate3d(0, 12px, 0);
+}
+.motion-ready .motion-image.motion-visible {
+  transform: translate3d(0, 0, 0);
+}
+@media (prefers-reduced-motion: reduce) {
+  .motion-ready .motion-reveal,
+  .motion-ready .motion-image {
+    opacity: 1 !important;
+    transform: none !important;
+    transition: none !important;
+  }
+}
