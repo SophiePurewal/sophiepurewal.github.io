@@ -24,7 +24,7 @@ nav,
   top: 0;
   z-index: 100;
   background: var(--site-background-light);
-  border-bottom: 1px solid rgba(12, 13, 15, 0.14);
+  border-bottom: none;
   transition: background-color 0.35s ease, border-bottom-color 0.35s ease, box-shadow 0.35s ease;
   --focus-outline-color: var(--brand-claret);
 }
@@ -33,7 +33,7 @@ nav,
 .site-header.menu-open,
 .site-header.scrolled.menu-open {
   background: var(--site-background-light);
-  border-bottom-color: rgba(12, 13, 15, 0.14);
+  border-bottom-color: transparent;
   box-shadow: none;
 }
 
@@ -464,4 +464,16 @@ body.dark-mode .site-header .site-title a:focus-visible {
     max-width: 100%;
     padding: 20px 16px;
   }
+}
+
+/* Keep the header divider-free in light and dark modes. */
+.site-header,
+.site-header.scrolled,
+.site-header.menu-open,
+html.dark-mode .site-header,
+body.dark-mode .site-header,
+html.dark-mode .site-header.scrolled,
+body.dark-mode .site-header.scrolled {
+  border-bottom: 0;
+  box-shadow: none;
 }
