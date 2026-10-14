@@ -738,3 +738,37 @@ body.dark-mode .site-header .dropdown-menu {
     width: calc(100% - var(--section-shell-gutter-mobile));
   }
 }
+
+/* Dropdown: align its outside edge with the wordmark; match the page surface. */
+.site-header .dropdown-menu,
+.site-header.scrolled .dropdown-menu {
+  left: 0;
+  right: auto;
+  padding: 24px 0;
+  background: var(--page-surface, var(--site-background-light)) !important;
+  border: 0 !important;
+  box-shadow: none !important;
+}
+html.dark-mode .site-header .dropdown-menu,
+html.dark-mode .site-header.scrolled .dropdown-menu,
+body.dark-mode .site-header .dropdown-menu,
+body.dark-mode .site-header.scrolled .dropdown-menu {
+  background: var(--page-surface, #111827) !important;
+}
+/* On small screens the dropdown panel fills the viewport; links retain gutters. */
+@media (max-width: 640px) {
+  .site-header .dropdown-menu,
+  .site-header.scrolled .dropdown-menu {
+    left: 50%;
+    right: auto;
+    width: 100vw;
+    max-width: 100vw;
+    box-sizing: border-box;
+    transform-origin: top center;
+    padding: 24px 16px;
+    margin-left: -50vw;
+  }
+  .site-header .dropdown-menu.open {
+    transform: translateY(0) scaleY(1);
+  }
+}
