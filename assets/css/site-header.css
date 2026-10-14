@@ -478,7 +478,8 @@ body.dark-mode .site-header.scrolled {
   box-shadow: none;
 }
 
-/* Consistent heading weight across homepage and case studies. */
+/* Match H1, H2 and H3 weights across all portfolio pages. */
+h1,
 h2,
 h3 {
   font-weight: 400 !important;
