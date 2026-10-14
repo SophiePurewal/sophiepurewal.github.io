@@ -793,7 +793,7 @@ body.dark-mode .site-header .site-title .site-title__home-link.menu-toggle:focus
 /* Logo navigation: icon-only row beside the full desktop wordmark. */
 @media (min-width: 1150px) {
   .site-header:not(.scrolled) .dropdown-menu {
-    top: 50%;
+    top: 20px;
     left: calc(var(--logo-menu-offset, 215px) + 12px);
     right: auto;
     width: max-content;
