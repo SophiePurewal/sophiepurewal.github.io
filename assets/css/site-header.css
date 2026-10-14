@@ -531,7 +531,9 @@ html.dark-mode .site-header.scrolled .site-title,
 html.dark-mode .site-header.scrolled .header-actions,
 body.dark-mode .site-header.scrolled .site-title,
 body.dark-mode .site-header.scrolled .header-actions {
-  background: rgba(17,24,39,.92);
+  background: transparent !important;
+  backdrop-filter: none;
+  -webkit-backdrop-filter: none;
   box-shadow: none;
 }
 @media (max-width: 640px) {
