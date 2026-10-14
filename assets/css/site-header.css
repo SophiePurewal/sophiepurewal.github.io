@@ -715,3 +715,26 @@ body.dark-mode .site-header .dropdown-menu {
     font-size: 24px;
   }
 }
+
+/* Align header controls with the actual content column at page top. */
+@media (min-width: 901px) {
+  .site-header:not(.scrolled) .top-nav {
+    width: min(var(--section-shell-max, 1180px), calc(100% - 240px));
+  }
+  /* Preserve the floating 16px edge offset after scrolling. */
+  .site-header.scrolled .top-nav {
+    width: calc(100% - 32px);
+  }
+}
+@media (min-width: 641px) and (max-width: 900px) {
+  .site-header .top-nav,
+  .site-header.scrolled .top-nav {
+    width: calc(100% - var(--section-shell-gutter));
+  }
+}
+@media (max-width: 640px) {
+  .site-header .top-nav,
+  .site-header.scrolled .top-nav {
+    width: calc(100% - var(--section-shell-gutter-mobile));
+  }
+}
