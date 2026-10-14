@@ -548,3 +548,34 @@ body.dark-mode .site-header.scrolled .header-actions {
 @media (prefers-reduced-motion: reduce) {
   .site-header, .site-header .top-nav { transition: none; }
 }
+
+/* Minimal unboxed dropdown navigation in both themes. */
+.site-header .dropdown-menu,
+.site-header.scrolled .dropdown-menu,
+html.dark-mode .site-header .dropdown-menu,
+body.dark-mode .site-header .dropdown-menu {
+  background: transparent !important;
+  border: 0 !important;
+  box-shadow: none !important;
+  border-radius: 0;
+  backdrop-filter: none;
+  -webkit-backdrop-filter: none;
+}
+.site-header .dropdown-menu .dropdown-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 14px;
+}
+.site-header .dropdown-menu .dropdown-link svg {
+  display: block;
+  width: 24px;
+  height: 24px;
+  flex: 0 0 24px;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 1.8;
+}
+.site-header .dropdown-menu .dropdown-link svg * {
+  fill: none;
+  stroke: currentColor;
+}
