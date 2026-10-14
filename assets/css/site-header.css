@@ -789,3 +789,48 @@ body.dark-mode .site-header .site-title .site-title__home-link.menu-toggle:focus
 
 /* Compact spacing for the six-item logo dropdown. */
 .site-header .dropdown-menu { gap: 14px; }
+
+/* Logo navigation: icon-only row beside the full desktop wordmark. */
+@media (min-width: 1150px) {
+  .site-header:not(.scrolled) .dropdown-menu {
+    top: 50%;
+    left: calc(var(--logo-menu-offset, 215px) + 12px);
+    right: auto;
+    width: max-content;
+    max-width: calc(100% - var(--logo-menu-offset, 215px) - 70px);
+    padding: 8px 0;
+    flex-direction: row;
+    align-items: center;
+    gap: 12px;
+    transform-origin: left center;
+    transform: translateX(-8px);
+    overflow: visible;
+  }
+  .site-header:not(.scrolled) .dropdown-menu.open {
+    transform: translateX(0);
+  }
+  .site-header:not(.scrolled) .dropdown-menu .dropdown-link {
+    padding: 8px 2px;
+    flex: 0 0 auto;
+  }
+  .site-header:not(.scrolled) .dropdown-menu .nav-link-label {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0 0 0 0);
+    white-space: nowrap;
+  }
+  .site-header:not(.scrolled) .dropdown-menu .dropdown-link svg {
+    width: 22px;
+    height: 22px;
+    flex-basis: 22px;
+  }
+}
+/* At narrower widths SP replaces the full wordmark, freeing a clear vertical menu. */
+@media (max-width: 1149px) {
+  .site-header .site-wordmark-full { display: none; }
+  .site-header .site-wordmark-short { display: inline; }
+}
+/* Scrolled desktop and all smaller viewports retain the vertical labelled menu. */
