@@ -593,12 +593,22 @@ body.dark-mode .site-header .dropdown-menu {
 /* Responsive safe area for edge navigation on larger screens.
    Reserve space at all scroll positions to avoid layout jumps. */
 @media (min-width: 901px) {
+  /* Floating navigation occupies its own edge rails. */
   .site-header.scrolled .top-nav {
-    width: calc(100% - 16px);
+    width: calc(100% - 24px);
   }
+  .site-header.scrolled .site-title,
+  .site-header.scrolled .header-actions {
+    padding: 0;
+  }
+  .site-header.scrolled .site-wordmark-full { display: none; }
+  .site-header.scrolled .site-wordmark-short { display: inline; }
+
+  /* Main content stays centred between the edge controls at every width. */
   body > main {
     box-sizing: border-box;
-    padding-inline: 88px;
+    width: 100%;
+    padding-inline: 96px;
   }
 }
 
