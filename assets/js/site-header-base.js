@@ -592,7 +592,7 @@
 
     applyTheme(getStoredMode() === 'dark' ? 'dark' : 'light');
 
-    if (siteTitleHomeLink) {
+    if (siteTitleHomeLink?.tagName === 'A') {
       siteTitleHomeLink.addEventListener('click', (event) => {
         const targetUrl = new URL(siteTitleHomeLink.href, window.location.href);
 
