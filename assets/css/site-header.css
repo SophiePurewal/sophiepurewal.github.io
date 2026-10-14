@@ -506,10 +506,10 @@ h3 {
   pointer-events: auto;
   padding: 10px 12px;
   border-radius: 8px;
-  background: rgba(254,254,254,.92);
+  background: transparent !important;
   box-shadow: none;
-  backdrop-filter: blur(12px);
-  -webkit-backdrop-filter: blur(12px);
+  backdrop-filter: none;
+  -webkit-backdrop-filter: none;
 }
 .site-header.scrolled .dropdown-menu {
   pointer-events: none;
