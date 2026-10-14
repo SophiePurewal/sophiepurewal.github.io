@@ -673,3 +673,45 @@ body.dark-mode .site-header .dropdown-menu {
     min-width: 0;
   }
 }
+
+/* Logo is now the navigation toggle, with the same wordmark appearance. */
+.site-header .site-title .site-title__home-link.menu-toggle {
+  display: inline-flex;
+  width: auto;
+  height: auto;
+  min-height: 32px;
+  padding: 0;
+  border: 0;
+  border-radius: 0;
+  background: transparent;
+  font-family: "Playfair Display", Georgia, serif;
+  font-size: var(--site-logo-size);
+  font-weight: 900;
+  letter-spacing: -0.04em;
+  line-height: 1;
+  color: var(--brand-claret);
+  text-decoration: none;
+  white-space: nowrap;
+}
+.site-header .site-title .site-title__home-link.menu-toggle::after {
+  display: none;
+}
+.site-header .site-title .site-title__home-link.menu-toggle:hover,
+.site-header .site-title .site-title__home-link.menu-toggle:focus-visible {
+  color: var(--brand-claret);
+}
+.site-header .dropdown-menu {
+  left: 0;
+  right: auto;
+}
+/* Scrolled desktop controls 16px from their respective edges. */
+@media (min-width: 901px) {
+  .site-header.scrolled .top-nav {
+    width: calc(100% - 32px);
+  }
+}
+@media (max-width: 900px) {
+  .site-header .site-title .site-title__home-link.menu-toggle {
+    font-size: 24px;
+  }
+}
