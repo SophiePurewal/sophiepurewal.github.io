@@ -578,3 +578,14 @@ body.dark-mode .site-header .dropdown-menu {
   fill: currentColor;
   stroke: none;
 }
+
+/* Responsive lettermark: retain the wordmark until it competes with content. */
+.site-title__home-link .site-wordmark-short { display: none; }
+@media (max-width: 1450px) {
+  .site-header.scrolled .site-wordmark-full { display: none; }
+  .site-header.scrolled .site-wordmark-short { display: inline; }
+}
+@media (max-width: 640px) {
+  .site-header .site-wordmark-full { display: none; }
+  .site-header .site-wordmark-short { display: inline; }
+}
