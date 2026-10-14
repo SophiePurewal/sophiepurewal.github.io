@@ -555,7 +555,7 @@
 
     const toggleHeaderState = () => {
       if (!siteHeader) return;
-      siteHeader.classList.toggle('scrolled', window.scrollY > 24);
+      siteHeader.classList.toggle('scrolled', window.scrollY > 80);
       syncHeaderMenuState();
     };
 
