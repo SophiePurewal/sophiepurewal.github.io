@@ -20,7 +20,7 @@
   } else {
     // Animate section headings, text blocks and media separately so images enter naturally.
     document.querySelectorAll('.case-study-hero h1, .case-study-hero .project-subtitle, .case-study-hero .project-intro, .case-study-section h2, .case-study-section h3, .case-study-section__body, .case-study-section > p, .summary-grid').forEach(el => add(el));
-    document.querySelectorAll('.case-study figure, .case-study video, .case-study .hero-visual').forEach(el => {
+    document.querySelectorAll('.case-study figure, .case-study video, .case-study .hero-visual, .case-study .ds-chart, .case-study .ds-process').forEach(el => {
       // Prevent duplicating nested figure animations.
       if (!el.closest('figure') || el.tagName.toLowerCase() === 'figure') add(el, 0, true);
     });
