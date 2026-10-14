@@ -144,12 +144,13 @@
     .home-page .hero h1 {
       margin: 0;
       font-family: 'Inter', system-ui, sans-serif;
-      font-size: 43.3px !important;
-      line-height: 1.02;
-      font-weight: 700;
+      font-size: clamp(32px, 3.1vw, 48px) !important;
+      line-height: 1.27;
+      font-weight: 400;
       color: var(--page-heading);
       white-space: normal;
-      text-wrap: balance;
+      text-wrap: pretty;
+      letter-spacing: -0.035em;
       max-width: 100%;
     }
 
@@ -163,12 +164,11 @@
       }
 
       .home-page .hero h1 {
-        font-size: 52px !important;
+        font-size: clamp(38px, 3.1vw, 48px) !important;
       }
 
-      .home-page .hero-heading-line {
-        display: block;
-        white-space: nowrap;
+      .home-page .hero h1 {
+        font-size: clamp(38px, 3.1vw, 48px) !important;
       }
     }
 
@@ -974,14 +974,7 @@
     <section class="hero" id="intro" aria-label="Intro section">
       <div class="hero-panel">
         <div class="hero-copy">
-          <h1>
-            <span class="hero-heading-line">Senior Product Designer</span>
-            <span class="hero-heading-line">Complex Products · Design Systems · AI Prototyping</span>
-          </h1>
-          <p class="hero-intro">
-            I design accessible digital products and scalable design systems for complex, regulated services. My recent work includes reusable components supporting 21,000+ Figma-tracked insertions across header, status, feedback, layout and form patterns over 12 months.
-          </p>
-          <p class="hero-intro hero-secondary">I bring together strong visual design craft, accessibility, product thinking and close collaboration with engineering—from early journeys to production-ready UI. Trained in AI prototyping, I rapidly build and iterate working products, accelerating the journey from idea to testable experience.</p>
+          <h1>Senior Product Designer bringing clarity to complex digital products through thoughtful design and technical expertise.</h1>
           <div class="hero-actions" aria-label="Intro links">
             <a class="hero-link" href="#projects">
               <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" aria-hidden="true" focusable="false">
