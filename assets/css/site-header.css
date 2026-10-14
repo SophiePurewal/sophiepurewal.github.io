@@ -704,7 +704,7 @@ body.dark-mode .site-header .dropdown-menu {
   left: 0;
   right: auto;
 }
-/* Scrolled desktop controls 16px from their respective edges. */
+/* Scrolled desktop controls 24px from their respective edges. */
 @media (min-width: 901px) {
   .site-header.scrolled .top-nav {
     width: calc(100% - 32px);
@@ -721,9 +721,9 @@ body.dark-mode .site-header .dropdown-menu {
   .site-header:not(.scrolled) .top-nav {
     width: min(var(--section-shell-max, 1180px), calc(100% - 240px));
   }
-  /* Preserve the floating 16px edge offset after scrolling. */
+  /* Preserve the floating 24px edge offset after scrolling. */
   .site-header.scrolled .top-nav {
-    width: calc(100% - 32px);
+    width: calc(100% - 48px);
   }
 }
 @media (min-width: 641px) and (max-width: 900px) {
