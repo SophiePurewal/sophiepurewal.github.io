@@ -772,3 +772,13 @@ body.dark-mode .site-header.scrolled .dropdown-menu {
     transform: translateY(0) scaleY(1);
   }
 }
+
+/* In dark mode, always match the logo to the theme icon. */
+html.dark-mode .site-header .site-title .site-title__home-link.menu-toggle,
+body.dark-mode .site-header .site-title .site-title__home-link.menu-toggle,
+html.dark-mode .site-header .site-title .site-title__home-link.menu-toggle:hover,
+body.dark-mode .site-header .site-title .site-title__home-link.menu-toggle:hover,
+html.dark-mode .site-header .site-title .site-title__home-link.menu-toggle:focus-visible,
+body.dark-mode .site-header .site-title .site-title__home-link.menu-toggle:focus-visible {
+  color: var(--site-header-text) !important;
+}
