@@ -646,3 +646,30 @@ body.dark-mode .site-header .dropdown-menu {
     padding-inline: 0;
   }
 }
+
+/* Keep all desktop content inside a genuinely centred safe column.
+   The earlier body padding did not constrain independently sized page shells. */
+@media (min-width: 901px) {
+  body > main {
+    width: 100%;
+    padding-inline: 0;
+  }
+  body > main .site-shell,
+  body > main .intro-statement,
+  body > main .projects-grid,
+  body > main .global-experience__copy,
+  body > main .global-experience__map-wrap,
+  body > main .global-experience__metrics,
+  body > main .impact-section {
+    box-sizing: border-box;
+    width: min(var(--section-shell-max, 1180px), calc(100% - 240px)) !important;
+    max-width: 100%;
+    margin-inline: auto;
+  }
+  body > main .site-shell .case-study,
+  body > main .site-shell .case-study-section,
+  body > main .site-shell .case-study-hero {
+    max-width: 100%;
+    min-width: 0;
+  }
+}
