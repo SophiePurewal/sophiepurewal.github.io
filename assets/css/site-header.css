@@ -507,7 +507,7 @@ h3 {
   padding: 10px 12px;
   border-radius: 8px;
   background: rgba(254,254,254,.92);
-  box-shadow: 0 2px 16px rgba(0,0,0,.06);
+  box-shadow: none;
   backdrop-filter: blur(12px);
   -webkit-backdrop-filter: blur(12px);
 }
@@ -532,7 +532,7 @@ html.dark-mode .site-header.scrolled .header-actions,
 body.dark-mode .site-header.scrolled .site-title,
 body.dark-mode .site-header.scrolled .header-actions {
   background: rgba(17,24,39,.92);
-  box-shadow: 0 2px 16px rgba(0,0,0,.18);
+  box-shadow: none;
 }
 @media (max-width: 640px) {
   .site-header.scrolled .top-nav {
