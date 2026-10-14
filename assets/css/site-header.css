@@ -786,3 +786,6 @@ html.dark-mode .site-header .site-title .site-title__home-link.menu-toggle:focus
 body.dark-mode .site-header .site-title .site-title__home-link.menu-toggle:focus-visible {
   color: var(--site-header-text) !important;
 }
+
+/* Compact spacing for the six-item logo dropdown. */
+.site-header .dropdown-menu { gap: 14px; }
