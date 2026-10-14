@@ -628,6 +628,46 @@
     }
 
     if (menuToggle && dropdownMenu) {
+      // Keep the horizontal icon row attached to the actual rendered wordmark.
+      const updateLogoMenuOffset = () => {
+        const width = Math.ceil(menuToggle.getBoundingClientRect().width);
+        siteHeader?.style.setProperty('--logo-menu-offset', `${width}px`);
+      };
+      updateLogoMenuOffset();
+      window.addEventListener('resize', updateLogoMenuOffset);
+
+      // Hover is an enhancement; clicking, tapping and keyboard controls still work.
+      const canHover = window.matchMedia('(hover: hover) and (pointer: fine)');
+      let hoverCloseTimer = null;
+      const cancelHoverClose = () => {
+        if (hoverCloseTimer !== null) {
+          clearTimeout(hoverCloseTimer);
+          hoverCloseTimer = null;
+        }
+      };
+      const openOnHover = () => {
+        if (!canHover.matches) return;
+        cancelHoverClose();
+        updateLogoMenuOffset();
+        dropdownMenu.classList.add('open');
+        menuToggle.setAttribute('aria-expanded', 'true');
+        syncHeaderMenuState();
+        resetDropdownInactivityTimer();
+      };
+      const closeAfterHover = () => {
+        if (!canHover.matches) return;
+        cancelHoverClose();
+        hoverCloseTimer = window.setTimeout(() => {
+          if (!menuToggle.matches(':hover') && !dropdownMenu.matches(':hover') && !dropdownMenu.contains(document.activeElement)) {
+            closeDropdownMenu();
+          }
+        }, 160);
+      };
+      menuToggle.addEventListener('pointerenter', openOnHover);
+      menuToggle.addEventListener('pointerleave', closeAfterHover);
+      dropdownMenu.addEventListener('pointerenter', () => { cancelHoverClose(); resetDropdownInactivityTimer(); });
+      dropdownMenu.addEventListener('pointerleave', closeAfterHover);
+
       menuToggle.addEventListener('click', () => {
         const isOpen = dropdownMenu.classList.toggle('open');
         menuToggle.setAttribute('aria-expanded', String(isOpen));
