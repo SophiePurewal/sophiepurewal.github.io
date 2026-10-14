@@ -589,3 +589,50 @@ body.dark-mode .site-header .dropdown-menu {
   .site-header .site-wordmark-full { display: none; }
   .site-header .site-wordmark-short { display: inline; }
 }
+
+/* Responsive safe area for edge navigation on larger screens.
+   Reserve space at all scroll positions to avoid layout jumps. */
+@media (min-width: 901px) {
+  .site-header.scrolled .top-nav {
+    width: calc(100% - 16px);
+  }
+  body > main {
+    box-sizing: border-box;
+    padding-inline: 88px;
+  }
+}
+
+/* On tablets and phones return to a conventional full-width sticky header.
+   Keep navigation above the content instead of floating over it. */
+@media (max-width: 900px) {
+  .site-header,
+  .site-header.scrolled,
+  html.dark-mode .site-header.scrolled,
+  body.dark-mode .site-header.scrolled {
+    position: sticky;
+    top: 0;
+    background: var(--site-background-light) !important;
+    pointer-events: auto;
+    box-shadow: none !important;
+  }
+  html.dark-mode .site-header,
+  html.dark-mode .site-header.scrolled,
+  body.dark-mode .site-header,
+  body.dark-mode .site-header.scrolled {
+    background: #111827 !important;
+  }
+  .site-header .top-nav,
+  .site-header.scrolled .top-nav {
+    width: calc(100% - var(--section-shell-gutter-mobile));
+    background: transparent !important;
+    pointer-events: auto;
+  }
+  .site-header.scrolled .site-title,
+  .site-header.scrolled .header-actions {
+    padding: 0;
+    background: transparent !important;
+  }
+  body > main {
+    padding-inline: 0;
+  }
+}
