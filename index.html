@@ -844,6 +844,37 @@
     @media(max-width:980px){ .global-experience__copy{padding-bottom:28px}.global-experience__map-wrap{width:calc(100% - var(--section-shell-gutter-mobile));} }
     @media(max-width:720px){ .global-experience{padding:80px 0}.global-experience__copy,.global-experience__map-wrap,.global-experience__metrics{width:calc(100% - var(--section-shell-gutter-mobile));}.global-experience__metrics{grid-template-columns:1fr}.global-experience__metric{padding:28px 30px;border-right:0;border-bottom:1px solid var(--page-border)}.global-experience__metric:last-child{border-bottom:0}.global-experience__metric strong{font-size:36px}.global-card{left:16px!important;right:16px!important;top:auto!important;bottom:16px;width:auto}.global-experience__intro{font-size:17px} }
     @media(prefers-reduced-motion:reduce){ .global-pin__ring{animation:none} }
+  
+    /* New, standalone homepage introduction: no hero panels or nested frames. */
+    body.home-page .intro-statement {
+      box-sizing: border-box;
+      width: min(var(--section-shell-max), calc(100% - var(--section-shell-gutter)));
+      margin: 0 auto;
+      padding: clamp(84px, 10vw, 150px) 0;
+    }
+    body.home-page .intro-statement h1 {
+      margin: 0;
+      max-width: 1350px;
+      font-family: 'Inter', system-ui, -apple-system, sans-serif;
+      font-size: clamp(32px, 3.2vw, 52px);
+      font-weight: 400;
+      line-height: 1.28;
+      letter-spacing: -0.035em;
+      text-align: left;
+      color: var(--page-heading);
+      overflow-wrap: break-word;
+    }
+    @media (max-width: 640px) {
+      body.home-page .intro-statement {
+        width: calc(100% - var(--section-shell-gutter-mobile));
+        padding: 64px 0 80px;
+      }
+      body.home-page .intro-statement h1 {
+        font-size: clamp(30px, 7vw, 38px);
+        line-height: 1.25;
+      }
+    }
+
   </style>
   <link rel="stylesheet" href="projects-grid.css?v=20261012-image-outline">
   <script src="assets/js/site-header.js?v=20260729-2"></script>
@@ -968,39 +999,8 @@
   </header>
 
   <main id="main">
-    <section class="hero" id="intro" aria-label="Intro section">
-      <div class="hero-panel">
-        <div class="hero-copy">
-          <h1>Senior Product Designer bringing clarity to complex digital products through thoughtful design and technical expertise.</h1>
-          <div class="hero-actions" aria-label="Intro links">
-            <a class="hero-link" href="#projects">
-              <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" aria-hidden="true" focusable="false">
-                <path d="M480-400 40-640l440-240 440 240-440 240Zm0 160L63-467l84-46 333 182 333-182 84 46-417 227Zm0 160L63-307l84-46 333 182 333-182 84 46L480-80Zm0-411 273-149-273-149-273 149 273 149Zm0-149Z"/>
-              </svg>
-              <span class="hero-link__label">Case studies</span>
-            </a>
-            <a class="hero-link" href="https://calendar.app.google/cdjNKDGJmTKjYuaZ8" aria-label="Schedule a video chat with Sophie Purewal" target="_blank" rel="noopener noreferrer">
-          <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" aria-hidden="true" focusable="false">
-            <path d="M320-880h80v80h160v-80h80v80h120q33 0 56.5 23.5T840-720v560q0 33-23.5 56.5T760-80H200q-33 0-56.5-23.5T120-160v-560q0-33 23.5-56.5T200-800h120v-80Zm440 320H200v400h560v-400ZM200-640h560v-80H200v80Zm280 120q75 0 127.5 52.5T660-340q0 75-52.5 127.5T480-160q-75 0-127.5-52.5T300-340q0-75 52.5-127.5T480-520Zm0 80q-42 0-71 29t-29 71q0 42 29 71t71 29q42 0 71-29t29-71q0-42-29-71t-71-29Z"/>
-          </svg>
-              <span class="hero-link__label">Schedule a chat</span>
-            </a>
-            <a class="hero-link" href="mailto:sophiepurewaldesign@gmail.com?subject=Video%20call%20enquiry">
-              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960" aria-hidden="true" focusable="false">
-                <path d="M160-160q-33 0-56.5-23.5T80-240v-480q0-33 23.5-56.5T160-800h640q33 0 56.5 23.5T880-720v480q0 33-23.5 56.5T800-160H160Zm320-280L160-640v400h640v-400L480-440Zm0-80 320-200H160l320 200ZM160-640v-80 480-400Z"/>
-              </svg>
-              <span class="hero-link__label">Contact</span>
-            </a>
-          </div>
-        </div>
-        <div class="hero-photo-wrap">
-          <img
-            class="hero-photo"
-            src="portfolio_image.png"
-            alt="Portrait of Sophie Purewal"
-          >
-        </div>
-      </div>
+    <section class="intro-statement" id="intro" aria-label="Introduction">
+      <h1>Senior Product Designer bringing clarity to complex digital products through thoughtful design and technical expertise.</h1>
     </section>
 
     
