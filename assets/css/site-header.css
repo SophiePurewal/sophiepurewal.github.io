@@ -878,3 +878,27 @@ body.dark-mode .site-header .site-title .site-title__home-link.menu-toggle:focus
     transition: none;
   }
 }
+
+/* Underline each horizontal navigation icon on hover or keyboard focus. */
+@media (min-width: 1150px) {
+  .site-header:not(.scrolled) .dropdown-menu .dropdown-link::before {
+    content: "";
+    position: absolute;
+    left: 2px;
+    right: 2px;
+    bottom: 2px;
+    height: 2px;
+    background: currentColor;
+    transform: scaleX(0);
+    transform-origin: center;
+    transition: transform 180ms ease;
+    pointer-events: none;
+  }
+  .site-header:not(.scrolled) .dropdown-menu .dropdown-link:hover::before,
+  .site-header:not(.scrolled) .dropdown-menu .dropdown-link:focus-visible::before {
+    transform: scaleX(1);
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .site-header .dropdown-menu .dropdown-link::before { transition: none; }
+}
