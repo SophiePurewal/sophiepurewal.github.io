@@ -1038,3 +1038,31 @@ body.dark-mode .site-header .site-title .site-title__home-link.menu-toggle:focus
   .site-header .dropdown-menu .dropdown-link::before,
   .site-header .dropdown-menu .dropdown-link::after { transition: none; }
 }
+
+/* SP at page top: icons beside initials. Floating SP: icons below. */
+@media (min-width: 641px) and (max-width: 1149px) {
+  .site-header:not(.scrolled) .dropdown-menu {
+    top: 20px;
+    left: calc(var(--logo-menu-offset, 48px) + 12px);
+    right: auto;
+    width: max-content;
+    max-width: calc(100% - var(--logo-menu-offset, 48px) - 70px);
+    padding: 8px 0;
+    flex-direction: row;
+    align-items: center;
+    gap: 12px;
+    transform-origin: left center;
+    transform: translateX(-8px);
+  }
+  .site-header:not(.scrolled) .dropdown-menu.open {
+    transform: translateX(0);
+  }
+  .site-header:not(.scrolled) .dropdown-menu .dropdown-link::after {
+    top: calc(100% + 5px);
+    left: 50%;
+    transform: translate(-50%, -4px);
+  }
+  .site-header:not(.scrolled) .dropdown-menu .dropdown-link:is(:hover, :focus-visible)::after {
+    transform: translate(-50%, 0);
+  }
+}
