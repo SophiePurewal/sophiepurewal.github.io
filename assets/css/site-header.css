@@ -902,3 +902,139 @@ body.dark-mode .site-header .site-title .site-title__home-link.menu-toggle:focus
 @media (prefers-reduced-motion: reduce) {
   .site-header .dropdown-menu .dropdown-link::before { transition: none; }
 }
+
+/* SP icon-only menu for tablet and desktop. Mobile (640px and below) is unchanged. */
+@media (min-width: 641px) {
+  .site-header.scrolled .dropdown-menu,
+  .site-header:not(.scrolled) .dropdown-menu {
+    overflow: visible;
+  }
+  .site-header.scrolled .dropdown-menu .dropdown-link,
+  .site-header:not(.scrolled) .dropdown-menu .dropdown-link {
+    position: relative;
+  }
+}
+/* When the initials are shown, stack exactly the same icons below SP. */
+@media (min-width: 641px) and (max-width: 1149px) {
+  .site-header .dropdown-menu {
+    top: calc(100% - 14px);
+    left: 0;
+    right: auto;
+    width: max-content;
+    max-width: none;
+    padding: 10px 0 18px;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 8px;
+    transform-origin: top left;
+  }
+}
+@media (min-width: 1150px) {
+  .site-header.scrolled .dropdown-menu {
+    top: calc(100% - 14px);
+    left: 0;
+    right: auto;
+    width: max-content;
+    max-width: none;
+    padding: 10px 0 18px;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 8px;
+    transform-origin: top left;
+    transform: translateY(-10px) scaleY(.92);
+  }
+  .site-header.scrolled .dropdown-menu.open {
+    transform: translateY(0) scaleY(1);
+  }
+}
+@media (min-width: 641px) {
+  /* Both desktop navigation arrangements use icon-only buttons. */
+  .site-header .dropdown-menu .dropdown-link {
+    padding: 8px 2px;
+    flex: 0 0 auto;
+  }
+  .site-header .dropdown-menu .dropdown-link svg {
+    width: 22px;
+    height: 22px;
+    flex-basis: 22px;
+  }
+  .site-header .dropdown-menu .nav-link-label {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    margin: -1px;
+    padding: 0;
+    overflow: hidden;
+    clip: rect(0 0 0 0);
+    white-space: nowrap;
+  }
+  /* The same underline in both horizontal and vertical navigation. */
+  .site-header .dropdown-menu .dropdown-link::before {
+    content: "";
+    position: absolute;
+    left: 2px;
+    right: 2px;
+    bottom: 2px;
+    height: 2px;
+    background: currentColor;
+    transform: scaleX(0);
+    transform-origin: center;
+    transition: transform 180ms ease;
+    pointer-events: none;
+  }
+  .site-header .dropdown-menu .dropdown-link:is(:hover, :focus-visible)::before {
+    transform: scaleX(1);
+  }
+  /* Label each icon on hover or keyboard focus. */
+  .site-header .dropdown-menu .dropdown-link::after {
+    content: attr(data-tooltip);
+    position: absolute;
+    z-index: 2;
+    width: max-content;
+    max-width: 180px;
+    padding: 6px 10px;
+    border-radius: 3px;
+    background: #0c0d0f;
+    color: #fff;
+    font: 500 12px/1.3 "Inter", sans-serif;
+    letter-spacing: 0;
+    white-space: nowrap;
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+    transition: opacity 160ms ease, transform 160ms ease, visibility 160ms;
+  }
+  .site-header .dropdown-menu .dropdown-link:is(:hover, :focus-visible)::after {
+    opacity: 1;
+    visibility: visible;
+  }
+  html.dark-mode .site-header .dropdown-menu .dropdown-link::after,
+  body.dark-mode .site-header .dropdown-menu .dropdown-link::after {
+    background: #f8fafc;
+    color: #111827;
+  }
+}
+@media (min-width: 641px) and (max-width: 1149px) {
+  .site-header .dropdown-menu .dropdown-link::after {
+    top: 50%;
+    left: calc(100% + 10px);
+    transform: translate(-4px, -50%);
+  }
+  .site-header .dropdown-menu .dropdown-link:is(:hover, :focus-visible)::after {
+    transform: translate(0, -50%);
+  }
+}
+@media (min-width: 1150px) {
+  .site-header.scrolled .dropdown-menu .dropdown-link::after {
+    top: 50%;
+    left: calc(100% + 10px);
+    transform: translate(-4px, -50%);
+  }
+  .site-header.scrolled .dropdown-menu .dropdown-link:is(:hover, :focus-visible)::after {
+    transform: translate(0, -50%);
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .site-header .dropdown-menu .dropdown-link::before,
+  .site-header .dropdown-menu .dropdown-link::after { transition: none; }
+}
