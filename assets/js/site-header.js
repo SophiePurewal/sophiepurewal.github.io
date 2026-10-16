@@ -1,8 +1,8 @@
 (() => {
   const ownScript = document.currentScript;
   const baseScriptUrl = ownScript?.src
-    ? new URL('site-header-base.js?v=20260916-placepath-final', ownScript.src).href
-    : '../assets/js/site-header-base.js?v=20260916-placepath-final';
+    ? new URL('site-header-base.js?v=20261016-placepath-editorial', ownScript.src).href
+    : '../assets/js/site-header-base.js?v=20261016-placepath-editorial';
 
   const enhancePlacePath = () => {
     if (!document.body.classList.contains('placepath-page')) return;
@@ -63,7 +63,6 @@
 
     // Make the later interactive prototype explicitly separate from the commissioned client work.
     setText('.placepath-prototype-feature .section-label', 'Independent continuation');
-    setText('#prototype-title', 'Explore the interactive PlacePath prototype');
     setText(
       '#prototype-title + p',
       'After the client project was paused, I independently developed PlacePath into the interactive prototype shown here. This later prototype was not part of the commissioned client work; I created it to explore how the complete product could feel and behave.'
@@ -121,7 +120,6 @@
 
     // Replace the speculative ending with the actual client outcome.
     setText('section[aria-labelledby="delivery-title"] > .section-label', 'Outcome');
-    setText('#delivery-title', 'Approved for development, then paused');
     setText(
       '#delivery-title + p',
       'The design direction was approved by the client and handed to developers. Development began, but the wider project was later put on pause before launch.'
