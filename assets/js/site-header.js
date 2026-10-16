@@ -2,7 +2,7 @@
   const ownScript = document.currentScript;
   const baseScriptUrl = ownScript?.src
     ? new URL('site-header-base.js?v=20261016-section3-clean', ownScript.src).href
-    : '../assets/js/site-header-base.js?v=20261016-placepath-editorial';
+    : '../assets/js/site-header-base.js?v=20261016-section3-clean';
 
   const enhancePlacePath = () => {
     if (!document.body.classList.contains('placepath-page')) return;
