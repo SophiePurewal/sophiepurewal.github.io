@@ -877,6 +877,21 @@
 
   
 
+
+/* Footer navigation icons sit directly on the footer surface. */
+.portfolio-footer .portfolio-footer__nav,
+.portfolio-footer .portfolio-footer__nav .footer-nav-link,
+.portfolio-footer .portfolio-footer__nav .footer-nav-link:hover,
+.portfolio-footer .portfolio-footer__nav .footer-nav-link:focus-visible,
+body.home-page .portfolio-footer .portfolio-footer__nav a {
+  background: transparent !important;
+  background-color: transparent !important;
+  box-shadow: none !important;
+}
+.portfolio-footer .portfolio-footer__nav .footer-nav-link svg {
+  background: transparent !important;
+}
+
 /* Inverted portfolio footer colours, consistent across site themes. */
 .portfolio-footer {
   --footer-bg: #17202A;
