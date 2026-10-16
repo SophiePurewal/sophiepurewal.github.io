@@ -884,12 +884,17 @@
     .portfolio-footer__cta p { margin: 0 0 18px; font-size: 16px; color: var(--page-copy); }
     .portfolio-footer__contact { color: var(--brand-claret); font-weight: 600; display: inline-flex; align-items: center; gap: 6px; text-decoration: underline; text-decoration-color: transparent; text-underline-offset: 5px; }
     .portfolio-footer__contact:hover, .portfolio-footer__contact:focus-visible { text-decoration-color: currentColor; }
-    .portfolio-footer__bottom { border-top: 1px solid var(--page-border); display: flex; align-items: center; justify-content: space-between; gap: 20px; padding: 18px 0 24px; }
+    .portfolio-footer__bottom { border-top: none; display: flex; align-items: center; justify-content: space-between; gap: 20px; padding: 18px 0 24px; }
     .portfolio-footer__copyright { font-size: 13px; white-space: nowrap; }
     .portfolio-footer__nav { display: flex; align-items: center; flex-wrap: wrap; gap: 5px; }
     .portfolio-footer__nav .footer-nav-link { display: inline-flex; width: 40px; height: 40px; justify-content: center; align-items: center; color: var(--page-heading); border-bottom: 2px solid transparent; transition: color .2s, border-color .2s; }
     .portfolio-footer__nav .footer-nav-link svg { width: 21px; height: 21px; fill: currentColor; }
     .portfolio-footer__nav .footer-nav-link:hover, .portfolio-footer__nav .footer-nav-link:focus-visible { color: var(--brand-claret); border-bottom-color: currentColor; }
+
+    .portfolio-footer__nav .footer-nav-link { position: relative; text-decoration: none; }
+    .portfolio-footer__nav .footer-nav-link::after { content: attr(data-tooltip); position: absolute; left: 50%; bottom: calc(100% + 9px); transform: translate(-50%, 4px); padding: 6px 9px; border-radius: 4px; background: #17202A; color: #fff; font: 500 12px/1.2 'Inter', system-ui, sans-serif; white-space: nowrap; pointer-events: none; opacity: 0; visibility: hidden; transition: opacity .15s ease, transform .15s ease, visibility .15s ease; z-index: 20; }
+    .portfolio-footer__nav .footer-nav-link:hover::after, .portfolio-footer__nav .footer-nav-link:focus-visible::after { opacity: 1; visibility: visible; transform: translate(-50%, 0); }
+    @media (hover: none) { .portfolio-footer__nav .footer-nav-link::after { display: none; } }
     @media (max-width: 640px) { .portfolio-footer { padding: 0 16px; } .portfolio-footer__cta { padding: 48px 0 36px; } .portfolio-footer__bottom { flex-direction: column; align-items: flex-start; gap: 14px; } .portfolio-footer__nav { gap: 2px; } .portfolio-footer__nav .footer-nav-link { width: 39px; height: 39px; } }
 </style>
   <link rel="stylesheet" href="projects-grid.css?v=20261012-image-outline">
