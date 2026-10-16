@@ -89,6 +89,21 @@
       .placepath-page .placepath-mvp-process { padding: 16px; }
     }
 
+
+    /* Section 03: artefact-led editorial layout */
+    .placepath-page .placepath-exploration-block { margin: 38px 0 50px; }
+    .placepath-page .placepath-exploration-block > h3 { font-size: clamp(1.3rem,2.3vw,1.8rem); line-height: 1.25; letter-spacing: -.025em; margin: 0 0 14px; }
+    .placepath-page .placepath-exploration-block > p:not(.placepath-editorial-kicker) { max-width: 850px; }
+    .placepath-page .placepath-flow-figure { margin: 24px 0 0; background: #f8f9fb; padding: clamp(12px,2vw,26px); border-radius: 12px; }
+    .placepath-page .placepath-flow-figure img { display: block; width: 100%; height: auto; object-fit: contain; }
+    .placepath-page .placepath-exploration-gallery { display: grid; grid-template-columns: repeat(2,minmax(0,1fr)); gap: 22px; margin-top: 24px; }
+    .placepath-page .placepath-exploration-gallery figure { margin: 0; min-width: 0; padding: clamp(12px,2vw,20px); background: #f8f9fb; border-radius: 12px; }
+    .placepath-page .placepath-exploration-gallery img { width: 100%; height: auto; max-height: 510px; object-fit: contain; display: block; }
+    .placepath-page .placepath-flow-figure figcaption, .placepath-page .placepath-exploration-gallery figcaption { font-size: .85rem; color: #606b7a; line-height: 1.55; margin-top: 14px; }
+    .placepath-page .placepath-exploration-block .placepath-decision-summary { margin-left: 0; }
+    body.dark-mode.placepath-page .placepath-flow-figure, body.dark-mode.placepath-page .placepath-exploration-gallery figure { background: #1e293b; }
+    @media (max-width: 740px) { .placepath-page .placepath-exploration-gallery { grid-template-columns: 1fr; } }
+
     /* Remove the horizontal dividers between PlacePath case-study sections. */
     .placepath-page .case-study-section {
       border-top: none;
@@ -725,26 +740,46 @@
 
         <section class="case-study-section placepath-exploration-section" aria-labelledby="evolution-title">
           <h2 id="evolution-title">03 — Designing the end-to-end experience</h2>
-          <p>With the MVP scope defined, I mapped user flows to explore how the requirements connected across roles. I then used hand-drawn low-fidelity wireframes to investigate layouts, navigation and interaction patterns before developing the designs further in Sketch.</p>
-          <div class="placepath-evolution" aria-label="User flows and the progression from low- to medium-fidelity wireframes">
-            <figure>
-              <img src="../assets/case-studies/placepath/user-flow.png" alt="PlacePath user flow showing connected journeys" loading="lazy" decoding="async">
-              <figcaption><strong>User flows:</strong> mapping the key tasks and relationships between journeys.</figcaption>
-            </figure>
-            <figure>
-              <img class="placepath-lowfi-image" src="../assets/case-studies/placepath/low-fi-01-verified-3fb9263f.png" alt="Annotated low-fidelity PlacePath placement-planning wireframe" loading="lazy" decoding="async">
-              <figcaption><strong>Low-fidelity wireframing:</strong> exploring information hierarchy and interactions.</figcaption>
-            </figure>
-            <figure>
-              <img src="../assets/case-studies/placepath/mid-fi-wireframe.png" alt="Medium-fidelity PlacePath placement planning interface" loading="lazy" decoding="async">
-              <figcaption><strong>Design iteration:</strong> refining the structure and screen behaviours.</figcaption>
+          <div class="placepath-story-lead">
+            <p>With the MVP defined, I independently mapped the user flows and information architecture, turning separate requirements into connected journeys across the placement-management product. The flows helped me work through navigation, tasks and the relationships between placement planning, employer records, communication and visits.</p>
+          </div>
+
+          <div class="placepath-exploration-block">
+            <p class="placepath-editorial-kicker">01 / User flows and information architecture</p>
+            <h3>Making the product structure visible</h3>
+            <p>I mapped the routes through the product before committing to screen-level solutions. This gave me an overview of how users would access the different capabilities and where individual tasks connected.</p>
+            <figure class="placepath-flow-figure">
+              <img src="../assets/case-studies/placepath/user-flow.png" alt="Original PlacePath user-flow diagram mapping navigation and related product areas" loading="lazy" decoding="async">
+              <figcaption>Original user-flow artefact — showing how the separate parts of the placement experience were organised.</figcaption>
             </figure>
           </div>
-          <aside class="placepath-decision">
-            <p class="placepath-card-label">Interactive prototyping</p>
-            <p>I used Sketch with InVision to connect screens into interactive prototypes and demonstrate the intended journeys and interactions to stakeholders. These prototypes communicated how the experience would work; they were not formal usability tests.</p>
-          </aside>
-          <p>As the structure developed, I progressed towards high-fidelity responsive UI design, carrying the interaction decisions into the detailed interfaces.</p>
+
+          <div class="placepath-exploration-block">
+            <p class="placepath-editorial-kicker">02 / Low-fidelity interaction design</p>
+            <h3>Exploring before polishing</h3>
+            <p>I began with hand-drawn wireframes to investigate navigation, information hierarchy and screen behaviour. The exploration covered more than the placement form, including the dashboard and other related workflows. Working at low fidelity meant I could consider different arrangements without committing too early to visual detail.</p>
+            <div class="placepath-exploration-gallery">
+              <figure>
+                <img src="../assets/case-studies/placepath/low-fi-01-verified-3fb9263f.png" alt="Hand-drawn PlacePath low-fidelity placement planning wireframe" loading="lazy" decoding="async">
+                <figcaption><strong>Paper exploration:</strong> defining layout, content and possible interactions.</figcaption>
+              </figure>
+              <figure>
+                <img src="../assets/case-studies/placepath/mid-fi-wireframe.png" alt="Medium-fidelity PlacePath placement form wireframe" loading="lazy" decoding="async">
+                <figcaption><strong>Digital wireframes:</strong> developing the interaction structure in Sketch.</figcaption>
+              </figure>
+            </div>
+          </div>
+
+          <div class="placepath-exploration-block">
+            <p class="placepath-editorial-kicker">03 / Interactive prototyping and UI design</p>
+            <h3>Demonstrating the experience</h3>
+            <p>I brought the wireframes into Sketch and used InVision to link screens into interactive prototypes, demonstrating the intended journeys to stakeholders. These were walkthroughs of the proposed experience, not formal usability tests.</p>
+            <p>Once the core structure was established, I progressed to more detailed responsive UI design for desktop, tablet and mobile, carrying the navigation and interaction thinking into the finished screens.</p>
+            <div class="placepath-decision-summary">
+              <p class="placepath-editorial-kicker">What this stage established</p>
+              <p>A connected product structure and a sequence of interaction designs, from independently authored user flows through paper sketches and digital prototypes to detailed UI.</p>
+            </div>
+          </div>
         </section>
 
         <section class="case-study-section placepath-reflection" aria-labelledby="delivery-title">
