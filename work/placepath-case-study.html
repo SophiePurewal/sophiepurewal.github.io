@@ -104,6 +104,18 @@
     body.dark-mode.placepath-page .placepath-flow-figure, body.dark-mode.placepath-page .placepath-exploration-gallery figure { background: #1e293b; }
     @media (max-width: 740px) { .placepath-page .placepath-exploration-gallery { grid-template-columns: 1fr; } }
 
+    .placepath-page .placepath-flow-zoom { display: block; cursor: zoom-in; }
+    .placepath-page .placepath-flow-zoom:focus-visible { outline: 3px solid #9b164c; outline-offset: 4px; }
+    .placepath-page .placepath-design-evolution { margin-top: 36px; }
+    .placepath-page .placepath-design-evolution > h3 { font-size: clamp(1.3rem,2.3vw,1.8rem); letter-spacing: -.025em; margin: 0 0 12px; }
+    .placepath-page .placepath-design-evolution > p { max-width: 850px; }
+    .placepath-page .placepath-evolution-pair { display: grid; grid-template-columns: repeat(2,minmax(0,1fr)); gap: 22px; margin-top: 20px; }
+    .placepath-page .placepath-evolution-pair figure { min-width: 0; margin: 0; background: #f8f9fb; padding: clamp(12px,2vw,20px); border-radius: 12px; }
+    .placepath-page .placepath-evolution-pair img { display: block; width: 100%; height: auto; max-height: 520px; object-fit: contain; }
+    .placepath-page .placepath-evolution-pair figcaption { margin-top: 14px; font-size: .85rem; line-height: 1.55; color: #606b7a; }
+    body.dark-mode.placepath-page .placepath-evolution-pair figure { background: #1e293b; }
+    @media (max-width: 740px) { .placepath-page .placepath-evolution-pair { grid-template-columns: 1fr; } }
+
     /* Remove the horizontal dividers between PlacePath case-study sections. */
     .placepath-page .case-study-section {
       border-top: none;
@@ -740,16 +752,14 @@
 
         <section class="case-study-section placepath-exploration-section" aria-labelledby="evolution-title">
           <h2 id="evolution-title">03 — Designing the end-to-end experience</h2>
-          <div class="placepath-story-lead">
-            <p>With the MVP defined, I independently mapped the user flows and information architecture, turning separate requirements into connected journeys across the placement-management product. The flows helped me work through navigation, tasks and the relationships between placement planning, employer records, communication and visits.</p>
-          </div>
-
           <div class="placepath-exploration-block">
             <h3>User flows and information architecture</h3>
-            <p>I mapped the routes through the product before committing to screen-level solutions. This gave me an overview of how users would access the different capabilities and where individual tasks connected.</p>
+            <p>With the MVP defined, I independently mapped the user flows and information architecture, connecting placement planning, employer records, communication and visits before moving into screen-level design.</p>
             <figure class="placepath-flow-figure">
-              <img src="../assets/case-studies/placepath/user-flow.png" alt="Original PlacePath user-flow diagram mapping navigation and related product areas" loading="lazy" decoding="async">
-              <figcaption>Original user-flow artefact — showing how the separate parts of the placement experience were organised.</figcaption>
+              <a class="placepath-flow-zoom" href="../assets/case-studies/placepath/user-flow.png" target="_blank" rel="noopener noreferrer" aria-label="Open full-size PlacePath user flow in a new tab">
+                <img src="../assets/case-studies/placepath/user-flow.png" alt="Original PlacePath user-flow diagram mapping navigation and related product areas" loading="lazy" decoding="async">
+              </a>
+              <figcaption>Original user-flow artefact. Select the diagram to view it full-size and zoom in.</figcaption>
             </figure>
           </div>
 
@@ -772,8 +782,19 @@
             <h3>Prototyping and UI design</h3>
             <p>I brought the wireframes into Sketch and used InVision to link screens into interactive prototypes, demonstrating the intended journeys to stakeholders. These were walkthroughs of the proposed experience, not formal usability tests.</p>
             <p>Once the core structure was established, I progressed to more detailed responsive UI design for desktop, tablet and mobile, carrying the navigation and interaction thinking into the finished screens.</p>
-            <div class="placepath-decision-summary">
-              <p>A connected product structure and a sequence of interaction designs, from independently authored user flows through paper sketches and digital prototypes to detailed UI.</p>
+            <div class="placepath-design-evolution" aria-label="Placement planning interface evolution">
+              <h3>Design evolution: placement planning</h3>
+              <p>These artefacts show the placement-planning screen at two levels of fidelity. The early sketch explores how planning information and actions might be organised; the later design resolves more of the interface structure and visual detail. This is a design progression, not evidence of a usability-tested improvement.</p>
+              <div class="placepath-evolution-pair">
+                <figure>
+                  <img src="../assets/case-studies/placepath/low-fi-01-verified-3fb9263f.png" alt="Early hand-drawn placement-planning screen with fields, learning objectives, navigation and actions" loading="lazy" decoding="async">
+                  <figcaption><strong>Early exploration</strong> — paper wireframe of information and interactions.</figcaption>
+                </figure>
+                <figure>
+                  <img src="../assets/case-studies/placepath/placepath-high-fidelity-create-plan.png" alt="Later high-fidelity placement creation interface" loading="lazy" decoding="async">
+                  <figcaption><strong>Developed interface</strong> — detailed placement creation layout.</figcaption>
+                </figure>
+              </div>
             </div>
           </div>
         </section>
