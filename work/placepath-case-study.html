@@ -126,6 +126,17 @@
     @media(max-width:800px) { .placepath-page .placepath-sketch-grid { grid-template-columns: repeat(2,minmax(0,1fr)); } }
     @media(max-width:520px) { .placepath-page .placepath-sketch-grid { grid-template-columns: 1fr; } .placepath-page .placepath-sketch-grid a { height: 290px; } }
 
+    .placepath-page .placepath-sketch-number { font-size: .72rem; font-weight: 800; color: #9b164c; margin-right: 8px; }
+    .placepath-page .placepath-evolution-pair a { display: block; cursor: zoom-in; }
+    .placepath-page .placepath-image-dialog { border: 0; border-radius: 12px; padding: 12px 18px 20px; width: min(95vw, 1280px); max-width: 1280px; max-height: 94vh; background: #fff; color: #303b4a; box-shadow: 0 20px 90px #0007; }
+    .placepath-page .placepath-image-dialog::backdrop { background: rgba(10, 17, 30, .82); }
+    .placepath-page .placepath-dialog-tools { display: flex; justify-content: flex-end; margin-bottom: 8px; }
+    .placepath-page .placepath-dialog-close { cursor: pointer; border: 0; background: #f0f1f3; color: #303b4a; border-radius: 6px; padding: 9px 15px; font: inherit; }
+    .placepath-page .placepath-image-dialog > img { display: block; max-width: 100%; width: auto; max-height: calc(94vh - 125px); margin: auto; object-fit: contain; }
+    .placepath-page .placepath-dialog-caption { margin: 10px 0 0; text-align: center; font-size: .9rem; color: #596575; }
+    body.dark-mode.placepath-page .placepath-image-dialog { background: #1e293b; color: #f3f4f6; }
+    body.dark-mode.placepath-page .placepath-dialog-caption { color: #cbd5e1; }
+
     /* Remove the horizontal dividers between PlacePath case-study sections. */
     .placepath-page .case-study-section {
       border-top: none;
@@ -767,10 +778,10 @@
             <h3>User flows and information architecture</h3>
             <p>With the MVP defined, I independently mapped the user flows and information architecture, connecting placement planning, employer records, communication and visits before moving into screen-level design.</p>
             <figure class="placepath-flow-figure">
-              <a class="placepath-flow-zoom" href="../assets/case-studies/placepath/user-flow.png" target="_blank" rel="noopener noreferrer" aria-label="Open full-size PlacePath user flow in a new tab">
+              <a class="placepath-flow-zoom" href="../assets/case-studies/placepath/user-flow.png" data-placepath-enlarge aria-label="Enlarge PlacePath user flow on this page">
                 <img src="../assets/case-studies/placepath/user-flow.png" alt="Original PlacePath user-flow diagram mapping navigation and related product areas" loading="lazy" decoding="async">
               </a>
-              <figcaption>My original user-flow diagram. Select it to open the full-size version.</figcaption>
+              <figcaption>My original user-flow diagram. Select to enlarge.</figcaption>
             </figure>
           </div>
 
@@ -779,43 +790,43 @@
             <p>I explored different parts of the product through hand-drawn, low-fidelity wireframes. The sketches gave me space to consider navigation, content hierarchy and task-specific interactions before adding visual detail.</p>
             <div class="placepath-sketch-grid" aria-label="Original PlacePath low-fidelity sketches">
               <figure>
-                <a href="../assets/case-studies/placepath/Placepath-lowfi-home.jpeg" target="_blank" rel="noopener noreferrer">
+                <a href="../assets/case-studies/placepath/Placepath-lowfi-home.jpeg" data-placepath-enlarge>
                   <img src="../assets/case-studies/placepath/Placepath-lowfi-home.jpeg" alt="Original hand-drawn PlacePath home screen wireframe" loading="lazy" decoding="async">
                 </a>
-                <figcaption>Home and navigation</figcaption>
+                <figcaption><span class="placepath-sketch-number">01</span> Home and navigation</figcaption>
               </figure>
               <figure>
-                <a href="../assets/case-studies/placepath/Placepath-lowfi-search-filter-02.jpeg" target="_blank" rel="noopener noreferrer">
-                  <img src="../assets/case-studies/placepath/Placepath-lowfi-search-filter-02.jpeg" alt="Second-version hand-drawn search and filter wireframe" loading="lazy" decoding="async">
-                </a>
-                <figcaption>Search and filtering · v2</figcaption>
-              </figure>
-              <figure>
-                <a href="../assets/case-studies/placepath/Placepath-lowfi-search-result-02.jpeg" target="_blank" rel="noopener noreferrer">
-                  <img src="../assets/case-studies/placepath/Placepath-lowfi-search-result-02.jpeg" alt="Second-version hand-drawn search results wireframe" loading="lazy" decoding="async">
-                </a>
-                <figcaption>Search results · v2</figcaption>
-              </figure>
-              <figure>
-                <a href="../assets/case-studies/placepath/Placepath-lowfi-employer-record-02.jpeg" target="_blank" rel="noopener noreferrer">
-                  <img src="../assets/case-studies/placepath/Placepath-lowfi-employer-record-02.jpeg" alt="Second-version hand-drawn employer record wireframe" loading="lazy" decoding="async">
-                </a>
-                <figcaption>Employer record · v2</figcaption>
-              </figure>
-              <figure>
-                <a href="../assets/case-studies/placepath/Placepath-lowfi-contact-dialogue.jpeg" target="_blank" rel="noopener noreferrer">
-                  <img src="../assets/case-studies/placepath/Placepath-lowfi-contact-dialogue.jpeg" alt="Original hand-drawn contact dialogue wireframe" loading="lazy" decoding="async">
-                </a>
-                <figcaption>Contact dialogue</figcaption>
-              </figure>
-              <figure>
-                <a href="../assets/case-studies/placepath/Placepath-lowfi-home-empty-modules.jpeg" target="_blank" rel="noopener noreferrer">
+                <a href="../assets/case-studies/placepath/Placepath-lowfi-home-empty-modules.jpeg" data-placepath-enlarge>
                   <img src="../assets/case-studies/placepath/Placepath-lowfi-home-empty-modules.jpeg" alt="Hand-drawn PlacePath home screen showing empty modules" loading="lazy" decoding="async">
                 </a>
-                <figcaption>Home — empty modules</figcaption>
+                <figcaption><span class="placepath-sketch-number">02</span> Home — empty modules</figcaption>
+              </figure>
+              <figure>
+                <a href="../assets/case-studies/placepath/Placepath-lowfi-search-filter-02.jpeg" data-placepath-enlarge>
+                  <img src="../assets/case-studies/placepath/Placepath-lowfi-search-filter-02.jpeg" alt="hand-drawn search and filter wireframe" loading="lazy" decoding="async">
+                </a>
+                <figcaption><span class="placepath-sketch-number">03</span> Search and filtering</figcaption>
+              </figure>
+              <figure>
+                <a href="../assets/case-studies/placepath/Placepath-lowfi-search-result-02.jpeg" data-placepath-enlarge>
+                  <img src="../assets/case-studies/placepath/Placepath-lowfi-search-result-02.jpeg" alt="hand-drawn search results wireframe" loading="lazy" decoding="async">
+                </a>
+                <figcaption><span class="placepath-sketch-number">04</span> Search results</figcaption>
+              </figure>
+              <figure>
+                <a href="../assets/case-studies/placepath/Placepath-lowfi-employer-record-02.jpeg" data-placepath-enlarge>
+                  <img src="../assets/case-studies/placepath/Placepath-lowfi-employer-record-02.jpeg" alt="hand-drawn employer record wireframe" loading="lazy" decoding="async">
+                </a>
+                <figcaption><span class="placepath-sketch-number">05</span> Employer record</figcaption>
+              </figure>
+              <figure>
+                <a href="../assets/case-studies/placepath/Placepath-lowfi-contact-dialogue.jpeg" data-placepath-enlarge>
+                  <img src="../assets/case-studies/placepath/Placepath-lowfi-contact-dialogue.jpeg" alt="Original hand-drawn contact dialogue wireframe" loading="lazy" decoding="async">
+                </a>
+                <figcaption><span class="placepath-sketch-number">06</span> Contact dialogue</figcaption>
               </figure>
             </div>
-            <p class="placepath-sketch-note">Selected original sketches. Images ending in “02” are my second iterations; select any image to inspect it at full size.</p>
+            <p class="placepath-sketch-note">Selected original sketches, arranged from home and navigation through searching and employer communication. Select an image to enlarge it.</p>
           </div>
 
           <div class="placepath-exploration-block">
@@ -823,11 +834,11 @@
             <p>I developed the concepts further in Sketch and used InVision to connect screens into interactive walkthroughs for stakeholders. These demonstrated the proposed journeys; they were not formal usability tests.</p>
             <div class="placepath-evolution-pair" aria-label="Placement planning wireframe and detailed UI comparison">
               <figure>
-                <img src="../assets/case-studies/placepath/Placepath-lowfi-plan-placement-02.jpeg" alt="Second iteration of the hand-drawn Plan a placement wireframe" loading="lazy" decoding="async">
-                <figcaption><strong>Placement planning, v2</strong> — exploring the arrangement of information and actions on paper.</figcaption>
+                <a href="../assets/case-studies/placepath/Placepath-lowfi-plan-placement-02.jpeg" data-placepath-enlarge aria-label="Enlarge design comparison image"><img src="../assets/case-studies/placepath/Placepath-lowfi-plan-placement-02.jpeg" alt="Hand-drawn Plan a placement wireframe" loading="lazy" decoding="async"></a>
+                <figcaption><strong>Placement planning sketch</strong> — exploring the arrangement of information and actions on paper.</figcaption>
               </figure>
               <figure>
-                <img src="../assets/case-studies/placepath/placepath-high-fidelity-create-plan.png" alt="Detailed high-fidelity PlacePath create-plan interface" loading="lazy" decoding="async">
+                <a href="../assets/case-studies/placepath/placepath-high-fidelity-create-plan.png" data-placepath-enlarge aria-label="Enlarge design comparison image"><img src="../assets/case-studies/placepath/placepath-high-fidelity-create-plan.png" alt="Detailed high-fidelity PlacePath create-plan interface" loading="lazy" decoding="async"></a>
                 <figcaption><strong>Detailed interface</strong> — developing the planning experience in the finished UI.</figcaption>
               </figure>
             </div>
@@ -880,7 +891,36 @@
 
       </article>
     </div>
-  </main>
+  
+        <dialog class="placepath-image-dialog" id="placepath-image-dialog" aria-label="Expanded PlacePath design image">
+          <div class="placepath-dialog-tools"><button type="button" class="placepath-dialog-close" aria-label="Close expanded image">Close ×</button></div>
+          <img alt="">
+          <p class="placepath-dialog-caption"></p>
+        </dialog>
+</main>
   <script src="project-pages.js"></script>
+<script>
+  (() => {
+    const dialog = document.getElementById('placepath-image-dialog');
+    if (!dialog || typeof dialog.showModal !== 'function') return;
+    const expanded = dialog.querySelector('img');
+    const caption = dialog.querySelector('.placepath-dialog-caption');
+    let lastTrigger;
+    document.querySelectorAll('[data-placepath-enlarge]').forEach(link => {
+      link.addEventListener('click', event => {
+        event.preventDefault();
+        lastTrigger = link;
+        const preview = link.querySelector('img');
+        expanded.src = link.getAttribute('href');
+        expanded.alt = preview?.alt || 'PlacePath design artefact';
+        caption.textContent = link.closest('figure')?.querySelector('figcaption')?.textContent.trim() || '';
+        dialog.showModal();
+      });
+    });
+    dialog.querySelector('.placepath-dialog-close').addEventListener('click', () => dialog.close());
+    dialog.addEventListener('click', event => { if (event.target === dialog) dialog.close(); });
+    dialog.addEventListener('close', () => { expanded.removeAttribute('src'); lastTrigger?.focus(); });
+  })();
+</script>
 </body>
 </html>
