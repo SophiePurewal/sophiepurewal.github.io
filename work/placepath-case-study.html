@@ -15,6 +15,49 @@
   <link rel="stylesheet" href="../assets/css/site-header.css">
 
   <style>
+
+    /* PlacePath discovery and MVP editorial modules */
+    .placepath-page .placepath-story-lead { max-width: 850px; margin: 0 0 30px; }
+    .placepath-page .placepath-story-lead p { margin: 0 0 15px; }
+    .placepath-page .placepath-discovery-grid { display: grid; grid-template-columns: repeat(2, minmax(0,1fr)); gap: 20px; margin: 32px 0 20px; }
+    .placepath-page .placepath-editorial-panel { min-width: 0; padding: clamp(22px,3vw,32px); border-radius: 14px; background: #f5f7fa; }
+    .placepath-page .placepath-editorial-panel:nth-child(2) { background: #f2f7f5; }
+    .placepath-page .placepath-editorial-kicker { margin: 0 0 10px!important; font-size: .76rem!important; line-height: 1.5; color: #9b164c!important; font-weight: 800; letter-spacing: .085em; text-transform: uppercase; }
+    .placepath-page .placepath-editorial-panel h3, .placepath-page .placepath-mvp-process h3 { margin: 0 0 12px; font-size: clamp(1.07rem,1.7vw,1.35rem); line-height: 1.25; letter-spacing: -.02em; }
+    .placepath-page .placepath-editorial-panel p:last-child { margin-bottom: 0; }
+    .placepath-page .placepath-evidence-strip { display: grid; grid-template-columns: repeat(2,minmax(0,1fr)); gap: 20px; margin: 0 0 32px; }
+    .placepath-page .placepath-evidence-strip > div { padding: 18px 0; display: grid; gap: 5px; }
+    .placepath-page .placepath-evidence-strip strong { color: #17202a; }
+    .placepath-page .placepath-evidence-strip span { color: #5c6878; line-height: 1.6; }
+    .placepath-page .placepath-discovery-section > .placepath-question { max-width: 950px; margin: 20px 0 0; padding-left: 24px; border-left: 4px solid #9b164c; }
+    .placepath-page .placepath-mvp-process { max-width: 930px; margin: 34px auto; padding: clamp(22px,3.5vw,42px); border: 1px solid #e2e6eb; border-radius: 16px; background: #fff; }
+    .placepath-page .placepath-mvp-process > .placepath-editorial-kicker { text-align: center; margin-bottom: 22px!important; }
+    .placepath-page .placepath-process-node { display: flex; align-items: center; gap: 18px; max-width: 690px; margin: auto; padding: 20px 24px; background: #f5f7fa; border-radius: 12px; }
+    .placepath-page .placepath-process-node h3 { margin-bottom: 5px; }
+    .placepath-page .placepath-process-node p { margin: 0; line-height: 1.55; }
+    .placepath-page .placepath-process-node--result { background: #eaf5ef; }
+    .placepath-page .placepath-process-number { min-width: 66px; font-weight: 800; font-size: 2.35rem; line-height: 1; color: #18365c; text-align: center; }
+    .placepath-page .placepath-process-node--result .placepath-process-number { color: #126548; }
+    .placepath-page .placepath-process-icon { min-width: 66px; color: #245b99; text-align: center; font-size: 1.9rem; font-weight: 700; }
+    .placepath-page .placepath-process-connector { text-align: center; color: #8993a2; font-size: 1.7rem; line-height: 1.5; }
+    .placepath-page .placepath-priority-grid { display: grid; grid-template-columns: repeat(2,minmax(0,1fr)); gap: 18px; }
+    .placepath-page .placepath-priority-card { padding: 22px; background: #eaf5ef; border-radius: 12px; }
+    .placepath-page .placepath-priority-card--later { background: #f5f1fa; }
+    .placepath-page .placepath-priority-card h3 { margin-bottom: 10px; }
+    .placepath-page .placepath-priority-card ul { margin: 0; padding-left: 19px; }
+    .placepath-page .placepath-priority-card li { margin: 0 0 9px; line-height: 1.55; }
+    .placepath-page .placepath-decision-summary { max-width: 930px; margin: 28px auto 0; padding: 22px 26px; background: #f8f8fa; border-left: 4px solid #9b164c; }
+    .placepath-page .placepath-decision-summary p:last-child { margin: 0; }
+    body.dark-mode.placepath-page .placepath-editorial-panel, body.dark-mode.placepath-page .placepath-process-node, body.dark-mode.placepath-page .placepath-priority-card, body.dark-mode.placepath-page .placepath-decision-summary, body.dark-mode.placepath-page .placepath-mvp-process { background: #1e293b; border-color: #475569; }
+    body.dark-mode.placepath-page .placepath-evidence-strip strong, body.dark-mode.placepath-page .placepath-process-number, body.dark-mode.placepath-page .placepath-editorial-panel h3, body.dark-mode.placepath-page .placepath-mvp-process h3 { color: #fff; }
+    body.dark-mode.placepath-page .placepath-evidence-strip span { color: #d1d5db; }
+    @media (max-width: 740px) {
+      .placepath-page .placepath-discovery-grid, .placepath-page .placepath-evidence-strip, .placepath-page .placepath-priority-grid { grid-template-columns: 1fr; }
+      .placepath-page .placepath-process-node { padding: 16px; gap: 10px; }
+      .placepath-page .placepath-process-number, .placepath-page .placepath-process-icon { min-width: 48px; font-size: 1.8rem; }
+      .placepath-page .placepath-mvp-process { padding: 16px; }
+    }
+
     /* Remove the horizontal dividers between PlacePath case-study sections. */
     .placepath-page .case-study-section {
       border-top: none;
@@ -563,35 +606,89 @@
           <div class="summary-item"><dt>Ownership</dt><dd>Product definition, journeys, wireframes, UI and handoff</dd></div>
         </dl>
 
-        <section class="case-study-section" aria-labelledby="challenge-title">
+        <section class="case-study-section placepath-discovery-section" aria-labelledby="challenge-title">
           <h2 id="challenge-title">01 — Understanding the problem</h2>
-          <div class="case-study-section__layout">
-            <div class="case-study-section__body">
-              <p>PlacePath needed to support a complex placement management process involving three distinct user groups: education providers, employers and students.</p>
-              <p>The initial brief contained individual user stories but no established product architecture, interface or connected journeys.</p>
-              <p>The challenge was to determine how these requirements fitted together, identify which capabilities were essential for the first release, and create an understandable, cohesive experience across different roles and devices.</p>
-            </div>
-            <aside class="placepath-question" aria-label="Central design question">
-              <span>Product challenge</span>
-              <p>How might we transform disconnected, role-specific requirements into a coherent placement management experience that supports the full placement lifecycle?</p>
-            </aside>
+          <div class="placepath-story-lead">
+            <p>PlacePath was intended to bring placement coordination into one connected product for placement teams, employers and students. The CEO supplied product-owner research containing <strong>15 high-level user stories</strong>, but there was no agreed MVP, product architecture or connected set of journeys.</p>
+            <p>Rather than translate each story directly into a screen, I needed to understand how the requirements related to the core task: <strong>creating and managing a placement</strong>.</p>
           </div>
+          <div class="placepath-discovery-grid" aria-label="Discovery approach and evidence">
+            <div class="placepath-editorial-panel">
+              <p class="placepath-editorial-kicker">My proposed approach</p>
+              <h3>Recommend broader discovery</h3>
+              <p>In my original proposal to the CEO, I recommended user interviews, focus groups and card sorting, followed by journeys, personas and iterative prototype testing.</p>
+              <p>The client opted to use interview research it already had. I worked with that evidence rather than implying the additional research had taken place.</p>
+            </div>
+            <div class="placepath-editorial-panel">
+              <p class="placepath-editorial-kicker">The evidence available</p>
+              <h3>Look beyond the feature list</h3>
+              <p>One account in the supplied research described the pressure of coordinating placements for thousands of students with a very small administrative team.</p>
+              <p>That brought a sharper need into focus: reducing coordination effort, not simply digitising existing paperwork.</p>
+            </div>
+          </div>
+          <div class="placepath-evidence-strip" aria-label="Evidence boundaries">
+            <div><strong>Available</strong><span>Interview findings, user stories, stakeholder knowledge and existing workflows</span></div>
+            <div><strong>Still unknown</strong><span>Live usage behaviour, post-launch performance and broader user validation</span></div>
+          </div>
+          <aside class="placepath-question" aria-label="Central design question">
+            <span>Product challenge</span>
+            <p>How might we help placement teams complete the essential placement journey while keeping the experience clear for everyone involved?</p>
+          </aside>
         </section>
 
         <section class="case-study-section placepath-mvp-section" aria-labelledby="mvp-title">
           <h2 id="mvp-title">02 — Defining the product strategy and MVP</h2>
-          <div class="placepath-mvp-summary">
-            <p>I mapped requirements across <strong>3 user groups</strong> — placement teams, employers and students — back to the core placement task, then reduced the first release to <strong>10 essential MVP capabilities</strong>.</p>
-            <p>I used that scope to align priorities with the CEO before detailed design, separating valuable but non-essential requirements into later phases and giving engineering a clearer definition of the first release.</p>
+          <div class="placepath-story-lead">
+            <p>I worked through the existing research and stories with the CEO, separating <strong>essential user needs</strong> from functionality that would be useful later. My prioritisation question was simple: what must someone be able to do for the core placement journey to work?</p>
+            <p>That meant identifying dependencies between tasks — such as finding an employer, recording contact details, creating a placement and communicating progress — and preserving a coherent first release rather than treating every story as a feature request.</p>
           </div>
-          <div class="placepath-evidence placepath-mvp-evidence" data-placepath-evidence="scope">
-            <aside class="placepath-decision">
-              <p class="placepath-card-label">Product decision</p>
-              <p>Prioritise the core placement task and design around 10 MVP capabilities rather than attempting to solve the entire requirements set in the first release.</p>
-            </aside>
-            <figure>
-              <img src="../Placepath_UserStories.png" alt="PlacePath user stories showing the requirements used to define the first release" loading="lazy" decoding="async">
-            </figure>
+          <div class="placepath-mvp-process" aria-label="How I shaped the MVP">
+            <p class="placepath-editorial-kicker">How I shaped the MVP</p>
+            <div class="placepath-process-node placepath-process-node--input">
+              <div class="placepath-process-number">15</div>
+              <div><h3>High-level user stories</h3><p>Product-owner research and requirements supplied by the CEO</p></div>
+            </div>
+            <div class="placepath-process-connector" aria-hidden="true">↓</div>
+            <div class="placepath-process-node">
+              <span class="placepath-process-icon" aria-hidden="true">↔</span>
+              <div><h3>Map the core placement journey</h3><p>Identify tasks, overlap, information dependencies and what makes a placement possible</p></div>
+            </div>
+            <div class="placepath-process-connector" aria-hidden="true">↓</div>
+            <div class="placepath-priority-grid">
+              <div class="placepath-priority-card placepath-priority-card--must">
+                <p class="placepath-editorial-kicker">Essential for the MVP</p>
+                <h3>Must have</h3>
+                <ul>
+                  <li>Sign-in and role-specific access</li>
+                  <li>Placement planning and employer information</li>
+                  <li>Contacts, offers and communication</li>
+                  <li>Visits, notifications and supporting workflows</li>
+                </ul>
+              </div>
+              <div class="placepath-priority-card placepath-priority-card--later">
+                <p class="placepath-editorial-kicker">Defer until later</p>
+                <h3>Nice to have</h3>
+                <ul>
+                  <li>Dashboard-style analytics</li>
+                  <li>Additional assessment and review forms</li>
+                  <li>Dedicated results and career-plan features</li>
+                </ul>
+              </div>
+            </div>
+            <div class="placepath-process-connector" aria-hidden="true">↓</div>
+            <div class="placepath-process-node">
+              <span class="placepath-process-icon" aria-hidden="true">✓</span>
+              <div><h3>Align on scope with the CEO</h3><p>Agree what to build now, what to defer and why</p></div>
+            </div>
+            <div class="placepath-process-connector" aria-hidden="true">↓</div>
+            <div class="placepath-process-node placepath-process-node--result">
+              <div class="placepath-process-number">10</div>
+              <div><h3>Core MVP capabilities</h3><p>A focused, connected first-release scope for design and development</p></div>
+            </div>
+          </div>
+          <div class="placepath-decision-summary">
+            <p class="placepath-editorial-kicker">The product decision</p>
+            <p><strong>Prioritise the essential placement journey, not the largest feature list.</strong> Working with the CEO, I reduced the wider set of requirements to ten core capabilities, with lower-priority features deferred so the product could remain focused and extensible.</p>
           </div>
         </section>
 
