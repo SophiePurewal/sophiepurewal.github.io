@@ -29,7 +29,36 @@
     .placepath-page .placepath-evidence-strip > div { padding: 18px 0; display: grid; gap: 5px; }
     .placepath-page .placepath-evidence-strip strong { color: #17202a; }
     .placepath-page .placepath-evidence-strip span { color: #5c6878; line-height: 1.6; }
-    .placepath-page .placepath-discovery-section > .placepath-question { max-width: 950px; margin: 20px 0 0; padding-left: 24px; border-left: 4px solid #9b164c; }
+    .placepath-page .placepath-discovery-section > .placepath-question {
+      max-width: 930px;
+      margin: 28px auto 0;
+      padding: 22px 26px;
+      background: #f8f8fa;
+      border-left: 4px solid #9b164c;
+    }
+    .placepath-page .placepath-discovery-section > .placepath-question span {
+      display: block;
+      margin: 0 0 10px;
+      font-size: .76rem;
+      line-height: 1.5;
+      font-weight: 800;
+      letter-spacing: .085em;
+      text-transform: uppercase;
+      color: #9b164c;
+    }
+    .placepath-page .placepath-discovery-section > .placepath-question p {
+      margin: 0;
+      font-size: inherit;
+      line-height: 1.7;
+      font-weight: 400;
+      letter-spacing: normal;
+      color: #5c6878;
+    }
+    body.dark-mode.placepath-page .placepath-discovery-section > .placepath-question {
+      background: #1e293b;
+      border-color: #9b164c;
+    }
+    body.dark-mode.placepath-page .placepath-discovery-section > .placepath-question p { color: #d1d5db; }
     .placepath-page .placepath-mvp-process { max-width: 930px; margin: 34px auto; padding: clamp(22px,3.5vw,42px); border: 1px solid #e2e6eb; border-radius: 16px; background: #fff; }
     .placepath-page .placepath-mvp-process > .placepath-editorial-kicker { text-align: center; margin-bottom: 22px!important; }
     .placepath-page .placepath-process-node { display: flex; align-items: center; gap: 18px; max-width: 690px; margin: auto; padding: 20px 24px; background: #f5f7fa; border-radius: 12px; }
