@@ -876,6 +876,50 @@
     }
 
   
+
+/* Inverted portfolio footer colours, consistent across site themes. */
+.portfolio-footer {
+  --footer-bg: #17202A;
+  --footer-text: #FEFEFE;
+  --footer-muted: #E2E5E8;
+  --footer-tooltip-bg: #FEFEFE;
+  --footer-tooltip-text: #17202A;
+  background: var(--footer-bg) !important;
+  color: var(--footer-text) !important;
+  border-top-color: transparent;
+}
+html.dark-mode .portfolio-footer,
+body.dark-mode .portfolio-footer {
+  --footer-bg: #FEFEFE;
+  --footer-text: #17202A;
+  --footer-muted: #46515C;
+  --footer-tooltip-bg: #17202A;
+  --footer-tooltip-text: #FEFEFE;
+}
+.portfolio-footer .portfolio-footer__cta h2,
+.portfolio-footer .portfolio-footer__contact,
+.portfolio-footer .portfolio-footer__nav .footer-nav-link,
+body.home-page .portfolio-footer a,
+body.home-page .portfolio-footer a:visited {
+  color: var(--footer-text) !important;
+}
+.portfolio-footer .portfolio-footer__cta p,
+.portfolio-footer .portfolio-footer__copyright {
+  color: var(--footer-muted) !important;
+}
+.portfolio-footer .portfolio-footer__contact:hover,
+.portfolio-footer .portfolio-footer__contact:focus-visible,
+.portfolio-footer .portfolio-footer__nav .footer-nav-link:hover,
+.portfolio-footer .portfolio-footer__nav .footer-nav-link:focus-visible,
+body.home-page .portfolio-footer a:hover,
+body.home-page .portfolio-footer a:focus-visible {
+  color: var(--footer-text) !important;
+}
+.portfolio-footer .portfolio-footer__nav .footer-nav-link::after {
+  background: var(--footer-tooltip-bg);
+  color: var(--footer-tooltip-text);
+}
+
     /* Compact portfolio footer */
     .portfolio-footer { padding: 0 24px; text-align: left; background: var(--page-surface); color: var(--page-footer-copy); border-top: 1px solid var(--page-border); }
     .portfolio-footer__inner { max-width: 1180px; margin: 0 auto; }
