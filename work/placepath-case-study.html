@@ -28,6 +28,26 @@
       margin-bottom: 22px;
     }
 
+    /* Match section 05 heading to the other H2s and keep it on one line where space allows. */
+    .placepath-page #prototype-title {
+      font-size: clamp(1.6rem, 2.7vw, 2.35rem) !important;
+      line-height: 1.18;
+      letter-spacing: -0.035em;
+      white-space: nowrap;
+      max-width: none;
+    }
+
+    .placepath-page .placepath-prototype-intro,
+    .placepath-page .placepath-prototype-intro > div {
+      width: 100%;
+      max-width: none;
+      min-width: 0;
+    }
+
+    @media (max-width: 700px) {
+      .placepath-page #prototype-title { white-space: normal; }
+    }
+
     .placepath-title-container {
       display: block;
       width: 100%;
