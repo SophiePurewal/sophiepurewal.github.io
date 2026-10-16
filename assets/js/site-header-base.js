@@ -314,62 +314,6 @@
         else mvpSection.append(evidence);
       }
 
-      const evolutionSection = document.querySelector('section[aria-labelledby="evolution-title"]');
-      if (evolutionSection) {
-        const lowFiImage = evolutionSection.querySelector('.placepath-lowfi-image');
-        if (lowFiImage) {
-          lowFiImage.src = `${assetBase}placepath-low-fidelity-plan-placement.webp`;
-          lowFiImage.alt = 'Annotated low-fidelity PlacePath planning wireframe translating the Plan a placement requirement into navigation, fields, objectives, preview and save actions';
-          const lowFiCaption = lowFiImage.closest('figure')?.querySelector('figcaption');
-          if (lowFiCaption) lowFiCaption.innerHTML = '<strong>Low fidelity:</strong> translate the requirement into information hierarchy, navigation and actions.';
-        }
-
-        if (!evolutionSection.querySelector('[data-placepath-evidence="structure"]')) {
-          const evidence = document.createElement('div');
-          evidence.className = 'placepath-evidence';
-          evidence.dataset.placepathEvidence = 'structure';
-          evidence.classList.add('placepath-evidence--steps');
-          evidence.innerHTML = `
-            <div class="placepath-process-step">
-              <div class="placepath-process-step__copy">
-                <p class="placepath-evidence__eyebrow">Step 1</p>
-                <h3>Planning the user flow</h3>
-                <p>I mapped the placement journey and how the key roles connected across it.</p>
-              </div>
-              <figure>
-                <img src="../assets/case-studies/placepath/user-flow.png" alt="User flow mapping the PlacePath service, navigation and key product journeys" loading="lazy" decoding="async">
-              </figure>
-            </div>
-            <div class="placepath-process-step">
-              <div class="placepath-process-step__copy">
-                <p class="placepath-evidence__eyebrow">Step 2</p>
-                <h3>Low fidelity: navigation and screen behaviour</h3>
-                <p>I explored the information architecture, navigation and core interactions before adding visual detail.</p>
-              </div>
-              <figure>
-                <img src="../assets/case-studies/placepath/low-fi-01-verified-3fb9263f.png" alt="Annotated low-fidelity placement-planning wireframe showing navigation, information hierarchy and screen behaviour" loading="lazy" decoding="async">
-              </figure>
-            </div>
-            <div class="placepath-process-step">
-              <div class="placepath-process-step__copy">
-                <p class="placepath-evidence__eyebrow">Step 3</p>
-                <h3>High fidelity: Plan a placement</h3>
-              </div>
-              <figure>
-                <img src="../assets/case-studies/placepath/high-fi-create.png" alt="High-fidelity PlacePath Plan a placement screen" loading="lazy" decoding="async">
-              </figure>
-            </div>
-          `;
-
-          const evolutionGrid = evolutionSection.querySelector('.placepath-evolution');
-          if (evolutionGrid) {
-            evolutionGrid.before(evidence);
-            evolutionGrid.remove();
-          } else {
-            evolutionSection.append(evidence);
-          }
-        }
-      }
     };
 
     // PlacePath editorial copy is maintained in placepath-case-study.html.
