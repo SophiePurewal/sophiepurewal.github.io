@@ -1,7 +1,7 @@
 (() => {
   const ownScript = document.currentScript;
   const baseScriptUrl = ownScript?.src
-    ? new URL('site-header-base.js?v=20261016-placepath-editorial', ownScript.src).href
+    ? new URL('site-header-base.js?v=20261016-section3-clean', ownScript.src).href
     : '../assets/js/site-header-base.js?v=20261016-placepath-editorial';
 
   const enhancePlacePath = () => {
@@ -67,33 +67,6 @@
       '#prototype-title + p',
       'After the client project was paused, I independently developed PlacePath into the interactive prototype shown here. This later prototype was not part of the commissioned client work; I created it to explore how the complete product could feel and behave.'
     );
-
-    // Second decision: show the journey moving from requirement and low fidelity into a clearer creation model.
-    const evolutionSection = document.querySelector('section[aria-labelledby="evolution-title"]');
-    const evolution = evolutionSection?.querySelector('.placepath-evolution');
-    if (evolution) {
-      const figures = [...evolution.querySelectorAll('figure')];
-      const midFigure = figures.find((figure) => figure.querySelector('img[src*="mid-fi-wireframe"], img[src*="mid-fi-create"]'));
-      if (midFigure) {
-        const img = midFigure.querySelector('img');
-        const caption = midFigure.querySelector('figcaption');
-        if (img) {
-          img.src = `${assetBase}placepath-mid-fidelity-create-plan.png`;
-          img.alt = 'Mid-fidelity PlacePath create-plan screen showing progressive placement-plan creation and a separate preview stage';
-        }
-        if (caption) caption.innerHTML = '<strong>Mid fidelity:</strong> shape progressive creation and the relationship between Create Plan and Preview Plan.';
-      }
-
-      if (!evolution.querySelector('[data-placepath-fidelity="high-create"]')) {
-        const figure = document.createElement('figure');
-        figure.dataset.placepathFidelity = 'high-create';
-        figure.innerHTML = `
-          <img src="${assetBase}placepath-high-fidelity-create-plan.png" alt="High-fidelity PlacePath create-plan interface with learning objectives, schedule choices and a separate Preview Plan stage" loading="lazy" decoding="async">
-          <figcaption><strong>High fidelity:</strong> refine the creation model into a clear, production-ready planning experience.</figcaption>
-        `;
-        evolution.append(figure);
-      }
-    }
 
     // Third decision: make the separate review state visible in both mid and high fidelity.
     const workflowSection = document.querySelector('section[aria-labelledby="workflow-title"]');
