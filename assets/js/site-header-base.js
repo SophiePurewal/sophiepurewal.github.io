@@ -441,10 +441,28 @@
     initHomepageImpact();
 
     const siteHeader = document.querySelector('.site-header');
-    const menuToggle = document.querySelector('.menu-toggle');
+    // Keep the wordmark's existing styling and hover target, but make it a home link.
+    // On touch-sized layouts it continues to act as the existing navigation toggle.
+    let menuToggle = document.querySelector('.menu-toggle');
+    if (menuToggle?.tagName === 'BUTTON' && menuToggle.classList.contains('site-title__home-link')) {
+      const homeLink = document.createElement('a');
+      for (const attribute of menuToggle.attributes) {
+        if (attribute.name !== 'type') homeLink.setAttribute(attribute.name, attribute.value);
+      }
+      homeLink.href = '/index.html';
+      homeLink.innerHTML = menuToggle.innerHTML;
+      menuToggle.replaceWith(homeLink);
+      menuToggle = homeLink;
+    }
     const dropdownMenu = document.querySelector('#dropdown-menu');
     const themeToggle = document.querySelector('.theme-toggle');
     const siteTitleHomeLink = document.querySelector('.site-title__home-link');
+    const syncLogoLabel = () => {
+      if (!siteTitleHomeLink) return;
+      siteTitleHomeLink.setAttribute('aria-label', window.matchMedia('(max-width: 640px)').matches ? 'Open navigation menu' : 'Home');
+    };
+    syncLogoLabel();
+    window.addEventListener('resize', syncLogoLabel);
     const dropdownInactivityDelayMs = 5000;
     let dropdownInactivityTimer = null;
 
@@ -568,7 +586,10 @@
       dropdownMenu.addEventListener('pointerenter', () => { cancelHoverClose(); resetDropdownInactivityTimer(); });
       dropdownMenu.addEventListener('pointerleave', closeAfterHover);
 
-      menuToggle.addEventListener('click', () => {
+      menuToggle.addEventListener('click', (event) => {
+        // Desktop logo clicks follow the home link; mobile keeps the familiar tap-to-open menu.
+        if (!window.matchMedia('(max-width: 640px)').matches) return;
+        event.preventDefault();
         const isOpen = dropdownMenu.classList.toggle('open');
         menuToggle.setAttribute('aria-expanded', String(isOpen));
         syncHeaderMenuState();
