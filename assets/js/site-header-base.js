@@ -512,6 +512,8 @@
 
     if (siteTitleHomeLink?.tagName === 'A') {
       siteTitleHomeLink.addEventListener('click', (event) => {
+        // On mobile the logo remains a menu trigger, including on the homepage.
+        if (window.matchMedia('(max-width: 640px)').matches) return;
         const targetUrl = new URL(siteTitleHomeLink.href, window.location.href);
 
         const currentPath = window.location.pathname.replace(/\/index\.html$/, '/');
