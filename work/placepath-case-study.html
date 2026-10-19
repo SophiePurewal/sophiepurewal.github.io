@@ -651,6 +651,15 @@
       .placepath-page .placepath-midfi-grid.midfi-motion-ready .placepath-midfi-item { transition:opacity 1050ms cubic-bezier(.22,1,.36,1),transform 1050ms cubic-bezier(.22,1,.36,1); }
       .placepath-page .placepath-midfi-grid.midfi-motion-ready .placepath-midfi-item.is-visible { opacity:1; transform:translateY(0); }
     }
+
+    /* PlacePath client testimonial, aligned with editorial section styles */
+    .placepath-page .placepath-client-feedback { max-width:930px; margin:42px auto; padding:clamp(24px,4vw,42px); border:1px solid #e2e6eb; border-radius:14px; background:#f8f9fb; }
+    .placepath-page .placepath-client-feedback blockquote { margin:12px 0 22px; padding:0; border:0; font-size:clamp(1.22rem,2.1vw,1.65rem); line-height:1.55; letter-spacing:-.02em; color:#17202a; font-weight:500; }
+    .placepath-page .placepath-client-feedback figcaption { display:flex; flex-direction:column; gap:3px; color:#606b7a; font-size:.94rem; }
+    .placepath-page .placepath-client-feedback figcaption strong { color:#17202a; }
+    body.dark-mode.placepath-page .placepath-client-feedback { background:#1e293b; border-color:#475569; }
+    body.dark-mode.placepath-page .placepath-client-feedback blockquote,body.dark-mode.placepath-page .placepath-client-feedback figcaption strong { color:#f8fafc; }
+    body.dark-mode.placepath-page .placepath-client-feedback figcaption { color:#cbd5e1; }
 </style>
   <link rel="stylesheet" href="../assets/css/portfolio-motion.css?v=1">
   <script src="../assets/js/portfolio-motion.js?v=1" defer></script>
@@ -912,6 +921,11 @@
               <figure class="placepath-final-mobile"><a href="../Placepath_Mobile.png" data-placepath-enlarge aria-label="Expand PlacePath mobile design"><img src="../Placepath_Mobile.png" alt="PlacePath mobile interface" loading="lazy" decoding="async"></a><figcaption><strong>Mobile</strong> — an adaptation of the product experience for a small screen.</figcaption></figure>
             </div>
           </div>
+          <figure class="placepath-client-feedback" aria-label="Client feedback from Mark Trinick">
+            <p class="placepath-editorial-kicker">Client feedback</p>
+            <blockquote>“It looks really good and I do like the ‘PlacePath’ layout and design. It is very easy on the eye and is made to be highly intuitive. Well done”</blockquote>
+            <figcaption><strong>Mark Trinick</strong><span>CEO, VLE Support</span></figcaption>
+          </figure>
           <div class="placepath-delivery-grid" aria-label="Design deliverables and project status">
             <div class="placepath-editorial-panel">
               <p class="placepath-editorial-kicker">What I delivered</p>
