@@ -627,22 +627,26 @@
     @media (max-width:740px) { .placepath-page .placepath-insight-row,.placepath-page .placepath-delivery-grid { grid-template-columns:1fr; } .placepath-page .placepath-final-responsive { grid-template-columns:1fr; } .placepath-page .placepath-final-mobile img { max-width:280px; } }
 
  
-    /* Annotated mid-fidelity PDFs: compact, expandable, and keyboard accessible */
-    .placepath-page .placepath-midfi-grid { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:14px; margin:24px 0 0; align-items:start; }
-    .placepath-page .placepath-midfi-item { min-width:0; border:1px solid #e2e6eb; background:#f8f9fb; border-radius:12px; overflow:hidden; }
-    .placepath-page .placepath-midfi-item summary { display:flex; align-items:center; justify-content:space-between; gap:12px; padding:20px; cursor:pointer; list-style:none; }
-    .placepath-page .placepath-midfi-item summary::-webkit-details-marker { display:none; }
-    .placepath-page .placepath-midfi-item summary strong { display:block; font-size:1rem; color:#17202a; }
-    .placepath-page .placepath-midfi-item summary small { display:block; margin-top:6px; font-size:.84rem; line-height:1.55; color:#606b7a; }
-    .placepath-page .placepath-midfi-item[open] summary > span:last-child { transform:rotate(45deg); }
-    .placepath-page .placepath-midfi-content { display:flex; flex-direction:column; gap:12px; padding:0 16px 18px; }
-    .placepath-page .placepath-midfi-content p { font-size:.9rem; margin:0; }
-    .placepath-page .placepath-midfi-content iframe { width:100%; height:460px; border:1px solid #dce2e9; border-radius:8px; background:#fff; }
-    .placepath-page .placepath-midfi-content a { font-size:.85rem; font-weight:700; color:#9b164c; text-underline-offset:3px; margin-bottom:10px; }
-    body.dark-mode.placepath-page .placepath-midfi-item { background:#1e293b; border-color:#475569; }
-    body.dark-mode.placepath-page .placepath-midfi-item summary strong { color:#fff; }
-    body.dark-mode.placepath-page .placepath-midfi-item summary small { color:#cbd5e1; }
-    @media(max-width:740px) { .placepath-page .placepath-midfi-grid { grid-template-columns:1fr; } .placepath-page .placepath-midfi-content iframe { height:360px; } }
+    /* Scroll-led mid-fidelity design story */
+    .placepath-page .placepath-midfi-grid { display:grid; grid-template-columns:minmax(0,1fr); gap:clamp(28px,4vw,52px); margin:30px 0 0; }
+    .placepath-page .placepath-midfi-item { min-width:0; padding:clamp(18px,3vw,34px); border-radius:14px; background:#f8f9fb; }
+    .placepath-page .placepath-midfi-heading { margin-bottom:18px; }
+    .placepath-page .placepath-midfi-heading h4 { margin:0 0 6px; font-size:clamp(1.12rem,1.7vw,1.4rem); line-height:1.3; color:#17202a; letter-spacing:-.02em; }
+    .placepath-page .placepath-midfi-heading p { margin:0; color:#606b7a; font-size:.89rem; }
+    .placepath-page .placepath-midfi-content { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:18px; align-items:start; }
+    .placepath-page .placepath-midfi-content > p { grid-column:1/-1; max-width:850px; margin:0; line-height:1.7; }
+    .placepath-page .placepath-midfi-visual { display:flex; flex-direction:column; gap:10px; min-width:0; }
+    .placepath-page .placepath-midfi-visual iframe { display:block; width:100%; height:clamp(300px,39vw,590px); border:1px solid #dce2e9; border-radius:8px; background:#fff; }
+    .placepath-page .placepath-midfi-visual a { align-self:flex-start; color:#9b164c; font-size:.85rem; font-weight:700; text-underline-offset:3px; }
+    body.dark-mode.placepath-page .placepath-midfi-item { background:#1e293b; }
+    body.dark-mode.placepath-page .placepath-midfi-heading h4 { color:#fff; }
+    body.dark-mode.placepath-page .placepath-midfi-heading p { color:#cbd5e1; }
+    @media(max-width:740px) { .placepath-page .placepath-midfi-content { grid-template-columns:minmax(0,1fr); } .placepath-page .placepath-midfi-visual iframe { height:clamp(280px,90vw,520px); } }
+    @media(prefers-reduced-motion:no-preference) {
+      .placepath-page .placepath-midfi-grid.midfi-motion-ready .placepath-midfi-item:not(.is-visible) { opacity:0; transform:translateY(28px); }
+      .placepath-page .placepath-midfi-grid.midfi-motion-ready .placepath-midfi-item { transition:opacity 640ms ease,transform 640ms cubic-bezier(.2,.7,.2,1); }
+      .placepath-page .placepath-midfi-grid.midfi-motion-ready .placepath-midfi-item.is-visible { opacity:1; transform:translateY(0); }
+    }
 </style>
   <link rel="stylesheet" href="../assets/css/portfolio-motion.css?v=1">
   <script src="../assets/js/portfolio-motion.js?v=1" defer></script>
@@ -851,25 +855,25 @@
           <div class="placepath-exploration-block placepath-midfi-section">
             <h3>Refining the structure in mid-fidelity</h3>
             <p>The mid-fidelity designs let me specify <strong>how the experience would behave</strong>, not just how it would look. My annotations describe navigation states, task entry points, editable records and connections between workflows. These were proposed interactions documented during design, rather than features validated in a live product.</p>
-            <div class="placepath-midfi-grid" aria-label="Annotated mid-fidelity design PDFs">
-              <details class="placepath-midfi-item">
-                <summary><span><strong>01 — Home and navigation</strong><small>Home screen and expanded layout · two annotated designs</small></span><span aria-hidden="true">+</span></summary>
-                <div class="placepath-midfi-content"><p><strong>Design rationale:</strong> I explored condensed and expanded navigation so placement staff could reclaim screen space without losing access to key areas. The proposed dashboard used movable, customisable widgets to help users prioritise daily work, with an empty state encouraging first-time configuration.</p><iframe src="../assets/case-studies/placepath/01_Home_Page_MF.pdf#toolbar=0" title="Annotated mid-fidelity home screen PDF" loading="lazy"></iframe><a href="../assets/case-studies/placepath/01_Home_Page_MF.pdf" target="_blank" rel="noopener">Open home screen PDF</a><iframe src="../assets/case-studies/placepath/02_Home_Page_Expanded_MF.pdf#toolbar=0" title="Annotated expanded mid-fidelity home screen PDF" loading="lazy"></iframe><a href="../assets/case-studies/placepath/02_Home_Page_Expanded_MF.pdf" target="_blank" rel="noopener">Open expanded home PDF</a></div>
-              </details>
-              <details class="placepath-midfi-item">
-                <summary><span><strong>02 — Placement planning</strong><small>Moving the core journey into a structured screen</small></span><span aria-hidden="true">+</span></summary>
-                <div class="placepath-midfi-content"><p><strong>Design rationale:</strong> Placement planning could be reached from the navigation or a dashboard shortcut. I specified selecting and describing objectives, then previewing, saving, editing and prioritising them. The notes also consider associating plans with students and reusing information for similar placements.</p><iframe src="../assets/case-studies/placepath/03_Plan_a_placement_MF.pdf#toolbar=0" title="Annotated mid-fidelity placement planning PDF" loading="lazy"></iframe><a href="../assets/case-studies/placepath/03_Plan_a_placement_MF.pdf" target="_blank" rel="noopener">Open placement planning PDF</a></div>
-              </details>
-              <details class="placepath-midfi-item">
-                <summary><span><strong>03 — Search and employer records</strong><small>Finding employers and working with their information · two annotated designs</small></span><span aria-hidden="true">+</span></summary>
-                <div class="placepath-midfi-content"><p><strong>Design rationale:</strong> Search was designed as a connected entry point to employer records. My notes propose layered filters that expand on smaller screens, immediate results, sorting and direct actions such as messaging an employer or adding a record.</p><iframe src="../assets/case-studies/placepath/04_Search_Option_MF.pdf#toolbar=0" title="Annotated mid-fidelity search PDF" loading="lazy"></iframe><a href="../assets/case-studies/placepath/04_Search_Option_MF.pdf" target="_blank" rel="noopener">Open search PDF</a><p><strong>Employer record structure:</strong> I grouped organisation, placement and head-office information into editable cards, alongside contacts with role-dependent editing options. The notes propose identifying a primary contact and opening contact history directly from the record.</p><iframe src="../assets/case-studies/placepath/05_Employer_Records_Screen_MF.pdf#toolbar=0" title="Annotated mid-fidelity employer records PDF" loading="lazy"></iframe><a href="../assets/case-studies/placepath/05_Employer_Records_Screen_MF.pdf" target="_blank" rel="noopener">Open employer records PDF</a></div>
-              </details>
-              <details class="placepath-midfi-item">
-                <summary><span><strong>04 — Communication and placement offers</strong><small>Supporting interactions · two annotated designs</small></span><span aria-hidden="true">+</span></summary>
-                <div class="placepath-midfi-content"><p><strong>Design rationale:</strong> I linked employer communication to follow-up actions and placement offers. The contact-dialogue concept includes a scrolling interaction history and assigned actions; the offer concept reuses editable cards for organisation details, due diligence and insurance to create familiarity between workflows.</p><iframe src="../assets/case-studies/placepath/06_Contact_Dialogue_Record.pdf#toolbar=0" title="Annotated mid-fidelity contact dialogue PDF" loading="lazy"></iframe><a href="../assets/case-studies/placepath/06_Contact_Dialogue_Record.pdf" target="_blank" rel="noopener">Open contact dialogue PDF</a><iframe src="../assets/case-studies/placepath/07_Placement%20offers_details_MF.pdf#toolbar=0" title="Annotated mid-fidelity placement offers PDF" loading="lazy"></iframe><a href="../assets/case-studies/placepath/07_Placement%20offers_details_MF.pdf" target="_blank" rel="noopener">Open placement offers PDF</a></div>
-              </details>
+            <div class="placepath-midfi-grid" aria-label="Annotated mid-fidelity design progression">
+              <section class="placepath-midfi-item" data-midfi-reveal>
+                <header class="placepath-midfi-heading"><h4>01 — Home and navigation</h4><p>Home screen and expanded layout · two annotated designs</p></header>
+                <div class="placepath-midfi-content"><p><strong>Design rationale:</strong> I explored condensed and expanded navigation so placement staff could reclaim screen space without losing access to key areas. The proposed dashboard used movable, customisable widgets to help users prioritise daily work, with an empty state encouraging first-time configuration.</p><div class="placepath-midfi-visual"><iframe src="../assets/case-studies/placepath/01_Home_Page_MF.pdf#toolbar=0" title="Annotated mid-fidelity home screen PDF" loading="lazy"></iframe><a href="../assets/case-studies/placepath/01_Home_Page_MF.pdf" target="_blank" rel="noopener">Open home screen PDF</a></div><div class="placepath-midfi-visual"><iframe src="../assets/case-studies/placepath/02_Home_Page_Expanded_MF.pdf#toolbar=0" title="Annotated expanded mid-fidelity home screen PDF" loading="lazy"></iframe><a href="../assets/case-studies/placepath/02_Home_Page_Expanded_MF.pdf" target="_blank" rel="noopener">Open expanded home PDF</a></div></div>
+              </section>
+              <section class="placepath-midfi-item" data-midfi-reveal>
+                <header class="placepath-midfi-heading"><h4>02 — Placement planning</h4><p>Moving the core journey into a structured screen</p></header>
+                <div class="placepath-midfi-content"><p><strong>Design rationale:</strong> Placement planning could be reached from the navigation or a dashboard shortcut. I specified selecting and describing objectives, then previewing, saving, editing and prioritising them. The notes also consider associating plans with students and reusing information for similar placements.</p><div class="placepath-midfi-visual"><iframe src="../assets/case-studies/placepath/03_Plan_a_placement_MF.pdf#toolbar=0" title="Annotated mid-fidelity placement planning PDF" loading="lazy"></iframe><a href="../assets/case-studies/placepath/03_Plan_a_placement_MF.pdf" target="_blank" rel="noopener">Open placement planning PDF</a></div></div>
+              </section>
+              <section class="placepath-midfi-item" data-midfi-reveal>
+                <header class="placepath-midfi-heading"><h4>03 — Search and employer records</h4><p>Finding employers and working with their information · two annotated designs</p></header>
+                <div class="placepath-midfi-content"><p><strong>Design rationale:</strong> Search was designed as a connected entry point to employer records. My notes propose layered filters that expand on smaller screens, immediate results, sorting and direct actions such as messaging an employer or adding a record.</p><div class="placepath-midfi-visual"><iframe src="../assets/case-studies/placepath/04_Search_Option_MF.pdf#toolbar=0" title="Annotated mid-fidelity search PDF" loading="lazy"></iframe><a href="../assets/case-studies/placepath/04_Search_Option_MF.pdf" target="_blank" rel="noopener">Open search PDF</a></div><p><strong>Employer record structure:</strong> I grouped organisation, placement and head-office information into editable cards, alongside contacts with role-dependent editing options. The notes propose identifying a primary contact and opening contact history directly from the record.</p><div class="placepath-midfi-visual"><iframe src="../assets/case-studies/placepath/05_Employer_Records_Screen_MF.pdf#toolbar=0" title="Annotated mid-fidelity employer records PDF" loading="lazy"></iframe><a href="../assets/case-studies/placepath/05_Employer_Records_Screen_MF.pdf" target="_blank" rel="noopener">Open employer records PDF</a></div></div>
+              </section>
+              <section class="placepath-midfi-item" data-midfi-reveal>
+                <header class="placepath-midfi-heading"><h4>04 — Communication and placement offers</h4><p>Supporting interactions · two annotated designs</p></header>
+                <div class="placepath-midfi-content"><p><strong>Design rationale:</strong> I linked employer communication to follow-up actions and placement offers. The contact-dialogue concept includes a scrolling interaction history and assigned actions; the offer concept reuses editable cards for organisation details, due diligence and insurance to create familiarity between workflows.</p><div class="placepath-midfi-visual"><iframe src="../assets/case-studies/placepath/06_Contact_Dialogue_Record.pdf#toolbar=0" title="Annotated mid-fidelity contact dialogue PDF" loading="lazy"></iframe><a href="../assets/case-studies/placepath/06_Contact_Dialogue_Record.pdf" target="_blank" rel="noopener">Open contact dialogue PDF</a></div><div class="placepath-midfi-visual"><iframe src="../assets/case-studies/placepath/07_Placement%20offers_details_MF.pdf#toolbar=0" title="Annotated mid-fidelity placement offers PDF" loading="lazy"></iframe><a href="../assets/case-studies/placepath/07_Placement%20offers_details_MF.pdf" target="_blank" rel="noopener">Open placement offers PDF</a></div></div>
+              </section>
             </div>
-            <p class="placepath-sketch-note">These annotations document interaction ideas and design intent; they are not evidence that each proposed feature was implemented or tested. Expand an item to read the original notes on the page, or open the PDF separately.</p>
+            <p class="placepath-sketch-note">These annotations document interaction ideas and design intent; they are not evidence that each proposed feature was implemented or tested. The annotated designs appear as you scroll; use the PDF links to view the originals at full size.</p>
           </div>
 
           <div class="placepath-exploration-block placepath-design-evolution">
@@ -959,6 +963,26 @@
           <p class="placepath-dialog-caption"></p>
         </dialog>
 </main>
+  <script>
+    (() => {
+      const grid = document.querySelector('.placepath-midfi-grid');
+      if (!grid || !('IntersectionObserver' in window) || window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+      const items = Array.from(grid.querySelectorAll('[data-midfi-reveal]'));
+      const observer = new IntersectionObserver(entries => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('is-visible');
+            observer.unobserve(entry.target);
+          }
+        });
+      }, { threshold: 0.06, rootMargin: '0px 0px -35px 0px' });
+      items.forEach(item => {
+        if (item.getBoundingClientRect().top < window.innerHeight) item.classList.add('is-visible');
+        observer.observe(item);
+      });
+      grid.classList.add('midfi-motion-ready');
+    })();
+  </script>
   <script src="project-pages.js"></script>
 <script>
   (() => {
