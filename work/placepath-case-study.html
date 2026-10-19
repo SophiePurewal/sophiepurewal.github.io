@@ -602,6 +602,30 @@
     body.dark-mode .placepath-desktop-only-hero, body.dark-mode .placepath-outcome-showcase { background:#1e293b; border-color:#475569; box-shadow:none; }
     @media (max-width:700px) { .placepath-outcome-showcase { grid-template-columns:1fr; } .placepath-outcome-showcase .placepath-outcome-device-pair__item--mobile { max-width:280px; } }
 
+
+    /* Sections 03–04: decision-led narrative and original-artefact showcase */
+    .placepath-page .placepath-insight-row { display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:14px; margin:22px 0 0; }
+    .placepath-page .placepath-insight-row > div { min-width:0; padding:20px; border-radius:12px; background:#f5f7fa; }
+    .placepath-page .placepath-insight-row strong { display:block; margin-bottom:8px; color:#17202a; font-size:1rem; }
+    .placepath-page .placepath-insight-row p { margin:0; font-size:.92rem; line-height:1.6; color:#5c6878; }
+    .placepath-page .placepath-visual-stage { display:block; margin-bottom:8px; color:#9b164c; text-transform:uppercase; font-size:.72rem; font-weight:800; letter-spacing:.09em; }
+    .placepath-page .placepath-evolution-pair figcaption strong { display:block; margin-bottom:5px; color:#17202a; font-size:1rem; }
+    .placepath-page .placepath-evolution-pair figcaption > span:last-child { display:block; }
+    .placepath-page .placepath-exploration-section > .placepath-decision-summary { margin-bottom:10px; }
+    .placepath-page .placepath-final-showcase { margin-top:30px; }
+    .placepath-page .placepath-final-desktop, .placepath-page .placepath-final-responsive figure { margin:0; min-width:0; padding:clamp(12px,2.2vw,24px); border-radius:12px; background:#f8f9fb; }
+    .placepath-page .placepath-final-desktop a, .placepath-page .placepath-final-responsive a { display:block; cursor:zoom-in; }
+    .placepath-page .placepath-final-desktop img, .placepath-page .placepath-final-responsive img { width:100%; height:auto; display:block; object-fit:contain; }
+    .placepath-page .placepath-final-desktop figcaption, .placepath-page .placepath-final-responsive figcaption { margin-top:14px; font-size:.86rem; line-height:1.6; color:#606b7a; }
+    .placepath-page .placepath-final-desktop figcaption strong, .placepath-page .placepath-final-responsive figcaption strong { color:#17202a; }
+    .placepath-page .placepath-final-responsive { display:grid; grid-template-columns:minmax(0,1.6fr) minmax(0,.7fr); gap:22px; align-items:start; margin-top:22px; }
+    .placepath-page .placepath-final-mobile img { max-width:340px; margin-inline:auto; }
+    .placepath-page .placepath-delivery-grid { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:20px; margin:32px 0 24px; }
+    body.dark-mode.placepath-page .placepath-insight-row > div,body.dark-mode.placepath-page .placepath-final-desktop,body.dark-mode.placepath-page .placepath-final-responsive figure { background:#1e293b; }
+    body.dark-mode.placepath-page .placepath-insight-row strong,body.dark-mode.placepath-page .placepath-evolution-pair figcaption strong,body.dark-mode.placepath-page .placepath-final-desktop figcaption strong,body.dark-mode.placepath-page .placepath-final-responsive figcaption strong { color:#f8fafc; }
+    body.dark-mode.placepath-page .placepath-insight-row p { color:#cbd5e1; }
+    @media (max-width:740px) { .placepath-page .placepath-insight-row,.placepath-page .placepath-delivery-grid { grid-template-columns:1fr; } .placepath-page .placepath-final-responsive { grid-template-columns:1fr; } .placepath-page .placepath-final-mobile img { max-width:280px; } }
+
 </style>
   <link rel="stylesheet" href="../assets/css/portfolio-motion.css?v=1">
   <script src="../assets/js/portfolio-motion.js?v=1" defer></script>
@@ -773,91 +797,87 @@
 
         <section class="case-study-section placepath-exploration-section" aria-labelledby="evolution-title">
           <h2 id="evolution-title">03 — Designing the end-to-end experience</h2>
+          <div class="placepath-story-lead">
+            <p>Once the MVP was agreed, I needed to turn a set of separate requirements into an experience people could navigate. I worked from <strong>the overall journey to the individual interaction</strong>: first defining how tasks connected, then exploring layouts and finally developing detailed screens.</p>
+          </div>
 
           <div class="placepath-exploration-block">
-            <h3>User flows and information architecture</h3>
-            <p>With the MVP defined, I independently mapped the user flows and information architecture, connecting placement planning, employer records, communication and visits before moving into screen-level design.</p>
+            <h3>Connect the journey before designing screens</h3>
+            <p>I independently mapped the user flows and information architecture across placement planning, employer records, communication and visits. This provided a structure for moving between related tasks rather than designing each user story as an isolated feature.</p>
             <figure class="placepath-flow-figure">
-              <a class="placepath-flow-zoom" href="../assets/case-studies/placepath/user-flow.png" data-placepath-enlarge aria-label="Enlarge PlacePath user flow on this page">
+              <a class="placepath-flow-zoom" href="../assets/case-studies/placepath/user-flow.png" data-placepath-enlarge aria-label="Expand original PlacePath user-flow diagram">
                 <img src="../assets/case-studies/placepath/user-flow.png" alt="Original PlacePath user-flow diagram mapping navigation and related product areas" loading="lazy" decoding="async">
               </a>
-              <figcaption>My original user-flow diagram. Select to enlarge.</figcaption>
+              <figcaption><strong>Original user-flow diagram.</strong> Mapping related areas before working on page-level interactions. Select to enlarge.</figcaption>
             </figure>
+            <div class="placepath-insight-row" aria-label="Information architecture design considerations">
+              <div><strong>Make tasks connected</strong><p>Keep planning, employers and communication in a coherent placement journey.</p></div>
+              <div><strong>Make information findable</strong><p>Give records and actions a predictable place within the product structure.</p></div>
+              <div><strong>Allow the product to grow</strong><p>Organise the first release without making deferred capabilities the centre of the experience.</p></div>
+            </div>
           </div>
 
           <div class="placepath-exploration-block">
-            <h3>Exploring the experience on paper</h3>
-            <p>I explored different parts of the product through hand-drawn, low-fidelity wireframes. The sketches gave me space to consider navigation, content hierarchy and task-specific interactions before adding visual detail.</p>
+            <h3>Explore navigation, search and employer workflows</h3>
+            <p>I sketched the experience at low fidelity so I could work through <strong>content hierarchy, discovery and task-level interactions</strong> before committing to visual detail. The sequence below moves from the home experience to finding and contacting an employer.</p>
             <div class="placepath-sketch-grid" aria-label="Original PlacePath low-fidelity sketches">
-              <figure>
-                <a href="../assets/case-studies/placepath/Placepath-lowfi-home.jpeg" data-placepath-enlarge>
-                  <img src="../assets/case-studies/placepath/Placepath-lowfi-home.jpeg" alt="Original hand-drawn PlacePath home screen wireframe" loading="lazy" decoding="async">
-                </a>
-                <figcaption><span class="placepath-sketch-number">01</span> Home and navigation</figcaption>
-              </figure>
-              <figure>
-                <a href="../assets/case-studies/placepath/Placepath-lowfi-home-empty-modules.jpeg" data-placepath-enlarge>
-                  <img src="../assets/case-studies/placepath/Placepath-lowfi-home-empty-modules.jpeg" alt="Hand-drawn PlacePath home screen showing empty modules" loading="lazy" decoding="async">
-                </a>
-                <figcaption><span class="placepath-sketch-number">02</span> Home — empty modules</figcaption>
-              </figure>
-              <figure>
-                <a href="../assets/case-studies/placepath/Placepath-lowfi-search-filter-02.jpeg" data-placepath-enlarge>
-                  <img src="../assets/case-studies/placepath/Placepath-lowfi-search-filter-02.jpeg" alt="hand-drawn search and filter wireframe" loading="lazy" decoding="async">
-                </a>
-                <figcaption><span class="placepath-sketch-number">03</span> Search and filtering</figcaption>
-              </figure>
-              <figure>
-                <a href="../assets/case-studies/placepath/Placepath-lowfi-search-result-02.jpeg" data-placepath-enlarge>
-                  <img src="../assets/case-studies/placepath/Placepath-lowfi-search-result-02.jpeg" alt="hand-drawn search results wireframe" loading="lazy" decoding="async">
-                </a>
-                <figcaption><span class="placepath-sketch-number">04</span> Search results</figcaption>
-              </figure>
-              <figure>
-                <a href="../assets/case-studies/placepath/Placepath-lowfi-employer-record-02.jpeg" data-placepath-enlarge>
-                  <img src="../assets/case-studies/placepath/Placepath-lowfi-employer-record-02.jpeg" alt="hand-drawn employer record wireframe" loading="lazy" decoding="async">
-                </a>
-                <figcaption><span class="placepath-sketch-number">05</span> Employer record</figcaption>
-              </figure>
-              <figure>
-                <a href="../assets/case-studies/placepath/Placepath-lowfi-contact-dialogue.jpeg" data-placepath-enlarge>
-                  <img src="../assets/case-studies/placepath/Placepath-lowfi-contact-dialogue.jpeg" alt="Original hand-drawn contact dialogue wireframe" loading="lazy" decoding="async">
-                </a>
-                <figcaption><span class="placepath-sketch-number">06</span> Contact dialogue</figcaption>
-              </figure>
+              <figure><a href="../assets/case-studies/placepath/Placepath-lowfi-home.jpeg" data-placepath-enlarge aria-label="Expand home and navigation sketch"><img src="../assets/case-studies/placepath/Placepath-lowfi-home.jpeg" alt="Original hand-drawn PlacePath home screen wireframe" loading="lazy" decoding="async"></a><figcaption><span class="placepath-sketch-number">01</span> Home and navigation</figcaption></figure>
+              <figure><a href="../assets/case-studies/placepath/Placepath-lowfi-home-empty-modules.jpeg" data-placepath-enlarge aria-label="Expand home empty-state sketch"><img src="../assets/case-studies/placepath/Placepath-lowfi-home-empty-modules.jpeg" alt="Hand-drawn PlacePath home screen showing empty modules" loading="lazy" decoding="async"></a><figcaption><span class="placepath-sketch-number">02</span> Home — empty modules</figcaption></figure>
+              <figure><a href="../assets/case-studies/placepath/Placepath-lowfi-search-filter-02.jpeg" data-placepath-enlarge aria-label="Expand search and filter sketch"><img src="../assets/case-studies/placepath/Placepath-lowfi-search-filter-02.jpeg" alt="Hand-drawn search and filter wireframe" loading="lazy" decoding="async"></a><figcaption><span class="placepath-sketch-number">03</span> Search and filtering</figcaption></figure>
+              <figure><a href="../assets/case-studies/placepath/Placepath-lowfi-search-result-02.jpeg" data-placepath-enlarge aria-label="Expand search results sketch"><img src="../assets/case-studies/placepath/Placepath-lowfi-search-result-02.jpeg" alt="Hand-drawn search results wireframe" loading="lazy" decoding="async"></a><figcaption><span class="placepath-sketch-number">04</span> Search results</figcaption></figure>
+              <figure><a href="../assets/case-studies/placepath/Placepath-lowfi-employer-record-02.jpeg" data-placepath-enlarge aria-label="Expand employer record sketch"><img src="../assets/case-studies/placepath/Placepath-lowfi-employer-record-02.jpeg" alt="Hand-drawn employer record wireframe" loading="lazy" decoding="async"></a><figcaption><span class="placepath-sketch-number">05</span> Employer record</figcaption></figure>
+              <figure><a href="../assets/case-studies/placepath/Placepath-lowfi-contact-dialogue.jpeg" data-placepath-enlarge aria-label="Expand contact dialogue sketch"><img src="../assets/case-studies/placepath/Placepath-lowfi-contact-dialogue.jpeg" alt="Original hand-drawn contact dialogue wireframe" loading="lazy" decoding="async"></a><figcaption><span class="placepath-sketch-number">06</span> Contact dialogue</figcaption></figure>
             </div>
-            <p class="placepath-sketch-note">Selected original sketches, arranged from home and navigation through searching and employer communication. Select an image to enlarge it.</p>
+            <p class="placepath-sketch-note">Selected original sketches in journey order. Select any image to enlarge it without leaving the page.</p>
           </div>
 
-          <div class="placepath-exploration-block">
-            <h3>From sketches to prototypes</h3>
-            <p>I developed the concepts further in Sketch and used InVision to connect screens into interactive walkthroughs for stakeholders. These demonstrated the proposed journeys; they were not formal usability tests.</p>
-            <div class="placepath-evolution-pair" aria-label="Placement planning wireframe and detailed UI comparison">
-              <figure>
-                <a href="../assets/case-studies/placepath/Placepath-lowfi-plan-placement-02.jpeg" data-placepath-enlarge aria-label="Enlarge design comparison image"><img src="../assets/case-studies/placepath/Placepath-lowfi-plan-placement-02.jpeg" alt="Hand-drawn Plan a placement wireframe" loading="lazy" decoding="async"></a>
-                <figcaption><strong>Placement planning sketch</strong> — exploring the arrangement of information and actions on paper.</figcaption>
-              </figure>
-              <figure>
-                <a href="../assets/case-studies/placepath/placepath-high-fidelity-create-plan.png" data-placepath-enlarge aria-label="Enlarge design comparison image"><img src="../assets/case-studies/placepath/placepath-high-fidelity-create-plan.png" alt="Detailed high-fidelity PlacePath create-plan interface" loading="lazy" decoding="async"></a>
-                <figcaption><strong>Detailed interface</strong> — developing the planning experience in the finished UI.</figcaption>
-              </figure>
+          <div class="placepath-exploration-block placepath-design-evolution">
+            <h3>Carry the thinking through to detailed UI</h3>
+            <p>I developed the concepts in Sketch and connected screens in InVision for stakeholder walkthroughs. The comparison below illustrates how an early placement-planning concept was taken into a more detailed interface. These walkthroughs demonstrated the proposed experience; <strong>they were not formal usability tests</strong>.</p>
+            <div class="placepath-evolution-pair" aria-label="Placement planning sketch and detailed design">
+              <figure><a href="../assets/case-studies/placepath/Placepath-lowfi-plan-placement-02.jpeg" data-placepath-enlarge aria-label="Expand placement planning sketch"><img src="../assets/case-studies/placepath/Placepath-lowfi-plan-placement-02.jpeg" alt="Hand-drawn Plan a placement wireframe" loading="lazy" decoding="async"></a><figcaption><span class="placepath-visual-stage">01 / Explore</span><strong>Placement planning on paper</strong><span>Working out what information and actions the planning task needed.</span></figcaption></figure>
+              <figure><a href="../assets/case-studies/placepath/placepath-high-fidelity-create-plan.png" data-placepath-enlarge aria-label="Expand detailed placement planning design"><img src="../assets/case-studies/placepath/placepath-high-fidelity-create-plan.png" alt="High-fidelity PlacePath create-plan interface" loading="lazy" decoding="async"></a><figcaption><span class="placepath-visual-stage">02 / Develop</span><strong>Detailed placement-planning interface</strong><span>Translating the task structure into a designed screen for the proposed product.</span></figcaption></figure>
             </div>
-            <p>I then progressed to detailed responsive screens for desktop, tablet and mobile, carrying the interaction structure through into the visual design.</p>
+          </div>
+          <div class="placepath-decision-summary">
+            <p class="placepath-editorial-kicker">The design decision</p>
+            <p><strong>Design the connections, not just the screens.</strong> Mapping the journey first gave the subsequent sketches and detailed UI a shared structure across related placement tasks.</p>
           </div>
         </section>
 
         <section class="case-study-section placepath-reflection" aria-labelledby="delivery-title">
-          <h2 id="delivery-title">04 — From design to development</h2>
-          <p>The design direction was approved by the client and handed to developers. Development began, but the wider project was later put on pause before launch.</p>
-          <figure class="placepath-outcome-device-pair placepath-outcome-showcase" aria-label="PlacePath responsive tablet and mobile product views">
-            <div class="placepath-outcome-device-pair__item">
-              <img src="../Placepath_Tablet.png" alt="PlacePath tablet interface" loading="lazy" decoding="async">
+          <h2 id="delivery-title">04 — From detailed design to development</h2>
+          <div class="placepath-story-lead">
+            <p>With the journeys and interaction structure defined, I progressed the experience into <strong>responsive interface designs across desktop, tablet and mobile</strong>. The aim was to establish a coherent visual and interaction foundation that engineering could take forward.</p>
+          </div>
+          <div class="placepath-exploration-block placepath-final-showcase">
+            <h3>The final design direction</h3>
+            <p>The desktop experience brought the product structure together. The tablet and mobile views show how the same design direction was adapted to different screen sizes.</p>
+            <figure class="placepath-final-desktop">
+              <a href="../Placepath_Desktop.png" data-placepath-enlarge aria-label="Expand PlacePath final desktop design"><img src="../Placepath_Desktop.png" alt="PlacePath final desktop interface" loading="lazy" decoding="async"></a>
+              <figcaption><strong>Desktop</strong> — the primary view of the connected product experience.</figcaption>
+            </figure>
+            <div class="placepath-final-responsive" aria-label="Responsive PlacePath tablet and mobile screens">
+              <figure><a href="../Placepath_Tablet.png" data-placepath-enlarge aria-label="Expand PlacePath tablet design"><img src="../Placepath_Tablet.png" alt="PlacePath tablet interface" loading="lazy" decoding="async"></a><figcaption><strong>Tablet</strong> — the detailed interface adapted for a narrower canvas.</figcaption></figure>
+              <figure class="placepath-final-mobile"><a href="../Placepath_Mobile.png" data-placepath-enlarge aria-label="Expand PlacePath mobile design"><img src="../Placepath_Mobile.png" alt="PlacePath mobile interface" loading="lazy" decoding="async"></a><figcaption><strong>Mobile</strong> — an adaptation of the product experience for a small screen.</figcaption></figure>
             </div>
-            <div class="placepath-outcome-device-pair__item placepath-outcome-device-pair__item--mobile">
-              <img src="../Placepath_Mobile.png" alt="PlacePath mobile interface" loading="lazy" decoding="async">
+          </div>
+          <div class="placepath-delivery-grid" aria-label="Design deliverables and project status">
+            <div class="placepath-editorial-panel">
+              <p class="placepath-editorial-kicker">What I delivered</p>
+              <h3>A foundation for engineering</h3>
+              <p>The commissioned work established the core journeys, product structure, detailed interfaces and responsive UI direction. The client approved the design direction and it was handed to developers.</p>
             </div>
-          </figure>
-          <p>The client-approved work established the core product journeys, responsive patterns and UI foundation for development. The interactive prototype shown here is my later independent continuation and was not part of the commissioned client work.</p>
+            <div class="placepath-editorial-panel">
+              <p class="placepath-editorial-kicker">What happened next</p>
+              <h3>Development started; launch was paused</h3>
+              <p>Development began, but the wider project was subsequently paused before launch. There are therefore no post-launch usage or impact metrics to report.</p>
+            </div>
+          </div>
+          <div class="placepath-decision-summary">
+            <p class="placepath-editorial-kicker">Scope of this work</p>
+            <p><strong>Client-approved design and handoff, not a launched product.</strong> The interactive prototype in Section 5 is my later independent continuation of this direction; it was not part of the commissioned client work.</p>
+          </div>
         </section>
         <section class="case-study-section placepath-prototype-feature" aria-labelledby="prototype-title">
           <div class="placepath-prototype-intro">
