@@ -669,6 +669,14 @@
     .placepath-page .placepath-reflection-grid .placepath-editorial-panel p:last-child { margin-bottom:0; }
     @media(max-width:740px) { .placepath-page .placepath-reflection-grid { grid-template-columns:1fr; } }
     body.dark-mode.placepath-page .placepath-reflection-grid .placepath-editorial-panel:nth-child(2) { background:#1e293b; }
+
+    /* Planning evolution: stage captions above original design images */
+    .placepath-page .placepath-stage-card { display:flex; flex-direction:column; gap:12px; }
+    .placepath-page .placepath-stage-card .placepath-stage-caption { order:0; margin:0; min-height:56px; }
+    .placepath-page .placepath-stage-card .placepath-stage-caption .placepath-visual-stage { margin-bottom:5px; }
+    .placepath-page .placepath-stage-card .placepath-stage-caption strong { display:block; color:#17202a; font-size:1rem; }
+    .placepath-page .placepath-stage-card > a { order:1; }
+    body.dark-mode.placepath-page .placepath-stage-card .placepath-stage-caption strong { color:#f8fafc; }
 </style>
   <link rel="stylesheet" href="../assets/css/portfolio-motion.css?v=1">
   <script src="../assets/js/portfolio-motion.js?v=1" defer></script>
@@ -897,9 +905,9 @@
                 <header class="placepath-midfi-heading"><h4>03 — Make placement planning manageable</h4></header>
                 <p>My planning concept broke a complex task into selectable learning objectives, editable entries and preview/save actions. I also considered associating plans with students and reusing information where workplaces or placement details repeat. The comparison shows how that thinking progressed.</p>
                 <div class="placepath-design-stages">
-                  <figure class="placepath-midfi-figure"><a href="../assets/case-studies/placepath/Placepath-lowfi-plan-placement-02.jpeg" data-placepath-enlarge aria-label="Expand original placement planning sketch"><img src="../assets/case-studies/placepath/Placepath-lowfi-plan-placement-02.jpeg" alt="Original hand-drawn placement planning sketch" loading="lazy" decoding="async"></a><figcaption><span class="placepath-visual-stage">01 / Explore</span><strong>Paper sketch</strong></figcaption></figure>
-                  <figure class="placepath-midfi-figure"><iframe class="placepath-midfi-pdf-preview" src="../assets/case-studies/placepath/03_Plan_a_placement_MF.pdf#toolbar=0&navpanes=0&view=Fit" title="Complete annotated mid-fidelity placement planning design" loading="lazy"></iframe><figcaption><span class="placepath-visual-stage">02 / Refine</span><strong>Mid-fidelity</strong> · <a href="../assets/case-studies/placepath/03_Plan_a_placement_MF.pdf" target="_blank" rel="noopener">View full design</a></figcaption></figure>
-                  <figure class="placepath-midfi-figure"><a href="../assets/case-studies/placepath/placepath-high-fidelity-create-plan.png" data-placepath-enlarge aria-label="Expand detailed placement planning design"><img src="../assets/case-studies/placepath/placepath-high-fidelity-create-plan.png" alt="High-fidelity placement planning interface" loading="lazy" decoding="async"></a><figcaption><span class="placepath-visual-stage">03 / Develop</span><strong>Detailed UI</strong></figcaption></figure>
+                  <figure class="placepath-midfi-figure placepath-stage-card"><figcaption class="placepath-stage-caption"><span class="placepath-visual-stage">01 / Explore</span><strong>Paper sketch</strong></figcaption><a href="../assets/case-studies/placepath/Plan_lowfi.png" data-placepath-enlarge aria-label="Expand original placement planning sketch"><img src="../assets/case-studies/placepath/Plan_lowfi.png" alt="PlacePath original placement planning sketch" loading="lazy" decoding="async"></a></figure>
+                  <figure class="placepath-midfi-figure placepath-stage-card"><figcaption class="placepath-stage-caption"><span class="placepath-visual-stage">02 / Refine</span><strong>Mid fidelity</strong></figcaption><a href="../assets/case-studies/placepath/Plan_midfi.png" data-placepath-enlarge aria-label="Expand mid fidelity placement planning wireframe"><img src="../assets/case-studies/placepath/Plan_midfi.png" alt="PlacePath mid fidelity placement planning wireframe" loading="lazy" decoding="async"></a></figure>
+                  <figure class="placepath-midfi-figure placepath-stage-card"><figcaption class="placepath-stage-caption"><span class="placepath-visual-stage">03 / Develop</span><strong>Detailed UI</strong></figcaption><a href="../assets/case-studies/placepath/plan_hifi.png" data-placepath-enlarge aria-label="Expand detailed placement planning interface"><img src="../assets/case-studies/placepath/plan_hifi.png" alt="PlacePath detailed placement planning interface" loading="lazy" decoding="async"></a></figure>
                 </div>
                 <p class="placepath-midfi-source">Original annotated mid-fidelity PDFs: <a href="../assets/case-studies/placepath/03_Plan_a_placement_MF.pdf" target="_blank" rel="noopener">placement planning</a> · <a href="../assets/case-studies/placepath/07_Placement%20offers_details_MF.pdf" target="_blank" rel="noopener">placement offers</a></p>
               </section>
