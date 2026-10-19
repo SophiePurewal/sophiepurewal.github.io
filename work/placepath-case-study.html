@@ -663,6 +663,12 @@
     .placepath-page .placepath-prototype-caption { max-width:780px; margin:14px 0 0; font-size:.85rem; line-height:1.65; color:#606b7a; }
     .placepath-page .placepath-prototype-disclaimer { font-size:.91rem; color:#606b7a; }
     body.dark-mode.placepath-page .placepath-prototype-caption,body.dark-mode.placepath-page .placepath-prototype-disclaimer { color:#cbd5e1; }
+    .placepath-page .placepath-outcomes-section .placepath-story-lead h3 { margin:0 0 16px; font-size:clamp(1.18rem,2vw,1.55rem); line-height:1.35; letter-spacing:-.02em; }
+    .placepath-page .placepath-reflection-grid { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:20px; margin:28px 0; }
+    .placepath-page .placepath-reflection-grid .placepath-editorial-panel:nth-child(2) { background:#f2f7f5; }
+    .placepath-page .placepath-reflection-grid .placepath-editorial-panel p:last-child { margin-bottom:0; }
+    @media(max-width:740px) { .placepath-page .placepath-reflection-grid { grid-template-columns:1fr; } }
+    body.dark-mode.placepath-page .placepath-reflection-grid .placepath-editorial-panel:nth-child(2) { background:#1e293b; }
 </style>
   <link rel="stylesheet" href="../assets/css/portfolio-motion.css?v=1">
   <script src="../assets/js/portfolio-motion.js?v=1" defer></script>
@@ -978,6 +984,33 @@
               <path d="M5 12h14M13 6l6 6-6 6"></path>
             </svg>
           </a>
+        </section>
+
+        <section class="case-study-section placepath-outcomes-section" aria-labelledby="outcomes-title">
+          <h2 id="outcomes-title">06 — Outcomes and reflection</h2>
+          <div class="placepath-story-lead">
+            <h3>Designing one connected experience for three distinct user groups</h3>
+            <p>My biggest achievement was bringing together the needs of placement teams, employers and students into one cohesive product, while ensuring each group had an experience tailored to their responsibilities.</p>
+            <p>Starting with <strong>15 high level user stories</strong>, I worked with the CEO to define <strong>ten essential MVP capabilities</strong> before independently designing the product structure, connected journeys and responsive interfaces.</p>
+            <p>The resulting design direction was approved by the client and handed to engineering, where development began before the wider project was paused.</p>
+          </div>
+          <div class="placepath-reflection-grid">
+            <div class="placepath-editorial-panel">
+              <h3>What I learned</h3>
+              <p>One of the greatest challenges was working with limited access to direct user research while independently making design decisions for three different audiences.</p>
+              <p>The experience reinforced the importance of establishing a clear product structure, prioritising essential user journeys and recognising where assumptions required further validation.</p>
+            </div>
+            <div class="placepath-editorial-panel">
+              <h3>What I would do differently</h3>
+              <p>With hindsight, I would advocate for greater investment in direct user research, particularly <strong>field studies</strong>, to observe how placement teams coordinate their work in practice. This could reveal behaviours and challenges that may not emerge through interviews or existing requirements alone.</p>
+              <p>I would introduce regular peer reviews with another designer or a developer to challenge assumptions and strengthen design decisions.</p>
+              <p>Finally, I would recommend dedicated product management support to coordinate delivery and stakeholder communication, allowing the CEO to focus more time on strategic decisions.</p>
+            </div>
+          </div>
+          <div class="placepath-decision-summary">
+            <p class="placepath-editorial-kicker">Looking ahead</p>
+            <p>Together, these changes would strengthen the evidence behind the design, encourage constructive challenge and create a more effective environment for product development.</p>
+          </div>
         </section>
 
       </article>
