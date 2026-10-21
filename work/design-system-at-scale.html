@@ -20,7 +20,15 @@
   <link rel="stylesheet" href="../assets/css/site-header.css">
   <link rel="stylesheet" href="../assets/css/portfolio-motion.css?v=1">
   <script src="../assets/js/portfolio-motion.js?v=1" defer></script>
-</head>
+<style>
+.case-impact-summary{display:grid;gap:8px;max-width:780px;margin:24px 0 22px;padding:19px 22px;border-left:3px solid #920e38;background:#f4f5f7;color:#24313b;font-size:clamp(15px,1.3vw,17px);line-height:1.6}
+.case-impact-summary strong{font-size:12px;letter-spacing:.09em;text-transform:uppercase;color:#920e38}
+.case-impact-summary span{display:block}
+body.dark-mode .case-impact-summary{background:#26303b;color:#f5f2eb;border-left-color:#f5f2eb}
+body.dark-mode .case-impact-summary strong{color:#f5f2eb}
+@media(max-width:640px){.case-impact-summary{padding:15px 17px;margin:18px 0}}
+@media(prefers-reduced-motion:reduce){.case-impact-summary{scroll-behavior:auto}}
+</style></head>
 <body id="top" class="design-system-page">
   <a class="skip-link" href="#main">Skip to main content</a>
   <header class="site-header">
@@ -28,14 +36,17 @@
       <p class="site-title">
         <button class="site-title__home-link menu-toggle" type="button" aria-expanded="false" aria-controls="dropdown-menu" aria-label="Open navigation menu"><span class="site-wordmark-full">Sophie Purewal</span><span class="site-wordmark-short" aria-hidden="true">SP</span></button>
       </p>
+
       <div class="header-actions">
         <button class="theme-toggle" type="button" aria-label="Activate dark mode" aria-pressed="false" title="Activate dark mode">
           <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" aria-hidden="true" focusable="false">
             <path d="M480-120q-133 0-226.5-92.5T160-436q0-66 25-122t69-100l226-222 226 222q44 44 69 100t25 122q0 131-93.5 223.5T480-120Zm0-80v-568L310-600q-35 33-52.5 74.5T240-436q0 97 70 166.5T480-200Z"/>
           </svg>
         </button>
+
         
       </div>
+
       <div id="dropdown-menu" class="dropdown-menu" aria-label="Navigation links">
         <a data-tooltip="Home" href="../index.html" class="dropdown-link">
           <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960" aria-hidden="true" focusable="false"><path d="M160-120v-480L480-840l320 240v480H560v-280H400v280H160Zm80-80h80v-280h320v280h80v-360L480-740 240-560v360Zm240-270Z"/></svg>
@@ -53,7 +64,7 @@
           </svg>
           <span class="nav-link-label">Endorsements</span>
         </a>
-        <a data-tooltip="About me" href="../index.html#about" class="dropdown-link">
+        <a data-tooltip="About me" href="../about.html" class="dropdown-link">
           <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960" aria-hidden="true" focusable="false"><path d="M480-480q-66 0-113-47t-47-113q0-66 47-113t113-47q66 0 113 47t47 113q0 66-47 113t-113 47Zm-320 320v-112q0-34 17-62t47-43q60-30 124-46t132-17q68 0 132 17t124 46q30 15 47 43t17 62v112H160Zm80-80h480v-32q0-11-6-20t-16-14q-52-26-107-40t-111-14q-56 0-111 14t-107 40q-10 5-16 14t-6 20v32Zm240-320q33 0 56.5-23.5T560-640q0-33-23.5-56.5T480-720q-33 0-56.5 23.5T400-640q0 33 23.5 56.5T480-560Z"/></svg>
           <span class="nav-link-label">About me</span>
         </a>
@@ -76,7 +87,7 @@
       <article class="case-study case-study--commercial">
         <section class="case-study-hero case-study-hero--single" aria-labelledby="project-title">
           <div class="case-study-hero__copy case-study-hero__copy--wide">
-            <h1 id="project-title">Scaling a design system across product teams</h1>
+            <h1 id="project-title">Scaling a design system across product teams</h1> <p class="case-impact-summary"><strong>Impact at a glance</strong><span>Modernised and governed reusable components in a design system serving 17 product teams. Components I built or modernised recorded over 21,000 tracked insertions in the measured period; this is usage evidence, not a claim of attributable business uplift.</span></p>
             <p class="project-subtitle">Component modernisation, governance and measurable adoption within a large, actively used design-system ecosystem.</p>
             <dl class="financial-services-hero-summary" aria-label="Project summary">
               <div><dt>Role</dt><dd>UI Design Systems</dd></div>
