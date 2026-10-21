@@ -680,7 +680,15 @@
 </style>
   <link rel="stylesheet" href="../assets/css/portfolio-motion.css?v=1">
   <script src="../assets/js/portfolio-motion.js?v=1" defer></script>
-</head>
+<style>
+.case-impact-summary{display:grid;gap:8px;max-width:780px;margin:24px 0 22px;padding:19px 22px;border-left:3px solid #920e38;background:#f4f5f7;color:#24313b;font-size:clamp(15px,1.3vw,17px);line-height:1.6}
+.case-impact-summary strong{font-size:12px;letter-spacing:.09em;text-transform:uppercase;color:#920e38}
+.case-impact-summary span{display:block}
+body.dark-mode .case-impact-summary{background:#26303b;color:#f5f2eb;border-left-color:#f5f2eb}
+body.dark-mode .case-impact-summary strong{color:#f5f2eb}
+@media(max-width:640px){.case-impact-summary{padding:15px 17px;margin:18px 0}}
+@media(prefers-reduced-motion:reduce){.case-impact-summary{scroll-behavior:auto}}
+</style></head>
 <body id="top" class="placepath-page">
   <a class="skip-link" href="#main">Skip to main content</a>
   <header class="site-header">
@@ -716,7 +724,7 @@
           </svg>
           <span class="nav-link-label">Endorsements</span>
         </a>
-        <a data-tooltip="About me" href="../index.html#about" class="dropdown-link">
+        <a data-tooltip="About me" href="../about.html" class="dropdown-link">
           <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960" aria-hidden="true" focusable="false"><path d="M480-480q-66 0-113-47t-47-113q0-66 47-113t113-47q66 0 113 47t47 113q0 66-47 113t-113 47Zm-320 320v-112q0-34 17-62t47-43q60-30 124-46t132-17q68 0 132 17t124 46q30 15 47 43t17 62v112H160Zm80-80h480v-32q0-11-6-20t-16-14q-52-26-107-40t-111-14q-56 0-111 14t-107 40q-10 5-16 14t-6 20v32Zm240-320q33 0 56.5-23.5T560-640q0-33-23.5-56.5T480-720q-33 0-56.5 23.5T400-640q0 33 23.5 56.5T480-560Z"/></svg>
           <span class="nav-link-label">About me</span>
         </a>
@@ -740,7 +748,7 @@
         <section class="case-study-hero placepath-hero" aria-labelledby="project-title">
           <div class="case-study-hero__copy case-study-hero__copy--wide">
             <div class="placepath-title-container">
-              <h1 id="project-title" class="placepath-project-title">PlacePath: Designing a placement management platform from the ground up</h1>
+              <h1 id="project-title" class="placepath-project-title">PlacePath: Designing a placement management platform from the ground up</h1> <p class="case-impact-summary"><strong>Impact at a glance</strong><span>Established the approved MVP journeys, responsive UI foundation and engineering handoff for a new platform connecting placement teams, employers and students. This describes design delivery, not a measured post-launch outcome.</span></p>
             </div>
             <p class="project-subtitle">Turning fragmented user requirements into a connected, development-ready product experience.</p>
             <p class="project-intro">As Lead Product Design Consultant, I led the end-to-end design of PlacePath, a new placement management platform serving education providers, employers and students. Starting with user stories rather than an existing product, I translated requirements into connected user journeys, established the product structure, prioritised ten essential MVP capabilities with the CEO, and designed responsive experiences across desktop, tablet and mobile. My work established the core journeys, interaction patterns and UI foundation approved by the client and handed to engineering for development.</p>
