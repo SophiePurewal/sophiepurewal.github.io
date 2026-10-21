@@ -20,7 +20,15 @@
   <link rel="stylesheet" href="../assets/css/site-header.css">
   <link rel="stylesheet" href="../assets/css/portfolio-motion.css?v=1">
   <script src="../assets/js/portfolio-motion.js?v=1" defer></script>
-</head>
+<style>
+.case-impact-summary{display:grid;gap:8px;max-width:780px;margin:24px 0 22px;padding:19px 22px;border-left:3px solid #920e38;background:#f4f5f7;color:#24313b;font-size:clamp(15px,1.3vw,17px);line-height:1.6}
+.case-impact-summary strong{font-size:12px;letter-spacing:.09em;text-transform:uppercase;color:#920e38}
+.case-impact-summary span{display:block}
+body.dark-mode .case-impact-summary{background:#26303b;color:#f5f2eb;border-left-color:#f5f2eb}
+body.dark-mode .case-impact-summary strong{color:#f5f2eb}
+@media(max-width:640px){.case-impact-summary{padding:15px 17px;margin:18px 0}}
+@media(prefers-reduced-motion:reduce){.case-impact-summary{scroll-behavior:auto}}
+</style></head>
 <body id="top" class="financial-services-page">
   <a class="skip-link" href="#main">Skip to main content</a>
   <header class="site-header">
@@ -56,7 +64,7 @@
           </svg>
           <span class="nav-link-label">Endorsements</span>
         </a>
-        <a data-tooltip="About me" href="../index.html#about" class="dropdown-link">
+        <a data-tooltip="About me" href="../about.html" class="dropdown-link">
           <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960" aria-hidden="true" focusable="false"><path d="M480-480q-66 0-113-47t-47-113q0-66 47-113t113-47q66 0 113 47t47 113q0 66-47 113t-113 47Zm-320 320v-112q0-34 17-62t47-43q60-30 124-46t132-17q68 0 132 17t124 46q30 15 47 43t17 62v112H160Zm80-80h480v-32q0-11-6-20t-16-14q-52-26-107-40t-111-14q-56 0-111 14t-107 40q-10 5-16 14t-6 20v32Zm240-320q33 0 56.5-23.5T560-640q0-33-23.5-56.5T480-720q-33 0-56.5 23.5T400-640q0 33 23.5 56.5T480-560Z"/></svg>
           <span class="nav-link-label">About me</span>
         </a>
@@ -79,7 +87,7 @@
       <article class="case-study case-study--commercial">
         <section class="case-study-hero case-study-hero--single" aria-labelledby="project-title">
           <div class="case-study-hero__copy case-study-hero__copy--wide">
-            <h1 id="project-title">Rebranding a regulated financial service</h1>
+            <h1 id="project-title">Rebranding a regulated financial service</h1> <p class="case-impact-summary"><strong>Impact at a glance</strong><span>Delivered responsive UI updates, component refinements and detailed UAT to support the application of a global rebrand to a regulated UK financial service. No conversion or commercial uplift is claimed.</span></p>
             <p class="project-subtitle">Applying a global company-wide rebrand to accessible, responsive components and production-ready UI for a live regulated UK financial service.</p>
             <dl class="financial-services-hero-summary" aria-label="Project summary">
               <div><dt>Role</dt><dd>Senior UI Designer</dd></div>
