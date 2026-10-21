@@ -17,13 +17,7 @@
   <header class="site-header">
     <nav class="top-nav" aria-label="Main navigation">
       <p class="site-title">
-        <a
-          class="site-title__home-link"
-          href="../index.html"
-          aria-label="Go to the top of the homepage"
-        >
-          Sophie Purewal
-        </a>
+        <button class="site-title__home-link menu-toggle" type="button" aria-expanded="false" aria-controls="dropdown-menu" aria-label="Open navigation menu"><span class="site-wordmark-full">Sophie Purewal</span><span class="site-wordmark-short" aria-hidden="true">SP</span></button>
       </p>
 
       <div class="header-actions">
@@ -33,49 +27,40 @@
           </svg>
         </button>
 
-        <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="dropdown-menu" aria-label="Toggle navigation menu">
-          <svg class="menu-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960" aria-hidden="true" focusable="false">
-            <line class="line-top" x1="200" y1="-480" x2="760" y2="-480" />
-            <line class="line-bottom" x1="200" y1="-480" x2="760" y2="-480" />
-          </svg>
-        </button>
+        
       </div>
 
       <div id="dropdown-menu" class="dropdown-menu" aria-label="Navigation links">
-        <a href="../index.html#projects" class="dropdown-link" aria-label="View selected case studies">
+        <a data-tooltip="Home" href="../index.html" class="dropdown-link">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960" aria-hidden="true" focusable="false"><path d="M160-120v-480L480-840l320 240v480H560v-280H400v280H160Zm80-80h80v-280h320v280h80v-360L480-740 240-560v360Zm240-270Z"/></svg>
+          <span class="nav-link-label">Home</span>
+        </a>
+        <a data-tooltip="Case studies" href="../index.html#projects" class="dropdown-link">
           <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" aria-hidden="true" focusable="false">
             <path d="M480-400 40-640l440-240 440 240-440 240Zm0 160L63-467l84-46 333 182 333-182 84 46-417 227Zm0 160L63-307l84-46 333 182 333-182 84 46L480-80Zm0-411 273-149-273-149-273 149 273 149Zm0-149Z"/>
           </svg>
           <span class="nav-link-label">Case studies</span>
         </a>
-        <a href="../request-cv.html" class="dropdown-link" aria-label="Request Sophie Purewal’s Senior Product Designer, Design Systems CV">
-          <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" aria-hidden="true" focusable="false">
-            <path d="M480-320 280-520l56-58 104 104v-326h80v326l104-104 56 58-200 200ZM240-160q-33 0-56.5-23.5T160-240v-120h80v120h480v-120h80v120q0 33-23.5 56.5T720-160H240Z"/>
-          </svg>
-          <span class="nav-link-label">Request CV</span>
-        </a>
-        <a href="../index.html#endorsements" class="dropdown-link">
-          <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" aria-hidden="true" focusable="false">
+        <a data-tooltip="Endorsements" href="https://www.linkedin.com/in/sophiepurewal/details/recommendations/?detailScreenTabIndex=0" class="dropdown-link" target="_blank" rel="noopener noreferrer">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960" aria-hidden="true" focusable="false">
             <path d="M720-120H280v-520l280-280 50 50q7 7 11.5 19t4.5 23v14l-44 174h258q32 0 56 24t24 56v80q0 7-2 15t-4 15L794-168q-9 20-30 34t-44 14Zm-360-80h360l120-280v-80H480l54-220-174 174v406Zm0-406v406-406Zm-80-34v80H160v360h120v80H80v-520h200Z"/>
           </svg>
           <span class="nav-link-label">Endorsements</span>
         </a>
-        <a href="mailto:sophiepurewaldesign@gmail.com" class="dropdown-link">
-          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960" aria-hidden="true" focusable="false">
-            <path d="M160-160q-33 0-56.5-23.5T80-240v-480q0-33 23.5-56.5T160-800h640q33 0 56.5 23.5T880-720v480q0 33-23.5 56.5T800-160H160Zm320-280L160-640v400h640v-400L480-440Zm0-80 320-200H160l320 200ZM160-640v-80 480-400Z" />
-          </svg>
-          <span class="nav-link-label">Contact</span>
+        <a data-tooltip="About me" href="../about.html" class="dropdown-link">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960" aria-hidden="true" focusable="false"><path d="M480-480q-66 0-113-47t-47-113q0-66 47-113t113-47q66 0 113 47t47 113q0 66-47 113t-113 47Zm-320 320v-112q0-34 17-62t47-43q60-30 124-46t132-17q68 0 132 17t124 46q30 15 47 43t17 62v112H160Zm80-80h480v-32q0-11-6-20t-16-14q-52-26-107-40t-111-14q-56 0-111 14t-107 40q-10 5-16 14t-6 20v32Zm240-320q33 0 56.5-23.5T560-640q0-33-23.5-56.5T480-720q-33 0-56.5 23.5T400-640q0 33 23.5 56.5T480-560Z"/></svg>
+          <span class="nav-link-label">About me</span>
         </a>
-        <div class="dropdown-social-links" aria-label="Social links">
-          <a href="https://www.behance.net/sophiepurewal" aria-label="Visit Sophie Purewal's Behance profile" title="Behance (opens in a new tab)" target="_blank" rel="noopener noreferrer">Bē<span class="visually-hidden">Behance</span></a>
-          <a href="https://www.instagram.com/sophiepurewaldesign/" aria-label="Visit Sophie Purewal's Instagram profile" title="Instagram (opens in a new tab)" target="_blank" rel="noopener noreferrer">
-            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
-              <path d="M7 2C4.24 2 2 4.24 2 7v10c0 2.76 2.24 5 5 5h10c2.76 0 5-2.24 5-5V7c0-2.76-2.24-5-5-5H7Zm10 2a3 3 0 0 1 3 3v10a3 3 0 0 1-3 3H7a3 3 0 0 1-3-3V7a3 3 0 0 1 3-3h10Zm.5 1.5a1 1 0 1 0 .001 2.001A1 1 0 0 0 17.5 5.5ZM12 7a5 5 0 1 0 0 10 5 5 0 0 0 0-10Zm0 2a3 3 0 1 1 0 6 3 3 0 0 1 0-6Z"/>
-            </svg>
-            <span class="visually-hidden">Instagram</span>
-          </a>
-          <a href="https://www.linkedin.com/in/sophiepurewal/" aria-label="Visit Sophie Purewal's LinkedIn profile" title="LinkedIn (opens in a new tab)" target="_blank" rel="noopener noreferrer">in<span class="visually-hidden">LinkedIn</span></a>
-        </div>
+        <a data-tooltip="LinkedIn" href="https://www.linkedin.com/in/sophiepurewal/" class="dropdown-link" target="_blank" rel="noopener noreferrer">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M19 3H5a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V5a2 2 0 0 0-2-2ZM8.3 18H5.7V9.7h2.6V18ZM7 8.5a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3ZM18.3 18h-2.6v-4.1c0-1-.02-2.2-1.34-2.2s-1.55 1.05-1.55 2.13V18h-2.6V9.7h2.5v1.13h.03a2.75 2.75 0 0 1 2.47-1.36c2.64 0 3.13 1.74 3.13 4V18Z"/></svg>
+          <span class="nav-link-label">LinkedIn</span>
+        </a>
+        <a data-tooltip="Schedule a chat" href="https://calendar.app.google/cdjNKDGJmTKjYuaZ8" class="dropdown-link" target="_blank" rel="noopener noreferrer">
+          <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" aria-hidden="true" focusable="false">
+            <path d="M320-880h80v80h160v-80h80v80h120q33 0 56.5 23.5T840-720v560q0 33-23.5 56.5T760-80H200q-33 0-56.5-23.5T120-160v-560q0-33 23.5-56.5T200-800h120v-80Zm440 320H200v400h560v-400ZM200-640h560v-80H200v80Zm280 120q75 0 127.5 52.5T660-340q0 75-52.5 127.5T480-160q-75 0-127.5-52.5T300-340q0-75 52.5-127.5T480-520Zm0 80q-42 0-71 29t-29 71q0 42 29 71t71 29q42 0 71-29t29-71q0-42-29-71t-71-29Z"/>
+          </svg>
+          <span class="nav-link-label">Schedule a chat</span>
+        </a>
       </div>
     </nav>
   </header>
