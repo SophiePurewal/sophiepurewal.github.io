@@ -20,6 +20,17 @@ body.dark-mode .step:before{border-color:#f5f2eb;background:#111827}
 
 /* Darken the offset image backing panels in dark mode. */
 body.dark-mode .photo:before,body.dark-mode .feature .photo:before{background:#303943}
+
+/* Mobile timeline: reserve a dedicated gutter so the rule and nodes never cross copy. */
+@media(max-width:760px){
+.timeline{--mobile-track-x:10px;padding-top:25px}
+.timeline:before,.timeline .progress-track{left:var(--mobile-track-x);transform:translateX(-50%)}
+.timeline .step{padding-left:38px;gap:22px}
+.timeline .step:before,.timeline .feature:before{left:var(--mobile-track-x);transform:translate(-50%,-50%)}
+.timeline .feature{margin:0 0 45px;padding:38px 14px 68px 38px;border-radius:8px}
+.timeline .feature .copy,.timeline .feature .photo{min-width:0}
+.about-footer__line{left:calc(var(--section-shell-gutter-mobile,32px)/2 + 10px)}
+}
 </style></head><body><header class="site-header">
     <nav class="top-nav" aria-label="Main navigation">
       <p class="site-title">
