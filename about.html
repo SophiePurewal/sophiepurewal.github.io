@@ -11,6 +11,12 @@ body{background:#fefefe}.site-header{border-bottom:0}.serif{font-family:Inter,Ar
 body.dark-mode{--paper:#111827;--ink:#f8fafc;--line:#475569;background:#111827;color:#f8fafc}body.dark-mode .hero p.lead,body.dark-mode .step p,body.dark-mode .feature .step p,body.dark-mode .step .copy p{color:#cbd5e1}body.dark-mode .feature{background:#1e293b}body.dark-mode .step:before{background:#111827}body.dark-mode .banner,body.dark-mode .outro{background:#1e293b}body.dark-mode .photo figcaption{color:#cbd5e1}body.dark-mode .scroll{color:#f1b4c5}
 
 .timeline{padding-bottom:0}.timeline:before,.progress-track{bottom:0}.about-footer{height:90px;position:relative}.about-footer__line{position:absolute;top:0;bottom:0;left:50%;width:2px;transform:translateX(-50%);background:var(--line)}.about-footer__line:before{content:"";display:block;width:100%;height:100%;background:var(--wine);transform-origin:top;transform:scaleY(0);transition:transform .8s ease}.about-footer.is-visible .about-footer__line:before{transform:scaleY(1)}@media(max-width:760px){.about-footer__line{left:calc((100% - var(--section-shell-gutter-mobile,32px))/2 - (100% - var(--section-shell-gutter-mobile,32px))/2 + var(--section-shell-gutter-mobile,32px)/2 + 34px)}}@media(prefers-reduced-motion:reduce){.about-footer__line:before{transform:scaleY(1);transition:none}}
+
+/* Use a consistent warm off-white for the timeline and copy in dark mode. */
+body.dark-mode{--wine:#f5f2eb;--ink:#f5f2eb;--muted:#f5f2eb;--line:#f5f2eb;color:#f5f2eb}
+body.dark-mode .eyebrow,body.dark-mode .num,body.dark-mode .hero em,body.dark-mode .scroll,body.dark-mode .hero p.lead,body.dark-mode .step p,body.dark-mode .step .copy p,body.dark-mode .feature .step p,body.dark-mode .photo figcaption,body.dark-mode .copy,body.dark-mode .copy h2,body.dark-mode .hero h1{color:#f5f2eb}
+body.dark-mode .progress-fill,body.dark-mode .about-footer__line:before{background:#f5f2eb}
+body.dark-mode .step:before{border-color:#f5f2eb;background:#111827}
 </style></head><body><header class="site-header">
     <nav class="top-nav" aria-label="Main navigation">
       <p class="site-title">
