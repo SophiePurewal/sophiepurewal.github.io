@@ -21,7 +21,23 @@ body.dark-mode .case-impact-summary{background:#26303b;color:#f5f2eb;border-left
 body.dark-mode .case-impact-summary strong{color:#f5f2eb}
 @media(max-width:640px){.case-impact-summary{padding:15px 17px;margin:18px 0}}
 @media(prefers-reduced-motion:reduce){.case-impact-summary{scroll-behavior:auto}}
-</style><link rel="stylesheet" href="../assets/css/portfolio-footer-shared.css?v=2"></head>
+</style><link rel="stylesheet" href="../assets/css/portfolio-footer-shared.css?v=2"><style id="built-products-theme-fix">
+/* The global nav rule is for the header, not the case-study breadcrumb. */
+nav[aria-label="Case study breadcrumb"] {
+  background: transparent !important;
+  color: inherit;
+}
+html.dark-mode nav[aria-label="Case study breadcrumb"],
+body.dark-mode nav[aria-label="Case study breadcrumb"] {
+  background: transparent !important;
+  color: #f1f5f9 !important;
+}
+html.dark-mode nav[aria-label="Case study breadcrumb"] a,
+body.dark-mode nav[aria-label="Case study breadcrumb"] a {
+  color: inherit !important;
+  opacity: .9 !important;
+}
+</style></head>
 <body id="top" class="dude-page">
   <a class="skip-link" href="#main">Skip to main content</a>
   <header class="site-header">
@@ -47,7 +63,7 @@ body.dark-mode .case-impact-summary strong{color:#f5f2eb}
           </svg>
           <span class="nav-link-label">Client &amp; Product Work</span>
         </a>
-        <a data-tooltip="Products I&#39;ve Built" href="../side-projects.html" class="dropdown-link"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960" aria-hidden="true" focusable="false"><path d="M160-520v-280h280v280H160Zm80-80h120v-120H240v120Zm280 80v-280h280v280H520Zm80-80h120v-120H600v120ZM160-160v-280h280v280H160Zm80-80h120v-120H240v120Zm280 80v-280h280v280H520Zm80-80h120v-120H600v120Z"/></svg><span class="nav-link-label">Products I&#39;ve Built</span></a>
+        <a data-tooltip="Built Products" href="../built-products.html" class="dropdown-link"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960" aria-hidden="true" focusable="false"><path d="M160-520v-280h280v280H160Zm80-80h120v-120H240v120Zm280 80v-280h280v280H520Zm80-80h120v-120H600v120ZM160-160v-280h280v280H160Zm80-80h120v-120H240v120Zm280 80v-280h280v280H520Zm80-80h120v-120H600v120Z"/></svg><span class="nav-link-label">Built Products</span></a>
         <a data-tooltip="About me" href="../about.html" class="dropdown-link">
           <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960" aria-hidden="true" focusable="false"><path d="M480-480q-66 0-113-47t-47-113q0-66 47-113t113-47q66 0 113 47t47 113q0 66-47 113t-113 47Zm-320 320v-112q0-34 17-62t47-43q60-30 124-46t132-17q68 0 132 17t124 46q30 15 47 43t17 62v112H160Zm80-80h480v-32q0-11-6-20t-16-14q-52-26-107-40t-111-14q-56 0-111 14t-107 40q-10 5-16 14t-6 20v32Zm240-320q33 0 56.5-23.5T560-640q0-33-23.5-56.5T480-720q-33 0-56.5 23.5T400-640q0 33 23.5 56.5T480-560Z"/></svg>
           <span class="nav-link-label">About me</span>
@@ -72,7 +88,7 @@ body.dark-mode .case-impact-summary strong{color:#f5f2eb}
     </nav>
   </header>
   <nav aria-label="Case study breadcrumb" style="max-width:1120px;margin:18px auto 0;padding:0 24px;font:500 13px/1.5 Inter,system-ui,sans-serif;">
-    <a href="../side-projects.html" style="color:inherit;text-decoration:none;opacity:.78;display:inline-flex;align-items:center;gap:8px;" onmouseover="this.style.opacity='1'" onmouseout="this.style.opacity='.78'"><span aria-hidden="true">←</span> Products I've Built</a>
+    <a href="../built-products.html" style="color:inherit;text-decoration:none;opacity:.78;display:inline-flex;align-items:center;gap:8px;" onmouseover="this.style.opacity='1'" onmouseout="this.style.opacity='.78'"><span aria-hidden="true">←</span> Built Products</a>
   </nav>
 
   <main id="main" class="project-main">
@@ -279,7 +295,7 @@ body.dark-mode .case-impact-summary strong{color:#f5f2eb}
           </svg>
           
         </a>
-          <a aria-label="Products I&#39;ve Built" title="Products I&#39;ve Built" data-tooltip="Products I&#39;ve Built" href="../side-projects.html" class="footer-nav-link"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960" aria-hidden="true" focusable="false"><path d="M160-520v-280h280v280H160Zm80-80h120v-120H240v120Zm280 80v-280h280v280H520Zm80-80h120v-120H600v120ZM160-160v-280h280v280H160Zm80-80h120v-120H240v120Zm280 80v-280h280v280H520Zm80-80h120v-120H600v120Z"/></svg></a>
+          <a aria-label="Built Products" title="Built Products" data-tooltip="Built Products" href="../built-products.html" class="footer-nav-link"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960" aria-hidden="true" focusable="false"><path d="M160-520v-280h280v280H160Zm80-80h120v-120H240v120Zm280 80v-280h280v280H520Zm80-80h120v-120H600v120ZM160-160v-280h280v280H160Zm80-80h120v-120H240v120Zm280 80v-280h280v280H520Zm80-80h120v-120H600v120Z"/></svg></a>
           <a aria-label="About me" title="About me" data-tooltip="About me" href="../about.html" class="footer-nav-link">
           <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960" aria-hidden="true" focusable="false"><path d="M480-480q-66 0-113-47t-47-113q0-66 47-113t113-47q66 0 113 47t47 113q0 66-47 113t-113 47Zm-320 320v-112q0-34 17-62t47-43q60-30 124-46t132-17q68 0 132 17t124 46q30 15 47 43t17 62v112H160Zm80-80h480v-32q0-11-6-20t-16-14q-52-26-107-40t-111-14q-56 0-111 14t-107 40q-10 5-16 14t-6 20v32Zm240-320q33 0 56.5-23.5T560-640q0-33-23.5-56.5T480-720q-33 0-56.5 23.5T400-640q0 33 23.5 56.5T480-560Z"/></svg>
           
