@@ -67,14 +67,14 @@ body.dark-mode .built-main .built-intro.intro-statement h1{color:#fff}
 .built-main .built-intro.intro-statement h1{font-size:clamp(30px,7vw,38px);line-height:1.25}
 }
 </style><style id="antelope-video-tile">
-/* The original Antelope interaction is framed without cropping the UI. */
-.built-card__media--antelope{display:flex;align-items:center;justify-content:center;position:relative;background:radial-gradient(ellipse at 30% 18%,#faf8f3 0%,#eeeae3 65%,#e5dfd6 100%);isolation:isolate}
-.built-card__media--antelope::before{content:"";position:absolute;inset:auto 13% 8% 13%;height:22%;background:rgba(82,68,55,.16);filter:blur(30px);border-radius:50%;transform:rotate(-7deg)}
-.antelope-device{position:relative;box-sizing:border-box;height:88%;aspect-ratio:702/1480;padding:4px;border:2px solid #474849;border-radius:clamp(16px,2.7vw,28px);background:#17191b;box-shadow:0 15px 30px rgba(37,34,31,.21),0 2px 5px rgba(37,34,31,.12);transform:rotate(-8deg);overflow:hidden;transition:transform .35s ease,box-shadow .35s ease}
-.antelope-device__screen{width:100%;height:100%;overflow:hidden;border-radius:clamp(12px,2.2vw,23px);background:#f8f7f4}
-.antelope-device video{display:block;width:100%;height:100%;object-fit:contain;background:#f8f7f4}
-.built-card--antelope:hover .antelope-device{transform:rotate(-5deg) scale(1.025);box-shadow:0 20px 38px rgba(37,34,31,.23)}
-@media(prefers-reduced-motion:reduce){.antelope-device{transform:none;transition:none}.built-card--antelope:hover .antelope-device{transform:none}}
+/* Antelope: a quiet, centered device presentation using the original recording. */
+.built-card__media--antelope{position:relative;display:flex;align-items:center;justify-content:center;overflow:hidden;background:#eee9e5}
+.built-card__media--antelope::before{content:"";position:absolute;width:70%;height:74%;top:8%;left:15%;background:radial-gradient(ellipse,rgba(255,255,255,.82),transparent 73%);pointer-events:none}
+.antelope-device{position:relative;box-sizing:border-box;height:94%;aspect-ratio:702/1480;padding:4px;border:2px solid #38363b;border-radius:23px;background:#242228;box-shadow:0 9px 22px rgba(48,38,49,.16),0 1px 3px rgba(48,38,49,.16);overflow:hidden;transform:none;transition:box-shadow .25s ease}
+.antelope-device__screen{width:100%;height:100%;overflow:hidden;border-radius:17px;background:#f7eee8}
+.antelope-device video{display:block;width:100%;height:100%;object-fit:contain;background:#f7eee8}
+.built-card--antelope:hover .antelope-device{transform:none;box-shadow:0 12px 26px rgba(48,38,49,.19)}
+@media(prefers-reduced-motion:reduce){.antelope-device{transition:none}}
 </style></head><body><header class="site-header">
     <nav class="top-nav" aria-label="Main navigation">
       <p class="site-title">
