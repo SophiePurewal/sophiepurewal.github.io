@@ -99,6 +99,27 @@ html.dark-mode .built-card__cta, body.dark-mode .built-card__cta { color:#f8fafc
 html.dark-mode .built-card__media, body.dark-mode .built-card__media { border-color:#48525e; }
 html.dark-mode .built-card:hover .built-card__cta,
 body.dark-mode .built-card:hover .built-card__cta { color:#e2a5ba; }
+</style><style id="built-products-navigation-safe-rails">
+/* Match the homepage's safe content corridor when the header floats to viewport edges. */
+@media (min-width: 901px) {
+  body > main.built-main .built-grid,
+  body > main.built-main .built-intro {
+    box-sizing: border-box;
+    width: min(var(--section-shell-max, 1180px), calc(100% - 240px)) !important;
+    max-width: 100%;
+    margin-inline: auto;
+  }
+  body > main.built-main .built-card__inner {
+    width: 100%;
+  }
+}
+@media (max-width: 900px) {
+  body > main.built-main .built-grid,
+  body > main.built-main .built-intro {
+    width: calc(100% - 36px);
+    margin-inline: auto;
+  }
+}
 </style></head><body><header class="site-header">
     <nav class="top-nav" aria-label="Main navigation">
       <p class="site-title">
