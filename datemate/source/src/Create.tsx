@@ -10,6 +10,7 @@ import {
 } from "lucide-react";
 import {
   Button,
+  PaymentCards,
   PlanFacts,
   typeIcons,
   PrivacyNotice,
@@ -18,6 +19,7 @@ import {
   newId,
   people,
   slot,
+  type Payment,
   type Person,
   type Plan,
 } from "./model";
@@ -48,8 +50,9 @@ export default function Create({
     [slots, setSlots] = useState([slot(3)]),
     [venue, setVenue] = useState(""),
     [area, setArea] = useState("Brighton"),
-    [budget, setBudget] = useState("Mid"),
+    [budget, setBudget] = useState("Mid-range (££)"),
     [chooseForMe, setChooseForMe] = useState(false),
+    [pay, setPay] = useState<Payment>("50/50"),
     [error, setError] = useState(""),
     [created, setCreated] = useState<Plan | null>(null);
   const heading = useRef<HTMLHeadingElement>(null);
@@ -67,7 +70,7 @@ export default function Create({
     venue: venue.trim(),
     area,
     budget,
-    pay: { [actor]: "50/50" },
+    pay: { [actor]: pay },
     approved: [actor],
     status: "pending",
     turn: to,
@@ -152,7 +155,7 @@ export default function Create({
           key={step}
           onSubmit={(e) => {
             e.preventDefault();
-            step === 3 ? generate() : next();
+            step === 4 ? generate() : next();
           }}
           noValidate
         >
@@ -163,6 +166,7 @@ export default function Create({
                 "Welcome!",
                 "Find a little time for each other.",
                 "Somewhere you’ll both feel comfortable.",
+                "How would you like to pay?",
                 "A lovely plan, all in one place.",
               ][step]
             }
@@ -173,6 +177,7 @@ export default function Create({
                 "Let’s help you make a plan for your date.",
                 "Offer up to three times. Your date can choose what works.",
                 "Choose a public venue or a recognisable public meeting point.",
+                "Choose what feels comfortable, or leave the decision to your date.",
                 "Check the details before creating your simulated private link.",
               ][step]
             }
@@ -275,7 +280,7 @@ export default function Create({
               <fieldset className="venue-levels">
                 <legend>What kind of place feels right?</legend>
                 <div className="budget-options">
-                  {["Low", "Mid", "High"].map((level) => (
+                  {["Casual (£)", "Mid-range (££)", "High-End (£££)"].map((level) => (
                     <label className={`choice ${budget === level ? "selected" : ""}`} key={level}>
                       <input type="radio" name="level" checked={budget === level} onChange={() => setBudget(level)} />
                       {level}
@@ -284,9 +289,9 @@ export default function Create({
                 </div>
               </fieldset>
               <Button variant="secondary" onClick={() => {
-                const ideas = budget === "Low"
+                const ideas = budget === "Casual (£)"
                   ? ["The Flour Pot, Sydney Street", "Hove Lawns, café entrance", "Shelter Hall"]
-                  : budget === "High"
+                  : budget === "High-End (£££)"
                     ? ["Shelter Hall", "The Ivy in the Lanes", "The Flour Pot, Sydney Street"]
                     : ["Hove Lawns, café entrance", "The Flour Pot, Sydney Street", "Shelter Hall"];
                 setVenue(ideas[Math.floor(Math.random() * ideas.length)]);
@@ -329,7 +334,8 @@ export default function Create({
               </PrivacyNotice>
             </>
           )}
-          {step === 3 && (
+          {step === 3 && <PaymentCards value={pay} onChange={setPay} />}
+          {step === 4 && (
             <>
               <div className="review-heading">
                 <span className="avatar">{to[0]}</span>
@@ -343,6 +349,10 @@ export default function Create({
                 </div>
               </div>
               <PlanFacts plan={draft} />
+              <div className="summary-line">
+                <span>Payment preference</span>
+                <strong>{pay}</strong>
+              </div>
               <p className="hint">
                 Invitation expires after {expiry} hours. Both people must agree
                 before the date is confirmed. You can revoke it at any time.
@@ -366,7 +376,7 @@ export default function Create({
               {step ? "Back" : "Cancel"}
             </Button>
             <Button type="submit">
-              {step === 3 ? (
+              {step === 4 ? (
                 <>
                   <Link size={17} /> Generate invitation
                 </>
