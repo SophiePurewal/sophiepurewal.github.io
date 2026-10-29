@@ -67,6 +67,20 @@
 .minimal-create .venue-levels { margin-top: 20px; }
 .minimal-create .leave-choice { display: flex; align-items: center; gap: 10px; margin-top: 16px; color: #333; }
 .minimal-create .leave-choice input { width: 18px; height: 18px; accent-color: #171717; }
+.minimal-create .venue-choice { margin-top: 28px; }
+.minimal-create .venue-mode-options { display: flex; flex-direction: column; gap: 12px; }
+.minimal-create .venue-mode {
+  display: flex !important;
+  align-items: center;
+  gap: 12px;
+  min-height: 34px;
+  margin: 0 !important;
+  color: #555;
+  font-size: 15px !important;
+  font-weight: 400 !important;
+  cursor: pointer;
+}
+.minimal-create .venue-mode input { margin: 0; accent-color: #171717; }
 @keyframes datemate-step-fade {
   from { opacity: 0; transform: translate3d(0, -8px, 0); }
   to { opacity: 1; transform: translate3d(0, 0, 0); }
@@ -216,6 +230,7 @@ body:has(.minimal-create) .minimal-create .form-actions button:last-child {
   box-shadow: none !important;
 }
 body:has(.minimal-create) .minimal-create .venue-suggestions .btn { text-decoration: underline; text-underline-offset: 4px; }
+body:has(.minimal-create) .minimal-create .venue-suggestions .suggestion-selected { color: #171717; font-weight: 650; }
 body:has(.minimal-create) .minimal-create .facts > div { border: 0; }
 body:has(.minimal-create) .minimal-create .avatar { background: transparent; border: 1px solid #dedede; color: #171717; }
 @media (max-width: 760px) {
