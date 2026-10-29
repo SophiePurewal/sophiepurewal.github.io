@@ -54,7 +54,7 @@ export default function Create({
     [venue, setVenue] = useState(""),
     [area, setArea] = useState("Brighton"),
     [budget, setBudget] = useState("Mid-range (££)"),
-    [chooseForMe, setChooseForMe] = useState(false),
+    [placeMode, setPlaceMode] = useState<"choose" | "help" | "date">("choose"),
     [pay, setPay] = useState<Payment>("50/50"),
     [error, setError] = useState(""),
     [created, setCreated] = useState<Plan | null>(null),
@@ -71,7 +71,10 @@ export default function Create({
     type: kind,
     slots,
     selected: slots[0],
-    venue: venue.trim(),
+    venue:
+      placeMode === "date"
+        ? `To be chosen by ${to}`
+        : venue.trim(),
     area,
     budget,
     pay: { [actor]: pay },
@@ -92,7 +95,7 @@ export default function Create({
         new Set(slots).size !== slots.length)
     )
       return "Choose distinct dates and times in the future.";
-    if (step === 2 && ((!chooseForMe && venue.trim().length < 3) || !area.trim()))
+    if (step === 2 && (placeMode !== "date" && venue.trim().length < 3 || !area.trim()))
       return "Add a public venue or meeting point and a town or area.";
     return "";
   };
@@ -336,46 +339,72 @@ export default function Create({
                   ))}
                 </div>
               </fieldset>
-              <Button variant="secondary" onClick={() => {
-                const ideas = budget === "Casual (£)"
-                  ? ["The Flour Pot, Sydney Street", "Hove Lawns, café entrance", "Shelter Hall"]
-                  : budget === "High-End (£££)"
-                    ? ["Shelter Hall", "The Ivy in the Lanes", "The Flour Pot, Sydney Street"]
-                    : ["Hove Lawns, café entrance", "The Flour Pot, Sydney Street", "Shelter Hall"];
-                setVenue(ideas[Math.floor(Math.random() * ideas.length)]);
-              }}>✳ Help me find a place</Button>
-              <label htmlFor="venue">Public venue or meeting point</label>
-              <input
-                id="venue"
-                maxLength={120}
-                placeholder="e.g. The Flour Pot, Sydney Street"
-                value={venue}
-                onChange={(e) => setVenue(e.target.value)}
-                aria-describedby={error ? "create-error" : undefined}
-              />
-              <label className="leave-choice">
-                <input type="checkbox" checked={chooseForMe} onChange={(e) => setChooseForMe(e.target.checked)} />
-                I’ll let {to} choose the place
-              </label>
-              <div className="venue-suggestions">
-                <span className="eyebrow">Brighton ideas</span>
-                {[
-                  "The Flour Pot, Sydney Street",
-                  "Hove Lawns, café entrance",
-                  "Shelter Hall",
-                ].map((v) => (
-                  <Button
-                    key={v}
-                    variant="small secondary"
-                    onClick={() => {
-                      setVenue(v);
-                      setArea("Brighton");
-                    }}
-                  >
-                    {v}
-                  </Button>
-                ))}
-              </div>
+              <fieldset className="venue-choice">
+                <legend>Who should choose the place?</legend>
+                <div className="venue-mode-options">
+                  <label className="venue-mode">
+                    <input
+                      type="radio"
+                      name="venue-mode"
+                      checked={placeMode === "choose"}
+                      onChange={() => setPlaceMode("choose")}
+                    />
+                    I’ll choose a place
+                  </label>
+                  <label className="venue-mode">
+                    <input
+                      type="radio"
+                      name="venue-mode"
+                      checked={placeMode === "help"}
+                      onChange={() => setPlaceMode("help")}
+                    />
+                    Help me find a place
+                  </label>
+                  <label className="venue-mode">
+                    <input
+                      type="radio"
+                      name="venue-mode"
+                      checked={placeMode === "date"}
+                      onChange={() => setPlaceMode("date")}
+                    />
+                    I’ll let {to} choose
+                  </label>
+                </div>
+              </fieldset>
+              {placeMode !== "date" && (
+                <>
+                  {placeMode === "help" && (
+                    <div className="venue-suggestions">
+                      <span className="eyebrow">A few {area} ideas</span>
+                      {[
+                        "The Flour Pot, Sydney Street",
+                        "Hove Lawns, café entrance",
+                        "Shelter Hall",
+                      ].map((v) => (
+                        <Button
+                          key={v}
+                          variant="small secondary"
+                          className={venue === v ? "suggestion-selected" : ""}
+                          onClick={() => setVenue(v)}
+                        >
+                          {v}
+                        </Button>
+                      ))}
+                    </div>
+                  )}
+                  <label htmlFor="venue">
+                    {placeMode === "help" ? "Choose or add a place" : "Public venue or meeting point"}
+                  </label>
+                  <input
+                    id="venue"
+                    maxLength={120}
+                    placeholder="e.g. The Flour Pot, Sydney Street"
+                    value={venue}
+                    onChange={(e) => setVenue(e.target.value)}
+                    aria-describedby={error ? "create-error" : undefined}
+                  />
+                </>
+              )}
               <PrivacyNotice>
                 Use a public meeting place. Please don’t enter home addresses or
                 live locations.
