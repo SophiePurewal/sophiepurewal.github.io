@@ -1,4 +1,4 @@
-@import url("https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;450;500;550;600;650;700&family=Manrope:wght@400;500;600;650;700;750;800&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;450;500;550;600;650;700&family=DM+Serif+Display:ital@0;1&family=Manrope:wght@400;500;600;650;700;750;800&display=swap");
 /* Datemate's focused plan flow */
 .minimal-create { background: #fff !important; color: #171717 !important; border-color: #e7e7e7 !important; box-shadow: none !important; }
 .create-layout:has(.minimal-create) { grid-template-columns: minmax(0, 1fr); }
@@ -45,6 +45,85 @@ body:has(.minimal-create) .minimal-create input[type="checkbox"] { accent-color:
 body:has(.minimal-create) .minimal-create .type-option { min-height: 90px; }
 body:has(.minimal-create) .minimal-create .type-option.selected { box-shadow: inset 0 0 0 1px #171717 !important; }
 body:has(.minimal-create) .minimal-create .form-actions { margin-top: 38px; }
+/* A quieter, editorial form: no card borders, dividers, or boxed actions. */
+body:has(.minimal-create) .create-panel { padding: 0 !important; }
+body:has(.minimal-create) .minimal-create form > h2,
+body:has(.minimal-create) .minimal-create .success-title {
+  font-family: "DM Serif Display", Georgia, serif;
+  font-weight: 400;
+  letter-spacing: -0.5px;
+  line-height: 1.12;
+}
+body:has(.minimal-create) .minimal-create form > h2 { font-size: clamp(42px, 6vw, 68px); }
+body:has(.minimal-create) .minimal-create form > .muted { font-size: 17px; margin: 13px 0 38px; }
+body:has(.minimal-create) .minimal-create .form-actions {
+  border: 0 !important;
+  padding-top: 0;
+  margin-top: 46px;
+}
+body:has(.minimal-create) .minimal-create .type-grid { gap: 22px 34px; }
+body:has(.minimal-create) .minimal-create .type-option {
+  min-height: 92px;
+  padding: 10px 4px;
+  gap: 12px;
+  border: 0 !important;
+  border-radius: 0 !important;
+  background: transparent !important;
+  color: #777 !important;
+  box-shadow: none !important;
+}
+body:has(.minimal-create) .minimal-create .type-option.selected {
+  color: #171717 !important;
+  box-shadow: none !important;
+}
+body:has(.minimal-create) .minimal-create .type-option.selected strong {
+  text-decoration: underline;
+  text-decoration-thickness: 1px;
+  text-underline-offset: 6px;
+}
+body:has(.minimal-create) .minimal-create .type-option strong { font-size: 15px; }
+body:has(.minimal-create) .minimal-create input:not([type="radio"], [type="checkbox"]),
+body:has(.minimal-create) .minimal-create select,
+body:has(.minimal-create) .minimal-create textarea {
+  border: 0 !important;
+  border-bottom: 1px solid #d8d8d8 !important;
+  border-radius: 0 !important;
+  background: transparent !important;
+  padding-left: 0;
+  padding-right: 0;
+  box-shadow: none !important;
+}
+body:has(.minimal-create) .minimal-create .choice {
+  border: 0 !important;
+  border-radius: 0 !important;
+  padding-inline: 0;
+  background: transparent !important;
+  color: #777 !important;
+}
+body:has(.minimal-create) .minimal-create .choice.selected {
+  color: #171717 !important;
+  background: transparent !important;
+  font-weight: 650;
+}
+body:has(.minimal-create) .minimal-create .btn,
+body:has(.minimal-create) .minimal-create .form-actions button:last-child {
+  min-height: 44px;
+  border: 0 !important;
+  border-radius: 0 !important;
+  padding-inline: 0;
+  background: transparent !important;
+  color: #171717 !important;
+  box-shadow: none !important;
+}
+body:has(.minimal-create) .minimal-create .venue-suggestions .btn { text-decoration: underline; text-underline-offset: 4px; }
+body:has(.minimal-create) .minimal-create .facts > div { border: 0; }
+body:has(.minimal-create) .minimal-create .avatar { background: transparent; border: 1px solid #dedede; color: #171717; }
+@media (max-width: 760px) {
+  body:has(.minimal-create) main { padding-inline: 22px; }
+  body:has(.minimal-create) .minimal-create form > h2 { font-size: 46px; }
+  body:has(.minimal-create) .minimal-create form > .muted { font-size: 16px; margin-bottom: 30px; }
+  body:has(.minimal-create) .minimal-create .type-grid { gap: 12px 22px; }
+}
 :root {
   font-family: "DM Sans", sans-serif;
   color: #293c35;
