@@ -12,13 +12,15 @@ import {
   type Plan,
 } from "./model";
 const seed = () => initialState();
-test("all nine payment combinations follow the three allowed pairings", () => {
+test("payment combinations allow one person to defer to the other", () => {
   for (const a of payments)
     for (const b of payments) {
       const expected =
         (a === "Treat me" && b === "My treat") ||
         (a === "My treat" && b === "Treat me") ||
-        (a === "50/50" && b === "50/50");
+        (a === "50/50" && b === "50/50") ||
+        (a === "Let my date choose" && b !== "Let my date choose") ||
+        (b === "Let my date choose" && a !== "Let my date choose");
       assert.equal(compatible(a, b), expected, `${a} + ${b}`);
     }
   assert.equal(compatible(undefined, "My treat"), false);
