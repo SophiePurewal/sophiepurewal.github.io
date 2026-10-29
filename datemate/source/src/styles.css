@@ -105,6 +105,50 @@ body:has(.minimal-create) .minimal-create .choice.selected {
   background: transparent !important;
   font-weight: 650;
 }
+body:has(.minimal-create) .minimal-create .payment-options {
+  grid-template-columns: 1fr;
+  gap: 9px;
+}
+body:has(.minimal-create) .minimal-create .payment-card,
+body:has(.minimal-create) .minimal-create .payment-card.selected {
+  display: grid;
+  grid-template-columns: 18px 1fr;
+  grid-template-rows: auto auto;
+  align-items: center;
+  column-gap: 12px;
+  min-height: 56px;
+  padding: 8px 0;
+  border: 0 !important;
+  border-radius: 0 !important;
+  background: transparent !important;
+  color: #171717 !important;
+  box-shadow: none !important;
+}
+body:has(.minimal-create) .minimal-create .payment-card .radio-dot {
+  grid-column: 1;
+  grid-row: 1 / span 2;
+  width: 16px;
+  height: 16px;
+  margin: 0;
+  border-color: #888;
+}
+body:has(.minimal-create) .minimal-create .payment-card.selected .radio-dot {
+  border: 5px solid #171717;
+  background: #fff;
+}
+body:has(.minimal-create) .minimal-create .payment-card strong {
+  grid-column: 2;
+  grid-row: 1;
+  margin: 0;
+  font-size: 15px;
+  font-weight: 550;
+}
+body:has(.minimal-create) .minimal-create .payment-card small {
+  grid-column: 2;
+  grid-row: 2;
+  font-size: 12px;
+  color: #777;
+}
 body:has(.minimal-create) .minimal-create .btn,
 body:has(.minimal-create) .minimal-create .form-actions button:last-child {
   min-height: 44px;
