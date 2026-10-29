@@ -12,7 +12,6 @@ import {
   Button,
   PaymentCards,
   PlanFacts,
-  Stepper,
   typeIcons,
   PrivacyNotice,
 } from "./components";
@@ -51,7 +50,8 @@ export default function Create({
     [slots, setSlots] = useState([slot(3)]),
     [venue, setVenue] = useState(""),
     [area, setArea] = useState("Brighton"),
-    [budget, setBudget] = useState("£10–£20"),
+    [budget, setBudget] = useState("Mid"),
+    [chooseForMe, setChooseForMe] = useState(false),
     [pay, setPay] = useState<Payment>("50/50"),
     [error, setError] = useState(""),
     [created, setCreated] = useState<Plan | null>(null);
@@ -87,7 +87,7 @@ export default function Create({
         new Set(slots).size !== slots.length)
     )
       return "Choose distinct dates and times in the future.";
-    if (step === 2 && (venue.trim().length < 3 || !area.trim()))
+    if (step === 2 && ((!chooseForMe && venue.trim().length < 3) || !area.trim()))
       return "Add a public venue or meeting point and a town or area.";
     return "";
   };
@@ -149,30 +149,22 @@ export default function Create({
     );
   return (
     <div className="create-layout">
-      <section className="panel create-panel">
-        <Stepper
-          step={step}
-          labels={["The idea", "When", "Where", "Budget", "Payment", "Review"]}
-          onStep={(n) => {
-            setError("");
-            setStep(n);
-          }}
-        />
+      <section className="panel create-panel minimal-create">
         <form
+          key={step}
           onSubmit={(e) => {
             e.preventDefault();
             step === 5 ? generate() : next();
           }}
           noValidate
         >
-          <p className="eyebrow">Step {step + 1} of 6</p>
+          <p className="eyebrow">A little plan, together</p>
           <h2 ref={heading} tabIndex={-1}>
             {
               [
-                "What’s your kind of date?",
+                "Would you like to make a plan?",
                 "Find a little time for each other.",
                 "Somewhere you’ll both feel comfortable.",
-                "Keep expectations comfortable.",
                 "One less thing to wonder about.",
                 "A lovely plan, all in one place.",
               ][step]
@@ -181,10 +173,9 @@ export default function Create({
           <p className="muted">
             {
               [
-                "Start simple. A good conversation doesn’t need a grand plan.",
+                "Start with a simple idea. You can change your mind later.",
                 "Offer up to three times. Your date can choose what works.",
                 "Choose a public venue or a recognisable public meeting point.",
-                "An approximate budget per person. No payments are taken.",
                 "Your date will choose independently before you both agree.",
                 "Check the details before creating your simulated private link.",
               ][step]
@@ -285,6 +276,25 @@ export default function Create({
                 value={area}
                 onChange={(e) => setArea(e.target.value)}
               />
+              <fieldset className="venue-levels">
+                <legend>What kind of place feels right?</legend>
+                <div className="budget-options">
+                  {["Low", "Mid", "High"].map((level) => (
+                    <label className={`choice ${budget === level ? "selected" : ""}`} key={level}>
+                      <input type="radio" name="level" checked={budget === level} onChange={() => setBudget(level)} />
+                      {level}
+                    </label>
+                  ))}
+                </div>
+              </fieldset>
+              <Button variant="secondary" onClick={() => {
+                const ideas = budget === "Low"
+                  ? ["The Flour Pot, Sydney Street", "Hove Lawns, café entrance", "Shelter Hall"]
+                  : budget === "High"
+                    ? ["Shelter Hall", "The Ivy in the Lanes", "The Flour Pot, Sydney Street"]
+                    : ["Hove Lawns, café entrance", "The Flour Pot, Sydney Street", "Shelter Hall"];
+                setVenue(ideas[Math.floor(Math.random() * ideas.length)]);
+              }}>✳ Help me find a place</Button>
               <label htmlFor="venue">Public venue or meeting point</label>
               <input
                 id="venue"
@@ -294,6 +304,10 @@ export default function Create({
                 onChange={(e) => setVenue(e.target.value)}
                 aria-describedby={error ? "create-error" : undefined}
               />
+              <label className="leave-choice">
+                <input type="checkbox" checked={chooseForMe} onChange={(e) => setChooseForMe(e.target.checked)} />
+                I’ll let {to} choose the place
+              </label>
               <div className="venue-suggestions">
                 <span className="eyebrow">Brighton ideas</span>
                 {[
@@ -319,31 +333,8 @@ export default function Create({
               </PrivacyNotice>
             </>
           )}
-          {step === 3 && (
-            <fieldset>
-              <legend>Approximate budget per person</legend>
-              <div className="budget-options">
-                {["Under £10", "£10–£20", "£20–£40", "£40–£60", "£60+"].map(
-                  (b) => (
-                    <label
-                      className={`choice ${budget === b ? "selected" : ""}`}
-                      key={b}
-                    >
-                      <input
-                        type="radio"
-                        name="budget"
-                        checked={budget === b}
-                        onChange={() => setBudget(b)}
-                      />
-                      {b}
-                    </label>
-                  ),
-                )}
-              </div>
-            </fieldset>
-          )}
-          {step === 4 && <PaymentCards value={pay} onChange={setPay} />}
-          {step === 5 && (
+          {step === 3 && <PaymentCards value={pay} onChange={setPay} />}
+          {step === 4 && (
             <>
               <div className="review-heading">
                 <span className="avatar">{to[0]}</span>
@@ -384,7 +375,7 @@ export default function Create({
               {step ? "Back" : "Cancel"}
             </Button>
             <Button type="submit">
-              {step === 5 ? (
+              {step === 4 ? (
                 <>
                   <Link size={17} /> Generate invitation
                 </>
