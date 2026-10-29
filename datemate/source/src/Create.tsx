@@ -10,7 +10,6 @@ import {
 } from "lucide-react";
 import {
   Button,
-  PaymentCards,
   PlanFacts,
   typeIcons,
   PrivacyNotice,
@@ -19,7 +18,6 @@ import {
   newId,
   people,
   slot,
-  type Payment,
   type Person,
   type Plan,
 } from "./model";
@@ -52,12 +50,12 @@ export default function Create({
     [area, setArea] = useState("Brighton"),
     [budget, setBudget] = useState("Mid"),
     [chooseForMe, setChooseForMe] = useState(false),
-    [pay, setPay] = useState<Payment>("50/50"),
     [error, setError] = useState(""),
     [created, setCreated] = useState<Plan | null>(null);
   const heading = useRef<HTMLHeadingElement>(null);
   useEffect(() => {
-    heading.current?.focus();
+    heading.current?.focus({ preventScroll: true });
+    heading.current?.scrollIntoView({ behavior: "smooth", block: "start" });
   }, [step]);
   const draft: Plan = {
     id: created?.id || "",
@@ -69,7 +67,7 @@ export default function Create({
     venue: venue.trim(),
     area,
     budget,
-    pay: { [actor]: pay },
+    pay: { [actor]: "50/50" },
     approved: [actor],
     status: "pending",
     turn: to,
@@ -154,7 +152,7 @@ export default function Create({
           key={step}
           onSubmit={(e) => {
             e.preventDefault();
-            step === 5 ? generate() : next();
+            step === 3 ? generate() : next();
           }}
           noValidate
         >
@@ -165,7 +163,6 @@ export default function Create({
                 "Would you like to make a plan?",
                 "Find a little time for each other.",
                 "Somewhere you’ll both feel comfortable.",
-                "One less thing to wonder about.",
                 "A lovely plan, all in one place.",
               ][step]
             }
@@ -176,7 +173,6 @@ export default function Create({
                 "Start with a simple idea. You can change your mind later.",
                 "Offer up to three times. Your date can choose what works.",
                 "Choose a public venue or a recognisable public meeting point.",
-                "Your date will choose independently before you both agree.",
                 "Check the details before creating your simulated private link.",
               ][step]
             }
@@ -333,8 +329,7 @@ export default function Create({
               </PrivacyNotice>
             </>
           )}
-          {step === 3 && <PaymentCards value={pay} onChange={setPay} />}
-          {step === 4 && (
+          {step === 3 && (
             <>
               <div className="review-heading">
                 <span className="avatar">{to[0]}</span>
@@ -348,10 +343,6 @@ export default function Create({
                 </div>
               </div>
               <PlanFacts plan={draft} />
-              <div className="summary-line">
-                <span>Your payment preference</span>
-                <strong>{pay}</strong>
-              </div>
               <p className="hint">
                 Invitation expires after {expiry} hours. Both people must agree
                 before the date is confirmed. You can revoke it at any time.
@@ -375,7 +366,7 @@ export default function Create({
               {step ? "Back" : "Cancel"}
             </Button>
             <Button type="submit">
-              {step === 4 ? (
+              {step === 3 ? (
                 <>
                   <Link size={17} /> Generate invitation
                 </>
