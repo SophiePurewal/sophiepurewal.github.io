@@ -4,12 +4,13 @@ export const newId = () =>
     : Array.from(crypto.getRandomValues(new Uint32Array(4)), (n) =>
         n.toString(16).padStart(8, "0"),
       ).join("");
-export type Payment = "Treat me" | "My treat" | "50/50";
-export const payments: Payment[] = ["Treat me", "My treat", "50/50"];
+export type Payment = "Treat me" | "My treat" | "50/50" | "Let my date choose";
+export const payments: Payment[] = ["Treat me", "My treat", "50/50", "Let my date choose"];
 export const paymentCopy: Record<Payment, string> = {
   "Treat me": "I’d prefer my date to pay.",
   "My treat": "I’m happy to pay for both of us.",
   "50/50": "Let’s split the bill.",
+  "Let my date choose": "They can choose what feels comfortable.",
 };
 export type Status =
   | "pending"
@@ -80,12 +81,15 @@ export interface State {
   settings: Partial<Record<Person, Settings>>;
   reports: { by: Person; person: Person; reason: string }[];
 }
-export const compatible = (a?: Payment, b?: Payment) =>
-  !!a &&
-  !!b &&
-  ((a === "50/50" && b === "50/50") ||
+export const compatible = (a?: Payment, b?: Payment) => {
+  if (!a || !b) return false;
+  if (a === "Let my date choose" || b === "Let my date choose") return a !== b;
+  return (
+    (a === "50/50" && b === "50/50") ||
     (a === "Treat me" && b === "My treat") ||
-    (a === "My treat" && b === "Treat me"));
+    (a === "My treat" && b === "Treat me")
+  );
+};
 export const other = (p: { a: Person; b: Person }, actor: Person) =>
   p.a === actor ? p.b : p.a;
 export const belongs = (p: { a: Person; b: Person }, actor: Person) =>
