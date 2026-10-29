@@ -156,11 +156,11 @@ export default function Create({
           }}
           noValidate
         >
-          <p className="eyebrow">A little plan, together</p>
+          {step > 0 && <p className="eyebrow">A little plan, together</p>}
           <h2 ref={heading} tabIndex={-1}>
             {
               [
-                "Would you like to make a plan?",
+                "Welcome!",
                 "Find a little time for each other.",
                 "Somewhere you’ll both feel comfortable.",
                 "A lovely plan, all in one place.",
@@ -170,7 +170,7 @@ export default function Create({
           <p className="muted">
             {
               [
-                "Start with a simple idea. You can change your mind later.",
+                "Let’s help you make a plan for your date.",
                 "Offer up to three times. Your date can choose what works.",
                 "Choose a public venue or a recognisable public meeting point.",
                 "Check the details before creating your simulated private link.",
