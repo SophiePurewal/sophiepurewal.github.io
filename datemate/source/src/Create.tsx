@@ -7,7 +7,9 @@ import {
   Link,
   Plus,
   Trash2,
+  Wallet,
 } from "lucide-react";
+import QRCode from "qrcode";
 import {
   Button,
   PaymentCards,
@@ -16,6 +18,7 @@ import {
   PrivacyNotice,
 } from "./components";
 import {
+  formatDate,
   newId,
   people,
   slot,
@@ -54,7 +57,8 @@ export default function Create({
     [chooseForMe, setChooseForMe] = useState(false),
     [pay, setPay] = useState<Payment>("50/50"),
     [error, setError] = useState(""),
-    [created, setCreated] = useState<Plan | null>(null);
+    [created, setCreated] = useState<Plan | null>(null),
+    [qrCode, setQrCode] = useState("");
   const heading = useRef<HTMLHeadingElement>(null);
   useEffect(() => {
     heading.current?.focus({ preventScroll: true });
@@ -112,39 +116,83 @@ export default function Create({
   const url = created
     ? `${location.href.split("#")[0]}#/invite/${created.id}`
     : "";
+  useEffect(() => {
+    if (!url) return;
+    let cancelled = false;
+    QRCode.toDataURL(url, {
+      errorCorrectionLevel: "M",
+      margin: 1,
+      width: 208,
+      color: { dark: "#1b2622", light: "#ffffff" },
+    }).then((dataUrl) => {
+      if (!cancelled) setQrCode(dataUrl);
+    }).catch(() => {
+      if (!cancelled) setQrCode("unavailable");
+    });
+    return () => {
+      cancelled = true;
+    };
+  }, [url]);
   if (created)
     return (
-      <div className="narrow">
-        <div className="panel success-panel">
-          <span className="success-icon">
-            <Check size={34} />
-          </span>
-          <p className="eyebrow">A little less back-and-forth</p>
-          <h2 className="success-title">Your invitation is ready.</h2>
-          <p>A plan for you and {to}. There’s no rush to reply.</p>
-          <PlanFacts plan={created} />
-          <label htmlFor="invite-url">Simulated invitation link</label>
-          <div className="link-field">
-            <input id="invite-url" readOnly value={url} />
-            <button
-              className="icon-button"
-              aria-label="Copy invitation link"
-              onClick={() => copy(url)}
-            >
-              <Copy size={20} />
-            </button>
-          </div>
-          <p className="hint">
-            This link works with this browser’s fictional demo data only. It
-            does not grant secure access or send an invitation.
+      <div className="minimal-success">
+        <header className="success-intro">
+          <p className="eyebrow">A little plan, together</p>
+          <h1 className="success-title">Your plan is ready.</h1>
+          <p className="muted">
+            {created.type} with {to}
           </p>
-          <Button
-            onClick={() => {
-              location.hash = `/invite/${created.id}`;
-            }}
-          >
-            View invitation <ArrowRight size={17} />
-          </Button>
+        </header>
+        <div className="success-layout">
+          <section className="success-date-details" aria-label="Date details">
+            <dl>
+              <div>
+                <dt>When</dt>
+                <dd>{formatDate(created.selected)}</dd>
+              </div>
+              <div>
+                <dt>Where</dt>
+                <dd>
+                  {created.venue || "Choose together"}
+                  <small>{created.area}</small>
+                </dd>
+              </div>
+            </dl>
+            <label htmlFor="invite-url">Invitation link</label>
+            <div className="link-field">
+              <input id="invite-url" readOnly value={url} />
+              <button
+                className="icon-button"
+                aria-label="Copy invitation link"
+                onClick={() => copy(url)}
+              >
+                <Copy size={20} />
+              </button>
+            </div>
+            <p className="hint">
+              This demo link and QR code work only in this browser.
+            </p>
+          </section>
+          <aside className="success-qr" aria-label="Invitation QR code">
+            <p className="eyebrow">Scan to open</p>
+            {qrCode && qrCode !== "unavailable" ? (
+              <img
+                className="success-qr-code"
+                src={qrCode}
+                alt={`QR code for the invitation to ${created.type} with ${to}`}
+              />
+            ) : qrCode === "unavailable" ? (
+              <p className="hint" role="alert">The QR code couldn’t be created.</p>
+            ) : (
+              <div className="success-qr-loading" aria-hidden="true" />
+            )}
+            <Button className="wallet-button" disabled aria-describedby="wallet-note">
+              <Wallet size={17} /> Add to Apple Wallet
+            </Button>
+            <p className="hint" id="wallet-note">
+              Wallet passes need a secure, signed invitation.
+            </p>
+          </aside>
         </div>
       </div>
     );
