@@ -1463,6 +1463,22 @@ function Back({
   );
 }
 function paymentSummary(p: Plan, actor: Person) {
+  const aPay = p.pay[p.a];
+  const bPay = p.pay[p.b];
+  if (aPay === "Let my date choose") {
+    return bPay === "50/50"
+      ? "50/50 · Split the bill"
+      : bPay === "My treat"
+        ? `${p.b}’s treat`
+        : `${p.a}’s treat`;
+  }
+  if (bPay === "Let my date choose") {
+    return aPay === "50/50"
+      ? "50/50 · Split the bill"
+      : aPay === "My treat"
+        ? `${p.a}’s treat`
+        : `${p.b}’s treat`;
+  }
   return p.pay[actor] === "50/50"
     ? "50/50 · Split the bill"
     : p.pay[actor] === "My treat"
@@ -1582,8 +1598,8 @@ function Invitation({
               legend="Your payment preference"
             />
             <p className="hint">
-              Both people choose independently. A plan is confirmed only when
-              you agree on the details and compatible payment preferences.
+              Choose your preference, or let your date choose. A plan is
+              confirmed only when you agree on the details and payment.
             </p>
             {p.turn !== actor && (
               <div className="notice">
