@@ -1,12 +1,14 @@
 @import url("https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;450;500;550;600;650;700&family=Manrope:wght@400;500;600;650;700;750;800&display=swap");
 /* Datemate's focused plan flow */
 .minimal-create { background: #fff !important; color: #171717 !important; border-color: #e7e7e7 !important; box-shadow: none !important; }
-.minimal-create .create-aside { display: none; }
+.create-layout:has(.minimal-create) { grid-template-columns: minmax(0, 1fr); }
+.create-layout:has(.minimal-create) .create-aside { display: none; }
 .minimal-create form { animation: datemate-rise .55s cubic-bezier(.2,.75,.25,1) both; }
 .minimal-create .eyebrow { color: #777 !important; }
 .minimal-create .muted, .minimal-create .hint { color: #707070 !important; }
 .minimal-create .form-actions { border-color: #e8e8e8 !important; }
 .minimal-create button:not(.icon-button) { border-radius: 999px; }
+.minimal-create .form-actions button:last-child { background: #171717 !important; color: #fff !important; border-color: #171717 !important; }
 .minimal-create .type-option, .minimal-create .choice { border-color: #dedede !important; background: #fff !important; color: #1b1b1b !important; box-shadow: none !important; }
 .minimal-create .type-option.selected, .minimal-create .choice.selected { border-color: #191919 !important; background: #f3f3f3 !important; }
 .minimal-create input, .minimal-create select { border-color: #dedede !important; border-radius: 12px !important; color: #171717 !important; }
