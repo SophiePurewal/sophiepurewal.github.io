@@ -3,7 +3,10 @@
 .minimal-create { background: #fff !important; color: #171717 !important; border-color: #e7e7e7 !important; box-shadow: none !important; }
 .create-layout:has(.minimal-create) { grid-template-columns: minmax(0, 1fr); }
 .create-layout:has(.minimal-create) .create-aside { display: none; }
-.minimal-create form { animation: datemate-rise .55s cubic-bezier(.2,.75,.25,1) both; }
+.minimal-create form {
+  animation: datemate-rise .72s cubic-bezier(.2,.72,.24,1) both;
+  will-change: transform, opacity;
+}
 .minimal-create .eyebrow { color: #777 !important; }
 .minimal-create .muted, .minimal-create .hint { color: #707070 !important; }
 .minimal-create .form-actions { border-color: #e8e8e8 !important; }
@@ -15,7 +18,11 @@
 .minimal-create .venue-levels { margin-top: 20px; }
 .minimal-create .leave-choice { display: flex; align-items: center; gap: 10px; margin-top: 16px; color: #333; }
 .minimal-create .leave-choice input { width: 18px; height: 18px; accent-color: #171717; }
-@keyframes datemate-rise { from { opacity: 0; transform: translateY(18px); } to { opacity: 1; transform: translateY(0); } }
+@keyframes datemate-rise {
+  from { opacity: 0; transform: translate3d(0, 40px, 0); }
+  to { opacity: 1; transform: translate3d(0, 0, 0); }
+}
+body:has(.minimal-create) .minimal-create h2 { scroll-margin-top: 28px; }
 @media (prefers-reduced-motion: reduce) { .minimal-create form { animation: none; } }
 /* When planning, remove the surrounding dashboard so the next choice is the focus. */
 body:has(.minimal-create) { background: #fff !important; color: #171717 !important; }
