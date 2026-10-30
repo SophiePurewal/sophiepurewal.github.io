@@ -28,7 +28,20 @@ body.dark-mode .case-impact-summary{background:#26303b;color:#f5f2eb;border-left
 body.dark-mode .case-impact-summary strong{color:#f5f2eb}
 @media(max-width:640px){.case-impact-summary{padding:15px 17px;margin:18px 0}}
 @media(prefers-reduced-motion:reduce){.case-impact-summary{scroll-behavior:auto}}
-</style><link rel="stylesheet" href="../assets/css/portfolio-footer-shared.css?v=2"></head>
+</style><link rel="stylesheet" href="../assets/css/portfolio-footer-shared.css?v=2"><style id="chartstudio-remove-section-dividers">
+/* Remove decorative case-study section rules while preserving layout and spacing. */
+.case-study-section,
+.case-study-section + .case-study-section {
+  border-top: 0 !important;
+  border-bottom: 0 !important;
+}
+.case-study-section::before,
+.case-study-section::after {
+  border: 0 !important;
+  background-image: none !important;
+}
+</style>
+</head>
 <body id="top" class="chartstudio-page">
   <a class="skip-link" href="#main">Skip to main content</a>
   <header class="site-header">
