@@ -46,6 +46,19 @@ html.dark-mode .spota-page .spota-personas article,html.dark-mode .spota-page .s
 body.spota-page.dark-mode .spota-personas article,body.spota-page.dark-mode .spota-principles>div,body.spota-page.dark-mode .spota-meta span {background:#1c2831;color:#f6f8f8;border-color:#394b55;}
 html.dark-mode .spota-page .spota-personas blockquote,body.spota-page.dark-mode .spota-personas blockquote {color:#e0e5e7;}
 @media(max-width:640px){.spota-page .site-shell{width:calc(100% - 32px)}.spota-page .case-study-hero{padding-top:48px}.spota-page .case-impact-summary{padding:15px 17px}}
+</style><style id="spota-remove-section-dividers">
+/* Keep spacing between case-study sections without decorative divider lines. */
+.spota-page .case-study .spota-section,
+.spota-page .case-study .spota-section + .spota-section,
+.spota-page .case-study section.spota-section {
+  border-top:0 !important;
+  border-bottom:0 !important;
+}
+.spota-page .case-study .spota-section::before,
+.spota-page .case-study .spota-section::after {
+  border:0 !important;
+  background-image:none !important;
+}
 </style></head><body class="spota-page"><a class="skip-link" href="#main">Skip to main content</a><header class="site-header">
     <nav class="top-nav" aria-label="Main navigation">
       <p class="site-title">
