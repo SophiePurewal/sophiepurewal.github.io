@@ -1,8 +1,8 @@
 (() => {
   const ownScript = document.currentScript;
   const baseScriptUrl = ownScript?.src
-    ? new URL('site-header-base.js?v=20261018-logo-home', ownScript.src).href
-    : '../assets/js/site-header-base.js?v=20261018-logo-home';
+    ? new URL('site-header-base.js?v=20261123-gardens', ownScript.src).href
+    : '../assets/js/site-header-base.js?v=20261123-gardens';
 
   const enhancePlacePath = () => {
     if (!document.body.classList.contains('placepath-page')) return;
@@ -151,4 +151,24 @@
   };
   if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', install, {once:true});
   else install();
+})();
+
+// Add a leaf-icon shortcut to the existing footer navigation, wherever it appears.
+(() => {
+  const installGardensFooterLink = () => {
+    const nav = document.querySelector('.portfolio-footer__nav');
+    if (!nav || nav.querySelector('a[href="/gardens.html"]')) return;
+    const a = document.createElement('a');
+    a.href = '/gardens.html';
+    a.className = 'footer-nav-link';
+    a.setAttribute('aria-label', 'Gardens and Horticulture');
+    a.title = 'Gardens & Horticulture';
+    a.dataset.tooltip = 'Gardens & Horticulture';
+    a.innerHTML = '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M20.5 3.5c-7.4.2-12.8 2.4-15.4 6.5-2.3 3.6-1.7 7.4 1.1 9.1 3.1 1.9 7.3 1 10.1-2.3 3-4-8.5 4.2-13.3ZM4 21c4.7-6.2 8.3-9.4 13.2-12.8" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>';
+    const last = nav.querySelector('a[aria-label="Back to top"]');
+    if (last) last.before(a); else nav.append(a);
+  };
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', installGardensFooterLink, {once:true});
+  } else installGardensFooterLink();
 })();
