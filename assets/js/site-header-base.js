@@ -455,6 +455,16 @@
       menuToggle = homeLink;
     }
     const dropdownMenu = document.querySelector('#dropdown-menu');
+    // Gardens: append a real navigation link before binding existing menu handlers.
+    if (dropdownMenu && !dropdownMenu.querySelector('[href="/gardens.html"]')) {
+      const gardensLink = document.createElement('a');
+      gardensLink.href = '/gardens.html';
+      gardensLink.className = 'dropdown-link';
+      gardensLink.dataset.tooltip = 'Gardens & Horticulture';
+      gardensLink.setAttribute('aria-label', 'Gardens and Horticulture');
+      gardensLink.innerHTML = '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M20.5 3.5c-7.4.2-12.8 2.4-15.4 6.5-2.3 3.6-1.7 7.4 1.1 9.1 3.1 1.9 7.3 1 10.1-2.3 3-4-8.5 4.2-13.3ZM4 21c4.7-6.2 8.3-9.4 13.2-12.8" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg><span class="nav-link-label">Gardens &amp; Horticulture</span>';
+      dropdownMenu.append(gardensLink);
+    }
     const themeToggle = document.querySelector('.theme-toggle');
     const siteTitleHomeLink = document.querySelector('.site-title__home-link');
     const syncLogoLabel = () => {
