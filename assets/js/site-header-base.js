@@ -462,7 +462,7 @@
       gardensLink.className = 'dropdown-link';
       gardensLink.dataset.tooltip = 'Gardens & Horticulture';
       gardensLink.setAttribute('aria-label', 'Gardens and Horticulture');
-      gardensLink.innerHTML = '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M20.5 3.5c-7.4.2-12.8 2.4-15.4 6.5-2.3 3.6-1.7 7.4 1.1 9.1 3.1 1.9 7.3 1 10.1-2.3 3-4-8.5 4.2-13.3ZM4 21c4.7-6.2 8.3-9.4 13.2-12.8" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg><span class="nav-link-label">Gardens &amp; Horticulture</span>';
+      gardensLink.innerHTML = '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M12 21V11m0 5C7 16 4 13.5 4 8c5 0 8 2.5 8 8Zm0-5c0-4.5 3-7 8-7 0 5-3 7-8 7Z" style="fill:none;stroke:currentColor;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round"/></svg><span class="nav-link-label">Gardens &amp; Horticulture</span>';
       dropdownMenu.append(gardensLink);
     }
     const themeToggle = document.querySelector('.theme-toggle');
