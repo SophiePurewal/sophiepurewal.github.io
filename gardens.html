@@ -35,6 +35,17 @@ html.dark-mode,body.dark-mode{--site-background-light:#111827;--page-surface:#0b
 #garden-two .garden-two-gallery .garden-two-media>img{display:block;width:100%;height:auto;aspect-ratio:9/16;object-fit:cover;border:0;outline:0;background:transparent}
 #garden-two .garden-two-gallery figcaption{margin-top:12px;font-size:13px;line-height:1.5;color:var(--page-copy)}
 @media(max-width:640px){#garden-two .garden-two-gallery{grid-template-columns:1fr;row-gap:28px}#garden-two .garden-two-gallery .garden-two-media{max-width:540px}}
+
+/* Supporting horticultural evidence: natural-size media without artificial crops or frames. */
+.garden-rice-photo{margin:26px 0 0;width:min(100%,430px)}
+.garden-rice-photo img{display:block;width:100%;height:auto;aspect-ratio:auto;object-fit:contain;border:0}
+.maintenance-footage{margin:45px 0 0}
+.maintenance-footage h3{font-size:clamp(22px,2.6vw,29px);margin:0 0 6px}
+.maintenance-footage>p{margin:0 0 20px;max-width:680px}
+.maintenance-video-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:28px;align-items:start}
+.maintenance-video-grid .photo{min-width:0;max-width:460px}
+.maintenance-video-grid video{display:block;width:100%;height:auto;max-width:100%;border:0;background:transparent}
+@media(max-width:760px){.maintenance-video-grid{grid-template-columns:1fr;gap:24px}}
 </style></head>
 <body class="gardens-page">
 <a class="skip-link" href="#main">Skip to content</a>
@@ -93,7 +104,8 @@ html.dark-mode,body.dark-mode{--site-background-light:#111827;--page-surface:#0b
 <section class="section" id="background"><div class="shell"><div class="section-head"><div><span class="number">My gardening background</span><h2>Where my love of gardens began</h2></div><p>My interest in horticulture began in childhood, growing up at a manor house in Ashdown Forest and helping my parents care for its two-acre grounds.</p></div>
 <div class="background-copy"><p>My father introduced me to the orchard, ornamental trees, flowering plants and the practical care involved in maintaining a large garden. I developed an early interest in garden design, reading about planting schemes, flowering seasons and propagation, and learning by taking an active part in caring for the grounds.</p>
 <p>That interest has continued through visits to gardens including Sissinghurst, Wakehurst, Kew and RHS Wisley, and trips to the RHS Chelsea Flower Show over the years. Travelling has broadened my appreciation of planting traditions, from botanical gardens in Rio de Janeiro and Montréal to learning about rice planting in rural Japan.</p>
-<p>I am especially drawn to native, ornamental and fruiting trees, scented climbing plants and carefully maintained landscapes—whether an open field, a productive garden or a small, formally arranged space.</p></div></div></section>
+<p>I am especially drawn to native, ornamental and fruiting trees, scented climbing plants and carefully maintained landscapes—whether an open field, a productive garden or a small, formally arranged space.</p></div>
+<figure class="photo garden-rice-photo"><img src="assets/gardens/planting%20rice%20Japan.jpeg" alt="Learning how to plant rice in Japan in 2004" loading="lazy" decoding="async"><figcaption>Learning how to plant rice in Japan in 2004.</figcaption></figure></div></section>
 <section class="section" id="experience"><div class="shell"><div class="section-head"><div><span class="number">Relevant experience</span><h2>Practical gardening skills</h2></div><p>Examples from my own gardens and allotment that relate to the maintenance, planting, nursery and restoration work involved in caring for a larger estate.</p></div>
 <div class="experience-grid">
 <div><h3>Grass cutting &amp; grounds maintenance</h3><p>Regular mowing with a petrol lawnmower, including grass around an allotment, and strimming larger areas around a chicken coop and lanes in Ashdown Forest.</p></div>
@@ -103,7 +115,10 @@ html.dark-mode,body.dark-mode{--site-background-light:#111827;--page-surface:#0b
 <div><h3>Garden improvement &amp; restoration</h3><p>Planned and improved residential garden areas and transformed a quarter allotment with new growing beds and paths. The photographs show the starting conditions, ongoing work and developed spaces.</p></div>
 <div><h3>Farm gardening &amp; practical organisation</h3><p>At Imberhorne Farm I worked with an orchard, vegetable growing plot and chicken coop. I managed and organised the construction of a new compost-bin system, strimmed the chicken-coop area and prepared the vegetable plot with woodchip for no-dig cultivation and crop rotation.</p></div>
 <div><h3>Teamwork &amp; supporting others</h3><p>In my professional design career I have trained five colleagues in Figma and mentored a graduate over seven months, working collaboratively and sharing practical knowledge. This is transferable experience in supporting others, although I have not supervised a professional gardening team.</p></div>
-</div><p class="experience-note">My experience includes residential gardens, an allotment and work at Imberhorne Farm, with hands-on powered mowing and strimming. I have not claimed golf-course or large hotel-estate maintenance experience and am keen to develop those specialist skills in a professional grounds team.</p></div></section>
+</div><div class="maintenance-footage"><h3>Grounds maintenance in practice</h3><p>Short videos documenting hands-on hedge trimming and petrol lawnmower use.</p><div class="maintenance-video-grid">
+<figure class="photo"><video controls playsinline preload="metadata" aria-label="Hedge-trimming demonstration"><source src="assets/gardens/Hedge-Trimming.mp4" type="video/mp4">Your browser does not support video playback.</video><figcaption>Hedge trimming — practical garden maintenance</figcaption></figure>
+<figure class="photo"><video controls playsinline preload="metadata" aria-label="Petrol lawnmower demonstration"><source src="assets/gardens/Lawn-mowing.mp4" type="video/mp4">Your browser does not support video playback.</video><figcaption>Petrol mowing — regular grass maintenance</figcaption></figure>
+</div></div><p class="experience-note">My experience includes residential gardens, an allotment and work at Imberhorne Farm, with hands-on powered mowing and strimming. I have not claimed golf-course or large hotel-estate maintenance experience and am keen to develop those specialist skills in a professional grounds team.</p></div></section>
 <section class="section" id="garden-one"><div class="shell"><div class="section-head"><div><span class="number">01 / Residential garden</span><h2>Garden one</h2></div><p>I designed and created this garden entirely from scratch, selecting the planting and fruit trees to make the most of a small space. My aim was a scented ornamental garden that would also be productive throughout the year, with flowering plants alongside fruiting varieties. The limited space required careful planning, thoughtful plant positioning and frequent maintenance to keep growth manageable and the garden looking its best.</p></div><div class="photo-grid">
 <figure class="photo"><img src="assets/gardens/Garden%20onestart.png" alt="Garden One at the beginning of its development" loading="lazy"><figcaption>Garden One — starting point</figcaption></figure>
 
